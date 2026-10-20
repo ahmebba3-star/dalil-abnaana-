@@ -1,0 +1,133 @@
+name: Build Android App
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "news.json"
+      - "**.md"
+      - "store/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      VERSION_CODE: ${{ github.run_number }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Arrange files (if uploaded without folders)
+        run: |
+          mkdir -p www/js www/css www/fonts www/vendor scripts assets store
+          mvif() { if [ -f "$1" ]; then mv -f "$1" "$2"; fi; }
+          for f in app.js config.js data.js i18n.js; do mvif "$f" www/js/; done
+          mvif app.css www/css/
+          for f in alexandria-*.woff2; do mvif "$f" www/fonts/; done
+          for f in configure.js patch-android.js; do mvif "$f" scripts/; done
+          for f in icon-only.png icon-foreground.png icon-background.png splash.png splash-dark.png; do mvif "$f" assets/; done
+          for f in play-icon-512.png feature-graphic-1024x500.png; do mvif "$f" store/; done
+          mvif index.html www/
+          if [ ! -f www/index.html ]; then
+            echo "PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ImFyIiBkaXI9InJ0bCI+CjxoZWFkPgogIDxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEsIHZpZXdwb3J0LWZpdD1jb3ZlciI+CiAgPG1ldGEgbmFtZT0iY29sb3Itc2NoZW1lIiBjb250ZW50PSJsaWdodCBkYXJrIj4KICA8bWV0YSBuYW1lPSJ0aGVtZS1jb2xvciIgY29udGVudD0iIzBCM0M0OSI+CiAgPHRpdGxlPtiv2YTZitmEINij2KjZhtin2KbZhtinINio2KfZhNiu2KfYsdisPC90aXRsZT4KICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9ImNzcy9hcHAuY3NzIj4KPC9oZWFkPgo8Ym9keT4KICA8aGVhZGVyIGNsYXNzPSJ0b3BiYXIiPgogICAgPGJ1dHRvbiBjbGFzcz0iaWNvbi1idG4iIGlkPSJiYWNrQnRuIiBoaWRkZW4gYXJpYS1sYWJlbD0i2LHYrNmI2LkiPjwvYnV0dG9uPgogICAgPGgxIGlkPSJ0aXRsZSI+2K/ZhNmK2YQg2KPYqNmG2KfYptmG2Kcg2KjYp9mE2K7Yp9ix2Kw8L2gxPgogICAgPGJ1dHRvbiBjbGFzcz0iaWNvbi1idG4iIGlkPSJzZXR0aW5nc0J0biIgYXJpYS1sYWJlbD0i2KfZhNil2LnYr9in2K/Yp9iqIj48L2J1dHRvbj4KICA8L2hlYWRlcj4KCiAgPG1haW4gaWQ9InZpZXciIHRhYmluZGV4PSItMSI+PC9tYWluPgoKICA8ZGl2IGlkPSJhZFNsb3QiIGFyaWEtaGlkZGVuPSJ0cnVlIj48L2Rpdj4KCiAgPG5hdiBjbGFzcz0idGFiYmFyIiBpZD0idGFiYmFyIiBhcmlhLWxhYmVsPSLYp9mE2KPZgtiz2KfZhSI+PC9uYXY+CgogIDxkaXYgaWQ9InNoZWV0IiBjbGFzcz0ic2hlZXQiIGhpZGRlbiByb2xlPSJkaWFsb2ciIGFyaWEtbW9kYWw9InRydWUiPgogICAgPGRpdiBjbGFzcz0ic2hlZXQtYmFja2Ryb3AiIGRhdGEtY2xvc2U+PC9kaXY+CiAgICA8ZGl2IGNsYXNzPSJzaGVldC1ib2R5IiBpZD0ic2hlZXRCb2R5Ij48L2Rpdj4KICA8L2Rpdj4KCiAgPGRpdiBpZD0idG9hc3QiIGNsYXNzPSJ0b2FzdCIgcm9sZT0ic3RhdHVzIiBhcmlhLWxpdmU9InBvbGl0ZSI+PC9kaXY+CgogIDxzY3JpcHQgc3JjPSJ2ZW5kb3IvYWRoYW4udW1kLm1pbi5qcyI+PC9zY3JpcHQ+CiAgPHNjcmlwdCBzcmM9ImpzL2NvbmZpZy5qcyI+PC9zY3JpcHQ+CiAgPHNjcmlwdCBzcmM9ImpzL2RhdGEuanMiPjwvc2NyaXB0PgogIDxzY3JpcHQgc3JjPSJqcy9pMThuLmpzIj48L3NjcmlwdD4KICA8c2NyaXB0IHNyYz0ianMvYXBwLmpzIj48L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+Cg==" | base64 -d > www/index.html
+          fi
+          ls -R www scripts assets
+
+      - name: Add prayer-times library
+        run: |
+          mkdir -p www/vendor
+          [ -f www/vendor/adhan.umd.min.js ] || cp node_modules/adhan/lib/bundles/adhan.umd.min.js www/vendor/
+
+      - name: Fill app config
+        env:
+          ADMOB_BANNER_ID: ${{ vars.ADMOB_BANNER_ID }}
+        run: node scripts/configure.js
+
+      - name: Create Android project
+        run: |
+          rm -rf android
+          npx cap add android
+          npx @capacitor/assets generate --android --iconBackgroundColor '#0B3C49' --iconBackgroundColorDark '#0B3C49' --splashBackgroundColor '#0B3C49' --splashBackgroundColorDark '#0A181C'
+
+      - name: Configure Android project
+        env:
+          ADMOB_APP_ID: ${{ vars.ADMOB_APP_ID }}
+        run: |
+          node scripts/patch-android.js
+          npx cap sync android
+
+      - name: Prepare signing key
+        env:
+          KS_B64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KS_B64" ]; then
+            echo "$KS_B64" | tr -d ' \r\n' | base64 -d > "$RUNNER_TEMP/release.jks"
+            echo "KEYSTORE_FILE=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
+            echo "SIGNED=1" >> "$GITHUB_ENV"
+            echo "Signing key found."
+          else
+            echo "SIGNED=0" >> "$GITHUB_ENV"
+            echo "::warning::No KEYSTORE_BASE64 secret found. Building a test APK only (no AAB for Google Play)."
+          fi
+
+      - name: Build
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          if [ "$SIGNED" = "1" ]; then
+            ./gradlew --no-daemon bundleRelease assembleRelease
+          else
+            ./gradlew --no-daemon assembleDebug
+          fi
+
+      - name: Collect files
+        run: |
+          VER=$(node -p "require('./package.json').version")
+          mkdir -p out
+          if [ "$SIGNED" = "1" ]; then
+            cp android/app/build/outputs/bundle/release/app-release.aab "out/dalil-abnaana-v${VER}-${VERSION_CODE}.aab"
+            cp android/app/build/outputs/apk/release/app-release.apk "out/dalil-abnaana-v${VER}-${VERSION_CODE}.apk"
+          else
+            cp android/app/build/outputs/apk/debug/app-debug.apk "out/dalil-abnaana-v${VER}-${VERSION_CODE}-test.apk"
+          fi
+          echo "VER=$VER" >> "$GITHUB_ENV"
+          ls -la out
+
+      - name: Upload build files
+        uses: actions/upload-artifact@v4
+        with:
+          name: dalil-abnaana-build-${{ github.run_number }}
+          path: out/*
+
+      - name: Publish release (easy download)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: "دليل أبنائنا بالخارج v${{ env.VER }} (build ${{ github.run_number }})"
+          body: |
+            - ملف `.apk`: للتجربة على الموبايل مباشرة.
+            - ملف `.aab`: للرفع على Google Play Console.
+            رقم الإصدار (versionCode): ${{ github.run_number }}
+          files: out/*
