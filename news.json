@@ -1,0 +1,91 @@
+{
+  "updated": "2026-10-20",
+  "exams": [
+    {
+      "id": "t1-2027",
+      "title_ar": "امتحانات الفصل الدراسي الأول 2026/2027",
+      "title_en": "First-term exams 2026/2027",
+      "date": "",
+      "confirmed": false,
+      "expected_ar": "في العام الماضي بدأت امتحانات الفصل الأول يوم 10 يناير.",
+      "expected_en": "Last year, first-term exams started on 10 January."
+    },
+    {
+      "id": "t2-2027",
+      "title_ar": "امتحانات الفصل الدراسي الثاني 2026/2027",
+      "title_en": "Second-term exams 2026/2027",
+      "date": "",
+      "confirmed": false,
+      "expected_ar": "في العام الماضي بدأت امتحانات الفصل الثاني يوم 16 مايو.",
+      "expected_en": "Last year, second-term exams started on 16 May."
+    }
+  ],
+  "news": [
+    {
+      "id": "n6",
+      "date": "2026-09-23",
+      "cat": "exams",
+      "title_ar": "مواعيد ورسوم التسجيل لعام 2026/2027 لم تُعلن بعد",
+      "title_en": "2026/2027 registration dates and fees not announced yet",
+      "body_ar": "لم يصدر حتى الآن إعلان رسمي بمواعيد فتح التسجيل أو رسوم امتحانات العام الدراسي 2026/2027. آخر رسوم معلنة كانت 150 دولارًا للطالب في 2025/2026، وتُعتبر استرشادية فقط حتى صدور القرار الرسمي. جهّز أوراق أبنائك من الآن.",
+      "body_en": "No official announcement has been made yet on when registration opens or the fees for the 2026/2027 exams. The last published fee was 150 US dollars per student in 2025/2026 and is only a guide until the official decision. Prepare your children's documents now.",
+      "source": "شوف نيوز",
+      "url": "https://shofnews.com/135576/"
+    },
+    {
+      "id": "n5",
+      "date": "2026-08-03",
+      "cat": "consular",
+      "title_ar": "قريبًا: رقمنة التصديقات وموقع تفاعلي للسفارات",
+      "title_en": "Coming soon: digital attestation and an interactive embassy website",
+      "body_ar": "أعلن مساعد وزير الخارجية للشؤون القنصلية أن خدمات التصديق ستتحول إلى خدمة رقمية قريبًا، مع إطلاق موقع تفاعلي للسفارات المصرية بالخارج. عدد مكاتب التصديق ارتفع إلى 41 مكتبًا.",
+      "body_en": "The Assistant Foreign Minister for Consular Affairs announced that attestation services will soon go digital, alongside a new interactive website for Egyptian embassies abroad. Attestation offices have grown to 41.",
+      "source": "بوابة الأهرام",
+      "url": "https://gate.ahram.org.eg/News/5882475.aspx"
+    },
+    {
+      "id": "n4",
+      "date": "2026-08-02",
+      "cat": "community",
+      "title_ar": "جواز السفر خلال أسبوعين ورفع تأمين المصريين بالخارج إلى 250 ألف جنيه",
+      "title_en": "Passports in two weeks, and insurance for Egyptians abroad raised to EGP 250,000",
+      "body_ar": "أعلن وزير الخارجية والهجرة خلال مؤتمر المصريين بالخارج تقليص مدة استخراج جواز السفر إلى أسبوعين، وإصدار شهادة الميلاد المميكنة خلال 3 إلى 5 أيام، ورفع قيمة التأمين من 100 ألف إلى 250 ألف جنيه.",
+      "body_en": "At the Egyptians Abroad conference, the Foreign Minister announced passport processing would be cut to two weeks, machine-readable birth certificates issued in 3 to 5 days, and insurance cover raised from EGP 100,000 to EGP 250,000.",
+      "source": "Egypt Telegraph",
+      "url": "https://www.egypttelegraph.com/article/266570"
+    },
+    {
+      "id": "n3",
+      "date": "2026-07-09",
+      "cat": "exams",
+      "title_ar": "تعليمات الدور الثاني: استلم رقم الجلوس من حساب ولي الأمر",
+      "title_en": "Second-round instructions: get seat numbers from the parent account",
+      "body_ar": "طلبت وزارة التربية والتعليم من أولياء الأمور الدخول على حساباتهم في المنصة الرسمية لاستلام أرقام الجلوس وحسابات الطلاب، والتأكد من أن التاريخ والوقت على الجهاز مضبوطان على توقيت الدولة التي يوجد بها الطالب وقت الاختبار.",
+      "body_en": "The Ministry of Education asked parents to log in to their accounts on the official platform to get seat numbers and student accounts, and to make sure the device date and time match the country the student is in during the exam.",
+      "source": "بوابة الأهرام",
+      "url": "https://gate.ahram.org.eg/News/5758057.aspx"
+    },
+    {
+      "id": "n2",
+      "date": "2026-06-24",
+      "cat": "exams",
+      "title_ar": "إعلان نتيجة الدور الأول 2025/2026 وفتح تسجيل الدور الثاني",
+      "title_en": "First-round 2025/2026 results out, second-round registration open",
+      "body_ar": "أعلنت الوزارة نتيجة الدور الأول، ويمكن الاطلاع عليها من حساب ولي الأمر على المنصة. كما فُتح تسجيل الدور الثاني وامتحان تحديد المستوى، وبدأت امتحانات الدور الثاني يوم 11 يوليو 2026.",
+      "body_en": "The ministry announced first-round results, available from the parent account on the platform. Registration also opened for the second round and the placement test, with second-round exams starting on 11 July 2026.",
+      "source": "الخليج",
+      "url": "https://www.alkhaleej.ae/2026-06-25/"
+    },
+    {
+      "id": "n1",
+      "date": "2026-05-07",
+      "cat": "exams",
+      "title_ar": "نظام الامتحانات الإلكترونية للطلاب بالخارج",
+      "title_en": "Electronic exam system for students abroad",
+      "body_ar": "أعلنت الوزارة تنظيم الامتحانات إلكترونيًا، مع اختبارات محاكاة تدريبية لطلاب الإعدادي والثانوي قبل امتحانات الفصل الثاني، ورفع الإجابات من خلال المنصة وحساب ولي الأمر.",
+      "body_en": "The ministry announced electronic exams, with practice mock tests for preparatory and secondary students before second-term exams, and answers uploaded through the platform and the parent account.",
+      "source": "الخليج",
+      "url": "https://www.alkhaleej.ae/2026-05-07/"
+    }
+  ]
+}

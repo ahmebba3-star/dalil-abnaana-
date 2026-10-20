@@ -1,0 +1,13 @@
+{
+  "appId": "com.dalil.egyptiansabroad",
+  "appName": "دليل أبنائنا بالخارج",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#0B3C49"
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "iconColor": "#148F8C"
+    }
+  }
+}
