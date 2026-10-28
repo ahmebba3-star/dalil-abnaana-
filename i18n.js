@@ -1,7 +1,7 @@
 window.STRINGS = {
   ar: {
     appName: "دليل أبنائنا بالخارج",
-    tabHome: "الرئيسية", tabExams: "الامتحانات", tabConsular: "القنصلية", tabNews: "الأخبار", tabTools: "أدوات",
+    tabHome: "الرئيسية", tabFamily: "أهلي", tabExams: "الامتحانات", tabConsular: "القنصلية", tabNews: "الأخبار", tabTools: "أدوات",
     welcomeTitle: "أهلًا بيك في دليل أبنائنا بالخارج",
     welcomeBody: "كل اللي يخص امتحانات أولادك والخدمات القنصلية والجالية المصرية، في مكان واحد.",
     chooseLang: "اختر اللغة", chooseCountry: "إنت مقيم في أنهي دولة؟", start: "ابدأ",
@@ -42,7 +42,7 @@ window.STRINGS = {
   },
   en: {
     appName: "Our Children Abroad Guide",
-    tabHome: "Home", tabExams: "Exams", tabConsular: "Consular", tabNews: "News", tabTools: "Tools",
+    tabHome: "Home", tabFamily: "Family", tabExams: "Exams", tabConsular: "Consular", tabNews: "News", tabTools: "Tools",
     welcomeTitle: "Welcome to Our Children Abroad Guide",
     welcomeBody: "Your children's exams, consular services and Egyptian community news, all in one place.",
     chooseLang: "Choose language", chooseCountry: "Which country do you live in?", start: "Get started",

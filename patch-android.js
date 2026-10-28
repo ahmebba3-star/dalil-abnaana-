@@ -12,7 +12,10 @@ const perms = [
   "android.permission.INTERNET",
   "android.permission.POST_NOTIFICATIONS",
   "android.permission.ACCESS_COARSE_LOCATION",
-  "android.permission.ACCESS_FINE_LOCATION"
+  "android.permission.ACCESS_FINE_LOCATION",
+  "android.permission.RECORD_AUDIO",
+  "android.permission.MODIFY_AUDIO_SETTINGS",
+  "android.permission.VIBRATE"
 ];
 for (const p of perms) {
   if (!m.includes(`"${p}"`)) m = m.replace("</manifest>", `    <uses-permission android:name="${p}" />\n</manifest>`);
@@ -22,8 +25,32 @@ if (!m.includes("com.google.android.gms.ads.APPLICATION_ID")) {
 } else {
   m = m.replace(/(com\.google\.android\.gms\.ads\.APPLICATION_ID"\s+android:value=")[^"]*/, `$1${admobAppId}`);
 }
+if (!m.includes("default_notification_icon")) {
+  m = m.replace(/<application([^>]*)>/, `<application$1>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_stat_notify" />
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/notify_color" />`);
+}
 if (!m.includes('android:supportsRtl="true"')) m = m.replace(/<application/, '<application android:supportsRtl="true"');
 fs.writeFileSync(mPath, m);
+
+// 1b) resources: ringtone, notification icon and color
+const res = path.join(root, "android/app/src/main/res");
+const copyRes = (src, dir, name) => {
+  const from = path.join(root, "assets", src);
+  if (!fs.existsSync(from)) return console.warn("missing", src);
+  fs.mkdirSync(path.join(res, dir), { recursive: true });
+  fs.copyFileSync(from, path.join(res, dir, name));
+};
+copyRes("ringtone.wav", "raw", "ringtone.wav");
+copyRes("ic_stat_notify.png", "drawable", "ic_stat_notify.png");
+fs.mkdirSync(path.join(res, "values"), { recursive: true });
+fs.writeFileSync(path.join(res, "values/notify_color.xml"), '<?xml version="1.0" encoding="utf-8"?>\n<resources><color name="notify_color">#148F8C</color></resources>\n');
+
+// 1c) variables.gradle: include Google sign-in libraries
+const vPath = path.join(root, "android/variables.gradle");
+let v = fs.readFileSync(vPath, "utf8");
+if (!v.includes("rgcfaIncludeGoogle")) v = v.replace(/ext \{/, "ext {\n    rgcfaIncludeGoogle = true");
+fs.writeFileSync(vPath, v);
 
 // 2) app/build.gradle: version from CI + release signing from env
 const gPath = path.join(root, "android/app/build.gradle");

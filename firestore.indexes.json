@@ -1,0 +1,9 @@
+{
+  "indexes": [
+    { "collectionGroup": "calls", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "caller", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "ASCENDING" } ] },
+    { "collectionGroup": "calls", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "caller", "order": "ASCENDING" }, { "fieldPath": "status", "order": "ASCENDING" } ] },
+    { "collectionGroup": "calls", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "callee", "order": "ASCENDING" }, { "fieldPath": "status", "order": "ASCENDING" } ] },
+    { "collectionGroup": "reports", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "reporter", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "ASCENDING" } ] }
+  ],
+  "fieldOverrides": []
+}

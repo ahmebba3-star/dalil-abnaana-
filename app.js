@@ -31,6 +31,19 @@
     moon: '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
     coin: '<circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1.3 1.8 3 2 3 .9 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2"/>',
     alert: '<path d="M12 3 2 20h20zM12 9v5M12 17h.01"/>',
+    chat: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"/><path d="M8.5 8.5h7M8.5 11.5h4.5"/>',
+    send: '<path d="M4 12h12M11 6l6 6-6 6"/>',
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/>',
+    share: '<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/>',
+    copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
+    logout: '<path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 16l-4-4 4-4M6 12h10"/>',
+    trash: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>',
+    dots: '<circle cx="12" cy="5" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="19" r="1.6" fill="currentColor" stroke="none"/>',
+    block: '<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
+    flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+    phoneDown: '<path d="M3 15.5c5.3-5 12.7-5 18 0l-2.5 2.6-3.6-1.6v-2.7a10 10 0 0 0-5.8 0v2.7l-3.6 1.6z"/>',
+    mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',
+    micOff: '<path d="M15 10V6a3 3 0 0 0-5.7-1.3M9 9v2a3 3 0 0 0 4.6 2.5M5 11a7 7 0 0 0 11.2 5.6M19 11a7 7 0 0 1-.5 2.6M12 18v3M3 3l18 18"/>',
     x: '<path d="M6 6l12 12M18 6 6 18"/>'
   };
   const icon = (n, cls) => `<svg ${cls ? `class="${cls}"` : ""} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[n] || ""}</svg>`;
@@ -238,6 +251,7 @@
     const news = ((state.data && state.data.news) || []).slice(0, 3);
     return `
       ${ticketHTML()}
+      ${Assistant ? Assistant.entryCard() : ""}
       <h2 class="sec">${t("quick")}</h2>
       <div class="tiles">
         <a class="tile" href="#" data-ext="${OFFICIAL_LINKS.sabroad}"><span class="ic">${icon("globe")}</span><b>${t("qPlatform")}</b><small>${t("qPlatformSub")}</small></a>
@@ -307,6 +321,7 @@
       <div class="panel">
         ${["tip1", "tip2", "tip3"].map((k) => `<div class="row" style="cursor:default"><span class="ic" style="background:var(--gold-soft);color:#8A6413">${icon("alert")}</span><span class="grow">${t(k)}</span></div>`).join("")}
       </div>
+      ${Assistant ? Assistant.entryRow() : ""}
     `;
   }
 
@@ -339,6 +354,7 @@
         <a class="row" href="#" data-ext="${OFFICIAL_LINKS.mfa}"><span class="ic">${icon("globe")}</span><span class="grow"><span class="t">${t("mfaSite")}</span><span class="s">mfa.gov.eg</span></span><span class="end">${icon("ext")}</span></a>
         <a class="row" href="#" data-ext="${OFFICIAL_LINKS.digital}"><span class="ic">${icon("globe")}</span><span class="grow"><span class="t">${t("digitalSite")}</span><span class="s">digital.gov.eg</span></span><span class="end">${icon("ext")}</span></a>
       </div>
+      ${Assistant ? Assistant.entryRow() : ""}
     `;
   }
 
@@ -516,7 +532,7 @@
   }
 
   /* ================= Render & routing ================= */
-  const TABS = [["home", "home", "tabHome"], ["exams", "exams", "tabExams"], ["consular", "consular", "tabConsular"], ["news", "news", "tabNews"], ["tools", "tools", "tabTools"]];
+  const TABS = [["home", "home", "tabHome"], ["exams", "exams", "tabExams"], ["family", "phone", "tabFamily"], ["consular", "consular", "tabConsular"], ["news", "news", "tabNews"], ["tools", "tools", "tabTools"]];
   const view = document.getElementById("view");
   let cdTimer;
 
@@ -531,15 +547,18 @@
     setBtn.innerHTML = icon("gear"); setBtn.setAttribute("aria-label", t("settings"));
     backBtn.hidden = !state.sub; setBtn.hidden = !!state.sub || onboarding;
     const tabbar = document.getElementById("tabbar");
-    tabbar.hidden = onboarding;
+    tabbar.hidden = onboarding || state.sub === "assistant";
+    view.classList.toggle("chat-view", state.sub === "assistant");
     tabbar.innerHTML = TABS.map(([id, ic, lbl]) => `<button data-tab="${id}" ${state.tab === id && !state.sub ? 'aria-current="page"' : ""}><span class="pill">${icon(ic)}</span>${t(lbl)}</button>`).join("");
 
     let body;
     if (onboarding) body = viewOnboarding();
     else if (state.sub === "settings") body = viewSettings();
-    else body = ({ home: viewHome, exams: viewExams, consular: viewConsular, news: viewNews, tools: viewTools }[state.tab] || viewHome)();
+    else if (state.sub === "assistant") body = Assistant ? Assistant.view() : "";
+    else body = ({ home: viewHome, exams: viewExams, family: viewFamily, consular: viewConsular, news: viewNews, tools: viewTools }[state.tab] || viewHome)();
     view.innerHTML = body;
     fixLinks(view);
+    if (state.sub === "assistant" && Assistant) Assistant.mount(view);
     view.classList.remove("view-enter"); void view.offsetWidth; view.classList.add("view-enter");
 
     clearInterval(cdTimer);
@@ -550,11 +569,37 @@
 
   function go(tab) { state.tab = tab; state.sub = null; closeSheet(); render(); view.scrollTop = 0; }
 
+  /* ================= Family calls ================= */
+  let Calls = null;
+  function viewFamily() { return Calls ? Calls.view() : ""; }
+  try {
+    if (window.DalilCalls) {
+      Calls = window.DalilCalls({
+        icon, esc, toast, openSheet, closeSheet, state, store, isNative, P, go,
+        rerender: () => { if (state.tab === "family" && !state.sub && state.country) { const y = view.scrollTop; render(); view.classList.remove("view-enter"); view.scrollTop = y; } }
+      });
+    }
+  } catch (e) { Calls = null; }
+
+  /* ================= AI assistant ================= */
+  let Assistant = null;
+  try {
+    if (window.DalilAssistant && Calls && Calls.account) {
+      Assistant = window.DalilAssistant({
+        icon, esc, toast, openSheet, closeSheet, state, store, go, account: Calls.account,
+        open: () => { state.sub = "assistant"; closeSheet(); render(); },
+        rerender: () => { if (state.sub === "assistant") render(); }
+      });
+    }
+  } catch (e) { Assistant = null; }
+
   document.getElementById("tabbar").addEventListener("click", (e) => { const b = e.target.closest("[data-tab]"); if (b) go(b.dataset.tab); });
   document.getElementById("settingsBtn").addEventListener("click", () => { state.sub = "settings"; render(); view.scrollTop = 0; });
   document.getElementById("backBtn").addEventListener("click", () => { state.sub = null; render(); });
 
   view.addEventListener("click", async (e) => {
+    if (Assistant && Assistant.onClick(e)) return;
+    if (Calls && Calls.onClick(e)) return;
     const el = e.target.closest("[data-go],[data-act],[data-lang],[data-pick],[data-cat],#onbStart");
     if (!el) return;
     if (el.dataset.go) return go(el.dataset.go);
@@ -614,6 +659,7 @@
   const App = P("App");
   if (App) {
     App.addListener("backButton", () => {
+      if (Calls && Calls.onBack()) return;
       if (!sheet.hidden) return closeSheet();
       if (state.sub) { state.sub = null; return render(); }
       if (state.country && state.tab !== "home") return go("home");

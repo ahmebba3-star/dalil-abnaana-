@@ -1,0 +1,26 @@
+rules_version = '2';
+// قواعد الأمان — المستخدم يقرا بياناته بس، وكل الكتابة بتتم من خلال الخادم (Cloud Functions)
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+      match /contacts/{cid} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+      match /blocked/{bid} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+    }
+    match /calls/{callId} {
+      allow read: if request.auth != null
+        && (resource.data.caller == request.auth.uid || resource.data.callee == request.auth.uid);
+      allow write: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
