@@ -13,6 +13,64 @@ permissions:
   contents: write
 
 jobs:
+  # ---------- 1) Calls backend (Firebase): runs only when FIREBASE_SERVICE_ACCOUNT is set ----------
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check Firebase secret
+        id: chk
+        env:
+          SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          if [ -n "$SA" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "ok=0" >> "$GITHUB_OUTPUT"; echo "::notice::No FIREBASE_SERVICE_ACCOUNT secret. Skipping calls backend."; fi
+
+      - name: Checkout
+        if: steps.chk.outputs.ok == '1'
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        if: steps.chk.outputs.ok == '1'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Prepare backend files
+        if: steps.chk.outputs.ok == '1'
+        env:
+          SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          AGORA_APP_ID: ${{ secrets.AGORA_APP_ID }}
+          AGORA_APP_CERT: ${{ secrets.AGORA_APP_CERT }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: |
+          mkdir -p functions
+          for f in functions-index.js functions-package.json; do if [ -f "$f" ]; then mv -f "$f" functions/; fi; done
+          cp functions/functions-index.js functions/index.js
+          cp functions/functions-package.json functions/package.json
+          clean() { echo "$1" | tr -d ' \r\n'; }
+          {
+            echo "AGORA_APP_ID=$(clean "$AGORA_APP_ID")"
+            echo "AGORA_APP_CERT=$(clean "$AGORA_APP_CERT")"
+            echo "GEMINI_API_KEY=$(clean "$GEMINI_API_KEY")"
+            echo "GEMINI_MODEL=$(clean "$GEMINI_MODEL")"
+            echo "CONTENT_BASE_URL=https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}"
+          } > functions/.env
+          cp assistant-knowledge.md functions/knowledge.md
+          cp news.json functions/news.json
+          echo "$SA" > "$RUNNER_TEMP/sa.json"
+          PROJECT=$(node -p "require('$RUNNER_TEMP/sa.json').project_id")
+          echo "PROJECT=$PROJECT" >> "$GITHUB_ENV"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+          printf '{ "projects": { "default": "%s" } }\n' "$PROJECT" > .firebaserc
+          (cd functions && npm install --no-audit --no-fund)
+          echo "Firebase project: $PROJECT"
+
+      - name: Deploy rules, indexes and functions
+        if: steps.chk.outputs.ok == '1'
+        run: npx --yes firebase-tools@15.32.1 deploy --only firestore,functions --project "$PROJECT" --non-interactive --force
+
+  # ---------- 2) Android app ----------
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 40
@@ -41,22 +99,37 @@ jobs:
         run: |
           mkdir -p www/js www/css www/fonts www/vendor scripts assets store
           mvif() { if [ -f "$1" ]; then mv -f "$1" "$2"; fi; }
-          for f in app.js config.js data.js i18n.js; do mvif "$f" www/js/; done
+          for f in app.js config.js data.js i18n.js calls.js assistant.js; do mvif "$f" www/js/; done
           mvif app.css www/css/
           for f in alexandria-*.woff2; do mvif "$f" www/fonts/; done
           for f in configure.js patch-android.js; do mvif "$f" scripts/; done
-          for f in icon-only.png icon-foreground.png icon-background.png splash.png splash-dark.png; do mvif "$f" assets/; done
+          for f in icon-only.png icon-foreground.png icon-background.png splash.png splash-dark.png ringtone.wav ic_stat_notify.png; do mvif "$f" assets/; done
           for f in play-icon-512.png feature-graphic-1024x500.png; do mvif "$f" store/; done
           mvif index.html www/
           if [ ! -f www/index.html ]; then
-            echo "PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ImFyIiBkaXI9InJ0bCI+CjxoZWFkPgogIDxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEsIHZpZXdwb3J0LWZpdD1jb3ZlciI+CiAgPG1ldGEgbmFtZT0iY29sb3Itc2NoZW1lIiBjb250ZW50PSJsaWdodCBkYXJrIj4KICA8bWV0YSBuYW1lPSJ0aGVtZS1jb2xvciIgY29udGVudD0iIzBCM0M0OSI+CiAgPHRpdGxlPtiv2YTZitmEINij2KjZhtin2KbZhtinINio2KfZhNiu2KfYsdisPC90aXRsZT4KICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9ImNzcy9hcHAuY3NzIj4KPC9oZWFkPgo8Ym9keT4KICA8aGVhZGVyIGNsYXNzPSJ0b3BiYXIiPgogICAgPGJ1dHRvbiBjbGFzcz0iaWNvbi1idG4iIGlkPSJiYWNrQnRuIiBoaWRkZW4gYXJpYS1sYWJlbD0i2LHYrNmI2LkiPjwvYnV0dG9uPgogICAgPGgxIGlkPSJ0aXRsZSI+2K/ZhNmK2YQg2KPYqNmG2KfYptmG2Kcg2KjYp9mE2K7Yp9ix2Kw8L2gxPgogICAgPGJ1dHRvbiBjbGFzcz0iaWNvbi1idG4iIGlkPSJzZXR0aW5nc0J0biIgYXJpYS1sYWJlbD0i2KfZhNil2LnYr9in2K/Yp9iqIj48L2J1dHRvbj4KICA8L2hlYWRlcj4KCiAgPG1haW4gaWQ9InZpZXciIHRhYmluZGV4PSItMSI+PC9tYWluPgoKICA8ZGl2IGlkPSJhZFNsb3QiIGFyaWEtaGlkZGVuPSJ0cnVlIj48L2Rpdj4KCiAgPG5hdiBjbGFzcz0idGFiYmFyIiBpZD0idGFiYmFyIiBhcmlhLWxhYmVsPSLYp9mE2KPZgtiz2KfZhSI+PC9uYXY+CgogIDxkaXYgaWQ9InNoZWV0IiBjbGFzcz0ic2hlZXQiIGhpZGRlbiByb2xlPSJkaWFsb2ciIGFyaWEtbW9kYWw9InRydWUiPgogICAgPGRpdiBjbGFzcz0ic2hlZXQtYmFja2Ryb3AiIGRhdGEtY2xvc2U+PC9kaXY+CiAgICA8ZGl2IGNsYXNzPSJzaGVldC1ib2R5IiBpZD0ic2hlZXRCb2R5Ij48L2Rpdj4KICA8L2Rpdj4KCiAgPGRpdiBpZD0idG9hc3QiIGNsYXNzPSJ0b2FzdCIgcm9sZT0ic3RhdHVzIiBhcmlhLWxpdmU9InBvbGl0ZSI+PC9kaXY+CgogIDxzY3JpcHQgc3JjPSJ2ZW5kb3IvYWRoYW4udW1kLm1pbi5qcyI+PC9zY3JpcHQ+CiAgPHNjcmlwdCBzcmM9ImpzL2NvbmZpZy5qcyI+PC9zY3JpcHQ+CiAgPHNjcmlwdCBzcmM9ImpzL2RhdGEuanMiPjwvc2NyaXB0PgogIDxzY3JpcHQgc3JjPSJqcy9pMThuLmpzIj48L3NjcmlwdD4KICA8c2NyaXB0IHNyYz0ianMvYXBwLmpzIj48L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+Cg==" | base64 -d > www/index.html
+            echo "PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ImFyIiBkaXI9InJ0bCI+CjxoZWFkPgogIDxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEsIHZpZXdwb3J0LWZpdD1jb3ZlciI+CiAgPG1ldGEgbmFtZT0iY29sb3Itc2NoZW1lIiBjb250ZW50PSJsaWdodCBkYXJrIj4KICA8bWV0YSBuYW1lPSJ0aGVtZS1jb2xvciIgY29udGVudD0iIzBCM0M0OSI+CiAgPHRpdGxlPtiv2YTZitmEINij2KjZhtin2KbZhtinINio2KfZhNiu2KfYsdisPC90aXRsZT4KICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9ImNzcy9hcHAuY3NzIj4KPC9oZWFkPgo8Ym9keT4KICA8aGVhZGVyIGNsYXNzPSJ0b3BiYXIiPgogICAgPGJ1dHRvbiBjbGFzcz0iaWNvbi1idG4iIGlkPSJiYWNrQnRuIiBoaWRkZW4gYXJpYS1sYWJlbD0i2LHYrNmI2LkiPjwvYnV0dG9uPgogICAgPGgxIGlkPSJ0aXRsZSI+2K/ZhNmK2YQg2KPYqNmG2KfYptmG2Kcg2KjYp9mE2K7Yp9ix2Kw8L2gxPgogICAgPGJ1dHRvbiBjbGFzcz0iaWNvbi1idG4iIGlkPSJzZXR0aW5nc0J0biIgYXJpYS1sYWJlbD0i2KfZhNil2LnYr9in2K/Yp9iqIj48L2J1dHRvbj4KICA8L2hlYWRlcj4KCiAgPG1haW4gaWQ9InZpZXciIHRhYmluZGV4PSItMSI+PC9tYWluPgoKICA8ZGl2IGlkPSJhZFNsb3QiIGFyaWEtaGlkZGVuPSJ0cnVlIj48L2Rpdj4KCiAgPG5hdiBjbGFzcz0idGFiYmFyIiBpZD0idGFiYmFyIiBhcmlhLWxhYmVsPSLYp9mE2KPZgtiz2KfZhSI+PC9uYXY+CgogIDxkaXYgaWQ9InNoZWV0IiBjbGFzcz0ic2hlZXQiIGhpZGRlbiByb2xlPSJkaWFsb2ciIGFyaWEtbW9kYWw9InRydWUiPgogICAgPGRpdiBjbGFzcz0ic2hlZXQtYmFja2Ryb3AiIGRhdGEtY2xvc2U+PC9kaXY+CiAgICA8ZGl2IGNsYXNzPSJzaGVldC1ib2R5IiBpZD0ic2hlZXRCb2R5Ij48L2Rpdj4KICA8L2Rpdj4KCiAgPGRpdiBpZD0idG9hc3QiIGNsYXNzPSJ0b2FzdCIgcm9sZT0ic3RhdHVzIiBhcmlhLWxpdmU9InBvbGl0ZSI+PC9kaXY+CgogIDxzY3JpcHQgc3JjPSJ2ZW5kb3IvYWRoYW4udW1kLm1pbi5qcyI+PC9zY3JpcHQ+CiAgPHNjcmlwdCBzcmM9ImpzL2NvbmZpZy5qcyI+PC9zY3JpcHQ+CiAgPHNjcmlwdCBzcmM9ImpzL2RhdGEuanMiPjwvc2NyaXB0PgogIDxzY3JpcHQgc3JjPSJqcy9pMThuLmpzIj48L3NjcmlwdD4KICA8c2NyaXB0IHNyYz0ianMvY2FsbHMuanMiPjwvc2NyaXB0PgogIDxzY3JpcHQgc3JjPSJqcy9hc3Npc3RhbnQuanMiPjwvc2NyaXB0PgogIDxzY3JpcHQgc3JjPSJqcy9hcHAuanMiPjwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K" | base64 -d > www/index.html
           fi
           ls -R www scripts assets
 
-      - name: Add prayer-times library
+      - name: Add libraries (prayer times, voice calls)
         run: |
           mkdir -p www/vendor
-          [ -f www/vendor/adhan.umd.min.js ] || cp node_modules/adhan/lib/bundles/adhan.umd.min.js www/vendor/
+          cp node_modules/adhan/lib/bundles/adhan.umd.min.js www/vendor/
+          cp node_modules/agora-rtc-sdk-ng/AgoraRTC_N-production.js www/vendor/
+
+      - name: Firebase config (for family calls)
+        env:
+          GS: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: |
+          if [ -n "$GS" ]; then
+            echo "$GS" > "$RUNNER_TEMP/google-services.json"
+            node -e "JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'))" "$RUNNER_TEMP/google-services.json"
+            echo "CALLS_ENABLED=1" >> "$GITHUB_ENV"
+            echo "Family calls: ON"
+          else
+            echo "::notice::No GOOGLE_SERVICES_JSON secret. Building without family calls."
+            npm uninstall --no-audit --no-fund @capacitor-firebase/authentication @capacitor-firebase/firestore @capacitor-firebase/messaging @capacitor-firebase/functions
+          fi
 
       - name: Fill app config
         env:
@@ -68,6 +141,7 @@ jobs:
           rm -rf android
           npx cap add android
           npx @capacitor/assets generate --android --iconBackgroundColor '#0B3C49' --iconBackgroundColorDark '#0B3C49' --splashBackgroundColor '#0B3C49' --splashBackgroundColorDark '#0A181C'
+          if [ -f "$RUNNER_TEMP/google-services.json" ]; then cp "$RUNNER_TEMP/google-services.json" android/app/google-services.json; fi
 
       - name: Configure Android project
         env:
@@ -130,4 +204,5 @@ jobs:
             - ملف `.apk`: للتجربة على الموبايل مباشرة.
             - ملف `.aab`: للرفع على Google Play Console.
             رقم الإصدار (versionCode): ${{ github.run_number }}
+            المكالمات العائلية: ${{ env.CALLS_ENABLED == '1' && 'شغالة' || 'مش متفعلة (ناقص سر GOOGLE_SERVICES_JSON)' }}
           files: out/*
