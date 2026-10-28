@@ -207,6 +207,7 @@ window.DalilCalls = function (ctx) {
   const RESTRICTED = ["AE", "QA"];
   // Calls are paused for now: the tab shows "coming soon", but the Google account still works for the AI assistant.
   const COMING_SOON = window.APP_CONFIG.CALLS_COMING_SOON !== false;
+
   const RING_MS = 45000;
   const REGION = "europe-west1";
   const TERMS_URL = (window.APP_CONFIG.TERMS_URL || "").startsWith("__") ? "" : window.APP_CONFIG.TERMS_URL;
@@ -214,12 +215,14 @@ window.DalilCalls = function (ctx) {
   /* ================= Backends ================= */
   function nativeBackend() {
     const Auth = P("FirebaseAuthentication"), Fs = P("FirebaseFirestore"), Msg = P("FirebaseMessaging"), Fn = P("FirebaseFunctions");
-    if (!Auth || !Fs || !Fn) return null;
+    if (!Auth) return null;
+    if (!COMING_SOON && (!Fs || !Fn)) return null;
     return {
       demo: false,
       async currentUser() { const r = await Auth.getCurrentUser(); return r && r.user; },
       async signIn() { const r = await Auth.signInWithGoogle(); return r && r.user; },
       async signOut() { await Auth.signOut(); },
+      async idToken() { const r = await Auth.getIdToken({ forceRefresh: false }); return (r && r.token) || ""; },
       async fn(name, data) { const r = await Fn.callByName({ name, region: REGION, data: data || {} }); return r && r.data; },
       listenCollection(reference, filters, cb) {
         const opts = { reference };
@@ -275,6 +278,7 @@ window.DalilCalls = function (ctx) {
       async currentUser() { return signed ? user : null; },
       async signIn() { await wait(600); signed = true; user = { uid: "demo-me", displayName: state.lang === "ar" ? "أحمد (تجربة)" : "Ahmed (demo)" }; seed(); return user; },
       async signOut() { signed = false; user = null; },
+      async idToken() { return signed ? "demo-token" : ""; },
       async fn(name, data) {
         await wait(350);
         switch (name) {
@@ -380,10 +384,10 @@ window.DalilCalls = function (ctx) {
   }
 
   async function afterSignIn(u, fresh) {
-    const token = COMING_SOON ? "" : await backend.pushToken();
+    if (COMING_SOON) { me = { uid: u.uid, name: u.displayName || "", code: "", termsOk: false }; return; }
+    const token = await backend.pushToken();
     const p = await backend.fn("ensureProfile", { name: u.displayName || "", token, country: state.country });
     me = { uid: u.uid, name: p.name, code: p.code, termsOk: (p.termsVersion || 0) >= (p.requiredTerms || 1) };
-    if (COMING_SOON) return;
     if (me.termsOk) startListening();
     if (fresh && !me.termsOk) termsSheet();
   }
@@ -425,7 +429,7 @@ window.DalilCalls = function (ctx) {
 
   async function signOut() {
     try {
-      if (isNative) {
+      if (isNative && !COMING_SOON) {
         const Msg = P("FirebaseMessaging");
         const tk = Msg ? (await Msg.getToken().catch(() => ({}))).token : "";
         if (tk) await backend.fn("removeToken", { token: tk }).catch(() => {});
@@ -896,6 +900,7 @@ window.DalilCalls = function (ctx) {
       user: () => me,
       signIn: () => signIn({ quiet: true }),
       fn: (name, data) => backend.fn(name, data),
+      idToken: () => backend.idToken(),
       onChange: (f) => authListeners.push(f),
       googleMark
     }

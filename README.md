@@ -121,7 +121,7 @@
 
 ## الجزء السابع: المكالمات العائلية «أهلي» والمساعد الذكي
 
-الخطوات كاملة في ملف [CALLS_SETUP.md](CALLS_SETUP.md). لحد ما تخلصها، التطبيق بيتبني عادي من غير المكالمات.
+المكالمات متوقفة حاليًا («قريبًا»). خطوات تشغيل المساعد الذكي مجانًا في ملف [ASSISTANT_SETUP.md](ASSISTANT_SETUP.md). وخطوات المكالمات (لما ترجّعها) في [CALLS_SETUP.md](CALLS_SETUP.md).
 
 ## محتويات المشروع
 
@@ -140,6 +140,7 @@
 | `DELETE_ACCOUNT.md` | طريقة حذف الحساب (رابطها مطلوب في جوجل بلاي) |
 | `www/js/calls.js` | شاشات المكالمات العائلية |
 | `www/js/assistant.js` | شاشة المساعد الذكي |
+| `assistant-worker.js` (أو `worker/`) | خادم المساعد على Cloudflare |
 | `assistant-knowledge.md` | المعلومات اللي المساعد بيرد منها، وتقدر تعدّلها في أي وقت |
 | `functions/` (أو `functions-*.js/json`) | خادم المكالمات على Firebase |
 | `firestore.rules` و`firestore.indexes.json` و`firebase.json` | إعدادات قاعدة البيانات |

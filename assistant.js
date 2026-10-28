@@ -1,6 +1,6 @@
 /* =====================================================================
    المساعد الذكي — AI assistant chat
-   Questions go to the askAssistant Cloud Function (Gemini, grounded on the
+   Questions go to the assistant Worker on Cloudflare (Gemini, grounded on the
    app's own content). The conversation is kept only on this phone.
    ===================================================================== */
 window.DalilAssistant = function (ctx) {
@@ -39,6 +39,7 @@ window.DalilAssistant = function (ctx) {
       errBusy: "المساعد عليه ضغط دلوقتي. جرب تاني بعد دقيقة.",
       errNet: "الرسالة موصلتش. اتأكد من الإنترنت وجرب تاني.",
       errConfig: "المساعد لسه مش متفعّل. جرب بعدين.",
+      errSignIn: "محتاج تسجّل الدخول تاني. اقفل التطبيق وافتحه وجرب.",
       errGeneric: "حصلت مشكلة. جرب تاني بعد شوية.",
       retry: "جرب تاني",
       demo: "معاينة تجريبية: الردود هنا أمثلة ثابتة."
@@ -74,6 +75,7 @@ window.DalilAssistant = function (ctx) {
       errBusy: "The assistant is busy right now. Try again in a minute.",
       errNet: "Your message didn't go through. Check your connection and try again.",
       errConfig: "The assistant isn't switched on yet. Try later.",
+      errSignIn: "Please sign in again. Close and reopen the app, then try.",
       errGeneric: "Something went wrong. Try again shortly.",
       retry: "Try again",
       demo: "Demo preview: answers here are fixed examples."
@@ -81,7 +83,30 @@ window.DalilAssistant = function (ctx) {
   };
   const s = (k) => { const v = (S[state.lang] || S.ar)[k]; return v !== undefined && v !== null ? v : S.ar[k]; };
 
-  const enabled = !!(account && account.available);
+  const WORKER = String(window.APP_CONFIG.ASSISTANT_URL || "").replace(/\/+$/, "");
+  const enabled = !!(account && account.available && (account.demo || (WORKER && WORKER.indexOf("__") !== 0)));
+
+  // Calls the Worker with the user's Google sign-in token (demo preview answers locally).
+  async function api(path, body) {
+    if (account.demo) return account.fn(path === "/ask" ? "askAssistant" : "reportAnswer", body);
+    const tok = await account.idToken();
+    const ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    const timer = setTimeout(() => { if (ctrl) ctrl.abort(); }, 45000);
+    let res;
+    try {
+      res = await fetch(WORKER + path, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + tok },
+        body: JSON.stringify(body),
+        signal: ctrl ? ctrl.signal : undefined
+      });
+    } catch (e) { throw new Error("network"); }
+    finally { clearTimeout(timer); }
+    let data = {};
+    try { data = await res.json(); } catch (e) { data = {}; }
+    if (!res.ok) throw new Error(data.error || ("http-" + res.status));
+    return data;
+  }
   let msgs = [];        // { role: "user"|"assistant"|"error", text, section, link, remaining, q }
   let sending = false;
   let loadedFor = null;
@@ -189,6 +214,7 @@ window.DalilAssistant = function (ctx) {
     const m = String((e && (e.message || e.code)) || e || "");
     if (/daily-limit/.test(m)) return s("errLimit");
     if (/busy/.test(m)) return s("errBusy");
+    if (/sign-in-required/.test(m)) return s("errSignIn");
     if (/not-configured/.test(m)) return s("errConfig");
     if (/network|unavailable|UNAVAILABLE|offline|Failed to fetch/i.test(m)) return s("errNet");
     return s("errGeneric");
@@ -202,7 +228,7 @@ window.DalilAssistant = function (ctx) {
     msgs.push({ role: "user", text: q.slice(0, 600) });
     draft = ""; sending = true; save(); ctx.rerender();
     try {
-      const r = await account.fn("askAssistant", { message: q, history, country: state.country, lang: state.lang });
+      const r = await api("/ask", { message: q, history, country: state.country, lang: state.lang });
       msgs.push({ role: "assistant", text: r.answer || "", section: r.section || "none", link: r.link || "", remaining: r.remaining, q });
     } catch (e) {
       msgs.pop();
@@ -219,7 +245,7 @@ window.DalilAssistant = function (ctx) {
       (root) => root.querySelector("#arSend").addEventListener("click", async (e) => {
         const b = e.currentTarget; b.disabled = true;
         try {
-          await account.fn("reportAnswer", { question: m.q || "", answer: m.text, reason: root.querySelector("input[name=ar]:checked").value });
+          await api("/report", { question: m.q || "", answer: m.text, reason: root.querySelector("input[name=ar]:checked").value });
           closeSheet(); toast(s("reported"));
         } catch (er) { b.disabled = false; toast(errText(er)); }
       }));

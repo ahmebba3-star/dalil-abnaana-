@@ -7,5 +7,6 @@ window.APP_CONFIG = {
   TERMS_URL: "__TERMS_URL__",
   CALLS_ENABLED: false,
   CALLS_COMING_SOON: true,
+  ASSISTANT_URL: "__ASSISTANT_URL__",
   VERSION: "1.0.0"
 };
