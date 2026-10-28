@@ -134,6 +134,7 @@ jobs:
       - name: Fill app config
         env:
           ADMOB_BANNER_ID: ${{ vars.ADMOB_BANNER_ID }}
+          ASSISTANT_URL: ${{ vars.ASSISTANT_URL }}
         run: node scripts/configure.js
 
       - name: Create Android project
@@ -204,5 +205,6 @@ jobs:
             - ملف `.apk`: للتجربة على الموبايل مباشرة.
             - ملف `.aab`: للرفع على Google Play Console.
             رقم الإصدار (versionCode): ${{ github.run_number }}
-            المكالمات العائلية: ${{ env.CALLS_ENABLED == '1' && 'شغالة' || 'مش متفعلة (ناقص سر GOOGLE_SERVICES_JSON)' }}
+            تسجيل الدخول بجوجل: ${{ env.CALLS_ENABLED == '1' && 'شغال' || 'مش متفعّل (ناقص سر GOOGLE_SERVICES_JSON)' }}
+            المساعد الذكي: ${{ vars.ASSISTANT_URL != '' && 'متوصّل' || 'مش متوصّل (ناقص متغير ASSISTANT_URL)' }}
           files: out/*
