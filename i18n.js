@@ -9,7 +9,7 @@ window.STRINGS = {
     notAnnounced: "لم يُعلن رسميًا بعد", expected: "الموعد",
     examStarted: "بدأت الامتحانات",
     quick: "روابط سريعة",
-    qPlatform: "منصة أبناؤنا في الخارج", qPlatformSub: "الموقع الرسمي لوزارة التربية والتعليم",
+    qPlatform: "منصة أبناؤنا في الخارج", qPlatformSub: "رابط خارجي: sabroad.emis.gov.eg",
     qLogin: "حساب ولي الأمر", qLoginSub: "رقم الجلوس والنتيجة",
     qEmbassy: "سفارتك", qEmergency: "أرقام الطوارئ",
     latestNews: "آخر الأخبار", seeAll: "عرض الكل",
@@ -36,7 +36,8 @@ window.STRINGS = {
     cairoTime: "الساعة في القاهرة", diff: "فرق التوقيت", same: "نفس التوقيت", ahead: "قدام القاهرة", behind: "ورا القاهرة", hourWord: "ساعة",
     emergency: "أرقام الطوارئ في", noEmergency: "مفيش أرقام محفوظة لدولتك. اسأل السفارة عن أرقام الطوارئ المحلية.", call: "اتصل",
     settings: "الإعدادات", language: "اللغة", country: "دولة الإقامة", notifications: "تذكير الامتحانات",
-    about: "عن التطبيق", disclaimer: "تطبيق مستقل وغير تابع لوزارة التربية والتعليم أو وزارة الخارجية المصرية. المعلومات مجمّعة من مصادر منشورة، والمرجع النهائي دايمًا هو الموقع الرسمي.",
+    govTitle: "تطبيق مستقل — غير حكومي", govBody: "التطبيق ده مش تابع لوزارة التربية والتعليم ولا وزارة الخارجية ولا أي جهة حكومية، ومش بيمثّلها ولا بيقدّم خدماتها. المعلومات الحكومية فيه منقولة من المواقع الرسمية دي، وهي المرجع النهائي:", govSources: "المصادر الرسمية:", govShort: "تطبيق مستقل وغير تابع لأي جهة حكومية.", newsDisclaimer: "الأخبار ملخّصة من مصادر منشورة، ومصدر كل خبر مذكور جوّاه. التطبيق مستقل وغير تابع لأي جهة حكومية.",
+    about: "عن التطبيق", disclaimer: "تطبيق مستقل وغير تابع لوزارة التربية والتعليم أو وزارة الخارجية المصرية أو أي جهة حكومية. المصادر الرسمية: sabroad.emis.gov.eg و moe.gov.eg و mfa.gov.eg و digital.gov.eg. المعلومات مجمّعة من مصادر منشورة، والمرجع النهائي دايمًا هو الموقع الرسمي.",
     privacy: "سياسة الخصوصية", version: "الإصدار", updated: "آخر تحديث للمحتوى",
     close: "إغلاق", back: "رجوع", currentLoc: "موقعك الحالي", locFail: "مقدرناش نحدد موقعك، هنستخدم العاصمة."
   },
@@ -50,7 +51,7 @@ window.STRINGS = {
     notAnnounced: "Not officially announced yet", expected: "Date",
     examStarted: "Exams have started",
     quick: "Quick links",
-    qPlatform: "Our Children Abroad platform", qPlatformSub: "Ministry of Education official site",
+    qPlatform: "Our Children Abroad platform", qPlatformSub: "External link: sabroad.emis.gov.eg",
     qLogin: "Parent account", qLoginSub: "Seat numbers and results",
     qEmbassy: "Your embassy", qEmergency: "Emergency numbers",
     latestNews: "Latest news", seeAll: "See all",
@@ -77,7 +78,8 @@ window.STRINGS = {
     cairoTime: "Time in Cairo", diff: "Time difference", same: "Same time", ahead: "ahead of Cairo", behind: "behind Cairo", hourWord: "h",
     emergency: "Emergency numbers in", noEmergency: "No numbers saved for your country. Ask the embassy for local emergency numbers.", call: "Call",
     settings: "Settings", language: "Language", country: "Country of residence", notifications: "Exam reminders",
-    about: "About", disclaimer: "An independent app, not affiliated with Egypt's Ministry of Education or Ministry of Foreign Affairs. Information is gathered from published sources; the official website is always the final reference.",
+    govTitle: "Independent app — not a government app", govBody: "This app is not affiliated with, endorsed by, or representing Egypt's Ministry of Education, Ministry of Foreign Affairs, or any government entity, and it does not provide government services. Government information in it comes from these official websites, which are the final reference:", govSources: "Official sources:", govShort: "An independent app, not affiliated with any government entity.", newsDisclaimer: "News items are summarised from published sources; each item names its source. This app is independent and not affiliated with any government entity.",
+    about: "About", disclaimer: "An independent app, not affiliated with Egypt's Ministry of Education, Ministry of Foreign Affairs, or any government entity. Official sources: sabroad.emis.gov.eg, moe.gov.eg, mfa.gov.eg, digital.gov.eg. Information is gathered from published sources; the official website is always the final reference.",
     privacy: "Privacy policy", version: "Version", updated: "Content last updated",
     close: "Close", back: "Back", currentLoc: "Your current location", locFail: "Couldn't get your location, using the capital."
   }

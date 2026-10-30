@@ -245,12 +245,29 @@
     toast(hasDate ? t("reminderSet") : t("reminderNeedsDate"));
   }
 
+  /* ---- إخلاء مسؤولية ومصادر رسمية (سياسة جوجل بلاي) ---- */
+  function govNotice(which) {
+    const ar = state.lang === "ar";
+    const src = {
+      exams: [["sabroad", "sabroad.emis.gov.eg", ar ? "منصة الطلاب المصريين بالخارج — وزارة التربية والتعليم" : "Egyptian Students Abroad platform — Ministry of Education"], ["moe", "moe.gov.eg", ar ? "وزارة التربية والتعليم" : "Ministry of Education"]],
+      consular: [["mfa", "mfa.gov.eg", ar ? "وزارة الخارجية والهجرة" : "Ministry of Foreign Affairs & Emigration"], ["digital", "digital.gov.eg", ar ? "بوابة مصر الرقمية" : "Digital Egypt portal"]]
+    };
+    const list = which === "all" ? src.exams.concat(src.consular) : (src[which] || []);
+    return `<div class="gov-notice" role="note">
+      <div class="gn-head">${icon("alert")}<b>${t("govTitle")}</b></div>
+      <p>${t("govBody")}</p>
+      <div class="gn-src">${t("govSources")}</div>
+      ${list.map((x) => `<a href="#" data-ext="${OFFICIAL_LINKS[x[0]]}"><span>${esc(x[2])}</span><code dir="ltr">${esc(OFFICIAL_LINKS[x[0]].replace(/^https:\/\//, ""))}</code></a>`).join("")}
+    </div>`;
+  }
+
   /* ================= Views ================= */
   function viewHome() {
     const c = country();
     const news = ((state.data && state.data.news) || []).slice(0, 3);
     return `
       ${ticketHTML()}
+      ${govNotice("all")}
       ${Assistant ? Assistant.entryCard() : ""}
       <h2 class="sec">${t("quick")}</h2>
       <div class="tiles">
@@ -298,6 +315,7 @@
     return `
       <h2 class="page-title">${t("examsTitle")}</h2>
       <p class="lead">${t("examsIntro")}</p>
+      ${govNotice("exams")}
       <h2 class="sec">${t("schedule")}</h2>
       <div class="panel">${ex.map((e) => {
         const d = e.confirmed && e.date ? new Date(e.date + "T12:00:00") : null;
@@ -343,6 +361,7 @@
     return `
       <h2 class="page-title">${t("consularTitle")}</h2>
       <p class="lead">${t("consularNote")}</p>
+      ${govNotice("consular")}
       ${embassyBlock ? `<h2 class="sec">${state.lang === "ar" ? "سفارتك" : "Your embassy"}</h2>${embassyBlock}` : ""}
       <h2 class="sec">${state.lang === "ar" ? "الخدمات" : "Services"}</h2>
       <div class="panel">${CONSULAR.map((s) => {
@@ -366,6 +385,7 @@
       <ul class="bullets" style="padding-top:8px">${x.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
       <div class="notice">${esc(x.note)}</div>
       <p class="small">${t("consularNote")}</p>
+      <p class="small">${t("source")}: <a href="#" data-ext="${OFFICIAL_LINKS.mfa}" dir="ltr">mfa.gov.eg</a> · ${t("govShort")}</p>
       <div class="sheet-actions"><button class="btn ghost" data-close>${t("close")}</button><a class="btn" href="#" data-ext="${OFFICIAL_LINKS.mfa}">${icon("ext")}${t("mfaShort")}</a></div>`);
   }
 
@@ -383,6 +403,7 @@
       ${state.offline ? `<div class="notice">${t("offline")}</div>` : ""}
       <div class="chips" role="group">${["all", "exams", "consular", "community"].map((c) => `<button class="chip" data-cat="${c}" aria-pressed="${state.newsCat === c}">${c === "all" ? t("catAll") : catLabel(c)}</button>`).join("")}</div>
       ${list.map(newsCard).join("")}
+      <p class="disclaimer">${t("newsDisclaimer")}</p>
       ${state.data && state.data.updated ? `<p class="small">${t("updated")}: ${esc(fmtDate(state.data.updated))}</p>` : ""}
     `;
   }
