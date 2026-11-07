@@ -261,13 +261,129 @@
     </div>`;
   }
 
+
+  /* ---- دليل التسجيل المفصّل: رسومات توضيحية (SVG) ---- */
+  function regArt(key) {
+    const ar = state.lang === "ar";
+    const L2 = (a, e) => esc(ar ? a : e);
+    const X = (x) => (ar ? 320 - x : x); // mirror x for RTL
+    const anc = ar ? "end" : "start";
+    const frame = '<rect class="ra-bg" x="0" y="0" width="320" height="170" rx="16"/>';
+    const win = (title) => '<rect class="ra-card" x="22" y="14" width="276" height="142" rx="12"/><rect class="ra-bar" x="22" y="14" width="276" height="26" rx="12"/><rect class="ra-bar" x="22" y="28" width="276" height="12"/>' +
+      '<circle class="ra-dot" cx="' + X(36) + '" cy="27" r="4"/><circle class="ra-dot" cx="' + X(48) + '" cy="27" r="4"/>' +
+      (title ? '<text class="ra-t ra-small" x="160" y="31" text-anchor="middle" direction="ltr">' + title + '</text>' : "");
+    const field = (y, label, val, w) => '<text class="ra-t ra-small ra-mut" x="' + X(40) + '" y="' + y + '" text-anchor="' + anc + '">' + label + '</text>' +
+      '<rect class="ra-field" x="' + (ar ? 320 - 40 - (w || 240) : 40) + '" y="' + (y + 4) + '" width="' + (w || 240) + '" height="16" rx="5"/>' +
+      (val ? '<text class="ra-t ra-small" x="' + X(46) + '" y="' + (y + 16) + '" text-anchor="' + anc + '">' + val + '</text>' : "");
+    const btn = (y, label) => '<rect class="ra-acc" x="110" y="' + y + '" width="100" height="22" rx="11"/><text class="ra-t ra-btn" x="160" y="' + (y + 15) + '" text-anchor="middle">' + label + '</text>';
+    let g = "";
+    switch (key) {
+      case "prep": {
+        const rows = [["✉", L2("إيميل شغال", "Working email")], ["▭", L2("كارت دفع دولي", "International card")], ["#", L2("الرقم القومي 14 رقم", "14-digit national ID")], ["PDF", L2("ملف لكل طالب", "One file per student")]];
+        g = '<rect class="ra-card" x="40" y="14" width="240" height="142" rx="12"/>' + rows.map((r, i) => {
+          const y = 26 + i * 32;
+          return '<rect class="ra-soft" x="' + (ar ? 320 - 54 - 26 : 54) + '" y="' + y + '" width="26" height="24" rx="7"/>' +
+            '<text class="ra-t ra-ic' + (r[0].length > 1 ? ' ra-tiny' : '') + '" x="' + (ar ? 320 - 67 : 67) + '" y="' + (y + 16) + '" text-anchor="middle">' + r[0] + '</text>' +
+            '<text class="ra-t" x="' + X(90) + '" y="' + (y + 16) + '" text-anchor="' + anc + '">' + r[1] + '</text>' +
+            '<path class="ra-ok" d="M' + (ar ? 70 : 250) + ' ' + (y + 12) + 'l5 5 9-10" fill="none"/>';
+        }).join("");
+        break;
+      }
+      case "portal":
+        g = win("🔒 sabroad.emis.gov.eg") +
+          '<rect class="ra-soft" x="' + (ar ? 160 : 40) + '" y="52" width="120" height="96" rx="8"/>' +
+          [L2("الرئيسية", "Home"), L2("التسجيل على البوابة", "Portal registration"), L2("الامتحانات", "Exams"), L2("الدعم الفني", "Support")].map((m, i) =>
+            (i === 1 ? '<rect class="ra-acc" x="' + (ar ? 166 : 46) + '" y="' + (58 + i * 22) + '" width="108" height="18" rx="6"/>' : "") +
+            '<text class="ra-t ra-small' + (i === 1 ? " ra-on" : "") + '" x="' + X(52) + '" y="' + (71 + i * 22) + '" text-anchor="' + anc + '">' + m + '</text>').join("") +
+          '<path class="ra-gold-s" d="M' + (ar ? 140 : 180) + ' 92 l' + (ar ? 18 : -18) + ' 0" />' +
+          '<text class="ra-t ra-small ra-mut" x="' + (ar ? 70 : 250) + '" y="96" text-anchor="middle">' + L2("اضغط هنا", "Tap here") + '</text>';
+        break;
+      case "account":
+        g = win(L2("حساب ولي الأمر", "Parent account")) + field(52, L2("اسم ولي الأمر", "Parent name"), "", 240) + field(82, L2("الإيميل", "Email"), "name@mail.com", 240) + field(112, L2("كلمة السر", "Password"), "••••••••", 240).replace(/height="16"/g, 'height="13"') + btn(132, L2("إنشاء الحساب", "Create account")).replace('height="22"', 'height="18"').replace(/y="147"/, 'y="145"');
+        break;
+      case "children":
+        g = win(L2("التقدم للامتحانات", "Apply for exams")) +
+          '<text class="ra-t" x="160" y="66" text-anchor="middle">' + L2("عدد الأبناء", "Number of children") + '</text>' +
+          '<rect class="ra-field" x="105" y="76" width="110" height="34" rx="10"/>' +
+          '<text class="ra-t ra-big" x="125" y="100" text-anchor="middle">−</text><text class="ra-t ra-big" x="160" y="101" text-anchor="middle">2</text><text class="ra-t ra-big" x="195" y="100" text-anchor="middle">+</text>' +
+          btn(122, L2("متابعة", "Continue"));
+        break;
+      case "pay":
+        g = win(L2("الدفع الإلكتروني", "Online payment")) +
+          '<rect class="ra-acc" x="' + (ar ? 170 : 40) + '" y="54" width="110" height="68" rx="10"/><rect class="ra-gold" x="' + (ar ? 182 : 52) + '" y="70" width="20" height="14" rx="3"/>' +
+          '<text class="ra-t ra-on ra-small" x="' + (ar ? 270 : 50) + '" y="112" text-anchor="' + (ar ? "end" : "start") + '" direction="ltr">•••• 4242</text>' +
+          '<text class="ra-t ra-big" x="' + (ar ? 95 : 225) + '" y="84" text-anchor="middle" direction="ltr">$150</text>' +
+          '<text class="ra-t ra-small ra-mut" x="' + (ar ? 95 : 225) + '" y="102" text-anchor="middle">' + L2("للطالب (2025/2026)", "per student (2025/26)") + '</text>' +
+          btn(130, L2("ادفع", "Pay"));
+        break;
+      case "form": {
+        let boxes = "";
+        for (let i = 0; i < 14; i++) boxes += '<rect class="ra-field" x="' + (48 + i * 16.6) + '" y="112" width="13" height="18" rx="3"/>';
+        g = win(L2("بيانات الطالب", "Student details")) + field(52, L2("الاسم الرباعي (زي شهادة الميلاد)", "Full name (as on birth certificate)"), L2("أحمد محمد علي حسن", "Ahmed Mohamed Ali Hassan"), 240) +
+          '<text class="ra-t ra-small ra-mut" x="' + X(40) + '" y="104" text-anchor="' + anc + '">' + L2("الرقم القومي — 14 رقم", "National ID — 14 digits") + '</text>' + boxes +
+          '<text class="ra-t ra-small ra-mut" x="160" y="148" text-anchor="middle">' + L2("الصف • نوع التعليم • دولة الإقامة", "Grade • Track • Country") + '</text>';
+        break;
+      }
+      case "upload":
+        g = win(L2("رفع المستندات", "Upload documents")) +
+          '<path class="ra-card2" d="M138 50h32l14 14v52h-46z"/><path class="ra-soft" d="M170 50v14h14z"/>' +
+          '<text class="ra-t ra-small ra-red" x="161" y="96" text-anchor="middle">PDF</text>' +
+          '<path class="ra-acc-s" d="M210 98v-28m-10 10l10-10 10 10" fill="none"/>' +
+          '<rect class="ra-field" x="60" y="126" width="200" height="8" rx="4"/><rect class="ra-acc" x="' + (ar ? 120 : 60) + '" y="126" width="140" height="8" rx="4"/>' +
+          '<text class="ra-t ra-small ra-mut" x="160" y="150" text-anchor="middle">' + L2("ملف واحد لكل طالب • أقل من 2 ميجا", "One file per student • under 2 MB") + '</text>';
+        break;
+      case "print":
+        g = '<rect class="ra-card" x="60" y="62" width="200" height="60" rx="12"/><rect class="ra-card2" x="95" y="20" width="130" height="50" rx="4"/>' +
+          '<rect class="ra-line" x="108" y="32" width="104" height="5" rx="2"/><rect class="ra-line" x="108" y="44" width="80" height="5" rx="2"/>' +
+          '<rect class="ra-card2" x="95" y="108" width="130" height="50" rx="4"/><rect class="ra-line" x="108" y="122" width="104" height="5" rx="2"/><rect class="ra-line" x="108" y="134" width="70" height="5" rx="2"/>' +
+          '<circle class="ra-acc" cx="240" cy="80" r="5"/><rect class="ra-gold" x="100" y="104" width="16" height="6" rx="2"/>' +
+          '<text class="ra-t ra-small ra-mut" x="' + (ar ? 290 : 30) + '" y="92" text-anchor="' + (ar ? "end" : "start") + '">' + L2("الاستمارة", "Form") + '</text>' +
+          '<text class="ra-t ra-small ra-mut" x="' + (ar ? 290 : 30) + '" y="140" text-anchor="' + (ar ? "end" : "start") + '">' + L2("+ الأصول", "+ originals") + '</text>';
+        break;
+      case "seat":
+        g = '<rect class="ra-card" x="110" y="10" width="100" height="150" rx="16"/><rect class="ra-soft" x="118" y="24" width="84" height="120" rx="8"/>' +
+          '<text class="ra-t ra-small ra-mut" x="160" y="46" text-anchor="middle">' + L2("حساب ولي الأمر", "Parent account") + '</text>' +
+          '<text class="ra-t ra-small" x="160" y="74" text-anchor="middle">' + L2("رقم الجلوس", "Seat number") + '</text>' +
+          '<rect class="ra-acc" x="128" y="82" width="64" height="24" rx="6"/><text class="ra-t ra-on" x="160" y="99" text-anchor="middle" direction="ltr">•••••</text>' +
+          '<text class="ra-t ra-small ra-mut" x="160" y="128" text-anchor="middle">' + L2("حساب الطالب", "Student account") + '</text>' +
+          '<circle class="ra-card" cx="' + (ar ? 60 : 260) + '" cy="85" r="30"/><circle class="ra-soft" cx="' + (ar ? 60 : 260) + '" cy="85" r="24"/>' +
+          '<path class="ra-acc-s" d="M' + (ar ? 60 : 260) + ' 85v-14m0 14l10 6" fill="none"/>' +
+          '<text class="ra-t ra-small ra-mut" x="' + (ar ? 60 : 260) + '" y="132" text-anchor="middle">' + L2("توقيت بلدك", "Local time") + '</text>';
+        break;
+    }
+    return '<svg class="reg-art" viewBox="0 0 320 170" role="img" aria-label="' + L2("رسم توضيحي", "Illustration") + '">' + frame + g + '</svg>';
+  }
+
+  function viewRegGuide() {
+    const G = window.REG_GUIDE; if (!G) return "";
+    const ar = state.lang === "ar";
+    const exam = ((state.data && state.data.exams) || [])[0];
+    return `
+      <h2 class="page-title">${ar ? "طريقة التسجيل في امتحانات الفصل الدراسي الأول" : "How to register for first-term exams"}</h2>
+      <p class="lead">${exam ? esc(L(exam, "title")) + " · " : ""}${ar ? "خطوة بخطوة بالرسومات" : "Step by step, with illustrations"}</p>
+      <div class="notice">${esc(ar ? G.basis_ar : G.basis_en)}</div>
+      ${G.steps.map((s, i) => {
+        const x = s[state.lang] || s.ar;
+        return `<section class="reg-step">
+          <div class="reg-head"><span class="reg-num">${fmtNum(i + 1)}</span><b>${esc(x.t)}</b></div>
+          ${regArt(s.art)}
+          <p>${esc(x.d)}</p>
+          <ul class="bullets">${x.items.map((it) => `<li>${esc(it)}</li>`).join("")}</ul>
+          ${x.tip ? `<div class="reg-tip">${icon("alert")}<span>${esc(x.tip)}</span></div>` : ""}
+          ${s.art === "portal" ? `<div class="reg-links"><a class="btn" href="#" data-ext="${OFFICIAL_LINKS.sabroad}">${icon("ext")}${t("openPlatform")}</a><a class="btn ghost" href="#" data-ext="${OFFICIAL_LINKS.sabroadLogin}">${icon("key")}${t("qLogin")}</a></div>` : ""}
+        </section>`;
+      }).join("")}
+      ${Assistant ? Assistant.entryRow() : ""}
+      ${govNotice("exams")}
+    `;
+  }
+
   /* ================= Views ================= */
   function viewHome() {
     const c = country();
     const news = ((state.data && state.data.news) || []).slice(0, 3);
     return `
       ${ticketHTML()}
-      ${govNotice("all")}
       ${Assistant ? Assistant.entryCard() : ""}
       <h2 class="sec">${t("quick")}</h2>
       <div class="tiles">
@@ -280,6 +396,7 @@
       ${childrenHTML()}
       <h2 class="sec">${t("latestNews")}<button data-go="news">${t("seeAll")}</button></h2>
       ${news.map(newsCard).join("")}
+      ${govNotice("all")}
     `;
   }
 
@@ -315,7 +432,6 @@
     return `
       <h2 class="page-title">${t("examsTitle")}</h2>
       <p class="lead">${t("examsIntro")}</p>
-      ${govNotice("exams")}
       <h2 class="sec">${t("schedule")}</h2>
       <div class="panel">${ex.map((e) => {
         const d = e.confirmed && e.date ? new Date(e.date + "T12:00:00") : null;
@@ -323,6 +439,11 @@
           : `<div class="exam-date tbd"><b>؟</b><small>${state.lang === "ar" ? "قريبًا" : "Soon"}</small></div>`;
         return `<div class="exam-row">${box}<div><b>${esc(L(e, "title"))}</b><span class="small" style="display:block">${d ? esc(fmtDate(e.date, { weekday: "long", day: "numeric", month: "long" })) : esc(L(e, "expected"))}</span></div></div>`;
       }).join("") || `<div class="empty">${t("notAnnounced")}</div>`}</div>
+      <button class="guide-card" data-act="regGuide">
+        <span class="ic">${icon("exams")}</span>
+        <span class="grow"><b>${t("guideTitle")}</b><small>${t("guideSub")}</small></span>
+        <span class="end">${icon("chev", "flip")}</span>
+      </button>
       <div style="margin-top:10px"><button class="btn ghost block" data-act="remind">${icon("bell")}${t("remind")}</button></div>
 
       <h2 class="sec">${t("howToRegister")}</h2>
@@ -340,6 +461,7 @@
         ${["tip1", "tip2", "tip3"].map((k) => `<div class="row" style="cursor:default"><span class="ic" style="background:var(--gold-soft);color:#8A6413">${icon("alert")}</span><span class="grow">${t(k)}</span></div>`).join("")}
       </div>
       ${Assistant ? Assistant.entryRow() : ""}
+      ${govNotice("exams")}
     `;
   }
 
@@ -361,7 +483,6 @@
     return `
       <h2 class="page-title">${t("consularTitle")}</h2>
       <p class="lead">${t("consularNote")}</p>
-      ${govNotice("consular")}
       ${embassyBlock ? `<h2 class="sec">${state.lang === "ar" ? "سفارتك" : "Your embassy"}</h2>${embassyBlock}` : ""}
       <h2 class="sec">${state.lang === "ar" ? "الخدمات" : "Services"}</h2>
       <div class="panel">${CONSULAR.map((s) => {
@@ -374,6 +495,7 @@
         <a class="row" href="#" data-ext="${OFFICIAL_LINKS.digital}"><span class="ic">${icon("globe")}</span><span class="grow"><span class="t">${t("digitalSite")}</span><span class="s">digital.gov.eg</span></span><span class="end">${icon("ext")}</span></a>
       </div>
       ${Assistant ? Assistant.entryRow() : ""}
+      ${govNotice("consular")}
     `;
   }
 
@@ -424,6 +546,8 @@
 
       <h2 class="sec">${t("currency")}</h2>
       <div class="card" id="fx">
+        <div class="fx-rates" id="fxRates"></div>
+        <div class="seg fx-seg" role="group" id="fxSeg"></div>
         <div class="conv">
           <div class="field" style="margin:0"><label for="fxAmt">${t("amount")} (<span id="fxFrom"></span>)</label><input id="fxAmt" class="input" inputmode="decimal" value="100"></div>
           <button class="swap" id="fxSwap" aria-label="swap">${icon("swap")}</button>
@@ -444,25 +568,46 @@
   }
 
   /* ---- currency ---- */
-  let fxDir = 1; // 1: local -> EGP, -1: EGP -> local
+  let fxDir = 1; // 1: foreign -> EGP, -1: EGP -> foreign
+  let fxPick = null; // العملة المختارة في المحوّل: عملة الدولة أو الدولار
   async function mountFx() {
     const box = document.getElementById("fx"); if (!box) return;
-    const cur = country().cur;
+    const local = country().cur;
+    const curs = local === "USD" ? ["USD", "EUR"] : [local, "USD"];
+    if (curs.indexOf(fxPick) < 0) fxPick = curs[0];
     const amt = box.querySelector("#fxAmt");
+    const names = { USD: ["الدولار الأمريكي", "US dollar"], EUR: ["اليورو", "Euro"] };
+    const cname = (c) => (names[c] ? names[c][state.lang === "ar" ? 0 : 1] : c);
+    const seg = box.querySelector("#fxSeg");
+    seg.innerHTML = curs.map((c) => '<button data-fx="' + c + '" aria-pressed="' + (c === fxPick) + '">' + esc(c) + " ⇄ EGP</button>").join("");
     const update = (rates, date) => {
+      const cur = fxPick;
       const from = fxDir === 1 ? cur : "EGP", to = fxDir === 1 ? "EGP" : cur;
       box.querySelector("#fxFrom").textContent = from; box.querySelector("#fxTo").textContent = to;
-      if (!rates || !rates[cur]) { box.querySelector("#fxOut").textContent = "—"; return; }
+      const tiles = box.querySelector("#fxRates");
+      if (!rates) { tiles.innerHTML = ""; box.querySelector("#fxOut").textContent = "—"; return; }
+      tiles.innerHTML = curs.map((c) => {
+        const r = rates[c];
+        return '<div class="fx-tile' + (c === "USD" ? " usd" : "") + '"><small>' + esc(names[c] ? cname(c) : (state.lang === "ar" ? country().ar : country().en)) + ' <bdi dir="ltr">(1 ' + esc(c) + ')</bdi></small><b dir="ltr">' + (r ? fmtNum(1 / r, 2) : "—") + ' <span>EGP</span></b></div>';
+      }).join("");
+      if (!rates[cur]) { box.querySelector("#fxOut").textContent = "—"; return; }
       const v = parseFloat(String(amt.value).replace(/[^\d.]/g, "")) || 0;
       const r = rates[cur]; // 1 EGP = r CUR
       const out = fxDir === 1 ? v / r : v * r;
       box.querySelector("#fxOut").textContent = fmtNum(out, 2);
-      box.querySelector("#fxNote").textContent = `1 ${cur} = ${fmtNum(1 / r, 2)} EGP · ${t("rateAt")} ${date ? fmtDate(date) : ""}`;
+      box.querySelector("#fxNote").textContent = t("rateAt") + " " + (date ? fmtDate(date) : "") + " · " + t("rateNote");
     };
     let cache = store.get("fx", null);
-    update(cache && cache.rates, cache && cache.date);
-    amt.addEventListener("input", () => update(cache && cache.rates, cache && cache.date));
-    box.querySelector("#fxSwap").addEventListener("click", () => { fxDir *= -1; update(cache && cache.rates, cache && cache.date); });
+    const redraw = () => update(cache && cache.rates, cache && cache.date);
+    redraw();
+    amt.addEventListener("input", redraw);
+    box.querySelector("#fxSwap").addEventListener("click", () => { fxDir *= -1; redraw(); });
+    seg.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-fx]"); if (!b) return;
+      fxPick = b.getAttribute("data-fx");
+      Array.prototype.forEach.call(seg.querySelectorAll("[data-fx]"), (x) => x.setAttribute("aria-pressed", String(x === b)));
+      redraw();
+    });
     const fresh = cache && Date.now() - cache.at < 6 * 36e5;
     if (!fresh) {
       try {
@@ -472,7 +617,7 @@
           store.set("fx", cache);
         }
       } catch (e) { if (!cache) box.querySelector("#fxNote").textContent = t("rateFail"); }
-      if (document.getElementById("fx") === box) update(cache && cache.rates, cache && cache.date);
+      if (document.getElementById("fx") === box) redraw();
     }
   }
 
@@ -575,6 +720,7 @@
     let body;
     if (onboarding) body = viewOnboarding();
     else if (state.sub === "settings") body = viewSettings();
+    else if (state.sub === "regguide") body = viewRegGuide();
     else if (state.sub === "assistant") body = Assistant ? Assistant.view() : "";
     else body = ({ home: viewHome, exams: viewExams, family: viewFamily, consular: viewConsular, news: viewNews, tools: viewTools }[state.tab] || viewHome)();
     view.innerHTML = body;
@@ -630,6 +776,7 @@
     if (el.dataset.cat) { state.newsCat = el.dataset.cat; render(); return; }
     switch (el.dataset.act) {
       case "remind": return onRemind();
+      case "regGuide": state.sub = "regguide"; render(); view.scrollTop = 0; return;
       case "addChild": return addChildSheet();
       case "delChild": state.children.splice(+el.dataset.i, 1); store.set("children", state.children); render(); return;
       case "service": return serviceSheet(el.dataset.id);

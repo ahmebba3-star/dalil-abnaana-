@@ -416,3 +416,57 @@ main.chat-view { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 96px); 
 .gov-notice .gn-src { font-weight: 700; margin-bottom: 4px; }
 .gov-notice a { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; padding: 6px 0; border-top: 1px dashed rgba(200,150,46,.35); color: inherit; text-decoration: none; }
 .gov-notice a code { color: #148F8C; font-family: inherit; text-decoration: underline; }
+
+/* Currency: local + USD rate tiles */
+.fx-rates { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.fx-rates:empty { display: none; }
+.fx-tile { background: var(--faience-soft); border-radius: var(--radius-sm); padding: 10px 12px; min-width: 0; }
+.fx-tile.usd { background: var(--gold-soft); }
+.fx-tile small { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fx-tile b { display: block; font-size: 20px; margin-top: 2px; text-align: start; }
+.fx-tile b span { font-size: 12px; font-weight: 500; color: var(--muted); }
+.fx-seg { margin-bottom: 12px; }
+.fx-seg button { direction: ltr; }
+
+/* Exams: illustrated registration guide */
+.guide-card { display: flex; align-items: center; gap: 12px; width: 100%; margin-top: 10px; padding: 14px; border-radius: var(--radius); border: 1px solid var(--faience); background: var(--faience-soft); color: var(--ink); font: inherit; text-align: start; cursor: pointer; }
+.guide-card .ic { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--faience); color: #fff; }
+.guide-card .ic svg { width: 22px; height: 22px; }
+.guide-card .grow { flex: 1; min-width: 0; }
+.guide-card b { display: block; font-size: 15px; }
+.guide-card small { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; line-height: 1.6; }
+.guide-card .end { color: var(--faience); }
+.reg-step { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; margin: 12px 0; }
+.reg-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.reg-head b { font-size: 16px; line-height: 1.5; }
+.reg-num { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--nile); color: #fff; font-weight: 800; }
+.reg-step p { margin: 10px 0 4px; font-size: 14px; }
+.reg-art { display: block; width: 100%; height: auto; border-radius: 12px; }
+.reg-tip { display: flex; gap: 8px; align-items: flex-start; background: var(--gold-soft); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 13px; line-height: 1.7; margin-top: 8px; }
+.reg-tip svg { flex: none; width: 18px; height: 18px; color: #C8962E; margin-top: 2px; }
+.reg-links { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.reg-links .btn { flex: 1 1 140px; }
+/* SVG illustration palette (follows light/dark theme) */
+.ra-bg { fill: var(--paper); }
+.ra-card { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.ra-card2 { fill: var(--surface); stroke: var(--muted); stroke-width: 1.2; }
+.ra-bar { fill: var(--faience-soft); }
+.ra-dot { fill: var(--line); }
+.ra-field { fill: var(--paper); stroke: var(--line); stroke-width: 1.2; }
+.ra-soft { fill: var(--faience-soft); }
+.ra-acc { fill: var(--faience); }
+.ra-gold { fill: #C8962E; }
+.ra-line { fill: var(--line); }
+.ra-ok { stroke: var(--faience); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.ra-acc-s { stroke: var(--faience); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+.ra-gold-s { stroke: #C8962E; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 4 4; fill: none; }
+.ra-t { fill: var(--ink); font-family: "Alexandria", system-ui, sans-serif; font-size: 13px; }
+.ra-small { font-size: 10.5px; }
+.ra-big { font-size: 20px; font-weight: 700; }
+.ra-btn { fill: #fff; font-size: 11px; font-weight: 700; }
+.ra-ic { font-size: 11px; font-weight: 700; fill: var(--faience); }
+.ra-mut { fill: var(--muted); }
+.ra-on { fill: #fff; font-weight: 700; }
+.ra-red { fill: #B3402F; font-weight: 800; }
+.reg-art { direction: ltr; unicode-bidi: isolate; }
+.ra-tiny { font-size: 8px; }

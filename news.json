@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20",
+  "updated": "2026-11-07",
   "exams": [
     {
       "id": "t1-2027",
@@ -7,8 +7,8 @@
       "title_en": "First-term exams 2026/2027",
       "date": "",
       "confirmed": false,
-      "expected_ar": "في العام الماضي بدأت امتحانات الفصل الأول يوم 10 يناير.",
-      "expected_en": "Last year, first-term exams started on 10 January."
+      "expected_ar": "التسجيل لعام 2026/2027 لم يُفتح رسميًا لحد دلوقتي. في العام الماضي فُتح التسجيل منتصف نوفمبر، وبدأت امتحانات الفصل الأول يوم 10 يناير.",
+      "expected_en": "Registration for 2026/2027 has not officially opened yet. Last year it opened in mid-November and first-term exams started on 10 January."
     },
     {
       "id": "t2-2027",
@@ -21,6 +21,28 @@
     }
   ],
   "news": [
+    {
+      "id": "n9",
+      "date": "2026-11-07",
+      "cat": "exams",
+      "title_ar": "تسجيل امتحانات 2026/2027 لم يُفتح بعد.. والعام الماضي فُتح منتصف نوفمبر",
+      "title_en": "2026/2027 exam registration not open yet; last year it opened in mid-November",
+      "body_ar": "لحد يوم 7 نوفمبر 2026 لم تُعلن وزارة التربية والتعليم فتح باب التسجيل لامتحانات «أبناؤنا في الخارج» للعام الدراسي 2026/2027، والمنصة الرسمية لسه بتعرض تعليمات 2025/2026. في العام الماضي اتفتح التسجيل يوم 13 نوفمبر 2025 تقريبًا، والرسوم كانت 150 دولار للطالب. جهّز حساب ولي الأمر والمستندات من دلوقتي، وتابع المنصة الرسمية sabroad.emis.gov.eg، ولما التسجيل يتفتح هننشر الخبر هنا.",
+      "body_en": "As of 7 November 2026, the Ministry of Education has not announced the opening of registration for the 2026/2027 “Our Children Abroad” exams, and the official platform still shows the 2025/2026 instructions. Last year registration opened around 13 November 2025 and the fee was 150 US dollars per student. Prepare your parent account and documents now and follow the official platform sabroad.emis.gov.eg; we'll post here when registration opens.",
+      "source": "المصري في الخليج / المنصة الرسمية",
+      "url": "https://sabroad.emis.gov.eg/Home/"
+    },
+    {
+      "id": "n7",
+      "date": "2026-10-03",
+      "cat": "exams",
+      "title_ar": "المستندات المطلوبة حسب حالة كل طالب",
+      "title_en": "Required documents by student category",
+      "body_ar": "المستندات الأساسية: شهادة الميلاد المميكنة بالرقم القومي وصورة منها، وإقامة سارية أو تأشيرة موضّح عليها تاريخ الدخول. القادم من مصر: بيان نجاح آخر صف معتمد. القادم من الخارج: بيان نجاح معادل ومعتمد من التعليم والخارجية والسفارة. الأول الابتدائي لغات: بيان إتمام KG1 وKG2 معتمد من المديرية. المدارس الدولية والمحوّلين من الأزهر وطلاب الدمج ليهم مستندات إضافية. تابع التعليمات الرسمية لأنها ممكن تتغير.",
+      "body_en": "Basic documents: machine-readable birth certificate with national ID plus a copy, and a valid residence permit or a visa showing the entry date. From Egypt: certified pass statement for the last grade. From abroad: an equated pass statement attested by Education, Foreign Affairs and the embassy. Primary 1 (language track): KG1 and KG2 completion statement certified by the directorate. International schools, Al-Azhar transfers and inclusion students need extra documents. Follow the official instructions, as they may change.",
+      "source": "كشكول",
+      "url": "https://www.kashqol.com/271749"
+    },
     {
       "id": "n6",
       "date": "2026-09-23",
@@ -86,6 +108,17 @@
       "body_en": "The ministry announced electronic exams, with practice mock tests for preparatory and secondary students before second-term exams, and answers uploaded through the platform and the parent account.",
       "source": "الخليج",
       "url": "https://www.alkhaleej.ae/2026-05-07/"
+    },
+    {
+      "id": "n10",
+      "date": "2025-11-16",
+      "cat": "exams",
+      "title_ar": "مواعيد استرداد الرسوم في العام الماضي (للاسترشاد)",
+      "title_en": "Last year's fee refund deadlines (for reference)",
+      "body_ar": "في تعليمات 2025/2026 كان آخر موعد لطلب استرداد الرسوم: 31 ديسمبر للفصل الأول، و30 أبريل للفصل الثاني، و9 يوليو للدور الثاني، ويتقدّم الطلب من المنصة بعد استكمال كل البيانات والمرفقات. كمان كان مطلوب من الطلاب الجدد إرسال أصول المستندات بالبريد للإدارة العامة للامتحانات.",
+      "body_en": "Under the 2025/2026 instructions, refund requests were due by 31 December (term 1), 30 April (term 2) and 9 July (second round), submitted through the platform after completing all data and attachments. New students also had to post original documents to the General Administration of Exams.",
+      "source": "صدى البلد",
+      "url": "https://www.elbalad.news/6768050"
     }
   ]
 }
