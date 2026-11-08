@@ -1,7 +1,29 @@
 rules_version = '2';
-// قواعد الأمان — المستخدم يقرا بياناته بس، وكل الكتابة بتتم من خلال الخادم (Cloud Functions)
+// قواعد الأمان
+// - المكالمات: المستخدم يقرا بياناته بس، وكل الكتابة بتتم من الخادم (Cloud Functions).
+// - مذاكرتي: ولي الأمر (حساب جوجل) يدير أبناءه، وجهاز الطالب (دخول مجهول) يتربط بكود لمرة واحدة،
+//   ومحدش يشوف بيانات طالب غير ولي أمره والأجهزة المربوطة بيه.
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function isGoogle() { return signedIn() && request.auth.token.firebase.sign_in_provider != 'anonymous'; }
+    function kid(sid) { return get(/databases/$(database)/documents/students/$(sid)).data; }
+    function isParentOf(sid) { return signedIn() && kid(sid).parentUid == request.auth.uid; }
+    function isDeviceOf(sid) { return signedIn() && request.auth.uid in kid(sid).devices; }
+    function canAccess(sid) { return isParentOf(sid) || isDeviceOf(sid); }
+    function validGrade(g) { return g in ['P4', 'P5', 'P6', 'M1', 'M2', 'M3', 'S1', 'S2G', 'S2B']; }
+    function validName(n) { return n is string && n.size() > 0 && n.size() <= 40; }
+    function changed() { return request.resource.data.diff(resource.data).affectedKeys(); }
+    function validResult(r) {
+      return r.keys().hasOnly(['at', 'g', 's', 'set', 'kind', 'title', 'subjName', 'score', 'total', 'pct', 'dur', 'mode'])
+        && r.at is number && r.score is number && r.total is number && r.pct is number
+        && r.total > 0 && r.total <= 200 && r.score >= 0 && r.score <= r.total
+        && r.pct >= 0 && r.pct <= 100
+        && r.title is string && r.title.size() <= 150;
+    }
+
+    /* ---------- المكالمات (زي ما هي) ---------- */
     match /users/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow write: if false;
@@ -19,6 +41,88 @@ service cloud.firestore {
         && (resource.data.caller == request.auth.uid || resource.data.callee == request.auth.uid);
       allow write: if false;
     }
+
+    /* ---------- مذاكرتي: الطلاب ---------- */
+    match /students/{sid} {
+      // ولي الأمر يشوف قائمة أبنائه بس
+      allow list: if isGoogle() && resource.data.parentUid == request.auth.uid;
+      allow get: if signedIn()
+        && (resource.data.parentUid == request.auth.uid || request.auth.uid in resource.data.devices);
+
+      allow create: if isGoogle()
+        && request.resource.data.keys().hasOnly(['parentUid', 'name', 'grade', 'devices', 'createdAt'])
+        && request.resource.data.parentUid == request.auth.uid
+        && validName(request.resource.data.name)
+        && validGrade(request.resource.data.grade)
+        && request.resource.data.devices == []
+        && request.resource.data.createdAt is number;
+
+      allow update: if (
+          // ولي الأمر: يعدّل الاسم والصف، يعمل كود ربط، أو يلغي ربط كل الأجهزة
+          isGoogle() && resource.data.parentUid == request.auth.uid
+          && request.resource.data.parentUid == resource.data.parentUid
+          && changed().hasOnly(['name', 'grade', 'code', 'codeExp', 'devices'])
+          && validName(request.resource.data.name)
+          && validGrade(request.resource.data.grade)
+          && (!('devices' in changed()) || request.resource.data.devices.size() == 0)
+        ) || (
+          // جهاز الطالب يربط نفسه بكود صالح لسه مخلصش
+          signedIn()
+          && changed().hasOnly(['devices', 'claim', 'code', 'codeExp'])
+          && !(request.auth.uid in resource.data.devices)
+          && request.resource.data.devices.hasAll(resource.data.devices)
+          && request.auth.uid in request.resource.data.devices
+          && request.resource.data.devices.size() == resource.data.devices.size() + 1
+          && request.resource.data.devices.size() <= 6
+          && request.resource.data.code == null
+          && get(/databases/$(database)/documents/linkCodes/$(request.resource.data.claim)).data.sid == sid
+          && get(/databases/$(database)/documents/linkCodes/$(request.resource.data.claim)).data.expiresAt > request.time.toMillis()
+        ) || (
+          // جهاز مربوط يلغي ربط نفسه
+          signedIn() && request.auth.uid in resource.data.devices
+          && changed().hasOnly(['devices'])
+          && !(request.auth.uid in request.resource.data.devices)
+          && resource.data.devices.hasAll(request.resource.data.devices)
+          && request.resource.data.devices.size() == resource.data.devices.size() - 1
+        );
+
+      allow delete: if isGoogle() && resource.data.parentUid == request.auth.uid;
+
+      // نتايج الامتحانات: الطالب أو ولي أمره بيضيفوها، والاتنين يقروها، وولي الأمر بس يمسحها
+      match /results/{rid} {
+        allow read: if canAccess(sid);
+        allow create: if canAccess(sid) && validResult(request.resource.data);
+        allow update: if false;
+        allow delete: if isParentOf(sid);
+      }
+      // الدروس اللي خلّصها
+      match /progress/{pid} {
+        allow read: if canAccess(sid);
+        allow create, update: if pid == 'main' && canAccess(sid)
+          && request.resource.data.keys().hasOnly(['lessons', 'at'])
+          && request.resource.data.lessons is map
+          && request.resource.data.lessons.size() <= 3000;
+        allow delete: if isParentOf(sid);
+      }
+    }
+
+    /* ---------- مذاكرتي: أكواد الربط (لمرة واحدة، صالحة يومين) ---------- */
+    match /linkCodes/{code} {
+      // محدش يقدر يعمل list؛ لازم تعرف الكود نفسه
+      allow get: if signedIn() && resource.data.expiresAt > request.time.toMillis();
+      allow create: if isGoogle()
+        && code.matches('^[A-Z2-9]{8}$')
+        && request.resource.data.keys().hasOnly(['sid', 'parentUid', 'expiresAt'])
+        && request.resource.data.parentUid == request.auth.uid
+        && kid(request.resource.data.sid).parentUid == request.auth.uid
+        && request.resource.data.expiresAt is number
+        && request.resource.data.expiresAt <= request.time.toMillis() + 3 * 86400000;
+      allow delete: if signedIn()
+        && (resource == null
+          || resource.data.parentUid == request.auth.uid
+          || request.auth.uid in kid(resource.data.sid).devices);
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
