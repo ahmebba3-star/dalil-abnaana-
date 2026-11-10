@@ -10,7 +10,7 @@ window.DalilStudy = function (ctx) {
 
   /* ================= Strings ================= */
   // Arabic counted noun: 1 درس، 2 درسين، 3–10 دروس، 11+ درس (the number itself is passed formatted)
-  const lessonWord = (n) => { const v = parseInt(String(n).replace(/[^\d]/g, ""), 10) || 0; return v === 1 ? "درس" : v === 2 ? "درسين" : v >= 3 && v <= 10 ? "دروس" : "درس"; };
+  const lessonWord = (n) => { const v = parseInt(String(n).replace(/[٠-٩]/g, (c) => "٠١٢٣٤٥٦٧٨٩".indexOf(c)).replace(/[^\d]/g, ""), 10) || 0; return v === 1 ? "درس" : v === 2 ? "درسين" : v >= 3 && v <= 10 ? "دروس" : "درس"; };
   const S = {
     ar: {
       tab: "مذاكرتي",
@@ -328,11 +328,11 @@ window.DalilStudy = function (ctx) {
   const DEFAULT_CATALOG = {
     updated: "2026-11-08",
     grades: [
-      { id: "KG1", ar: "رياض أطفال 1", en: "KG 1", stage: "k", young: true },
+      { id: "KG1", ar: "رياض أطفال 1", en: "KG 1", stage: "k", young: true, file: "study-KG1.json" },
       { id: "KG2", ar: "رياض أطفال 2", en: "KG 2", stage: "k", young: true },
-      { id: "P1", ar: "الأول الابتدائي", en: "Primary 1", stage: "k", young: true },
-      { id: "P2", ar: "الثاني الابتدائي", en: "Primary 2", stage: "k", young: true },
-      { id: "P3", ar: "الثالث الابتدائي", en: "Primary 3", stage: "k", young: true },
+      { id: "P1", ar: "الأول الابتدائي", en: "Primary 1", stage: "k", young: true, file: "study-P1.json" },
+      { id: "P2", ar: "الثاني الابتدائي", en: "Primary 2", stage: "k", young: true, file: "study-P2.json" },
+      { id: "P3", ar: "الثالث الابتدائي", en: "Primary 3", stage: "k", young: true, file: "study-P3.json" },
       { id: "P4", ar: "الرابع الابتدائي", en: "Primary 4", stage: "p" },
       { id: "P5", ar: "الخامس الابتدائي", en: "Primary 5", stage: "p" },
       { id: "P6", ar: "السادس الابتدائي", en: "Primary 6", stage: "p" },
