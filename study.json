@@ -4,6 +4,7 @@
  "grades": [
   {
    "id": "KG1",
+   "file": "study-KG1.json",
    "ar": "رياض أطفال 1",
    "en": "KG 1",
    "stage": "k",
@@ -18,6 +19,7 @@
   },
   {
    "id": "P1",
+   "file": "study-P1.json",
    "ar": "الأول الابتدائي",
    "en": "Primary 1",
    "stage": "k",
@@ -25,6 +27,7 @@
   },
   {
    "id": "P2",
+   "file": "study-P2.json",
    "ar": "الثاني الابتدائي",
    "en": "Primary 2",
    "stage": "k",
