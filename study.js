@@ -50,12 +50,19 @@ window.DalilStudy = function (ctx) {
       reviewAnswers: "راجع الإجابات", retry: "حل تاني", retryWrong: "حل اللي غلطت فيه بس", backSubject: "رجوع للمادة",
       time: "الوقت",
       pastSoon: "الامتحان الرسمي هيتضاف قريب",
-      pastNote: "امتحانات المصريين بالخارج إلكترونية واختيار من متعدد. بنضيف الامتحانات الرسمية للسنين اللي فاتت أول بأول.",
+      pastNote: "دي امتحانات الوزارة الرسمية للمصريين بالخارج زي ما اتنشرت. حلها على ورقة، وبعدين راجع إجاباتك مع الشرح وامتحانات المراجعة.",
       noSets: "مفيش أسئلة هنا لسه.",
       expected: "امتحانات تجريبية متوقعة", unitReview: "مراجعة على الوحدات",
       contentNote: "الشرح والأسئلة دي للتدريب ومن إعداد التطبيق. المرجع الرسمي هو كتاب الوزارة.",
-      bookNone: "الكتاب لسه مش متاح جوه التطبيق. تقدر تفتحه من مكتبة الوزارة الرسمية.",
+      bookNone: "كتب الوزارة هتتاح جوه التطبيق قريبًا إن شاء الله. لحد ما تتاح، استخدم الشرح والمراجعة، وكل درس مكتوب فيه رقم صفحته في كتابك.",
       bookOpenLib: "افتح مكتبة الوزارة",
+      bookPage: (n) => `صفحة ${n} في كتاب الوزارة`,
+      officialExam: "امتحان رسمي من الوزارة",
+      officialSrc: "الامتحان ده منشور على منصة أبناؤنا في الخارج التابعة لوزارة التربية والتعليم، وبيتفتح من موقع الوزارة مباشرة.",
+      openExam: "افتح الامتحان",
+      parentCta: "تابع أبناءك من أي جهاز",
+      parentCtaSub: "سجّل دخول كولي أمر بحساب جوجل، وضيف أبناءك، واربط موبايلاتهم بكود",
+      parentCtaBtn: "سجّل الدخول بجوجل",
       bookLoading: "بيتحمّل الكتاب…", bookFail: "مقدرناش نحمّل الكتاب. اتأكد من الإنترنت وجرب تاني.",
       bookSaved: "الكتاب محفوظ على جهازك وتقدر تقراه من غير نت",
       page: (a, b) => `صفحة ${a} من ${b}`, goPage: "روح لصفحة",
@@ -178,12 +185,19 @@ window.DalilStudy = function (ctx) {
       reviewAnswers: "Review answers", retry: "Try again", retryWrong: "Retry wrong ones", backSubject: "Back to subject",
       time: "Time",
       pastSoon: "The official exam will be added soon",
-      pastNote: "Exams for Egyptians abroad are online multiple choice. We add the official past exams as they become available.",
+      pastNote: "These are the Ministry's official exams for Egyptians abroad, as published. Solve them on paper, then check yourself with the lessons and review exams.",
       noSets: "No questions here yet.",
       expected: "Expected mock exams", unitReview: "Unit review",
       contentNote: "These lessons and questions are practice material written for the app. The Ministry book is the official reference.",
-      bookNone: "This book isn't available inside the app yet. You can open it in the Ministry's library.",
+      bookNone: "Ministry books will be available in the app soon. Meanwhile, use the lessons and reviews; every lesson shows its page number in your book.",
       bookOpenLib: "Open the Ministry library",
+      bookPage: (n) => `Page ${n} in the Ministry book`,
+      officialExam: "Official Ministry exam",
+      officialSrc: "This exam is published on the Ministry of Education's platform for Egyptian students abroad and opens directly from the Ministry's site.",
+      openExam: "Open the exam",
+      parentCta: "Follow your children from any device",
+      parentCtaSub: "Sign in as a parent with Google, add your children and link their phones with a code",
+      parentCtaBtn: "Sign in with Google",
       bookLoading: "Loading the book…", bookFail: "Couldn't load the book. Check your connection and try again.",
       bookSaved: "Saved on your device, readable offline",
       page: (a, b) => `Page ${a} of ${b}`, goPage: "Go to page",
@@ -738,6 +752,7 @@ window.DalilStudy = function (ctx) {
       <p class="lead">${s("lead")}</p>
       ${state.lang === "en" ? `<p class="small" style="margin:2px 2px 0">${s("english")}</p>` : ""}
       ${profileBar()}
+      ${parentCta()}
       ${countdownCard()}
       ${cont}
       ${stages.map(([st, label]) => {
@@ -762,6 +777,18 @@ window.DalilStudy = function (ctx) {
     return (ar() ? n : en) || g.id;
   }
 
+  // prominent sign-in card at the top of the study home and the main home screen
+  function parentCta() {
+    if (!accountsOn() || me() || (profile && profile.mode === "student" && !profile.unlinked)) return "";
+    return `<section class="st-cta">
+      <span class="ic">${ic("family")}</span>
+      <div class="grow"><b>${s("parentCta")}</b><small>${s("parentCtaSub")}</small></div>
+      <div class="st-cta-a">
+        <button class="btn google" data-st="parentSignIn">${account.googleMark ? account.googleMark() : ""}${s("parentCtaBtn")}</button>
+        <button class="link-btn" data-st="studentLink">${s("studentTitle")}</button>
+      </div>
+    </section>`;
+  }
   function accountsBlock() {
     if (!accountsOn()) return "";
     const u = me();
@@ -830,7 +857,8 @@ window.DalilStudy = function (ctx) {
     const st = subjStats(r.g, sub);
     const wn = wrongCount(r.g, sub.id);
     const savedN = allLessons(sub).filter((l) => P_().marks[l.id]).length;
-    const pastN = (sub.sets || []).filter((x) => x.kind === "past" && (x.term || 1) === t).length;
+    const pastN = (sub.sets || []).filter((x) => x.kind === "past" && (x.term || 1) === t && ((x.q || []).length || x.pdf)).length;
+    const bookN = (sub.books || []).filter((b) => (b.term || 1) === t && b.url).length;
     const revN = (sub.sets || []).filter((x) => x.kind !== "past" && (x.term || 1) === t && (x.q || []).length).length;
     const tile = (act, icn, title, sub2, extra) => `<button class="st-big" data-st="${act}" data-g="${esc(r.g)}" data-s="${esc(sub.id)}"${extra || ""}>
       <span class="ic">${ic(icn)}</span><b>${title}</b><small>${sub2}</small></button>`;
@@ -842,7 +870,7 @@ window.DalilStudy = function (ctx) {
         ${ring(st.total ? st.doneN / st.total * 100 : 0, 58, s("stats", num(st.doneN), num(st.total)))}
       </section>
       <div class="st-bigs">
-        ${tile("book", "study", s("book"), s("bookSub"))}
+        ${tile("book", "study", s("book"), bookN ? s("bookSub") : s("soon"))}
         ${tile("lessons", "list", s("explain"), st.total ? s("lessonsN", num(st.total)) : s("soon"))}
         ${tile("sets", "archive", s("past"), pastN ? s("pastSub") : s("soon"), ' data-k="past"')}
         ${tile("sets", "target", s("review"), revN ? s("reviewSub") : s("soon"), ' data-k="review"')}
@@ -920,6 +948,7 @@ window.DalilStudy = function (ctx) {
       <div class="st-lhead subj-${esc(sub.id)}">
         <small>${esc(N(sub))} · ${s("unit")} ${num((sub.units || []).indexOf(f.u) + 1)}: ${esc(N(f.u))}</small>
         <h2>${esc(N(f.l))}</h2>
+        ${f.l.page ? `<small class="st-pg">${ic("study")}${esc(s("bookPage", num(f.l.page)))}</small>` : ""}
         <button class="st-mark" data-st="mark" data-l="${esc(f.l.id)}" aria-pressed="${marked}" aria-label="${marked ? s("unsaveLesson") : s("saveLesson")}">${ic("star")}</button>
       </div>
       <article class="st-body">${(f.l.body || []).map(block).join("")}</article>
@@ -961,10 +990,16 @@ window.DalilStudy = function (ctx) {
       </button>`;
     };
     if (r.k === "past") {
-      const list = (sub.sets || []).filter((x) => x.kind === "past" && (x.term || 1) === t).sort((a, b) => String(b.year).localeCompare(String(a.year)));
+      const list = (sub.sets || []).filter((x) => x.kind === "past" && (x.term || 1) === t && ((x.q || []).length || x.pdf))
+        .sort((a, b) => String(b.year).localeCompare(String(a.year)));
+      const pdfCard = (x) => `<button class="st-set" data-st="pastPdf" data-g="${esc(r.g)}" data-s="${esc(sub.id)}" data-set="${esc(x.id)}">
+        <span class="st-setic"><b>${esc(String(x.year || "").slice(-4))}</b></span>
+        <span class="grow"><b>${esc(N(x))}</b><small>${s("officialExam")}${x.lang ? " · " + esc(x.lang) : ""}</small></span>
+        <span class="end">${icon("ext")}</span></button>`;
       return `<h2 class="page-title">${s("past")}</h2><p class="lead">${esc(N(sub))} · ${s("term", t)}</p>
         <div class="notice">${s("pastNote")}</div>
-        ${list.length ? `<div class="st-sets">${list.map(card).join("")}</div>` : `<div class="st-soon">${ic("archive")}<p>${s("noSets")}</p></div>`}`;
+        ${list.length ? `<div class="st-sets">${list.map((x) => ((x.q || []).length ? card(x) : pdfCard(x))).join("")}</div>
+          <p class="disclaimer">${s("officialSrc")}</p>` : `<div class="st-soon">${ic("archive")}<p>${s("noSets")}</p></div>`}`;
     }
     const exp = (sub.sets || []).filter((x) => x.kind === "expected" && (x.term || 1) === t);
     const rev = (sub.sets || []).filter((x) => x.kind === "review" && (x.term || 1) === t);
@@ -1199,14 +1234,14 @@ window.DalilStudy = function (ctx) {
     const c = ensureContent(r.g);
     if (!c || c.status !== "ok") return loadingBlock(c);
     const sub = subjectOf(r.g, r.s); if (!sub) return "";
-    const books = (sub.books || []).filter((b) => (b.term || 1) === term());
+    const books = r.pdf ? [{ url: r.pdf, ar: r.title, en: r.title }] : (sub.books || []).filter((b) => (b.term || 1) === term());
     const pick = books[r.b || 0];
     const lib = (pick && pick.page) || catalog.library || DEFAULT_CATALOG.library;
     const chips = books.length > 1 ? `<div class="chips">${books.map((b, i) => `<button class="chip" data-st="bookPick" data-i="${i}" aria-pressed="${(r.b || 0) === i}">${esc(N(b) || s("book"))}</button>`).join("")}</div>` : "";
     if (!pick || !pick.url) {
       return `<h2 class="page-title">${s("book")} — ${esc(N(sub))}</h2>${chips}
-        <div class="st-soon">${ic("study")}<p>${s("bookNone")}</p>
-        <a class="btn" href="#" data-ext="${esc(lib)}">${icon("ext")}${s("bookOpenLib")}</a></div>`;
+        <div class="st-soon">${ic("study")}<b>${s("soon")}</b><p>${s("bookNone")}</p>
+        <button class="btn ghost" data-st="lessons" data-g="${esc(r.g)}" data-s="${esc(sub.id)}">${ic("list")}${s("explain")}</button></div>`;
     }
     return `<div class="pdf-wrap">
       ${chips}
@@ -1566,6 +1601,11 @@ window.DalilStudy = function (ctx) {
       case "zoom": zoomBook(+el.dataset.d); break;
       case "goPage": goPageSheet(); break;
       case "sets": push({ v: "sets", g, s: sid, k: el.dataset.k }); break;
+      case "pastPdf": {
+        const sub = subjectOf(g, sid); const set = sub && (sub.sets || []).find((x) => x.id === el.dataset.set);
+        if (set && set.pdf) push({ v: "book", g, s: sid, pdf: set.pdf, title: N(set) });
+        break;
+      }
       case "startSet": {
         const sub = subjectOf(g, sid); const set = sub && (sub.sets || []).find((x) => x.id === el.dataset.set);
         if (set) startSheet(g, sid, set);
@@ -1737,7 +1777,7 @@ window.DalilStudy = function (ctx) {
   if (profile && profile.mode === "student") nav = [{ v: "home" }];
 
   return {
-    view, mount, onClick, onBack, homeCard, homeKids,
+    view, mount, onClick, onBack, homeCard, homeKids, parentCta,
     label: () => s("tab"),
     canBack: () => nav.length > 1,
     fullScreen: () => top().v === "quiz" || top().v === "book",
