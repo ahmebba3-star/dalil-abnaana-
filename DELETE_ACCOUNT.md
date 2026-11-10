@@ -1,5 +1,15 @@
-# حذف حساب المكالمات — دليل أبنائنا بالخارج
-# Delete your calls account — Our Children Abroad Guide
+# حذف الحساب — دليل أبنائنا بالخارج
+# Delete your account — Our Children Abroad Guide
+
+## حساب ولي الأمر في «مذاكرتي»
+
+1. افتح **«مذاكرتي»** ← **«حساب ولي الأمر»**.
+2. لحذف ابن واحد: اضغط على اسمه ← **«حذف الابن من الحساب»**. هتتمسح درجاته وتقدمه وأكواد الربط بتاعته.
+3. لحذف كل حاجة: انزل لآخر الصفحة ← **«حذف حساب ولي الأمر»**. هيتمسح كل أبنائك وكل بياناتهم وحسابك.
+
+جهاز الطالب يقدر يلغي ربط نفسه من **«مذاكرتي»** ← **«إلغاء ربط الجهاز ده»**.
+
+## حساب المكالمات
 
 ## من جوه التطبيق (الأسرع)
 
@@ -16,6 +26,9 @@
 
 ## English
 
+**Study parent account:** open **Study → Parent account**. Tap a child → **Remove child from account** to delete that child's scores, progress and link codes, or tap **Delete parent account** at the bottom to delete all children and the account. A student device can unlink itself from **Study → Unlink this device**.
+
+**Calls account:** 
 **In the app:** open **Family**, scroll to the bottom, tap **Delete my account** and confirm. Your name, invite code, family list, blocked list and account are deleted immediately. Your name is removed from past call records, which then show "deleted account".
 
 **Without the app:** email **ahmedebbba@gmail.com** with the subject "Delete account" and the Google email you signed in with. We delete the account within 7 days and confirm by reply.

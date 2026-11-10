@@ -4,6 +4,7 @@
   /* ================= Icons ================= */
   const I = {
     home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+    study: '<path d="M2.5 5.5c3-1.3 6.2-1.3 9.5.8 3.3-2.1 6.5-2.1 9.5-.8V19c-3-1.3-6.2-1.3-9.5.8-3.3-2.1-6.5-2.1-9.5-.8z"/><path d="M12 6.3v13.5"/>',
     exams: '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3"/><path d="M8 7h7M8 11h5"/>',
     consular: '<path d="M3 21h18M5 21V10M19 21V10M9 21v-7h6v7M2 10l10-6 10 6z"/>',
     news: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>',
@@ -373,7 +374,7 @@
           ${s.art === "portal" ? `<div class="reg-links"><a class="btn" href="#" data-ext="${OFFICIAL_LINKS.sabroad}">${icon("ext")}${t("openPlatform")}</a><a class="btn ghost" href="#" data-ext="${OFFICIAL_LINKS.sabroadLogin}">${icon("key")}${t("qLogin")}</a></div>` : ""}
         </section>`;
       }).join("")}
-      ${Assistant ? Assistant.entryRow() : ""}
+      ${AI() ? Assistant.entryRow() : ""}
       ${govNotice("exams")}
     `;
   }
@@ -382,9 +383,11 @@
   function viewHome() {
     const c = country();
     const news = ((state.data && state.data.news) || []).slice(0, 3);
+    const kidsSynced = Study && Study.homeKids();
     return `
       ${ticketHTML()}
-      ${Assistant ? Assistant.entryCard() : ""}
+      ${Study ? Study.homeCard() : ""}
+      ${AI() ? Assistant.entryCard() : ""}
       <h2 class="sec">${t("quick")}</h2>
       <div class="tiles">
         <a class="tile" href="#" data-ext="${OFFICIAL_LINKS.sabroad}"><span class="ic">${icon("globe")}</span><b>${t("qPlatform")}</b><small>${t("qPlatformSub")}</small></a>
@@ -392,8 +395,9 @@
         <button class="tile" data-go="consular"><span class="ic">${icon("consular")}</span><b>${t("qEmbassy")}</b><small>${esc(state.lang === "ar" ? c.ar : c.en)}</small></button>
         <button class="tile" data-go="tools"><span class="ic">${icon("phone")}</span><b>${t("qEmergency")}</b><small>${c.emergency.length ? esc(c.emergency.map((x) => x[0]).slice(0, 3).join(" / ")) : esc(state.lang === "ar" ? c.ar : c.en)}</small></button>
       </div>
-      <h2 class="sec">${t("myChildren")}<button data-act="addChild">${t("addChild")}</button></h2>
-      ${childrenHTML()}
+      ${kidsSynced
+        ? `<h2 class="sec">${t("myChildren")}<button data-st="open" data-to="parent">${t("addChild")}</button></h2>${kidsSynced}`
+        : `<h2 class="sec">${t("myChildren")}<button data-act="addChild">${t("addChild")}</button></h2>${childrenHTML()}`}
       <h2 class="sec">${t("latestNews")}<button data-go="news">${t("seeAll")}</button></h2>
       ${news.map(newsCard).join("")}
       ${govNotice("all")}
@@ -460,7 +464,7 @@
       <div class="panel">
         ${["tip1", "tip2", "tip3"].map((k) => `<div class="row" style="cursor:default"><span class="ic" style="background:var(--gold-soft);color:#8A6413">${icon("alert")}</span><span class="grow">${t(k)}</span></div>`).join("")}
       </div>
-      ${Assistant ? Assistant.entryRow() : ""}
+      ${AI() ? Assistant.entryRow() : ""}
       ${govNotice("exams")}
     `;
   }
@@ -494,7 +498,7 @@
         <a class="row" href="#" data-ext="${OFFICIAL_LINKS.mfa}"><span class="ic">${icon("globe")}</span><span class="grow"><span class="t">${t("mfaSite")}</span><span class="s">mfa.gov.eg</span></span><span class="end">${icon("ext")}</span></a>
         <a class="row" href="#" data-ext="${OFFICIAL_LINKS.digital}"><span class="ic">${icon("globe")}</span><span class="grow"><span class="t">${t("digitalSite")}</span><span class="s">digital.gov.eg</span></span><span class="end">${icon("ext")}</span></a>
       </div>
-      ${Assistant ? Assistant.entryRow() : ""}
+      ${AI() ? Assistant.entryRow() : ""}
       ${govNotice("consular")}
     `;
   }
@@ -698,7 +702,8 @@
   }
 
   /* ================= Render & routing ================= */
-  const TABS = [["home", "home", "tabHome"], ["exams", "exams", "tabExams"], ["family", "phone", "tabFamily"], ["consular", "consular", "tabConsular"], ["news", "news", "tabNews"], ["tools", "tools", "tabTools"]];
+  const TABS = [["home", "home", "tabHome"], ["study", "study", "tabStudy"], ["exams", "exams", "tabExams"], ["family", "phone", "tabFamily"], ["consular", "consular", "tabConsular"], ["news", "news", "tabNews"], ["tools", "tools", "tabTools"]];
+  const inStudy = () => !!(Study && state.country && !state.sub && state.tab === "study");
   const view = document.getElementById("view");
   let cdTimer;
 
@@ -711,10 +716,13 @@
     const backBtn = document.getElementById("backBtn"), setBtn = document.getElementById("settingsBtn");
     backBtn.innerHTML = icon("back", state.lang === "ar" ? "" : "flip"); backBtn.setAttribute("aria-label", t("back"));
     setBtn.innerHTML = icon("gear"); setBtn.setAttribute("aria-label", t("settings"));
-    backBtn.hidden = !state.sub; setBtn.hidden = !!state.sub || onboarding;
+    const studyBack = inStudy() && Study.canBack();
+    backBtn.hidden = !state.sub && !studyBack; setBtn.hidden = !!state.sub || onboarding || studyBack;
     const tabbar = document.getElementById("tabbar");
-    tabbar.hidden = onboarding || state.sub === "assistant";
+    const studyFull = inStudy() && Study.fullScreen();
+    tabbar.hidden = onboarding || state.sub === "assistant" || studyFull;
     view.classList.toggle("chat-view", state.sub === "assistant");
+    view.classList.toggle("st-full", studyFull);
     tabbar.innerHTML = TABS.map(([id, ic, lbl]) => `<button data-tab="${id}" ${state.tab === id && !state.sub ? 'aria-current="page"' : ""}><span class="pill">${icon(ic)}</span>${t(lbl)}</button>`).join("");
 
     let body;
@@ -722,10 +730,11 @@
     else if (state.sub === "settings") body = viewSettings();
     else if (state.sub === "regguide") body = viewRegGuide();
     else if (state.sub === "assistant") body = Assistant ? Assistant.view() : "";
-    else body = ({ home: viewHome, exams: viewExams, family: viewFamily, consular: viewConsular, news: viewNews, tools: viewTools }[state.tab] || viewHome)();
+    else body = ({ home: viewHome, study: viewStudy, exams: viewExams, family: viewFamily, consular: viewConsular, news: viewNews, tools: viewTools }[state.tab] || viewHome)();
     view.innerHTML = body;
     fixLinks(view);
     if (state.sub === "assistant" && Assistant) Assistant.mount(view);
+    if (Study) Study.mount(inStudy() ? view : null);
     view.classList.remove("view-enter"); void view.offsetWidth; view.classList.add("view-enter");
 
     clearInterval(cdTimer);
@@ -760,11 +769,48 @@
     }
   } catch (e) { Assistant = null; }
 
-  document.getElementById("tabbar").addEventListener("click", (e) => { const b = e.target.closest("[data-tab]"); if (b) go(b.dataset.tab); });
+  /* ================= Study (مذاكرتي) ================= */
+  let Study = null;
+  function viewStudy() { return Study ? Study.view() : ""; }
+  function studyRefresh(toTop) {
+    if (!inStudy()) return;
+    const y = view.scrollTop;
+    render();
+    if (toTop) view.scrollTop = 0;
+    else { view.classList.remove("view-enter"); view.scrollTop = y; }
+  }
+  try {
+    if (window.DalilStudy) {
+      Study = window.DalilStudy({
+        icon, esc, toast, openSheet, closeSheet, state, store, isNative, P, go, fmtDate, fmtNum, nextExam,
+        account: Calls && Calls.account ? Calls.account : null,
+        refresh: studyRefresh,
+        // background updates (content loaded, sign-in changed): keep the book and a running exam untouched
+        rerender: () => {
+          if (inStudy() && !Study.busyView()) studyRefresh(false);
+          else if (state.country && !state.sub && state.tab === "home") { const y = view.scrollTop; render(); view.classList.remove("view-enter"); view.scrollTop = y; }
+        },
+        ensureTab: () => { state.tab = "study"; state.sub = null; closeSheet(); },
+        ads: { preload: preloadInterstitial, interstitial: showInterstitial, rewarded: showRewarded }
+      });
+    }
+  } catch (e) { Study = null; }
+  // the AI assistant is for parents; it's hidden on a child's linked device
+  const AI = () => !!(Assistant && !(Study && Study.isStudentDevice()));
+
+  document.getElementById("tabbar").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-tab]"); if (!b) return;
+    if (b.dataset.tab === "study" && inStudy()) { if (Study.reset()) { render(); view.scrollTop = 0; } return; }
+    go(b.dataset.tab);
+  });
   document.getElementById("settingsBtn").addEventListener("click", () => { state.sub = "settings"; render(); view.scrollTop = 0; });
-  document.getElementById("backBtn").addEventListener("click", () => { state.sub = null; render(); });
+  document.getElementById("backBtn").addEventListener("click", () => {
+    if (!state.sub && inStudy()) { Study.onBack(); return; }
+    state.sub = null; render();
+  });
 
   view.addEventListener("click", async (e) => {
+    if (Study && Study.onClick(e)) return;
     if (Assistant && Assistant.onClick(e)) return;
     if (Calls && Calls.onClick(e)) return;
     const el = e.target.closest("[data-go],[data-act],[data-lang],[data-pick],[data-cat],#onbStart");
@@ -796,31 +842,53 @@
     }
   });
 
-  /* ================= Ads (news tab only) ================= */
+  /* ================= Ads (news tab + study pages) =================
+   * The study section is used by children, so every ad request is child-directed,
+   * non-personalized and rated G (Google Play Families policy). No consent form is needed then. */
+  const AD_TEST = { banner: "ca-app-pub-3940256099942544/6300978111", inter: "ca-app-pub-3940256099942544/1033173712", reward: "ca-app-pub-3940256099942544/5224354917" };
+  const adId = (kind, real) => (real && !String(real).startsWith("__") ? real : AD_TEST[kind]);
   let adsReady = false, bannerShown = false;
   async function initAds() {
     const A = P("AdMob"); if (!A) return;
     try {
-      await A.initialize({ initializeForTesting: !!APP_CONFIG.ADMOB_TESTING });
-      try {
-        const info = await A.requestConsentInfo();
-        if (info.isConsentFormAvailable && info.status === "REQUIRED") await A.showConsentForm();
-      } catch (e) { /* consent not needed */ }
+      await A.initialize({ initializeForTesting: !!APP_CONFIG.ADMOB_TESTING, tagForChildDirectedTreatment: true, tagForUnderAgeOfConsent: true, maxAdContentRating: "General" });
       adsReady = true; updateAds();
     } catch (e) { /* ignore */ }
   }
   async function updateAds() {
     const A = P("AdMob"); if (!A || !adsReady) return;
-    const want = !!state.country && !state.sub && state.tab === "news";
+    const want = !!state.country && !state.sub && (state.tab === "news" || (inStudy() && Study.wantsBanner()));
     view.classList.toggle("with-ad", want);
     try {
       if (want && !bannerShown) {
-        const id = APP_CONFIG.ADMOB_BANNER_ID && !APP_CONFIG.ADMOB_BANNER_ID.startsWith("__") ? APP_CONFIG.ADMOB_BANNER_ID : "ca-app-pub-3940256099942544/6300978111";
-        await A.showBanner({ adId: id, adSize: "ADAPTIVE_BANNER", position: "BOTTOM_CENTER", margin: 64, isTesting: !!APP_CONFIG.ADMOB_TESTING });
+        await A.showBanner({ adId: adId("banner", APP_CONFIG.ADMOB_BANNER_ID), adSize: "ADAPTIVE_BANNER", position: "BOTTOM_CENTER", margin: 64, isTesting: !!APP_CONFIG.ADMOB_TESTING, npa: true });
         bannerShown = true;
       } else if (want && bannerShown) { await A.resumeBanner(); }
       else if (!want && bannerShown) { await A.hideBanner(); }
     } catch (e) { /* ignore */ }
+  }
+  // full-screen ad after a finished exam: never the first one, and at most once every 4 minutes
+  let interReady = null, lastInter = 0, finishedN = 0;
+  function interAllowed() { return finishedN >= 1 && Date.now() - lastInter > 4 * 60000; }
+  function preloadInterstitial() {
+    const A = P("AdMob"); if (!A || !adsReady || interReady || !interAllowed()) return;
+    interReady = A.prepareInterstitial({ adId: adId("inter", APP_CONFIG.ADMOB_INTERSTITIAL_ID), isTesting: !!APP_CONFIG.ADMOB_TESTING, npa: true }).then(() => true, () => { interReady = null; return false; });
+  }
+  async function showInterstitial() {
+    const A = P("AdMob");
+    const ready = interReady; finishedN++;
+    if (!A || !adsReady || !ready || Date.now() - lastInter < 4 * 60000) return;
+    interReady = null;
+    try {
+      if (await Promise.race([ready, new Promise((r) => setTimeout(() => r(false), 1500))])) { await A.showInterstitial(); lastInter = Date.now(); }
+    } catch (e) { /* ignore */ }
+  }
+  // optional rewarded ad for "show the answer" in practice; if no ad is available the answer is shown anyway
+  async function showRewarded() {
+    const A = P("AdMob"); if (!A || !adsReady) return true;
+    try { await A.prepareRewardVideoAd({ adId: adId("reward", APP_CONFIG.ADMOB_REWARDED_ID), isTesting: !!APP_CONFIG.ADMOB_TESTING, npa: true }); }
+    catch (e) { return true; }
+    try { await A.showRewardVideoAd(); return true; } catch (e) { return false; }
   }
 
   /* ================= Android back button ================= */
@@ -830,6 +898,7 @@
       if (Calls && Calls.onBack()) return;
       if (!sheet.hidden) return closeSheet();
       if (state.sub) { state.sub = null; return render(); }
+      if (inStudy() && Study.onBack()) return;
       if (state.country && state.tab !== "home") return go("home");
       App.exitApp();
     });

@@ -1,0 +1,61 @@
+{
+ "updated": "2026-11-08",
+ "library": "https://ellibrary.moe.gov.eg/books/",
+ "grades": [
+  {
+   "id": "P4",
+   "ar": "الرابع الابتدائي",
+   "en": "Primary 4",
+   "stage": "p"
+  },
+  {
+   "id": "P5",
+   "ar": "الخامس الابتدائي",
+   "en": "Primary 5",
+   "stage": "p"
+  },
+  {
+   "id": "P6",
+   "ar": "السادس الابتدائي",
+   "en": "Primary 6",
+   "stage": "p"
+  },
+  {
+   "id": "M1",
+   "ar": "الأول الإعدادي",
+   "en": "Preparatory 1",
+   "stage": "m",
+   "file": "study-M1.json"
+  },
+  {
+   "id": "M2",
+   "ar": "الثاني الإعدادي",
+   "en": "Preparatory 2",
+   "stage": "m"
+  },
+  {
+   "id": "M3",
+   "ar": "الثالث الإعدادي",
+   "en": "Preparatory 3",
+   "stage": "m"
+  },
+  {
+   "id": "S1",
+   "ar": "الأول الثانوي",
+   "en": "Secondary 1",
+   "stage": "s"
+  },
+  {
+   "id": "S2G",
+   "ar": "الثاني الثانوي — عام",
+   "en": "Secondary 2 — General",
+   "stage": "s"
+  },
+  {
+   "id": "S2B",
+   "ar": "الثاني الثانوي — بكالوريا",
+   "en": "Secondary 2 — Baccalaureate",
+   "stage": "s"
+  }
+ ]
+}

@@ -377,7 +377,8 @@ window.DalilCalls = function (ctx) {
     if (!COMING_SOON) backend.setupChannels();
     try {
       const u = await backend.currentUser();
-      if (u) await afterSignIn(u, false);
+      // a student device is signed in anonymously by the study section; that isn't a parent/Google account
+      if (u && !u.isAnonymous) await afterSignIn(u, false);
     } catch (e) { /* signed out */ }
     authChecked = true; emitAuth();
     if (state.tab === "family") rerender();
@@ -899,6 +900,7 @@ window.DalilCalls = function (ctx) {
       busy: () => busy,
       user: () => me,
       signIn: () => signIn({ quiet: true }),
+      signOut: () => signOut(),
       fn: (name, data) => backend.fn(name, data),
       idToken: () => backend.idToken(),
       onChange: (f) => authListeners.push(f),
