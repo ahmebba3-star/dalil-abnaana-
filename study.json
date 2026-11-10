@@ -3,6 +3,42 @@
  "library": "https://ellibrary.moe.gov.eg/books/",
  "grades": [
   {
+   "id": "KG1",
+   "ar": "رياض أطفال 1",
+   "en": "KG 1",
+   "stage": "k",
+   "young": true
+  },
+  {
+   "id": "KG2",
+   "ar": "رياض أطفال 2",
+   "en": "KG 2",
+   "stage": "k",
+   "young": true
+  },
+  {
+   "id": "P1",
+   "ar": "الأول الابتدائي",
+   "en": "Primary 1",
+   "stage": "k",
+   "young": true
+  },
+  {
+   "id": "P2",
+   "ar": "الثاني الابتدائي",
+   "en": "Primary 2",
+   "stage": "k",
+   "young": true
+  },
+  {
+   "id": "P3",
+   "ar": "الثالث الابتدائي",
+   "en": "Primary 3",
+   "stage": "k",
+   "young": true,
+   "file": "study-P3.json"
+  },
+  {
    "id": "P4",
    "ar": "الرابع الابتدائي",
    "en": "Primary 4",
