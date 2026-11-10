@@ -397,7 +397,7 @@
       </div>
       ${kidsSynced
         ? `<h2 class="sec">${t("myChildren")}<button data-st="open" data-to="parent">${t("addChild")}</button></h2>${kidsSynced}`
-        : `<h2 class="sec">${t("myChildren")}<button data-act="addChild">${t("addChild")}</button></h2>${childrenHTML()}`}
+        : `<h2 class="sec">${t("myChildren")}<button data-act="addChild">${t("addChild")}</button></h2>${Study ? Study.parentCta() : ""}${childrenHTML()}`}
       <h2 class="sec">${t("latestNews")}<button data-go="news">${t("seeAll")}</button></h2>
       ${news.map(newsCard).join("")}
       ${govNotice("all")}
