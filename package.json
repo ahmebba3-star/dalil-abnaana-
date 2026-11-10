@@ -1,13 +1,14 @@
 {
   "name": "dalil-abnaana",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "private": true,
-  "description": "\u062f\u0644\u064a\u0644 \u0623\u0628\u0646\u0627\u0626\u0646\u0627 \u0628\u0627\u0644\u062e\u0627\u0631\u062c - Egyptians Abroad Guide",
+  "description": "دليل أبنائنا بالخارج - Egyptians Abroad Guide",
   "scripts": {
     "sync": "npx cap sync android"
   },
   "dependencies": {
     "@capacitor-community/admob": "8.2.1",
+    "@capacitor-community/text-to-speech": "8.0.2",
     "@capacitor-firebase/authentication": "8.5.2",
     "@capacitor-firebase/firestore": "8.5.2",
     "@capacitor-firebase/functions": "8.5.2",

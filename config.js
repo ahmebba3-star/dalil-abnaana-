@@ -10,5 +10,5 @@ window.APP_CONFIG = {
   CALLS_ENABLED: false,
   CALLS_COMING_SOON: true,
   ASSISTANT_URL: "__ASSISTANT_URL__",
-  VERSION: "1.2.1"
+  VERSION: "1.3.0"
 };

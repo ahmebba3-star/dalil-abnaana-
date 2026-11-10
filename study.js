@@ -63,6 +63,10 @@ window.DalilStudy = function (ctx) {
       parentCta: "تابع أبناءك من أي جهاز",
       parentCtaSub: "سجّل دخول كولي أمر بحساب جوجل، وضيف أبناءك، واربط موبايلاتهم بكود",
       parentCtaBtn: "سجّل الدخول بجوجل",
+      stageK: "رياض الأطفال والصفوف الأولى",
+      youngNote: "الصف ده للأطفال أقل من 9 سنين، فمفيش حساب للطفل ولا كود ربط. ذاكر معاه من موبايلك، ونتايجه بتتحفظ هنا في متابعته.",
+      studyWith: (n) => `ذاكر مع ${n}`, studyWithSub: "افتح الدروس والتدريبات باسمه على موبايلك",
+      listen: "اسمع", practiceT: "تدريبات", practiceSub: "أسئلة بالصور والصوت على كل الدروس", noVoice: "القراية بالصوت مش متاحة على الجهاز ده", noYoungCode: "الكود مش متاح للصفوف دي",
       bookLoading: "بيتحمّل الكتاب…", bookFail: "مقدرناش نحمّل الكتاب. اتأكد من الإنترنت وجرب تاني.",
       bookSaved: "الكتاب محفوظ على جهازك وتقدر تقراه من غير نت",
       page: (a, b) => `صفحة ${a} من ${b}`, goPage: "روح لصفحة",
@@ -198,6 +202,10 @@ window.DalilStudy = function (ctx) {
       parentCta: "Follow your children from any device",
       parentCtaSub: "Sign in as a parent with Google, add your children and link their phones with a code",
       parentCtaBtn: "Sign in with Google",
+      stageK: "Kindergarten and early grades",
+      youngNote: "This grade is for children under 9, so there is no child account or link code. Study together on your phone, and the results are saved here.",
+      studyWith: (n) => `Study with ${n}`, studyWithSub: "Open lessons and practice under their name on your phone",
+      listen: "Listen", practiceT: "Practice", practiceSub: "Picture and audio questions on every lesson", noVoice: "Read-aloud is not available on this device", noYoungCode: "Codes are not available for these grades",
       bookLoading: "Loading the book…", bookFail: "Couldn't load the book. Check your connection and try again.",
       bookSaved: "Saved on your device, readable offline",
       page: (a, b) => `Page ${a} of ${b}`, goPage: "Go to page",
@@ -291,6 +299,7 @@ window.DalilStudy = function (ctx) {
 
   /* ================= Extra icons ================= */
   const XI = {
+    sound: '<path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/>',
     study: '<path d="M2.5 5.5c3-1.3 6.2-1.3 9.5.8 3.3-2.1 6.5-2.1 9.5-.8V19c-3-1.3-6.2-1.3-9.5.8-3.3-2.1-6.5-2.1-9.5-.8z"/><path d="M12 6.3v13.5"/>',
     calc: '<rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8 6.5h8M8.5 11h.01M12 11h.01M15.5 11h.01M8.5 14.5h.01M12 14.5h.01M15.5 14.5h.01M8.5 18h.01M12 18h3.5"/>',
     flask: '<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 14h9"/>',
@@ -319,6 +328,11 @@ window.DalilStudy = function (ctx) {
   const DEFAULT_CATALOG = {
     updated: "2026-11-08",
     grades: [
+      { id: "KG1", ar: "رياض أطفال 1", en: "KG 1", stage: "k", young: true },
+      { id: "KG2", ar: "رياض أطفال 2", en: "KG 2", stage: "k", young: true },
+      { id: "P1", ar: "الأول الابتدائي", en: "Primary 1", stage: "k", young: true },
+      { id: "P2", ar: "الثاني الابتدائي", en: "Primary 2", stage: "k", young: true },
+      { id: "P3", ar: "الثالث الابتدائي", en: "Primary 3", stage: "k", young: true },
       { id: "P4", ar: "الرابع الابتدائي", en: "Primary 4", stage: "p" },
       { id: "P5", ar: "الخامس الابتدائي", en: "Primary 5", stage: "p" },
       { id: "P6", ar: "السادس الابتدائي", en: "Primary 6", stage: "p" },
@@ -332,7 +346,7 @@ window.DalilStudy = function (ctx) {
     library: "https://ellibrary.moe.gov.eg/books/"
   };
   // ربط صفوف قائمة «أبنائي» القديمة بصفوف المذاكرة
-  const OLD_GRADE = { P4: "P4", P5: "P5", P6: "P6", M1: "M1", M2: "M2", M3: "M3", S1: "S1", S2: "S2G" };
+  const OLD_GRADE = { KG1: "KG1", KG2: "KG2", P1: "P1", P2: "P2", P3: "P3", P4: "P4", P5: "P5", P6: "P6", M1: "M1", M2: "M2", M3: "M3", S1: "S1", S2: "S2G" };
 
   let catalog = store.get("study:c:study.json", null) || DEFAULT_CATALOG;
   const content = {}; // grade id -> { status, data, live }
@@ -369,6 +383,16 @@ window.DalilStudy = function (ctx) {
     const r = await loadFile("study.json");
     if (r.data && Array.isArray(r.data.grades)) { catalog = r.data; refresh(); }
   }
+  // under-9 grades: no child account, no link code, no ads, bigger UI with read-aloud
+  const isYoung = (gid) => !!gid && (gradeInfo(gid) ? !!gradeInfo(gid).young : /^(KG\d|P[123])$/.test(gid));
+  function curGrade() {
+    const r = top();
+    if (r.g) return r.g;
+    if ((r.v === "quiz" || r.v === "result") && quiz) return quiz.g;
+    if (profile && profile.mode === "parentAs") return profile.grade;
+    return null;
+  }
+  const youngNow = () => isYoung(curGrade());
   function gradeInfo(id) { return (catalog.grades || []).find((g) => g.id === id) || DEFAULT_CATALOG.grades.find((g) => g.id === id) || null; }
   function gradeName(id) { const g = gradeInfo(id); return g ? N(g) : id || ""; }
 
@@ -608,12 +632,14 @@ window.DalilStudy = function (ctx) {
   let nav = [{ v: "home" }];
   const top = () => nav[nav.length - 1];
   function push(r) {
+    stopSay();
     if (top().v === "quiz" && r.v === "result") nav.pop();
     nav.push(r); ctx.refresh(true);
   }
-  function replace(r) { nav[nav.length - 1] = r; ctx.refresh(true); }
+  function replace(r) { stopSay(); nav[nav.length - 1] = r; ctx.refresh(true); }
   function back() {
     if (nav.length <= 1) return false;
+    stopSay();
     if (top().v === "quiz" && quiz && !quiz.done) { confirmExitQuiz(); return true; }
     leaveRoute(top());
     nav.pop();
@@ -653,7 +679,7 @@ window.DalilStudy = function (ctx) {
   const daysAgo = (ts) => Math.max(0, Math.floor((Date.now() - ts) / 864e5));
   const fmtDay = (ts) => ctx.fmtDate(new Date(ts).toISOString().slice(0, 10), { day: "numeric", month: "short" });
   const fmtDur = (sec) => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, "0")}`;
-  const SUBJ_IC = { math: "calc", science: "flask", social: "map", arabic: "pen2", english: "abc", religion: "study", ict: "tools" };
+  const SUBJ_IC = { math: "calc", science: "flask", discover: "eye", social: "map", arabic: "pen2", english: "abc", religion: "study", ict: "tools" };
   const subjIcon = (sub) => ic(sub.icon || SUBJ_IC[sub.id] || "study");
   function shuffle(a) { const r = a.slice(); for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; }
   function ring(pct, size, label) {
@@ -693,7 +719,7 @@ window.DalilStudy = function (ctx) {
       case "history": body = vHistory(); break;
       default: body = vHome();
     }
-    return `<div class="st">${body}</div>`;
+    return `<div class="st${youngNow() ? " young" : ""}">${body}</div>`;
   }
 
   function profileBar() {
@@ -746,7 +772,7 @@ window.DalilStudy = function (ctx) {
         <small>${mine ? s("myGrade") : g.file ? s("available") : s("soon")}</small>
       </button>`;
     };
-    const stages = [["p", ar() ? "المرحلة الابتدائية" : "Primary"], ["m", ar() ? "المرحلة الإعدادية" : "Preparatory"], ["s", ar() ? "المرحلة الثانوية" : "Secondary"]];
+    const stages = [["k", s("stageK")], ["p", ar() ? "المرحلة الابتدائية" : "Primary"], ["m", ar() ? "المرحلة الإعدادية" : "Preparatory"], ["s", ar() ? "المرحلة الثانوية" : "Secondary"]];
     return `
       <h2 class="page-title">${s("title")}</h2>
       <p class="lead">${s("lead")}</p>
@@ -770,10 +796,10 @@ window.DalilStudy = function (ctx) {
       <p class="disclaimer">${s("contentNote")}</p>
     `;
   }
-  const stageOf = (id) => (id[0] === "P" ? "p" : id[0] === "M" ? "m" : "s");
+  const stageOf = (id) => (/^(KG\d|P[123])$/.test(id) ? "k" : id[0] === "P" ? "p" : id[0] === "M" ? "m" : "s");
   function gradeShort(g) {
-    const n = { P4: "٤", P5: "٥", P6: "٦", M1: "١", M2: "٢", M3: "٣", S1: "١", S2G: "٢", S2B: "٢" }[g.id];
-    const en = { P4: "4", P5: "5", P6: "6", M1: "1", M2: "2", M3: "3", S1: "1", S2G: "2", S2B: "2" }[g.id];
+    const n = { KG1: "KG1", KG2: "KG2", P1: "١", P2: "٢", P3: "٣", P4: "٤", P5: "٥", P6: "٦", M1: "١", M2: "٢", M3: "٣", S1: "١", S2G: "٢", S2B: "٢" }[g.id];
+    const en = { KG1: "KG1", KG2: "KG2", P1: "1", P2: "2", P3: "3", P4: "4", P5: "5", P6: "6", M1: "1", M2: "2", M3: "3", S1: "1", S2G: "2", S2B: "2" }[g.id];
     return (ar() ? n : en) || g.id;
   }
 
@@ -872,8 +898,9 @@ window.DalilStudy = function (ctx) {
       <div class="st-bigs">
         ${tile("book", "study", s("book"), bookN ? s("bookSub") : s("soon"))}
         ${tile("lessons", "list", s("explain"), st.total ? s("lessonsN", num(st.total)) : s("soon"))}
+        ${isYoung(r.g) ? tile("sets", "target", s("practiceT"), revN ? s("practiceSub") : s("soon"), ' data-k="review"') : `
         ${tile("sets", "archive", s("past"), pastN ? s("pastSub") : s("soon"), ' data-k="past"')}
-        ${tile("sets", "target", s("review"), revN ? s("reviewSub") : s("soon"), ' data-k="review"')}
+        ${tile("sets", "target", s("review"), revN ? s("reviewSub") : s("soon"), ' data-k="review"')}`}
       </div>
       <div class="panel" style="margin-top:12px">
         <button class="row" data-st="mistakes" data-g="${esc(r.g)}" data-s="${esc(sub.id)}" ${wn ? "" : "disabled"}>
@@ -917,6 +944,7 @@ window.DalilStudy = function (ctx) {
   function block(b) {
     if (typeof b === "string") return `<p>${rich(b)}</p>`;
     if (b.h) return `<h3>${rich(b.h)}</h3>`;
+    if (b.big) return `<div class="st-big" dir="auto">${rich(b.big)}</div>`;
     if (b.ul) return `<ul class="bullets">${b.ul.map((x) => `<li>${rich(x)}</li>`).join("")}</ul>`;
     if (b.ol) return `<ol class="st-ol">${b.ol.map((x) => `<li>${rich(x)}</li>`).join("")}</ol>`;
     if (b.def) return `<div class="st-def"><span>${s("def")}</span>${rich(b.def)}</div>`;
@@ -939,9 +967,9 @@ window.DalilStudy = function (ctx) {
     const done = !!p.lessons[f.l.id], marked = !!p.marks[f.l.id];
     if (!p.last || p.last.l !== f.l.id) { p.last = { g: r.g, s: sub.id, l: f.l.id }; saveProg(); }
     const check = (f.l.check || []).map((q, qi) => `<div class="st-chk" data-q="${esc(q.id)}">
-        <p class="st-chkq"><span>${num(qi + 1)}</span>${rich(q.q)}</p>
+        <p class="st-chkq"><span>${num(qi + 1)}</span>${rich(q.q)}${isYoung(r.g) ? `<button class="st-say sm" data-st="say" data-say="${esc(sayText(q.q, q.t === "fill" ? [] : optList(q).map((o) => o.t)))}" aria-label="${s("listen")}">${ic("sound")}</button>` : ""}</p>
         ${q.t === "fill" ? `<div class="st-fill"><input class="input" dir="auto" autocomplete="off" placeholder="${esc(s("typeAnswer"))}" data-chkin="${esc(q.id)}"><button class="btn" data-st="chkFill" data-q="${esc(q.id)}">${s("check")}</button></div>`
-          : `<div class="st-opts">${optList(q).map((o) => `<button class="st-opt" data-st="chk" data-q="${esc(q.id)}" data-k="${esc(String(o.k))}">${rich(o.t)}</button>`).join("")}</div>`}
+          : `<div class="st-opts">${optList(q).map((o) => `<button class="st-opt${isEmo(o.t) ? " emo" : ""}" data-st="chk" data-q="${esc(q.id)}" data-k="${esc(String(o.k))}">${rich(o.t)}</button>`).join("")}</div>`}
         <div class="st-fb" hidden></div>
       </div>`).join("");
     return `
@@ -951,6 +979,7 @@ window.DalilStudy = function (ctx) {
         ${f.l.page ? `<small class="st-pg">${ic("study")}${esc(s("bookPage", num(f.l.page)))}</small>` : ""}
         <button class="st-mark" data-st="mark" data-l="${esc(f.l.id)}" aria-pressed="${marked}" aria-label="${marked ? s("unsaveLesson") : s("saveLesson")}">${ic("star")}</button>
       </div>
+      ${isYoung(r.g) ? `<button class="st-say" data-st="say" data-say="${esc(sayText(lessonText(f.l), []))}">${ic("sound")}${s("listen")}</button>` : ""}
       <article class="st-body">${(f.l.body || []).map(block).join("")}</article>
       ${check ? `<h2 class="sec">${s("checkYourself")}</h2><div class="st-chks">${check}</div>` : ""}
       <button class="btn block ${done ? "ghost" : ""}" style="margin-top:16px" data-st="done" data-l="${esc(f.l.id)}">${ic("check")}${done ? s("done") : s("markDone")}</button>
@@ -960,6 +989,42 @@ window.DalilStudy = function (ctx) {
       </div>
       <p class="disclaimer">${s("contentNote")}</p>
     `;
+  }
+
+  // plain text for read-aloud: drop markup and the LTR math markers
+  const isEmo = (t) => /^[\p{Extended_Pictographic}\u200d\ufe0f\s0-9️⃣]+$/u.test(String(t || "")) && /\p{Extended_Pictographic}/u.test(String(t || ""));
+  function plain(t) { return String(t == null ? "" : t).replace(/\*\*|\{\{|\}\}/g, "").replace(/\s+/g, " ").trim(); }
+  function sayText(q, opts) { return [plain(q)].concat((opts || []).map((o, i) => `${i + 1}: ${plain(o)}`)).join(". "); }
+  function lessonText(l) {
+    const out = [];
+    (l.body || []).forEach((b) => {
+      if (typeof b === "string") out.push(b);
+      else if (b.h || b.def || b.tip) out.push(b.h || b.def || b.tip);
+      else if (b.ul || b.ol) out.push(...(b.ul || b.ol));
+      else if (b.ex) out.push(b.ex.q, b.ex.a);
+    });
+    return out.join(". ");
+  }
+  let speaking = false;
+  async function say(text) {
+    const T = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech;
+    const lang = ar() ? "ar-EG" : "en-US";
+    try {
+      if (T) {
+        if (speaking) { speaking = false; await T.stop(); return; }
+        speaking = true;
+        await T.speak({ text, lang, rate: 0.9, pitch: 1.0, volume: 1.0, category: "playback" });
+        speaking = false;
+      } else if (window.speechSynthesis) {
+        if (speechSynthesis.speaking) { speechSynthesis.cancel(); return; }
+        const u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = 0.9; speechSynthesis.speak(u);
+      } else toast(s("noVoice"));
+    } catch (e) { speaking = false; }
+  }
+  function stopSay() {
+    const T = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech;
+    speaking = false;
+    try { if (T) T.stop(); else if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {}
   }
 
   function vSaved(r) {
@@ -1003,9 +1068,9 @@ window.DalilStudy = function (ctx) {
     }
     const exp = (sub.sets || []).filter((x) => x.kind === "expected" && (x.term || 1) === t);
     const rev = (sub.sets || []).filter((x) => x.kind === "review" && (x.term || 1) === t);
-    return `<h2 class="page-title">${s("review")}</h2><p class="lead">${esc(N(sub))} · ${s("term", t)}</p>
+    return `<h2 class="page-title">${isYoung(r.g) ? s("practiceT") : s("review")}</h2><p class="lead">${esc(N(sub))} · ${s("term", t)}</p>
       ${exp.length ? `<h2 class="sec">${s("expected")}</h2><div class="st-sets">${exp.map(card).join("")}</div>` : ""}
-      ${rev.length ? `<h2 class="sec">${s("unitReview")}</h2><div class="st-sets">${rev.map(card).join("")}</div>` : ""}
+      ${rev.length ? `<h2 class="sec">${isYoung(r.g) ? s("practiceT") : s("unitReview")}</h2><div class="st-sets">${rev.map(card).join("")}</div>` : ""}
       ${!exp.length && !rev.length ? `<div class="st-soon">${ic("target")}<p>${s("noSets")}</p></div>` : ""}
       <p class="disclaimer">${s("contentNote")}</p>`;
   }
@@ -1030,7 +1095,7 @@ window.DalilStudy = function (ctx) {
       <p class="lead" style="margin:0 0 12px">${esc(s("questionsN", num(qs.length)))}</p>
       <div class="st-modes">
         <button class="st-mode" data-mode="practice"><span class="ic">${ic("check")}</span><span class="grow"><b>${s("modePractice")}</b><small>${s("modePracticeSub")}</small></span></button>
-        <button class="st-mode" data-mode="exam"><span class="ic">${ic("timer")}</span><span class="grow"><b>${s("modeExam")}</b><small>${esc(s("modeExamSub", num(mins)))}</small></span></button>
+        ${isYoung(gid) ? "" : `<button class="st-mode" data-mode="exam"><span class="ic">${ic("timer")}</span><span class="grow"><b>${s("modeExam")}</b><small>${esc(s("modeExamSub", num(mins)))}</small></span></button>`}
       </div>
       <div class="sheet-actions"><button class="btn ghost" data-close>${s("cancel")}</button></div>`,
       (root) => root.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => {
@@ -1042,7 +1107,7 @@ window.DalilStudy = function (ctx) {
     stopTimer();
     const qs = o.qs.map((q) => Object.assign({}, q, { _opts: q.t === "mcq" && !q.keep ? shuffle(optList(q)) : optList(q) }));
     quiz = { g: o.g, s: o.s, set: o.set, kind: o.kind, title: o.title, qs, mode: o.mode, i: 0, ans: {}, chk: {}, rev: {}, at: Date.now(), deadline: o.mode === "exam" ? Date.now() + o.minutes * 60000 : 0, done: false };
-    if (ctx.ads && ctx.ads.preload) ctx.ads.preload();
+    if (!isYoung(o.g) && ctx.ads && ctx.ads.preload) ctx.ads.preload();
     push({ v: "quiz" });
   }
   function isRight(q, a) {
@@ -1092,6 +1157,7 @@ window.DalilStudy = function (ctx) {
           const sel = a !== undefined && String(a) === String(o.k);
           if (checked) { if (isRight(q, o.k)) cls = " right"; else if (sel) cls = " wrong"; }
           else if (sel) cls = " sel";
+          if (isEmo(o.t)) cls += " emo";
           return `<button class="st-opt${cls}" data-st="qzPick" data-k="${esc(String(o.k))}" aria-pressed="${sel}" ${checked ? "disabled" : ""}>${rich(o.t)}</button>`;
         }).join("")}</div>`;
     const fb = checked ? `<div class="st-fb ${ok ? "ok" : "no"}">
@@ -1109,6 +1175,7 @@ window.DalilStudy = function (ctx) {
       <div class="qz-card">
         <small class="qz-n">${esc(s("qOf", num(quiz.i + 1), num(n)))}</small>
         <p class="qz-q">${rich(q.q)}</p>
+        ${youngNow() ? `<button class="st-say" data-st="say" data-say="${esc(sayText(q.q, q.t === "fill" ? [] : q._opts.map((o) => o.t)))}">${ic("sound")}${s("listen")}</button>` : ""}
         ${q.img ? `<img class="qz-img" src="${esc(q.img)}" alt="">` : ""}
         ${opts}
         ${fb}
@@ -1157,7 +1224,7 @@ window.DalilStudy = function (ctx) {
   }
   async function qzReveal() {
     const q = quiz.qs[quiz.i];
-    const ok = ctx.ads && ctx.ads.rewarded ? await ctx.ads.rewarded() : true;
+    const ok = !isYoung(quiz.g) && ctx.ads && ctx.ads.rewarded ? await ctx.ads.rewarded() : true;
     if (!ok || !quiz) return;
     quiz.rev[q.id] = true;
     ctx.refresh(false);
@@ -1193,7 +1260,7 @@ window.DalilStudy = function (ctx) {
     saveProg();
     syncResult(r);
     const show = () => push({ v: "result" });
-    if (ctx.ads && ctx.ads.interstitial) ctx.ads.interstitial().then(show, show); else show();
+    if (!isYoung(quiz.g) && ctx.ads && ctx.ads.interstitial) ctx.ads.interstitial().then(show, show); else show();
   }
   function confirmExitQuiz() {
     openSheet(`<h3>${s("exitQuiz")}</h3><p>${s("exitQuizBody")}</p>
@@ -1469,6 +1536,8 @@ window.DalilStudy = function (ctx) {
       <h2 class="sec">${s("recent")}${st.loading ? `<span class="small">${s("loading")}</span>` : ""}</h2>
       ${results.length ? `<div class="panel">${results.slice(0, 10).map(resultRow).join("")}</div>` : `<div class="panel"><div class="empty">${s("noResults")}</div></div>`}
 
+      ${isYoung(k.grade) ? `<div class="st-young-note">${ic("family")}<span>${s("youngNote")}</span></div>
+      <button class="btn block" style="margin-top:12px" data-st="studyAs" data-sid="${esc(k.id)}">${ic("study")}${esc(s("studyWith", k.name))}</button>` : `
       <h2 class="sec">${s("linkCode")}</h2>
       <section class="code-card st-code">
         ${codeLive ? `<div class="code" dir="ltr">${esc(k.code).split("").map((c) => `<span>${c}</span>`).join("")}</div>
@@ -1479,9 +1548,9 @@ window.DalilStudy = function (ctx) {
           <button class="btn light" data-st="newCode" data-sid="${esc(k.id)}">${icon("key")}${codeLive ? s("newCodeAgain") : s("newCode")}</button>
         </div>
         <small class="st-devs">${ic("link")}${esc(s("devices", n))}</small>
-      </section>
+      </section>`}
       <div class="panel" style="margin-top:12px">
-        <button class="row" data-st="studyAs" data-sid="${esc(k.id)}"><span class="ic">${ic("study")}</span><span class="grow"><span class="t">${esc(s("studyHere", k.name))}</span><span class="s">${s("studyHereSub")}</span></span><span class="end">${icon("chev", "flip")}</span></button>
+        ${isYoung(k.grade) ? "" : `<button class="row" data-st="studyAs" data-sid="${esc(k.id)}"><span class="ic">${ic("study")}</span><span class="grow"><span class="t">${esc(s("studyHere", k.name))}</span><span class="s">${s("studyHereSub")}</span></span><span class="end">${icon("chev", "flip")}</span></button>`}
         <button class="row" data-st="editKid" data-sid="${esc(k.id)}"><span class="ic">${icon("pen")}</span><span class="grow"><span class="t">${s("editKid")}</span></span></button>
         ${n ? `<button class="row" data-st="unlinkKid" data-sid="${esc(k.id)}"><span class="ic">${ic("link")}</span><span class="grow"><span class="t">${s("unlink")}</span></span></button>` : ""}
         <button class="row danger" data-st="delKid" data-sid="${esc(k.id)}"><span class="ic">${icon("trash")}</span><span class="grow"><span class="t">${s("deleteKid")}</span></span></button>
@@ -1705,7 +1774,7 @@ window.DalilStudy = function (ctx) {
         confirmSheet(s("unlink"), s("unlinkBody"), s("unlink"), async () => { await backend.unlink(k.id); toast(s("unlinked")); await loadKids(true); }, true);
         break;
       }
-      case "newCode": (async () => {
+      case "newCode": if (isYoung(((parent.kids || []).find((x) => x.id === el.dataset.sid) || {}).grade)) { toast(s("noYoungCode")); break; } (async () => {
         const k = (parent.kids || []).find((x) => x.id === el.dataset.sid); if (!k) return;
         el.disabled = true;
         try { const r = await backend.newCode(me().uid, k.id, k.code); k.code = r.code; k.codeExp = r.exp; refresh(); }
@@ -1721,6 +1790,7 @@ window.DalilStudy = function (ctx) {
         }
         break;
       }
+      case "say": say(el.dataset.say || ""); break;
       case "studyAs": {
         const k = (parent.kids || []).find((x) => x.id === el.dataset.sid); if (!k) break;
         profile = { mode: "parentAs", sid: k.id, name: k.name, grade: k.grade }; saveProfile(); prog = null;
@@ -1784,7 +1854,7 @@ window.DalilStudy = function (ctx) {
     reset: () => { if (top().v === "quiz" && quiz && !quiz.done) { confirmExitQuiz(); return false; } reset(); return true; },
     isStudentDevice: () => !!(profile && profile.mode === "student"),
     // banner only on browsing pages, never during an exam, on results or inside the book
-    wantsBanner: () => ["home", "grade", "subject", "lessons", "lesson", "sets", "saved", "history"].includes(top().v),
+    wantsBanner: () => !youngNow() && ["home", "grade", "subject", "lessons", "lesson", "sets", "saved", "history"].includes(top().v),
     busyView: () => ["book", "quiz"].includes(top().v),
     parentKidsVisible: () => !!(accountsOn() && me())
   };
