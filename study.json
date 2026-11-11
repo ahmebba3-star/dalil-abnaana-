@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10",
+ "updated": "2026-11-11",
  "library": "https://ellibrary.moe.gov.eg/books/",
  "grades": [
   {
@@ -12,6 +12,7 @@
   },
   {
    "id": "KG2",
+   "file": "study-KG2.json",
    "ar": "رياض أطفال 2",
    "en": "KG 2",
    "stage": "k",
@@ -43,18 +44,21 @@
   },
   {
    "id": "P4",
+   "file": "study-P4.json",
    "ar": "الرابع الابتدائي",
    "en": "Primary 4",
    "stage": "p"
   },
   {
    "id": "P5",
+   "file": "study-P5.json",
    "ar": "الخامس الابتدائي",
    "en": "Primary 5",
    "stage": "p"
   },
   {
    "id": "P6",
+   "file": "study-P6.json",
    "ar": "السادس الابتدائي",
    "en": "Primary 6",
    "stage": "p"
