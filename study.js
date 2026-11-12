@@ -15,7 +15,7 @@ window.DalilStudy = function (ctx) {
     ar: {
       tab: "مذاكرتي",
       title: "مذاكرتي",
-      lead: "كتب الوزارة وشرح المنهج والامتحانات، لكل صف من رابعة ابتدائي لتانية ثانوي.",
+      lead: "كتب الوزارة وشرح المنهج والامتحانات، لكل صف من رياض الأطفال لتانية ثانوي.",
       chooseGrade: "اختار الصف",
       soon: "قريبًا", available: "متاح",
       term: (n) => (n === 1 ? "الترم الأول" : "الترم التاني"),
@@ -698,6 +698,17 @@ window.DalilStudy = function (ctx) {
   }
   const wrongCount = (gid, sid) => Object.keys(P_().wrong).filter((k) => { const w = P_().wrong[k]; return w.g === gid && (!sid || w.s === sid) && QIDX[k]; }).length;
 
+  // نَحْوِي (nahwi.js): interactive grammar lessons + games, rendered inside the study stack
+  const nhGrade = () => curGrade() || (profile && profile.grade) || "";
+  const nhApi = {
+    kidsDefault: () => /^(KG\d|P\d)$/.test(nhGrade()),
+    say: (t) => say(t), stopSay: () => stopSay(), num, toast, top: () => top(),
+    push: (r) => push(Object.assign({ g: top().g }, r)), replace: (r) => replace(Object.assign({ g: top().g }, r)),
+    refresh: (scroll) => ctx.refresh(!!scroll)
+  };
+  const nahwiCard = (g) => window.Nahwi ? `<button class="st-cont nh-entry" data-st="nahwi"${g ? ` data-g="${esc(g)}"` : ""}>
+    <span class="ic">🦉</span><span class="grow"><b>${ar() ? "نَحْوِي: النحو ببساطة" : "Nahwi: Arabic grammar made easy"}</b><small>${ar() ? `${num(window.Nahwi.count)} درسًا بأمثلة ملوّنة وألعاب — للأطفال والكبار` : "Colour-coded lessons and games"}</small></span><span class="end">${icon("chev", "flip")}</span></button>` : "";
+
   /* ================= Views ================= */
   function view() {
     loadCatalog();
@@ -717,6 +728,7 @@ window.DalilStudy = function (ctx) {
       case "parent": body = vParent(); break;
       case "kid": body = vKid(r); break;
       case "history": body = vHistory(); break;
+      case "nahwi": case "nahwiL": case "nahwiG": body = window.Nahwi ? window.Nahwi.view(r, nhApi) : vHome(); break;
       default: body = vHome();
     }
     return `<div class="st${youngNow() ? " young" : ""}">${body}</div>`;
@@ -781,6 +793,7 @@ window.DalilStudy = function (ctx) {
       ${parentCta()}
       ${countdownCard()}
       ${cont}
+      ${nahwiCard("")}
       ${stages.map(([st, label]) => {
         const list = grades.filter((g) => (g.stage || stageOf(g.id)) === st);
         return list.length ? `<h2 class="sec">${esc(label)}</h2><div class="st-grades">${list.map(gradeCard).join("")}</div>` : "";
@@ -908,6 +921,7 @@ window.DalilStudy = function (ctx) {
         <button class="row" data-st="saved" data-g="${esc(r.g)}" data-s="${esc(sub.id)}">
           <span class="ic">${ic("star")}</span><span class="grow"><span class="t">${s("saved")}</span><span class="s">${savedN ? s("lessonsN", num(savedN)) : s("noSaved")}</span></span><span class="end">${icon("chev", "flip")}</span></button>
       </div>
+      ${sub.id === "arabic" ? nahwiCard(r.g) : ""}
       ${recent.length ? `<h2 class="sec">${s("recent")}</h2><div class="panel">${recent.map(resultRow).join("")}</div>` : ""}
     `;
   }
@@ -1791,6 +1805,8 @@ window.DalilStudy = function (ctx) {
         break;
       }
       case "say": say(el.dataset.say || ""); break;
+      case "nahwi": push({ v: "nahwi", g: g || undefined }); break;
+      case "nh": if (window.Nahwi) window.Nahwi.click(el, nhApi); break;
       case "studyAs": {
         const k = (parent.kids || []).find((x) => x.id === el.dataset.sid); if (!k) break;
         profile = { mode: "parentAs", sid: k.id, name: k.name, grade: k.grade }; saveProfile(); prog = null;
