@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "library": "https://ellibrary.moe.gov.eg/books/",
  "grades": [
   {
@@ -72,12 +72,14 @@
   },
   {
    "id": "M2",
+   "file": "study-M2.json",
    "ar": "الثاني الإعدادي",
    "en": "Preparatory 2",
    "stage": "m"
   },
   {
    "id": "M3",
+   "file": "study-M3.json",
    "ar": "الثالث الإعدادي",
    "en": "Preparatory 3",
    "stage": "m"

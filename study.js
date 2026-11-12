@@ -337,8 +337,8 @@ window.DalilStudy = function (ctx) {
       { id: "P5", ar: "الخامس الابتدائي", en: "Primary 5", stage: "p", file: "study-P5.json" },
       { id: "P6", ar: "السادس الابتدائي", en: "Primary 6", stage: "p", file: "study-P6.json" },
       { id: "M1", ar: "الأول الإعدادي", en: "Preparatory 1", stage: "m", file: "study-M1.json" },
-      { id: "M2", ar: "الثاني الإعدادي", en: "Preparatory 2", stage: "m" },
-      { id: "M3", ar: "الثالث الإعدادي", en: "Preparatory 3", stage: "m" },
+      { id: "M2", file: "study-M2.json", ar: "الثاني الإعدادي", en: "Preparatory 2", stage: "m" },
+      { id: "M3", file: "study-M3.json", ar: "الثالث الإعدادي", en: "Preparatory 3", stage: "m" },
       { id: "S1", ar: "الأول الثانوي", en: "Secondary 1", stage: "s" },
       { id: "S2G", ar: "الثاني الثانوي — عام", en: "Secondary 2 — General", stage: "s" },
       { id: "S2B", ar: "الثاني الثانوي — بكالوريا", en: "Secondary 2 — Baccalaureate", stage: "s" }
