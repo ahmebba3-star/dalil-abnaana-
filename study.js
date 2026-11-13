@@ -154,7 +154,7 @@ window.DalilStudy = function (ctx) {
     en: {
       tab: "Study",
       title: "Study",
-      lead: "Ministry books, lessons and exams for every grade from Primary 4 to Secondary 2.",
+      lead: "Ministry books, lessons and exams for every grade from KG to Secondary 2.",
       chooseGrade: "Choose a grade",
       soon: "Soon", available: "Available",
       term: (n) => (n === 1 ? "First term" : "Second term"),
@@ -339,8 +339,8 @@ window.DalilStudy = function (ctx) {
       { id: "M1", ar: "الأول الإعدادي", en: "Preparatory 1", stage: "m", file: "study-M1.json" },
       { id: "M2", file: "study-M2.json", ar: "الثاني الإعدادي", en: "Preparatory 2", stage: "m" },
       { id: "M3", file: "study-M3.json", ar: "الثالث الإعدادي", en: "Preparatory 3", stage: "m" },
-      { id: "S1", ar: "الأول الثانوي", en: "Secondary 1", stage: "s" },
-      { id: "S2G", ar: "الثاني الثانوي — عام", en: "Secondary 2 — General", stage: "s" },
+      { id: "S1", file: "study-S1.json", ar: "الأول الثانوي", en: "Secondary 1", stage: "s" },
+      { id: "S2G", file: "study-S2G.json", ar: "الثاني الثانوي — عام", en: "Secondary 2 — General", stage: "s" },
       { id: "S2B", ar: "الثاني الثانوي — بكالوريا", en: "Secondary 2 — Baccalaureate", stage: "s" }
     ],
     library: "https://ellibrary.moe.gov.eg/books/"
@@ -679,7 +679,7 @@ window.DalilStudy = function (ctx) {
   const daysAgo = (ts) => Math.max(0, Math.floor((Date.now() - ts) / 864e5));
   const fmtDay = (ts) => ctx.fmtDate(new Date(ts).toISOString().slice(0, 10), { day: "numeric", month: "short" });
   const fmtDur = (sec) => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, "0")}`;
-  const SUBJ_IC = { math: "calc", science: "flask", discover: "eye", social: "map", arabic: "pen2", english: "abc", religion: "study", ict: "tools" };
+  const SUBJ_IC = { math: "calc", science: "flask", discover: "eye", social: "map", arabic: "pen2", english: "abc", religion: "study", ict: "tools", history: "map", geography: "map", philosophy: "study", physics: "flask", chemistry: "flask", biology: "flask" };
   const subjIcon = (sub) => ic(sub.icon || SUBJ_IC[sub.id] || "study");
   function shuffle(a) { const r = a.slice(); for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; }
   function ring(pct, size, label) {
