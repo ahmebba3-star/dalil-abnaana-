@@ -994,3 +994,19 @@ bdi.en { unicode-bidi: isolate; direction: ltr; font-family: "Alexandria", syste
 .pt-sz { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 1.1rem; }
 .pt-sz span { color: var(--muted); text-decoration: line-through; }
 .pt-sz .new { color: var(--ink); text-decoration: none; font-weight: 800; font-size: 1.4rem; }
+/* photo tool */
+.ph-spec { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+.ph-spec label { display: flex; flex-direction: column; gap: 4px; font-size: .82rem; color: var(--muted); }
+.ph-spec .input { width: 100%; min-width: 0; box-sizing: border-box; text-align: center; }
+.ph-spec input[readonly] { opacity: .7; }
+.ph-spec small { text-align: center; }
+.ph-stage { display: grid; place-items: center; margin-top: 12px; padding: 12px; border-radius: var(--radius); background: repeating-conic-gradient(var(--line) 0 25%, var(--surface) 0 50%) 50% / 18px 18px; }
+.ph-cv { max-width: 100%; box-shadow: 0 2px 10px #0003; touch-action: none; cursor: grab; border: 2px solid var(--faience); }
+.ph-c { text-align: center; }
+.ph-range { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: .9rem; }
+.ph-range input { flex: 1; }
+.ph-row { display: flex; gap: 8px; margin-top: 10px; }
+.ph-row .btn { flex: 1; }
+.ph-out { display: block; max-width: 160px; margin: 0 auto 8px; border: 1px solid var(--line); }
+.ph-tips { margin-top: 14px; padding: 14px; }
+.ph-tips .bullets { margin: 6px 0 0; }
