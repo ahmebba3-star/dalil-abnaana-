@@ -140,6 +140,7 @@ window.DalilStudy = function (ctx) {
       unlinkedSelf: "الجهاز ده اتشال من حساب ولي أمرك",
       demo: "نسخة تجربة: الحسابات هنا وهمية ومحفوظة على المتصفح بس.",
       genericErr: "حصلت مشكلة. جرب تاني بعد شوية.",
+      saveErr: "ماقدرناش نحفظ التغيير ده. جرب تاني بعد شوية، ولو المشكلة فضلت كلّمنا.",
       netErr: "مفيش إنترنت. جرب تاني لما النت يرجع.",
       settings: "إعدادات المذاكرة",
       clearBooks: "امسح الكتب المحفوظة", clearedBooks: "اتمسحت الكتب المحفوظة",
@@ -276,6 +277,7 @@ window.DalilStudy = function (ctx) {
       unlinkedSelf: "This device was removed from your parent's account",
       demo: "Demo: accounts here are fake and stored in this browser only.",
       genericErr: "Something went wrong. Try again shortly.",
+      saveErr: "We couldn't save this change. Try again shortly, and contact us if it keeps happening.",
       netErr: "No connection. Try again when you're back online.",
       settings: "Study settings",
       clearBooks: "Clear saved books", clearedBooks: "Saved books cleared",
@@ -576,9 +578,11 @@ window.DalilStudy = function (ctx) {
     (window.crypto || {}).getRandomValues ? crypto.getRandomValues(b) : b.forEach((_, i) => { b[i] = Math.floor(Math.random() * 256); });
     return Array.from(b, (x) => A[x % A.length]).join("");
   }
-  function errMsg(e) {
+  // Only the link-code screen talks about codes; elsewhere a permission error means the save was refused.
+  function errMsg(e, codeFlow) {
     const m = String((e && (e.message || e.code)) || e || "");
-    if (/code-bad|not-found|NOT_FOUND|permission|PERMISSION/i.test(m)) return s("codeBad");
+    if (/code-bad/i.test(m) || (codeFlow && /not-found|NOT_FOUND|permission|PERMISSION/i.test(m))) return s("codeBad");
+    if (/permission|PERMISSION/i.test(m)) return s("saveErr");
     if (/parent-device/.test(m)) return s("codeParent");
     if (/network|unavailable|UNAVAILABLE|offline|Failed to fetch/i.test(m)) return s("netErr");
     return s("genericErr");
@@ -1648,7 +1652,7 @@ window.DalilStudy = function (ctx) {
             closeSheet();
             toast(s("linked", r.name));
             reset(); ctx.refresh(true);
-          } catch (e) { btn.disabled = false; btn.textContent = s("link"); toast(errMsg(e)); }
+          } catch (e) { btn.disabled = false; btn.textContent = s("link"); toast(errMsg(e, true)); }
         };
         btn.addEventListener("click", go);
         inp.addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });

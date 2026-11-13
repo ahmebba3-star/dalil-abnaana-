@@ -12,7 +12,7 @@ service cloud.firestore {
     function isParentOf(sid) { return signedIn() && kid(sid).parentUid == request.auth.uid; }
     function isDeviceOf(sid) { return signedIn() && request.auth.uid in kid(sid).devices; }
     function canAccess(sid) { return isParentOf(sid) || isDeviceOf(sid); }
-    function validGrade(g) { return g in ['P4', 'P5', 'P6', 'M1', 'M2', 'M3', 'S1', 'S2G', 'S2B']; }
+    function validGrade(g) { return g in ['KG1', 'KG2', 'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'M1', 'M2', 'M3', 'S1', 'S2G', 'S2B']; }
     function validName(n) { return n is string && n.size() > 0 && n.size() <= 40; }
     function changed() { return request.resource.data.diff(resource.data).affectedKeys(); }
     function validResult(r) {
