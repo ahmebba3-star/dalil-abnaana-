@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12",
+ "updated": "2026-11-13",
  "library": "https://ellibrary.moe.gov.eg/books/",
  "grades": [
   {
@@ -86,12 +86,14 @@
   },
   {
    "id": "S1",
+   "file": "study-S1.json",
    "ar": "الأول الثانوي",
    "en": "Secondary 1",
    "stage": "s"
   },
   {
    "id": "S2G",
+   "file": "study-S2G.json",
    "ar": "الثاني الثانوي — عام",
    "en": "Secondary 2 — General",
    "stage": "s"
