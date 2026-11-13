@@ -101,7 +101,7 @@ jobs:
         run: |
           mkdir -p www/js www/css www/fonts www/vendor scripts assets store
           mvif() { if [ -f "$1" ]; then mv -f "$1" "$2"; fi; }
-          for f in app.js config.js data.js i18n.js calls.js assistant.js nahwi.js study.js; do mvif "$f" www/js/; done
+          for f in app.js config.js data.js i18n.js calls.js assistant.js pdftool.js nahwi.js study.js; do mvif "$f" www/js/; done
           mvif app.css www/css/
           for f in alexandria-*.woff2; do mvif "$f" www/fonts/; done
           for f in configure.js patch-android.js; do mvif "$f" scripts/; done

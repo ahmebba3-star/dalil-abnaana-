@@ -972,3 +972,25 @@ bdi.en { unicode-bidi: isolate; direction: ltr; font-family: "Alexandria", syste
 .dua-note { margin: 6px 0 0; }
 .dua-act { display: flex; gap: 8px; margin-top: 10px; }
 .dua-act .btn { flex: 1; }
+/* pdf tool */
+.pt-entry { display: flex; align-items: center; gap: 12px; width: 100%; margin-top: 8px; padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; text-align: start; cursor: pointer; }
+.pt-entry .ic { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--gold-soft); font-size: 1.3rem; }
+.pt-entry small { display: block; color: var(--muted); font-size: .8rem; }
+.pt-pick { margin-top: 12px; cursor: pointer; }
+.pt-list { display: grid; gap: 6px; }
+.pt-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.pt-item .grow { min-width: 0; }
+.pt-item b { display: block; font-size: .88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pt-item small { color: var(--muted); font-size: .75rem; }
+.pt-item button { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: inherit; cursor: pointer; flex: none; }
+.pt-item button:disabled { opacity: .35; }
+.pt-ic { font-size: 1.3rem; }
+.pt-gray { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: .88rem; }
+.pt-bar { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; margin-top: 12px; }
+.pt-bar div { height: 100%; width: 0; background: var(--faience); transition: width .3s; }
+.pt-res { margin-top: 12px; padding: 14px; }
+.pt-res.ok { border-color: #00b894; }
+.pt-res.warn { border-color: var(--gold); }
+.pt-sz { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 1.1rem; }
+.pt-sz span { color: var(--muted); text-decoration: line-through; }
+.pt-sz .new { color: var(--ink); text-decoration: none; font-weight: 800; font-size: 1.4rem; }

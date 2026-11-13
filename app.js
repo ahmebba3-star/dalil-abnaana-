@@ -424,6 +424,7 @@
         <ol class="steps">${steps.map((x) => `<li><b>${esc(x[0])}</b><span>${esc(x[1])}</span></li>`).join("")}</ol></details>
       <details class="rh-box"><summary>${ar ? "الأوراق المطلوبة" : "Required documents"}</summary>
         <ul class="bullets">${docs.map((d) => `<li>${esc(d)}</li>`).join("")}</ul></details>
+      <button class="pt-entry" data-act="pdftool"><span class="ic">📄</span><span class="grow"><b>${ar ? "صغّر ملف الـ PDF للتقديم" : "Shrink your PDF for the application"}</b><small>${ar ? "اجمع المستندات والصور في ملف واحد أقل من 2 ميجا" : "Merge documents and photos into one file under 2 MB"}</small></span><span class="end">${icon("chev", "flip")}</span></button>
       <a class="btn block" href="#" data-ext="${OFFICIAL_LINKS.sabroad}" style="margin-top:10px">${icon("ext")}${t("openPlatform")}</a>
     </section>`;
   }
@@ -435,6 +436,7 @@
     return `<h2 class="sec">${ar ? "🤲 ادعُ لأبنائك" : "🤲 Pray for your children"}<button data-act="duas">${ar ? "كل الأدعية" : "All"}</button></h2>
       <button class="dua-home" data-act="duas"><span class="dua-t">${esc(d.t)}</span><small>${esc(d.src)}</small></button>`;
   }
+  const ptCtx = { lang: () => state.lang, esc, icon, num: (n) => fmtNum(n), toast: (m) => toast(m) };
   let duaCat = "all";
   function viewDuas() {
     const ar = state.lang === "ar";
@@ -610,6 +612,8 @@
     const cname = state.lang === "ar" ? c.ar : c.en;
     return `
       <h2 class="page-title">${t("toolsTitle")}</h2>
+
+      <button class="pt-entry" data-act="pdftool" style="margin-top:4px"><span class="ic">📄</span><span class="grow"><b>${state.lang === "ar" ? "تصغير ملف PDF للتقديم" : "Shrink a PDF for the application"}</b><small>${state.lang === "ar" ? "ملف واحد لكل طالب أقل من 2 ميجا — من غير رفع لأي سيرفر" : "One file per student under 2 MB — nothing is uploaded"}</small></span><span class="end">${icon("chev", "flip")}</span></button>
 
       <h2 class="sec">✈️ ${state.lang === "ar" ? "أرخص طيران" : "Cheapest flights"}</h2>
       <div class="card fl" id="flights"></div>
@@ -876,6 +880,7 @@
     else if (state.sub === "settings") body = viewSettings();
     else if (state.sub === "regguide") body = viewRegGuide();
     else if (state.sub === "duas") body = viewDuas();
+    else if (state.sub === "pdftool") body = window.PdfTool ? PdfTool.view(ptCtx) : "";
     else if (state.sub === "assistant") body = Assistant ? Assistant.view() : "";
     else body = ({ home: viewHome, study: viewStudy, exams: viewExams, family: viewFamily, consular: viewConsular, news: viewNews, tools: viewTools }[state.tab] || viewHome)();
     view.innerHTML = body;
@@ -887,6 +892,7 @@
     clearInterval(cdTimer);
     if (!onboarding && !state.sub && state.tab === "home") cdTimer = setInterval(() => { const tk = view.querySelector(".ticket"); if (tk) { tk.outerHTML = ticketHTML(); fixLinks(view); } }, 30000);
     if (!onboarding && !state.sub && state.tab === "tools") { mountFlights(); mountFx(); mountPrayer(); mountClock(); cdTimer = setInterval(mountClock, 30000); }
+    if (state.sub === "pdftool" && window.PdfTool) PdfTool.mount(ptCtx);
     updateAds();
   }
 
@@ -974,6 +980,7 @@
       case "remind": return onRemind();
       case "regGuide": state.sub = "regguide"; render(); view.scrollTop = 0; return;
       case "duas": state.sub = "duas"; render(); view.scrollTop = 0; return;
+      case "pdftool": state.sub = "pdftool"; render(); view.scrollTop = 0; return;
       case "addChild": return addChildSheet();
       case "delChild": state.children.splice(+el.dataset.i, 1); store.set("children", state.children); render(); return;
       case "service": return serviceSheet(el.dataset.id);
