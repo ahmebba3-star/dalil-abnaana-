@@ -128,14 +128,17 @@
     clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("show"), 2800);
   }
   const sheet = document.getElementById("sheet");
+  // The native banner sits above the web view, so it is hidden while a sheet is open (it would cover the sheet's text and buttons).
+  let sheetOpen = false;
   function openSheet(html, onMount) {
     document.getElementById("sheetBody").innerHTML = '<div class="grab"></div>' + html;
     sheet.hidden = false;
+    if (!sheetOpen) { sheetOpen = true; updateAds(); }
     fixLinks(document.getElementById("sheetBody"));
     if (onMount) onMount(document.getElementById("sheetBody"));
     const f = sheet.querySelector("input, button:not([data-close])"); if (f) f.focus({ preventScroll: true });
   }
-  function closeSheet() { sheet.hidden = true; document.getElementById("sheetBody").innerHTML = ""; }
+  function closeSheet() { sheet.hidden = true; document.getElementById("sheetBody").innerHTML = ""; if (sheetOpen) { sheetOpen = false; updateAds(); } }
   sheet.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) closeSheet(); });
 
   /* ================= Data loading ================= */
@@ -548,6 +551,9 @@
     return `
       <h2 class="page-title">${t("toolsTitle")}</h2>
 
+      <h2 class="sec">✈️ ${state.lang === "ar" ? "أرخص طيران" : "Cheapest flights"}</h2>
+      <div class="card fl" id="flights"></div>
+
       <h2 class="sec">${t("currency")}</h2>
       <div class="card" id="fx">
         <div class="fx-rates" id="fxRates"></div>
@@ -569,6 +575,86 @@
       <h2 class="sec">${t("emergency")} ${esc(cname)}</h2>
       <div class="panel">${c.emergency.length ? c.emergency.map((e) => `<div class="tel"><span class="num">${esc(e[0])}</span><span class="grow">${esc(state.lang === "ar" ? e[1] : e[2])}</span><a class="btn ghost" href="#" data-ext="tel:${esc(e[0])}">${icon("phone")}${t("call")}</a></div>`).join("") : `<div class="empty">${t("noEmergency")}</div>`}</div>
     `;
+  }
+
+  /* ---- flights: build a search and open it on comparison sites (they show the live prices) ---- */
+  const AIRPORTS = [
+    ["مصر", "Egypt", [["CAI", "القاهرة", "Cairo"], ["HBE", "الإسكندرية (برج العرب)", "Alexandria (Borg El Arab)"], ["SPX", "سفنكس", "Sphinx"], ["HRG", "الغردقة", "Hurghada"], ["SSH", "شرم الشيخ", "Sharm El Sheikh"], ["LXR", "الأقصر", "Luxor"], ["ASW", "أسوان", "Aswan"], ["ATZ", "أسيوط", "Assiut"], ["HMB", "سوهاج", "Sohag"]]],
+    ["الخليج", "Gulf", [["RUH", "الرياض", "Riyadh"], ["JED", "جدة", "Jeddah"], ["DMM", "الدمام", "Dammam"], ["MED", "المدينة المنورة", "Madinah"], ["AHB", "أبها", "Abha"], ["TIF", "الطائف", "Taif"], ["TUU", "تبوك", "Tabuk"], ["ELQ", "القصيم", "Qassim"], ["DXB", "دبي", "Dubai"], ["AUH", "أبوظبي", "Abu Dhabi"], ["SHJ", "الشارقة", "Sharjah"], ["KWI", "الكويت", "Kuwait"], ["DOH", "الدوحة", "Doha"], ["BAH", "البحرين", "Bahrain"], ["MCT", "مسقط", "Muscat"]]],
+    ["العالم العربي", "Arab world", [["AMM", "عمّان", "Amman"], ["BEY", "بيروت", "Beirut"], ["MJI", "طرابلس (معيتيقة)", "Tripoli (Mitiga)"], ["BEN", "بنغازي", "Benghazi"], ["IST", "إسطنبول", "Istanbul"]]],
+    ["أوروبا", "Europe", [["FCO", "روما", "Rome"], ["MXP", "ميلانو", "Milan"], ["CDG", "باريس", "Paris"], ["FRA", "فرانكفورت", "Frankfurt"], ["BER", "برلين", "Berlin"], ["MUC", "ميونخ", "Munich"], ["AMS", "أمستردام", "Amsterdam"], ["ATH", "أثينا", "Athens"], ["LHR", "لندن", "London"]]],
+    ["أمريكا وأستراليا", "Americas and Australia", [["JFK", "نيويورك", "New York"], ["IAD", "واشنطن", "Washington"], ["LAX", "لوس أنجلوس", "Los Angeles"], ["YYZ", "تورونتو", "Toronto"], ["YUL", "مونتريال", "Montreal"], ["SYD", "سيدني", "Sydney"], ["MEL", "ملبورن", "Melbourne"]]]
+  ];
+  const HOME_AIRPORT = { SA: "RUH", AE: "DXB", KW: "KWI", QA: "DOH", BH: "BAH", OM: "MCT", JO: "AMM", LB: "BEY", LY: "MJI", IT: "FCO", FR: "CDG", DE: "FRA", NL: "AMS", GR: "ATH", GB: "LHR", US: "JFK", CA: "YYZ", AU: "SYD" };
+  const isoDay = (d) => d.toISOString().slice(0, 10);
+  function mountFlights() {
+    const box = document.getElementById("flights"); if (!box) return;
+    const ar = state.lang === "ar";
+    const saved = store.get("flights", null) || {};
+    const st = Object.assign({ from: HOME_AIRPORT[country().code] || "RUH", to: "CAI", rt: true, dep: "", ret: "", ad: 1, ch: 0, inf: 0 }, saved);
+    const today = isoDay(new Date());
+    if (!st.dep || st.dep < today) st.dep = isoDay(new Date(Date.now() + 14 * 864e5));
+    if (!st.ret || st.ret < st.dep) st.ret = isoDay(new Date(new Date(st.dep).getTime() + 14 * 864e5));
+    const opts = (sel) => AIRPORTS.map((g) => `<optgroup label="${esc(ar ? g[0] : g[1])}">${g[2].map((a) => `<option value="${a[0]}"${a[0] === sel ? " selected" : ""}>${esc(ar ? a[1] : a[2])} · ${a[0]}</option>`).join("")}</optgroup>`).join("");
+    const step = (k, label, min) => `<div class="fl-step"><span>${label}</span><button data-fl="${k}" data-d="-1" aria-label="-"${st[k] <= min ? " disabled" : ""}>−</button><b>${st[k]}</b><button data-fl="${k}" data-d="1" aria-label="+"${st.ad + st.ch + st.inf >= 9 ? " disabled" : ""}>+</button></div>`;
+    const draw = () => {
+      box.innerHTML = `
+        <div class="seg" role="group">
+          <button data-flrt="1" aria-pressed="${st.rt}">${ar ? "ذهاب وعودة" : "Round trip"}</button>
+          <button data-flrt="0" aria-pressed="${!st.rt}">${ar ? "ذهاب فقط" : "One way"}</button></div>
+        <div class="fl-route">
+          <div class="field"><label for="flFrom">${ar ? "من" : "From"}</label><select id="flFrom" class="input">${opts(st.from)}</select></div>
+          <button class="swap" id="flSwap" aria-label="swap">${icon("swap")}</button>
+          <div class="field"><label for="flTo">${ar ? "إلى" : "To"}</label><select id="flTo" class="input">${opts(st.to)}</select></div>
+        </div>
+        <div class="fl-dates">
+          <div class="field"><label for="flDep">${ar ? "تاريخ السفر" : "Departure"}</label><input id="flDep" type="date" class="input" min="${today}" value="${st.dep}"></div>
+          ${st.rt ? `<div class="field"><label for="flRet">${ar ? "تاريخ العودة" : "Return"}</label><input id="flRet" type="date" class="input" min="${st.dep}" value="${st.ret}"></div>` : ""}
+        </div>
+        <div class="fl-pax">${step("ad", ar ? "كبار" : "Adults", 1)}${step("ch", ar ? "أطفال (2–11)" : "Children (2–11)", 0)}${step("inf", ar ? "رضّع" : "Infants", 0)}</div>
+        <p class="small fl-hint">${ar ? "اختار الموقع اللي تقارن عليه، وهيفتح بالبحث جاهز ومترتب من الأرخص:" : "Pick a site to compare on; it opens with your search ready, sorted by price:"}</p>
+        <div class="fl-go">
+          <button class="btn" data-flgo="google">${icon("plane")}Google Flights</button>
+          <button class="btn ghost" data-flgo="sky">Skyscanner</button>
+          <button class="btn ghost" data-flgo="kayak">Kayak</button>
+        </div>
+        <p class="small fl-tip">💡 ${ar ? "الأسعار بتتغير كل شوية: جرّب تواريخ قريبة من تاريخك، وقارن بين أكتر من موقع، وفعّل «تتبع الأسعار» في Google Flights عشان يبعتلك لما السعر ينزل. الحجز والدفع بيتم في موقع شركة الطيران أو موقع الحجز نفسه." : "Prices change often: try nearby dates, compare more than one site, and turn on price tracking in Google Flights. Booking and payment happen on the airline or booking site."}</p>`;
+    };
+    const save = () => store.set("flights", st);
+    draw();
+    box.onchange = (e) => {
+      const id = e.target.id;
+      if (id === "flFrom") st.from = e.target.value;
+      if (id === "flTo") st.to = e.target.value;
+      if (id === "flDep") { st.dep = e.target.value || st.dep; if (st.ret < st.dep) st.ret = st.dep; draw(); }
+      if (id === "flRet") st.ret = e.target.value || st.ret;
+      save();
+    };
+    box.onclick = (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      if (b.id === "flSwap") { [st.from, st.to] = [st.to, st.from]; save(); draw(); return; }
+      if (b.dataset.flrt) { st.rt = b.dataset.flrt === "1"; save(); draw(); return; }
+      if (b.dataset.fl) { const k = b.dataset.fl; st[k] = Math.max(k === "ad" ? 1 : 0, st[k] + +b.dataset.d); if (st.inf > st.ad) st.inf = st.ad; save(); draw(); return; }
+      if (b.dataset.flgo) {
+        if (st.from === st.to) { toast(ar ? "اختار مطارين مختلفين" : "Pick two different airports"); return; }
+        const site = b.dataset.flgo, ymd = (d) => d.slice(2).replace(/-/g, "");
+        let url;
+        if (site === "google") {
+          let q = `Flights from ${st.from} to ${st.to} on ${st.dep}` + (st.rt ? ` returning ${st.ret}` : " one way") + ` for ${st.ad} adult${st.ad > 1 ? "s" : ""}`;
+          if (st.ch) q += ` and ${st.ch} child${st.ch > 1 ? "ren" : ""}`;
+          if (st.inf) q += ` and ${st.inf} infant${st.inf > 1 ? "s" : ""} on lap`;
+          url = "https://www.google.com/travel/flights?hl=" + (ar ? "ar" : "en") + "&q=" + encodeURIComponent(q);
+        } else if (site === "sky") {
+          const kids = Array(st.ch).fill("8").concat(Array(st.inf).fill("0")).join("|");
+          url = `https://www.skyscanner.net/transport/flights/${st.from.toLowerCase()}/${st.to.toLowerCase()}/${ymd(st.dep)}/` + (st.rt ? `${ymd(st.ret)}/` : "") +
+            `?adultsv2=${st.ad}` + (kids ? "&childrenv2=" + encodeURIComponent(kids) : "") + `&cabinclass=economy&rtn=${st.rt ? 1 : 0}`;
+        } else {
+          const kids = Array(st.ch).fill("8").concat(Array(st.inf).fill("1L"));
+          url = `https://www.kayak.com/flights/${st.from}-${st.to}/${st.dep}` + (st.rt ? `/${st.ret}` : "") + `/${st.ad}adults` + (kids.length ? "/children-" + kids.join("-") : "") + "?sort=price_a";
+        }
+        openExternal(url);
+      }
+    };
   }
 
   /* ---- currency ---- */
@@ -739,7 +825,7 @@
 
     clearInterval(cdTimer);
     if (!onboarding && !state.sub && state.tab === "home") cdTimer = setInterval(() => { const tk = view.querySelector(".ticket"); if (tk) { tk.outerHTML = ticketHTML(); fixLinks(view); } }, 30000);
-    if (!onboarding && !state.sub && state.tab === "tools") { mountFx(); mountPrayer(); mountClock(); cdTimer = setInterval(mountClock, 30000); }
+    if (!onboarding && !state.sub && state.tab === "tools") { mountFlights(); mountFx(); mountPrayer(); mountClock(); cdTimer = setInterval(mountClock, 30000); }
     updateAds();
   }
 
@@ -857,7 +943,7 @@
   }
   async function updateAds() {
     const A = P("AdMob"); if (!A || !adsReady) return;
-    const want = !!state.country && !state.sub && (state.tab === "news" || (inStudy() && Study.wantsBanner()));
+    const want = !!state.country && !state.sub && !sheetOpen && (state.tab === "news" || (inStudy() && Study.wantsBanner()));
     view.classList.toggle("with-ad", want);
     try {
       if (want && !bannerShown) {

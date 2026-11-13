@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07",
+  "updated": "2026-11-13",
   "exams": [
     {
       "id": "t1-2027",
@@ -22,6 +22,28 @@
   ],
   "news": [
     {
+      "id": "n13",
+      "date": "2026-11-13",
+      "cat": "exams",
+      "title_ar": "لحد 13 نوفمبر: تسجيل امتحانات أبناؤنا في الخارج 2026/2027 لسه ما اتفتحش",
+      "title_en": "As of 13 November: 2026/2027 exam registration still not open",
+      "body_ar": "لحد يوم 13 نوفمبر 2026 ما صدرش إعلان رسمي من وزارة التربية والتعليم بفتح التسجيل لامتحانات «أبناؤنا في الخارج» للعام 2026/2027، ولا بالرسوم أو مواعيد الامتحانات. اللي منشور في بعض المواقع عن «رابط التسجيل 2026» بيخص العام اللي فات. جهّز حساب ولي الأمر والمستندات، وتابع المنصة الرسمية sabroad.emis.gov.eg، وأول ما التسجيل يتفتح هننشر الخبر هنا.",
+      "body_en": "As of 13 November 2026, the Ministry of Education has not officially announced the opening of registration, fees or exam dates for the 2026/2027 “Our Children Abroad” exams. Articles about a “2026 registration link” refer to last year. Prepare your parent account and documents and follow the official platform sabroad.emis.gov.eg; we'll post here as soon as registration opens.",
+      "source": "المنصة الرسمية / متابعة الأخبار",
+      "url": "https://sabroad.emis.gov.eg/Home/"
+    },
+    {
+      "id": "n12",
+      "date": "2026-11-08",
+      "cat": "community",
+      "title_ar": "«بيتك في مصر»: التسجيل في الطرح الثالث للمصريين بالخارج بدأ 10 نوفمبر",
+      "title_en": "“Beitak fi Masr”: registration for the third offering for Egyptians abroad opened 10 November",
+      "body_ar": "بدأ يوم الثلاثاء 10 نوفمبر 2026 التسجيل في الطرح الثالث من مبادرة «بيتك في مصر» للمصريين المقيمين بالخارج، وفيه حوالي 4 آلاف وحدة سكنية في مدن منها العلمين الجديدة والقاهرة الجديدة والشروق و6 أكتوبر والشيخ زايد والعاصمة الجديدة والمنصورة الجديدة ودمياط الجديدة. التسجيل من موقع المبادرة beitakfemisr.com لمن عمره 21 سنة أو أكتر، والسداد بالدولار بتحويلات لا تقل عن 5 آلاف دولار لحساب هيئة المجتمعات العمرانية بالبنك المركزي بالكود الخاص بكل مسجّل. الحجز إلكتروني بأسبقية السداد، وميعاد بدء الحجز لسه ما اتعلنش.",
+      "body_en": "Registration for the third offering of the “Beitak fi Masr” initiative for Egyptians living abroad opened on Tuesday 10 November 2026, with about 4,000 housing units in cities including New Alamein, New Cairo, El Shorouk, 6th of October, Sheikh Zayed, the New Capital, New Mansoura and New Damietta. Register on beitakfemisr.com (age 21+). Payment is in US dollars, with transfers of at least $5,000 to the New Urban Communities Authority account at the Central Bank using each registrant's code. Booking is electronic, first come first served; the booking start date has not been announced yet.",
+      "source": "مصراوي",
+      "url": "https://www.masrawy.com/news/realestate-news/details/2026/11/8/3075330"
+    },
+    {
       "id": "n9",
       "date": "2026-11-07",
       "cat": "exams",
@@ -31,6 +53,17 @@
       "body_en": "As of 7 November 2026, the Ministry of Education has not announced the opening of registration for the 2026/2027 “Our Children Abroad” exams, and the official platform still shows the 2025/2026 instructions. Last year registration opened around 13 November 2025 and the fee was 150 US dollars per student. Prepare your parent account and documents now and follow the official platform sabroad.emis.gov.eg; we'll post here when registration opens.",
       "source": "المصري في الخليج / المنصة الرسمية",
       "url": "https://sabroad.emis.gov.eg/Home/"
+    },
+    {
+      "id": "n11",
+      "date": "2026-10-21",
+      "cat": "consular",
+      "title_ar": "تطبيق «مصري بالخارج»: تشغيل تجريبي للخدمات القنصلية في 17 بعثة",
+      "title_en": "“Masry Bel Kharg” app: consular services trial at 17 missions",
+      "body_ar": "أطلقت وزارة الخارجية يوم 21 أكتوبر 2026 التشغيل التجريبي للمنصة الإلكترونية للخدمات القنصلية من خلال تطبيق «مصري بالخارج» على App Store وGoogle Play، وبيتيح عمل المعاملات القنصلية ومتابعتها لحد ما تخلص. المرحلة الأولى في 17 بعثة منها الدوحة والمنامة وأبوظبي والرباط وروما وبرلين وبراغ وبروكسل وبريتوريا، وقنصليات هيوستن وهامبورج ولوس أنجلوس وفرانكفورت وشيكاغو ومارسيليا وسيدني وملبورن، وهيتوسع لباقي البعثات على مراحل.",
+      "body_en": "On 21 October 2026 the Ministry of Foreign Affairs launched a trial of its electronic consular services platform through the “Masry Bel Kharg” (Egyptian Abroad) app on the App Store and Google Play, letting citizens submit consular transactions and track them to completion. The first phase covers 17 missions including Doha, Manama, Abu Dhabi, Rabat, Rome, Berlin, Prague, Brussels and Pretoria, plus the consulates in Houston, Hamburg, Los Angeles, Frankfurt, Chicago, Marseille, Sydney and Melbourne, with more missions to follow.",
+      "source": "أموال الغد",
+      "url": "https://amwalalghad.com/fe2h"
     },
     {
       "id": "n7",
