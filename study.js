@@ -703,11 +703,13 @@ window.DalilStudy = function (ctx) {
   const nhApi = {
     kidsDefault: () => /^(KG\d|P\d)$/.test(nhGrade()),
     say: (t) => say(t), stopSay: () => stopSay(), num, toast, top: () => top(),
-    push: (r) => push(Object.assign({ g: top().g }, r)), replace: (r) => replace(Object.assign({ g: top().g }, r)),
+    push: (r) => push(Object.assign({ g: top().g }, r)), replace: (r) => replace(Object.assign({ g: top().g }, r)), back: () => back(),
+    who: () => (profile && profile.sid) || "guest",
+    syncLesson: (id) => syncLesson(id),
     refresh: (scroll) => ctx.refresh(!!scroll)
   };
   const nahwiCard = (g) => window.Nahwi ? `<button class="st-cont nh-entry" data-st="nahwi"${g ? ` data-g="${esc(g)}"` : ""}>
-    <span class="ic">🦉</span><span class="grow"><b>${ar() ? "نَحْوِي: النحو ببساطة" : "Nahwi: Arabic grammar made easy"}</b><small>${ar() ? `${num(window.Nahwi.count)} درسًا بأمثلة ملوّنة وألعاب — للأطفال والكبار` : "Colour-coded lessons and games"}</small></span><span class="end">${icon("chev", "flip")}</span></button>` : "";
+    <span class="ic">🦉</span><span class="grow"><b>${ar() ? "نَحْوِي: النحو ببساطة" : "Nahwi: Arabic grammar made easy"}</b><small>${ar() ? `${num(window.Nahwi.count)} درسًا في 4 مستويات، تدريب على الإعراب، ألعاب وأوسمة` : "Levels, parsing practice, games and badges"}</small></span><span class="end">${icon("chev", "flip")}</span></button>` : "";
 
   /* ================= Views ================= */
   function view() {
@@ -1523,7 +1525,9 @@ window.DalilStudy = function (ctx) {
     ensureContent(k.grade);
     const st = parent.stats[k.id] || { loading: true, results: [] };
     const results = st.results || [];
-    const lessonsN = st.progress && st.progress.lessons ? Object.keys(st.progress.lessons).length : 0;
+    const lessonKeys = st.progress && st.progress.lessons ? Object.keys(st.progress.lessons) : [];
+    const lessonsN = lessonKeys.filter((x) => !x.startsWith("nh:")).length;
+    const nhDone = lessonKeys.filter((x) => x.startsWith("nh:")).sort((a, b) => st.progress.lessons[b] - st.progress.lessons[a]);
     const avg = results.length ? Math.round(results.reduce((a, x) => a + (x.pct || 0), 0) / results.length) : null;
     const lastAt = Math.max(results[0] ? results[0].at : 0, st.progress && st.progress.at ? st.progress.at : 0);
     const bySub = {};
@@ -1547,6 +1551,9 @@ window.DalilStudy = function (ctx) {
       </div>
       ${weak.length ? `<div class="st-weak">${icon("alert")}<span><b>${s("weak")}:</b> ${weak.map((x) => esc(subName(x.id))).join("، ")}</span></div>` : ""}
       ${subRows.length ? `<h2 class="sec">${s("bySubject")}</h2><div class="card st-bars">${subRows.map((x) => `<div class="st-brow"><span>${esc(subName(x.id))}</span><span class="st-btrack"><i class="${pctTone(x.avg)}" style="width:${Math.max(4, x.avg)}%"></i></span><b>${num(x.avg)}%</b></div>`).join("")}</div>` : ""}
+      ${nhDone.length && window.Nahwi ? `<h2 class="sec">🦉 ${ar() ? "نَحْوِي" : "Nahwi grammar"}<span class="small">${num(nhDone.length)}/${num(window.Nahwi.count)}</span></h2>
+        <div class="card st-nhkid"><div class="nh-prog thin"><div style="width:${nhDone.length / window.Nahwi.count * 100}%"></div></div>
+        <div class="st-nhlist">${nhDone.slice(0, 8).map((x) => `<span>${esc(window.Nahwi.titleOf(x.slice(3)))}</span>`).join("")}</div></div>` : ""}
       <h2 class="sec">${s("recent")}${st.loading ? `<span class="small">${s("loading")}</span>` : ""}</h2>
       ${results.length ? `<div class="panel">${results.slice(0, 10).map(resultRow).join("")}</div>` : `<div class="panel"><div class="empty">${s("noResults")}</div></div>`}
 
