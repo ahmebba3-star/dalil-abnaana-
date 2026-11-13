@@ -932,3 +932,5 @@ button.child.row { cursor: pointer; }
 .st-nhkid { padding: 12px; }
 .st-nhlist { display: flex; flex-wrap: wrap; gap: 6px; }
 .st-nhlist span { font-size: .8rem; padding: 2px 10px; border-radius: 99px; background: color-mix(in srgb, #6c5ce7 10%, var(--surface)); }
+bdi.en { unicode-bidi: isolate; direction: ltr; font-family: "Alexandria", system-ui, sans-serif; }
+.st-opt bdi.en:only-child { display: block; text-align: left; }

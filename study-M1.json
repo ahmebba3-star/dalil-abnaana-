@@ -6826,59 +6826,375 @@
    ],
    "units": [
     {
-     "id": "en-u1",
+     "id": "m1e-u1",
      "term": 1,
-     "ar": "Module 1: All About Me",
-     "en": "Module 1: All About Me",
+     "ar": "Life in a Digital World",
+     "en": "Life in a Digital World",
      "lessons": [
       {
-       "id": "en-u1-l1",
-       "ar": "Unit 1: A Great Summer",
-       "en": "Unit 1: A Great Summer",
-       "body": []
-      },
-      {
-       "id": "en-u1-l2",
-       "ar": "Unit 2: My Network",
-       "en": "Unit 2: My Network",
-       "body": []
-      },
-      {
-       "id": "en-u1-l3",
-       "ar": "Unit 3: My Time",
-       "en": "Unit 3: My Time",
-       "body": []
+       "id": "m1e-l1",
+       "ar": "المفردات + المضارع البسيط مع ظروف التكرار",
+       "en": "المفردات + المضارع البسيط مع ظروف التكرار",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[e-book]]",
+            "كتاب إلكتروني",
+            "📱"
+           ],
+           [
+            "[[download]]",
+            "يحمّل",
+            "⬇️"
+           ],
+           [
+            "[[smartboard]]",
+            "سبورة ذكية",
+            "🖥️"
+           ],
+           [
+            "[[screen time]]",
+            "وقت الشاشة",
+            "⏱️"
+           ],
+           [
+            "[[social media]]",
+            "التواصل الاجتماعي",
+            "💬"
+           ],
+           [
+            "[[search]]",
+            "يبحث",
+            "🔎"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "المضارع البسيط للعادات والروتين: [[I check my email every morning.]]",
+          "[[He / She / It + s/es/ies]]: [[She usually cycles to school.]]",
+          "النفي: [[I don't ride bikes.]] — السؤال: [[Does Noha speak English?]]",
+          "ظروف التكرار قبل الفعل وبعد [[be]]: [[I rarely play video games.]] — [[She is always online.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[Ahmed ...... his phone for an hour every day.]]",
+         "o": [
+          "[[uses]]",
+          "[[use]]",
+          "[[using]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[I ...... download games without permission.]] (أبدًا)",
+         "o": [
+          "[[never]]",
+          "[[always]]",
+          "[[usually]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Which device do we use to make video calls?]]",
+         "o": [
+          "[[webcam]]",
+          "[[printer]]",
+          "[[keyboard]]"
+         ],
+         "a": 0
+        }
+       ]
       }
      ]
     },
     {
-     "id": "en-u2",
+     "id": "m1e-u2",
      "term": 1,
-     "ar": "Module 2: All Around Me",
-     "en": "Module 2: All Around Me",
+     "ar": "Learning to Learn",
+     "en": "Learning to Learn",
      "lessons": [
       {
-       "id": "en-u2-l1",
-       "ar": "Unit 4: Digital Life",
-       "en": "Unit 4: Digital Life",
-       "body": []
-      },
+       "id": "m1e-l2",
+       "ar": "can / can't للقدرة + المضارع المستمر",
+       "en": "can / can't للقدرة + المضارع المستمر",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[visual]]",
+            "بصري",
+            "👁️"
+           ],
+           [
+            "[[auditory]]",
+            "سمعي",
+            "👂"
+           ],
+           [
+            "[[kinesthetic]]",
+            "حركي",
+            "🤸"
+           ],
+           [
+            "[[mind map]]",
+            "خريطة ذهنية",
+            "🧠"
+           ],
+           [
+            "[[experiment]]",
+            "تجربة",
+            "🧪"
+           ],
+           [
+            "[[leadership]]",
+            "قيادة",
+            "⭐"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[can / can't + verb]]: [[I can learn by drawing mind maps.]]",
+          "المضارع المستمر [[am/is/are + v-ing]] للي بيحصل دلوقتي أو الفترة دي: [[We are studying for the exam this week.]]",
+          "الفرق: [[He plays chess every day.]] (عادة) — [[He is playing chess now.]] (دلوقتي)"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[Visual learners learn best by ......]]",
+         "o": [
+          "[[seeing pictures]]",
+          "[[listening to music]]",
+          "[[moving around]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Be quiet! The students ...... an exam.]]",
+         "o": [
+          "[[are taking]]",
+          "[[take]]",
+          "[[takes]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[She ...... speak three languages.]]",
+         "o": [
+          "[[can]]",
+          "[[cans]]",
+          "[[is can]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "m1e-u3",
+     "term": 1,
+     "ar": "The Past",
+     "en": "The Past",
+     "lessons": [
       {
-       "id": "en-u2-l2",
-       "ar": "Unit 5: In Nature",
-       "en": "Unit 5: In Nature",
-       "body": []
-      },
-      {
-       "id": "en-u2-l3",
-       "ar": "Unit 6: Food for Thought",
-       "en": "Unit 6: Food for Thought",
-       "body": []
+       "id": "m1e-l3",
+       "ar": "الماضي البسيط Past Simple",
+       "en": "الماضي البسيط Past Simple",
+       "body": [
+        {
+         "ul": [
+          "المنتظم: [[+ed]]: [[visited — studied — stopped]]",
+          "الشاذ يتحفظ: [[go → went]] ، [[see → saw]] ، [[make → made]] ، [[write → wrote]] ، [[buy → bought]]",
+          "النفي: [[didn't + verb]]: [[I didn't watch TV yesterday.]]",
+          "السؤال: [[Did + subject + verb?]]: [[Did you finish your homework?]]",
+          "كلمات دالة: [[yesterday — last week — ago — in 2020]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[We ...... the museum last Friday.]]",
+         "o": [
+          "[[visited]]",
+          "[[visit]]",
+          "[[visits]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[She didn't ...... to the party.]]",
+         "o": [
+          "[[go]]",
+          "[[went]]",
+          "[[goes]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[...... you see the match yesterday?]]",
+         "o": [
+          "[[Did]]",
+          "[[Do]]",
+          "[[Were]]"
+         ],
+         "a": 0
+        }
+       ]
       }
      ]
     }
    ],
    "sets": [
+    {
+     "id": "m1e-exp",
+     "kind": "expected",
+     "ar": "امتحان تجريبي متوقع",
+     "en": "Mock exam",
+     "minutes": 40,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[My sister ...... e-books on her tablet.]]",
+       "o": [
+        "[[reads]]",
+        "[[read]]",
+        "[[reading]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[They ...... use social media at school.]]",
+       "o": [
+        "[[don't]]",
+        "[[doesn't]]",
+        "[[aren't]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[I am ...... late for school.]] (0%)",
+       "o": [
+        "[[never]]",
+        "[[always]]",
+        "[[usually]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Listen! The teacher ...... the lesson.]]",
+       "o": [
+        "[[is explaining]]",
+        "[[explains]]",
+        "[[explain]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Look! It ...... outside.]]",
+       "o": [
+        "[[is raining]]",
+        "[[rains]]",
+        "[[rained]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[My grandfather ...... use a computer.]] (مش قادر)",
+       "o": [
+        "[[can't]]",
+        "[[can]]",
+        "[[doesn't can]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Last summer, we ...... to Alexandria.]]",
+       "o": [
+        "[[went]]",
+        "[[go]]",
+        "[[goes]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[He ...... a letter two days ago.]]",
+       "o": [
+        "[[wrote]]",
+        "[[writes]]",
+        "[[write]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Did you buy a new laptop? — Yes, I ......]]",
+       "o": [
+        "[[did]]",
+        "[[do]]",
+        "[[was]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[A ...... learner learns best by moving and doing.]]",
+       "o": [
+        "[[kinesthetic]]",
+        "[[visual]]",
+        "[[auditory]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "tf",
+       "q": "[[She don't like video games.]] جملة صحيحة.",
+       "a": false,
+       "e": "الصح: She doesn't like."
+      },
+      {
+       "t": "tf",
+       "q": "[[I didn't went to the club.]] جملة صحيحة.",
+       "a": false,
+       "e": "الصح: didn't go."
+      }
+     ]
+    },
     {
      "id": "en-past-2026-t1",
      "kind": "past",

@@ -2523,6 +2523,413 @@
      ]
     }
    ]
+  },
+  {
+   "id": "english",
+   "ar": "اللغة الإنجليزية",
+   "en": "English",
+   "books": [
+    {
+     "term": 1,
+     "ar": "كتاب اللغة الإنجليزية",
+     "en": "English book",
+     "url": ""
+    }
+   ],
+   "units": [
+    {
+     "id": "m3e-u1",
+     "term": 1,
+     "ar": "Personal Identity",
+     "en": "Personal Identity",
+     "lessons": [
+      {
+       "id": "m3e-l1",
+       "ar": "ضمائر الوصل who / which / where / whose",
+       "en": "ضمائر الوصل who / which / where / whose",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[identity]]",
+            "هوية",
+            "🪪"
+           ],
+           [
+            "[[personality]]",
+            "شخصية",
+            "🙂"
+           ],
+           [
+            "[[value]]",
+            "قيمة",
+            "💎"
+           ],
+           [
+            "[[belong]]",
+            "ينتمي",
+            "🏠"
+           ],
+           [
+            "[[unique]]",
+            "فريد",
+            "⭐"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[who]] للعاقل: [[He is the boy who won the prize.]]",
+          "[[which]] لغير العاقل: [[This is the book which I like.]]",
+          "[[where]] للمكان: [[This is the city where I was born.]]",
+          "[[whose]] للملكية: [[She is the girl whose father is a doctor.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[The man ...... lives next door is a pilot.]]",
+         "o": [
+          "[[who]]",
+          "[[which]]",
+          "[[where]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[This is the school ...... I studied.]]",
+         "o": [
+          "[[where]]",
+          "[[who]]",
+          "[[whose]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[I met a boy ...... mother is my teacher.]]",
+         "o": [
+          "[[whose]]",
+          "[[who]]",
+          "[[which]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "m3e-u2",
+     "term": 1,
+     "ar": "Communication with Family and Friends",
+     "en": "Communication",
+     "lessons": [
+      {
+       "id": "m3e-l2",
+       "ar": "المضارع التام مقابل الماضي البسيط",
+       "en": "المضارع التام مقابل الماضي البسيط",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[communicate]]",
+            "يتواصل",
+            "💬"
+           ],
+           [
+            "[[argue]]",
+            "يتجادل",
+            "😠"
+           ],
+           [
+            "[[apologize]]",
+            "يعتذر",
+            "🙏"
+           ],
+           [
+            "[[respect]]",
+            "يحترم",
+            "🤝"
+           ],
+           [
+            "[[trust]]",
+            "يثق",
+            "🫶"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "الماضي البسيط: وقت محدد خلص: [[I called my grandmother yesterday.]]",
+          "المضارع التام: من غير وقت محدد أو لسه مستمر: [[I have called her three times this week.]]",
+          "[[ever / never]]: [[Have you ever argued with your best friend?]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[We ...... our cousins last summer.]]",
+         "o": [
+          "[[visited]]",
+          "[[have visited]]",
+          "[[visit]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[I ...... never lied to my parents.]]",
+         "o": [
+          "[[have]]",
+          "[[has]]",
+          "[[did]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[When you make a mistake, you should ......]]",
+         "o": [
+          "[[apologize]]",
+          "[[argue]]",
+          "[[ignore]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "m3e-u3",
+     "term": 1,
+     "ar": "Artificial Intelligence",
+     "en": "Artificial Intelligence",
+     "lessons": [
+      {
+       "id": "m3e-l3",
+       "ar": "المستقبل will / going to + الشرطية الأولى",
+       "en": "المستقبل will / going to + الشرطية الأولى",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[artificial intelligence]]",
+            "الذكاء الاصطناعي",
+            "🤖"
+           ],
+           [
+            "[[robot]]",
+            "روبوت",
+            "🦾"
+           ],
+           [
+            "[[program]]",
+            "يبرمج",
+            "💻"
+           ],
+           [
+            "[[data]]",
+            "بيانات",
+            "📊"
+           ],
+           [
+            "[[replace]]",
+            "يستبدل",
+            "🔄"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[will + verb]] للتوقع أو القرار اللحظي: [[Robots will do many jobs in the future.]]",
+          "[[going to + verb]] للنية أو الخطة: [[I'm going to study programming.]]",
+          "**الشرطية الأولى**: [[If + present simple, will + verb]]: [[If you practise coding, you will become a programmer.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[If it rains, we ...... at home.]]",
+         "o": [
+          "[[will stay]]",
+          "[[stay]]",
+          "[[stayed]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Look at those clouds! It ...... rain.]]",
+         "o": [
+          "[[is going to]]",
+          "[[will to]]",
+          "[[goes]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[If you ...... hard, you will pass.]]",
+         "o": [
+          "[[study]]",
+          "[[will study]]",
+          "[[studied]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "sets": [
+    {
+     "id": "m3e-exp",
+     "kind": "expected",
+     "ar": "امتحان تجريبي متوقع",
+     "en": "Mock exam",
+     "minutes": 45,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[The doctor ...... helped me was very kind.]]",
+       "o": [
+        "[[who]]",
+        "[[which]]",
+        "[[where]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[This is the phone ...... I bought yesterday.]]",
+       "o": [
+        "[[which]]",
+        "[[who]]",
+        "[[whose]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Luxor is the city ...... my grandparents live.]]",
+       "o": [
+        "[[where]]",
+        "[[which]]",
+        "[[whose]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[I have a friend ...... brother is a famous player.]]",
+       "o": [
+        "[[whose]]",
+        "[[who]]",
+        "[[which]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[She ...... her homework an hour ago.]]",
+       "o": [
+        "[[finished]]",
+        "[[has finished]]",
+        "[[finishes]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Have you ...... been to Siwa?]]",
+       "o": [
+        "[[ever]]",
+        "[[never]]",
+        "[[yet]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[We have known each other ...... ten years.]]",
+       "o": [
+        "[[for]]",
+        "[[since]]",
+        "[[ago]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[I think robots ...... cars in the future.]]",
+       "o": [
+        "[[will drive]]",
+        "[[drive]]",
+        "[[drove]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[If he ...... early, he will catch the bus.]]",
+       "o": [
+        "[[leaves]]",
+        "[[will leave]]",
+        "[[left]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Artificial intelligence]] تعني:",
+       "o": [
+        "الذكاء الاصطناعي",
+        "الذكاء العاطفي",
+        "البيانات الضخمة"
+       ],
+       "a": 0
+      },
+      {
+       "t": "tf",
+       "q": "[[If you will heat ice, it melts.]] جملة صحيحة.",
+       "a": false
+      },
+      {
+       "t": "tf",
+       "q": "[[I'm going to visit my uncle tomorrow.]] جملة صحيحة.",
+       "a": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }

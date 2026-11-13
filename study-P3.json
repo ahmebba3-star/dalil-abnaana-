@@ -3425,6 +3425,419 @@
      ]
     }
    ]
+  },
+  {
+   "id": "english",
+   "ar": "اللغة الإنجليزية",
+   "en": "English",
+   "books": [
+    {
+     "term": 1,
+     "ar": "كتاب اللغة الإنجليزية",
+     "en": "English book",
+     "url": ""
+    }
+   ],
+   "units": [
+    {
+     "id": "p3e-u1",
+     "term": 1,
+     "ar": "أنا وأصحابي ومدينتي",
+     "en": "Units 1 – 3",
+     "lessons": [
+      {
+       "id": "p3e-l1",
+       "ar": "Unit 1: I am / You are / They are 🙋",
+       "en": "Unit 1: I am / You are / They are 🙋",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "الضمير",
+           "الفعل be"
+          ],
+          "rows": [
+           [
+            "[[I]]",
+            "[[am]]"
+           ],
+           [
+            "[[He / She / It]]",
+            "[[is]]"
+           ],
+           [
+            "[[You / We / They]]",
+            "[[are]]"
+           ]
+          ]
+         }
+        },
+        "[[We are friends.]] ← إحنا أصحاب",
+        "[[They are happy.]] ← هما مبسوطين",
+        {
+         "tip": "قول [[Please]] لما تطلب و[[Thank you]] لما حد يساعدك 🙏"
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[They ...... my friends.]]",
+         "o": [
+          "[[are]]",
+          "[[is]]",
+          "[[am]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[I ...... a student.]]",
+         "o": [
+          "[[am]]",
+          "[[is]]",
+          "[[are]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[She ...... happy.]]",
+         "o": [
+          "[[is]]",
+          "[[are]]",
+          "[[am]]"
+         ],
+         "a": 0
+        }
+       ]
+      },
+      {
+       "id": "p3e-l2",
+       "ar": "Unit 3: In the town — حروف الجر 🏙️",
+       "en": "Unit 3: In the town — حروف الجر 🏙️",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[next to]]",
+            "جنب",
+            "↔️"
+           ],
+           [
+            "[[between]]",
+            "بين",
+            "↕️"
+           ],
+           [
+            "[[in]]",
+            "جوّه",
+            "📦"
+           ],
+           [
+            "[[on]]",
+            "على",
+            "⬆️"
+           ],
+           [
+            "[[under]]",
+            "تحت",
+            "⬇️"
+           ]
+          ]
+         }
+        },
+        "[[The bank is next to the school.]] ← البنك جنب المدرسة",
+        "[[The cat is under the table.]] ← القطة تحت الترابيزة",
+        {
+         "h": "صوت [[ss]] و [[ll]] في الآخر"
+        },
+        "[[miss — bell — tell 🔔]]"
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[The cat is ...... the table.]] (تحت)",
+         "o": [
+          "[[under]]",
+          "[[on]]",
+          "[[in]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The shop is ...... the bank and the school.]]",
+         "o": [
+          "[[between]]",
+          "[[under]]",
+          "[[in]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The ball is ...... the box.]] (جوّه)",
+         "o": [
+          "[[in]]",
+          "[[on]]",
+          "[[next to]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3e-u2",
+     "term": 1,
+     "ar": "الماضي والتعاون",
+     "en": "Units 4 – 6",
+     "lessons": [
+      {
+       "id": "p3e-l3",
+       "ar": "Unit 4: الماضي -ed (walked, played) ⏪",
+       "en": "Unit 4: الماضي -ed (walked, played) ⏪",
+       "body": [
+        "علشان نتكلم عن حاجة **حصلت وخلصت** بنزوّد [[ed]] للفعل:",
+        {
+         "table": {
+          "head": [
+           "الآن",
+           "الماضي"
+          ],
+          "rows": [
+           [
+            "[[walk]]",
+            "[[walked]]"
+           ],
+           [
+            "[[play]]",
+            "[[played]]"
+           ],
+           [
+            "[[jump]]",
+            "[[jumped]]"
+           ],
+           [
+            "[[help]]",
+            "[[helped]]"
+           ]
+          ]
+         }
+        },
+        "[[Yesterday, I played football.]] ← امبارح لعبت كورة",
+        {
+         "h": "صوت [[ck]] = «ك»"
+        },
+        "[[duck 🦆 — neck — truck 🚚]]"
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[Yesterday, she ...... to school.]]",
+         "o": [
+          "[[walked]]",
+          "[[walk]]",
+          "[[walks]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[We ...... football last Friday.]]",
+         "o": [
+          "[[played]]",
+          "[[play]]",
+          "[[playing]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "اختار الكلمة المناسبة: 🦆",
+         "o": [
+          "[[duck]]",
+          "[[truck]]",
+          "[[neck]]"
+         ],
+         "a": 0
+        }
+       ]
+      },
+      {
+       "id": "p3e-l4",
+       "ar": "Unit 5: Let's help! — التعاون 🤝",
+       "en": "Unit 5: Let's help! — التعاون 🤝",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[help]]",
+            "يساعد",
+            "🤝"
+           ],
+           [
+            "[[share]]",
+            "يشارك",
+            "🍪"
+           ],
+           [
+            "[[clean]]",
+            "ينضف",
+            "🧹"
+           ],
+           [
+            "[[together]]",
+            "مع بعض",
+            "👫"
+           ]
+          ]
+         }
+        },
+        "[[Can you help me, please?]] ← ممكن تساعدني لو سمحت؟",
+        "[[Yes, of course!]] ← أيوه طبعًا!",
+        "[[Let's clean the classroom together.]] ← يلا ننضف الفصل مع بعض"
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[Can you ...... me, please?]]",
+         "o": [
+          "[[help]]",
+          "[[play]]",
+          "[[sleep]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "اختار الكلمة المناسبة: 🧹",
+         "o": [
+          "[[clean]]",
+          "[[share]]",
+          "[[help]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Let's ...... the cake.]] 🍰",
+         "o": [
+          "[[share]]",
+          "[[clean]]",
+          "[[walk]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "sets": [
+    {
+     "id": "p3e-rev",
+     "kind": "review",
+     "ar": "مراجعة الإنجليزي",
+     "en": "Practice",
+     "minutes": 10,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[We ...... in the garden.]]",
+       "o": [
+        "[[are]]",
+        "[[is]]",
+        "[[am]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[He ...... my brother.]]",
+       "o": [
+        "[[is]]",
+        "[[are]]",
+        "[[am]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[The book is ...... the desk.]] (على)",
+       "o": [
+        "[[on]]",
+        "[[under]]",
+        "[[between]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Last week, I ...... my mother.]]",
+       "o": [
+        "[[helped]]",
+        "[[help]]",
+        "[[helps]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "اختار الكلمة المناسبة: 🚚",
+       "o": [
+        "[[truck]]",
+        "[[duck]]",
+        "[[bell]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "الماضي من [[jump]]:",
+       "o": [
+        "[[jumped]]",
+        "[[jumping]]",
+        "[[jumps]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "اختار الكلمة المناسبة: [[next to]]",
+       "o": [
+        "جنب",
+        "تحت",
+        "بين"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "اختار الكلمة المناسبة: 🍪 [[share]]",
+       "o": [
+        "يشارك",
+        "ينضف",
+        "يجري"
+       ],
+       "a": 0
+      }
+     ]
+    }
+   ]
   }
  ]
 }

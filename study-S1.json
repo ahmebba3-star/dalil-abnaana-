@@ -1989,6 +1989,442 @@
      ]
     }
    ]
+  },
+  {
+   "id": "english",
+   "ar": "اللغة الإنجليزية",
+   "en": "English",
+   "books": [
+    {
+     "term": 1,
+     "ar": "كتاب اللغة الإنجليزية",
+     "en": "English book",
+     "url": ""
+    }
+   ],
+   "units": [
+    {
+     "id": "s1e-u1",
+     "term": 1,
+     "ar": "Egypt's Heritage",
+     "en": "Egypt's Heritage",
+     "lessons": [
+      {
+       "id": "s1e-l1",
+       "ar": "الماضي البسيط والماضي المستمر",
+       "en": "الماضي البسيط والماضي المستمر",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[heritage]]",
+            "تراث",
+            "🏛️"
+           ],
+           [
+            "[[civilization]]",
+            "حضارة",
+            "🌍"
+           ],
+           [
+            "[[archaeologist]]",
+            "عالم آثار",
+            "⛏️"
+           ],
+           [
+            "[[monument]]",
+            "أثر/نصب",
+            "🗿"
+           ],
+           [
+            "[[national pride]]",
+            "الفخر الوطني",
+            "🇪🇬"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "الماضي البسيط لحدث تم وانتهى: [[The Egyptians taught the world what civilization was.]]",
+          "الماضي المستمر [[was/were + v-ing]] لحدث كان مستمرًا في وقت معين: [[At 2 o'clock, Sama was returning home.]]",
+          "حدث قصير قطع حدثًا طويلًا: [[Mr Ramy was calling his wife when he dropped his mobile.]]",
+          "[[While / As / Just as]] + ماضٍ مستمر ، و[[While + v-ing]]: [[While watching a film, I fell asleep.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[While she ...... home, she met her friends.]]",
+         "o": [
+          "[[was going]]",
+          "[[went]]",
+          "[[goes]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[They ...... football when it started to rain.]]",
+         "o": [
+          "[[were playing]]",
+          "[[was playing]]",
+          "[[played]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[An ...... studies ancient objects and buildings.]]",
+         "o": [
+          "[[archaeologist]]",
+          "[[architect]]",
+          "[[astronaut]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "s1e-u2",
+     "term": 1,
+     "ar": "Hands Help, Hearts Care",
+     "en": "Hands Help, Hearts Care",
+     "lessons": [
+      {
+       "id": "s1e-l2",
+       "ar": "must و have to",
+       "en": "must و have to",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[kindness]]",
+            "اللطف",
+            "💖"
+           ],
+           [
+            "[[compassion]]",
+            "التعاطف",
+            "🤲"
+           ],
+           [
+            "[[volunteer]]",
+            "يتطوع",
+            "🙋"
+           ],
+           [
+            "[[donate]]",
+            "يتبرع",
+            "🎁"
+           ],
+           [
+            "[[empathy]]",
+            "التقمّص الوجداني",
+            "🫂"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[must]]: إلزام نابع من **المتكلم** أو قانون مكتوب: [[I must visit my grandmother.]]",
+          "[[have to]]: إلزام من **ظروف خارجية**: [[I have to wear a uniform at school.]]",
+          "النفي مختلف: [[mustn't]] = **ممنوع** ، [[don't have to]] = **مش لازم** (اختياري)",
+          "الماضي للاتنين: [[had to]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[You ...... smoke in hospitals.]] (ممنوع)",
+         "o": [
+          "[[mustn't]]",
+          "[[don't have to]]",
+          "[[have to]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Tomorrow is a holiday, so we ...... go to school.]]",
+         "o": [
+          "[[don't have to]]",
+          "[[mustn't]]",
+          "[[must]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Yesterday I ...... stay late at work.]]",
+         "o": [
+          "[[had to]]",
+          "[[must]]",
+          "[[have to]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "s1e-u3",
+     "term": 1,
+     "ar": "Truth Vs. Lies",
+     "en": "Truth Vs. Lies",
+     "lessons": [
+      {
+       "id": "s1e-l3",
+       "ar": "الجمل الشرطية Conditionals",
+       "en": "الجمل الشرطية Conditionals",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[fake news]]",
+            "أخبار كاذبة",
+            "📰"
+           ],
+           [
+            "[[source]]",
+            "مصدر",
+            "🔗"
+           ],
+           [
+            "[[rumour]]",
+            "شائعة",
+            "🗣️"
+           ],
+           [
+            "[[deceive]]",
+            "يخدع",
+            "🎭"
+           ],
+           [
+            "[[reliable]]",
+            "موثوق",
+            "✅"
+           ]
+          ]
+         }
+        },
+        {
+         "table": {
+          "head": [
+           "النوع",
+           "التركيب",
+           "مثال"
+          ],
+          "rows": [
+           [
+            "الصفرية (حقائق)",
+            "[[If + present, present]]",
+            "[[If you heat water, it boils.]]"
+           ],
+           [
+            "الأولى (محتمل)",
+            "[[If + present, will + verb]]",
+            "[[If you share fake news, people will believe it.]]"
+           ],
+           [
+            "الثانية (غير واقعي)",
+            "[[If + past, would + verb]]",
+            "[[If I were you, I would check the source.]]"
+           ]
+          ]
+         }
+        },
+        {
+         "tip": "[[unless = if ... not]]: [[Unless you check the source, you will be deceived.]]"
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[If I ...... a million pounds, I would build a hospital.]]",
+         "o": [
+          "[[had]]",
+          "[[have]]",
+          "[[will have]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[If you check the news, you ...... the truth.]]",
+         "o": [
+          "[[will know]]",
+          "[[would know]]",
+          "[[knew]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[A ...... source gives correct information.]]",
+         "o": [
+          "[[reliable]]",
+          "[[fake]]",
+          "[[deceiving]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "sets": [
+    {
+     "id": "s1e-exp",
+     "kind": "expected",
+     "ar": "امتحان تجريبي متوقع",
+     "en": "Mock exam",
+     "minutes": 45,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[At 9 p.m. yesterday, I ...... for my exam.]]",
+       "o": [
+        "[[was studying]]",
+        "[[studied]]",
+        "[[study]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[The phone rang while we ...... dinner.]]",
+       "o": [
+        "[[were having]]",
+        "[[had]]",
+        "[[have]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Just as he ...... the house, it started to rain.]]",
+       "o": [
+        "[[was leaving]]",
+        "[[leaves]]",
+        "[[has left]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Ancient Egyptians ...... the pyramids thousands of years ago.]]",
+       "o": [
+        "[[built]]",
+        "[[were building]]",
+        "[[build]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Students ...... cheat in exams.]]",
+       "o": [
+        "[[mustn't]]",
+        "[[don't have to]]",
+        "[[had to]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[You ...... bring food; we have plenty.]]",
+       "o": [
+        "[[don't have to]]",
+        "[[mustn't]]",
+        "[[must]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[She ...... take a taxi because she missed the bus.]]",
+       "o": [
+        "[[had to]]",
+        "[[must]]",
+        "[[mustn't]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[If I were the minister, I ...... build more schools.]]",
+       "o": [
+        "[[would]]",
+        "[[will]]",
+        "[[am]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[...... you believe everything online, you will be deceived.]]",
+       "o": [
+        "[[If]]",
+        "[[Unless]]",
+        "[[Although]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[If you mix red and white, you ...... pink.]]",
+       "o": [
+        "[[get]]",
+        "[[got]]",
+        "[[would get]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[A rumour]] تعني:",
+       "o": [
+        "شائعة",
+        "مصدر",
+        "حقيقة"
+       ],
+       "a": 0
+      },
+      {
+       "t": "tf",
+       "q": "[[If I would have time, I would help you.]] جملة صحيحة.",
+       "a": false,
+       "e": "الصح: If I had time."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

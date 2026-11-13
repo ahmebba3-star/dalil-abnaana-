@@ -2975,6 +2975,603 @@
      ]
     }
    ]
+  },
+  {
+   "id": "english",
+   "ar": "اللغة الإنجليزية",
+   "en": "English",
+   "books": [
+    {
+     "term": 1,
+     "ar": "كتاب اللغة الإنجليزية",
+     "en": "English book",
+     "url": ""
+    }
+   ],
+   "units": [
+    {
+     "id": "p4e-u1",
+     "term": 1,
+     "ar": "The Five Senses",
+     "en": "The Five Senses",
+     "lessons": [
+      {
+       "id": "p4e-l1",
+       "ar": "المفردات والمضارع البسيط (الإثبات)",
+       "en": "المفردات والمضارع البسيط (الإثبات)",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[see]]",
+            "يرى",
+            "👀"
+           ],
+           [
+            "[[hear]]",
+            "يسمع",
+            "👂"
+           ],
+           [
+            "[[smell]]",
+            "يشم",
+            "👃"
+           ],
+           [
+            "[[taste]]",
+            "يتذوق",
+            "👅"
+           ],
+           [
+            "[[touch]]",
+            "يلمس",
+            "✋"
+           ]
+          ]
+         }
+        },
+        "**المضارع البسيط** للعادات والحقائق: مع [[He / She / It]] نزوّد **[[s]]**:",
+        "[[I eat fruit every day.]] ← باكل فاكهة كل يوم",
+        "[[She brushes her teeth twice a day.]] ← هي بتغسل سنانها مرتين في اليوم",
+        {
+         "tip": "كلمات الترتيب: [[first — then — next — finally]]"
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[We ...... with our ears.]]",
+         "o": [
+          "[[hear]]",
+          "[[see]]",
+          "[[smell]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[He ...... milk every morning.]]",
+         "o": [
+          "[[drinks]]",
+          "[[drink]]",
+          "[[drinking]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[My mother ...... a healthy breakfast.]]",
+         "o": [
+          "[[makes]]",
+          "[[make]]",
+          "[[made]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4e-u2",
+     "term": 1,
+     "ar": "My Community",
+     "en": "My Community",
+     "lessons": [
+      {
+       "id": "p4e-l2",
+       "ar": "النفي والسؤال في المضارع البسيط",
+       "en": "النفي والسؤال في المضارع البسيط",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[neighbor]]",
+            "جار",
+            "🏘️"
+           ],
+           [
+            "[[volunteer]]",
+            "متطوع",
+            "🙋"
+           ],
+           [
+            "[[trash bin]]",
+            "صندوق زبالة",
+            "🗑️"
+           ],
+           [
+            "[[traffic]]",
+            "زحمة مرور",
+            "🚗"
+           ],
+           [
+            "[[festival]]",
+            "مهرجان",
+            "🎉"
+           ]
+          ]
+         }
+        },
+        {
+         "table": {
+          "head": [
+           "",
+           "I / You / We / They",
+           "He / She / It"
+          ],
+          "rows": [
+           [
+            "النفي",
+            "[[don't + play]]",
+            "[[doesn't + play]]"
+           ],
+           [
+            "السؤال",
+            "[[Do you play?]]",
+            "[[Does she play?]]"
+           ]
+          ]
+         }
+        },
+        "[[He doesn't throw trash in the street.]] ← هو مش بيرمي زبالة في الشارع",
+        "[[Do you help your neighbors? — Yes, I do.]]"
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[She ...... like noise.]]",
+         "o": [
+          "[[doesn't]]",
+          "[[don't]]",
+          "[[isn't]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[...... they volunteer every Friday?]]",
+         "o": [
+          "[[Do]]",
+          "[[Does]]",
+          "[[Are]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Does he live here? — No, he ......]]",
+         "o": [
+          "[[doesn't]]",
+          "[[don't]]",
+          "[[isn't]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4e-u3",
+     "term": 1,
+     "ar": "الحيوانات ومصر والوظائف",
+     "en": "Units 3 – 5",
+     "lessons": [
+      {
+       "id": "p4e-l3",
+       "ar": "Unit 3: Animals — المقارنة (Comparatives)",
+       "en": "Unit 3: Animals — المقارنة (Comparatives)",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[giraffe]]",
+            "زرافة",
+            "🦒"
+           ],
+           [
+            "[[zebra]]",
+            "حمار وحشي",
+            "🦓"
+           ],
+           [
+            "[[bear]]",
+            "دب",
+            "🐻"
+           ],
+           [
+            "[[endangered]]",
+            "مهدد بالانقراض",
+            "⚠️"
+           ],
+           [
+            "[[vet]]",
+            "دكتور بيطري",
+            "🩺"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "صفة قصيرة + **[[er]]** + [[than]]: [[tall → taller]]",
+          "بتنتهي بـ [[e]]: [[large → larger]]",
+          "ساكن قبله متحرك: [[big → bigger]]",
+          "بتنتهي بـ [[y]]: [[happy → happier]]",
+          "صفة طويلة: [[more beautiful than]]",
+          "شاذة: [[good → better]] ، [[bad → worse]]"
+         ]
+        },
+        "[[The giraffe is taller than the zebra.]] ← الزرافة أطول من الحمار الوحشي"
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[An elephant is ...... than a dog.]]",
+         "o": [
+          "[[bigger]]",
+          "[[big]]",
+          "[[biggest]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[A cheetah is ...... than a bear.]]",
+         "o": [
+          "[[faster]]",
+          "[[fast]]",
+          "[[more fast]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[This picture is ...... than that one.]]",
+         "o": [
+          "[[more beautiful]]",
+          "[[beautifuler]]",
+          "[[most beautiful]]"
+         ],
+         "a": 0
+        }
+       ]
+      },
+      {
+       "id": "p4e-l4",
+       "ar": "Unit 4: Egypt My Homeland — حروف جر المكان",
+       "en": "Unit 4: Egypt My Homeland — حروف جر المكان",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[Pyramids]]",
+            "الأهرامات",
+            "🔺"
+           ],
+           [
+            "[[Cairo Tower]]",
+            "برج القاهرة",
+            "🗼"
+           ],
+           [
+            "[[museum]]",
+            "متحف",
+            "🏛️"
+           ],
+           [
+            "[[tourists]]",
+            "سياح",
+            "🧳"
+           ],
+           [
+            "[[post office]]",
+            "مكتب البريد",
+            "📮"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[in]]: جوّه — [[on]]: على — [[under]]: تحت",
+          "[[next to]]: جنب — [[between]]: بين — [[opposite]]: قصاد — [[behind]]: ورا — [[in front of]]: قدّام"
+         ]
+        },
+        "[[The post office is opposite the mall.]] ← البوسطة قصاد المول"
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[The car is ...... the house.]] (ورا)",
+         "o": [
+          "[[behind]]",
+          "[[in front of]]",
+          "[[on]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The bank is ...... the school and the park.]]",
+         "o": [
+          "[[between]]",
+          "[[next]]",
+          "[[under]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Khan El Khalili is ...... Cairo.]]",
+         "o": [
+          "[[in]]",
+          "[[on]]",
+          "[[at]]"
+         ],
+         "a": 0
+        }
+       ]
+      },
+      {
+       "id": "p4e-l5",
+       "ar": "Unit 5: A Day at Work — التفضيل (Superlatives)",
+       "en": "Unit 5: A Day at Work — التفضيل (Superlatives)",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[doctor]]",
+            "دكتور",
+            "👨‍⚕️"
+           ],
+           [
+            "[[engineer]]",
+            "مهندس",
+            "👷"
+           ],
+           [
+            "[[firefighter]]",
+            "رجل إطفاء",
+            "🧑‍🚒"
+           ],
+           [
+            "[[police officer]]",
+            "ظابط شرطة",
+            "👮"
+           ],
+           [
+            "[[carpenter]]",
+            "نجار",
+            "🪚"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[the + adjective + est]]: [[the tallest]] ، [[the biggest]] ، [[the happiest]]",
+          "[[the most + long adjective]]: [[the most important]]",
+          "شاذة: [[the best]] ، [[the worst]]"
+         ]
+        },
+        "[[A firefighter has the most dangerous job.]] ← رجل الإطفاء شغلته أخطر شغلانة"
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[Ali is the ...... boy in the class.]]",
+         "o": [
+          "[[tallest]]",
+          "[[taller]]",
+          "[[tall]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[This is the ...... day of my life!]]",
+         "o": [
+          "[[best]]",
+          "[[better]]",
+          "[[good]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[A ...... makes tables and chairs.]]",
+         "o": [
+          "[[carpenter]]",
+          "[[doctor]]",
+          "[[pilot]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "sets": [
+    {
+     "id": "p4e-exp",
+     "kind": "expected",
+     "ar": "امتحان تجريبي متوقع",
+     "en": "Mock exam",
+     "minutes": 30,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[We smell with our ......]]",
+       "o": [
+        "[[nose]]",
+        "[[eyes]]",
+        "[[hands]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[My father ...... to work by bus.]]",
+       "o": [
+        "[[goes]]",
+        "[[go]]",
+        "[[going]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[They ...... eat fast food.]]",
+       "o": [
+        "[[don't]]",
+        "[[doesn't]]",
+        "[[isn't]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[...... your sister like milk?]]",
+       "o": [
+        "[[Does]]",
+        "[[Do]]",
+        "[[Is]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[A mouse is ...... than a cat.]]",
+       "o": [
+        "[[smaller]]",
+        "[[small]]",
+        "[[smallest]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Today is ...... than yesterday.]]",
+       "o": [
+        "[[hotter]]",
+        "[[hoter]]",
+        "[[hottest]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[The Nile is the ...... river in Africa.]]",
+       "o": [
+        "[[longest]]",
+        "[[longer]]",
+        "[[long]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[The bag is ...... the chair.]] (تحت)",
+       "o": [
+        "[[under]]",
+        "[[on]]",
+        "[[between]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[A ...... helps sick animals.]]",
+       "o": [
+        "[[vet]]",
+        "[[tailor]]",
+        "[[chef]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Endangered]] تعني:",
+       "o": [
+        "مهدد بالانقراض",
+        "سريع جدًا",
+        "أليف"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "اختر الكلمة المختلفة:",
+       "o": [
+        "[[taste]]",
+        "[[doctor]]",
+        "[[nurse]]",
+        "[[engineer]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "tf",
+       "q": "[[She play tennis every day.]] جملة صحيحة.",
+       "a": false,
+       "e": "الصح: She plays."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

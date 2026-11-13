@@ -2739,6 +2739,419 @@
      ]
     }
    ]
+  },
+  {
+   "id": "english",
+   "ar": "اللغة الإنجليزية",
+   "en": "English",
+   "books": [
+    {
+     "term": 1,
+     "ar": "كتاب اللغة الإنجليزية",
+     "en": "English book",
+     "url": ""
+    }
+   ],
+   "units": [
+    {
+     "id": "s2e-u1",
+     "term": 1,
+     "ar": "Egypt-Africa Cooperation",
+     "en": "Egypt-Africa Cooperation",
+     "lessons": [
+      {
+       "id": "s2e-l1",
+       "ar": "المضارع المستمر في المبني للمعلوم والمجهول",
+       "en": "المضارع المستمر في المبني للمعلوم والمجهول",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[cooperation]]",
+            "تعاون",
+            "🤝"
+           ],
+           [
+            "[[partnership]]",
+            "شراكة",
+            "🫱🏽‍🫲🏿"
+           ],
+           [
+            "[[trade]]",
+            "تجارة",
+            "🚢"
+           ],
+           [
+            "[[solidarity]]",
+            "تضامن",
+            "✊"
+           ],
+           [
+            "[[gateway]]",
+            "بوابة",
+            "🚪"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "المعلوم: [[Egypt is building new roads in Africa.]]",
+          "المجهول: [[am/is/are + being + V3]]: [[New roads are being built in Africa.]]",
+          "الفاعل (لو مهم) بعد [[by]]: [[The dam is being built by Egyptian engineers.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[A new bridge ...... at the moment.]]",
+         "o": [
+          "[[is being built]]",
+          "[[is building]]",
+          "[[builds]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The report ...... by the delegates now.]]",
+         "o": [
+          "[[is being discussed]]",
+          "[[is discussing]]",
+          "[[discussed]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Solidarity]] تعني:",
+         "o": [
+          "تضامن",
+          "تجارة",
+          "منافسة"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "s2e-u2",
+     "term": 1,
+     "ar": "Startups & Young Entrepreneurs",
+     "en": "Startups",
+     "lessons": [
+      {
+       "id": "s2e-l2",
+       "ar": "الماضي التام في المعلوم والمجهول",
+       "en": "الماضي التام في المعلوم والمجهول",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[startup]]",
+            "شركة ناشئة",
+            "🚀"
+           ],
+           [
+            "[[entrepreneur]]",
+            "رائد أعمال",
+            "💼"
+           ],
+           [
+            "[[invest]]",
+            "يستثمر",
+            "💰"
+           ],
+           [
+            "[[pitch]]",
+            "عرض تقديمي لمشروع",
+            "🎤"
+           ],
+           [
+            "[[profit]]",
+            "ربح",
+            "📈"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "الماضي التام [[had + V3]]: حدث تم **قبل** حدث آخر في الماضي: [[When the investors arrived, she had finished her pitch.]]",
+          "المجهول: [[had been + V3]]: [[The company had been founded before 2020.]]",
+          "روابط: [[before — after — by the time — already]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[By the time we arrived, the meeting ......]]",
+         "o": [
+          "[[had started]]",
+          "[[has started]]",
+          "[[starts]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The app ...... before it was sold.]]",
+         "o": [
+          "[[had been developed]]",
+          "[[had developed]]",
+          "[[has been developing]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[An ...... starts and runs a new business.]]",
+         "o": [
+          "[[entrepreneur]]",
+          "[[employee]]",
+          "[[investor]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "s2e-u3",
+     "term": 1,
+     "ar": "Sustainable Development Goals",
+     "en": "SDGs",
+     "lessons": [
+      {
+       "id": "s2e-l3",
+       "ar": "الصفات والظروف Adjectives and Adverbs",
+       "en": "الصفات والظروف Adjectives and Adverbs",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[sustainable]]",
+            "مستدام",
+            "♻️"
+           ],
+           [
+            "[[poverty]]",
+            "فقر",
+            "🏚️"
+           ],
+           [
+            "[[healthcare]]",
+            "رعاية صحية",
+            "🏥"
+           ],
+           [
+            "[[equality]]",
+            "مساواة",
+            "⚖️"
+           ],
+           [
+            "[[vision]]",
+            "رؤية",
+            "🔭"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "الصفة توصف **الاسم**: [[a careful driver]]",
+          "الظرف يوصف **الفعل**: [[He drives carefully.]]",
+          "تكوين الظرف: [[quick → quickly]] ، [[easy → easily]] ، [[gentle → gently]]",
+          "شاذة: [[good → well]] ، [[fast → fast]] ، [[hard → hard]]",
+          "بعد أفعال الحواس والحالة صفة: [[The food smells delicious.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[She speaks English very ......]]",
+         "o": [
+          "[[well]]",
+          "[[good]]",
+          "[[goodly]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The project was ...... successful.]]",
+         "o": [
+          "[[extremely]]",
+          "[[extreme]]",
+          "[[extremer]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[This soup tastes ......]]",
+         "o": [
+          "[[delicious]]",
+          "[[deliciously]]",
+          "[[delicioused]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "sets": [
+    {
+     "id": "s2e-exp",
+     "kind": "expected",
+     "ar": "امتحان تجريبي متوقع",
+     "en": "Mock exam",
+     "minutes": 45,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[The new hospital ...... in Aswan now.]]",
+       "o": [
+        "[[is being built]]",
+        "[[is building]]",
+        "[[built]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Egypt ...... many African students these days.]]",
+       "o": [
+        "[[is supporting]]",
+        "[[is being supported]]",
+        "[[supported]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Trade agreements ...... at the forum at the moment.]]",
+       "o": [
+        "[[are being signed]]",
+        "[[are signing]]",
+        "[[sign]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[After she ...... the business plan, she met the investors.]]",
+       "o": [
+        "[[had written]]",
+        "[[has written]]",
+        "[[writes]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[The startup ...... by two students before it became famous.]]",
+       "o": [
+        "[[had been started]]",
+        "[[had started]]",
+        "[[has started]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[By 2020, he ...... three companies.]]",
+       "o": [
+        "[[had founded]]",
+        "[[founded]]",
+        "[[has founded]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[He works very ...... to achieve his goals.]]",
+       "o": [
+        "[[hard]]",
+        "[[hardly]]",
+        "[[harder]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[They solved the problem ......]]",
+       "o": [
+        "[[easily]]",
+        "[[easy]]",
+        "[[easier]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[She looks ...... today.]]",
+       "o": [
+        "[[happy]]",
+        "[[happily]]",
+        "[[happiness]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Sustainable]] تعني:",
+       "o": [
+        "مستدام",
+        "مؤقت",
+        "سريع"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Investors want a good ...... from the project.]]",
+       "o": [
+        "[[profit]]",
+        "[[poverty]]",
+        "[[pitch]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "tf",
+       "q": "[[The road is being repaired now.]] جملة صحيحة.",
+       "a": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }
