@@ -954,3 +954,21 @@ bdi.en { unicode-bidi: isolate; direction: ltr; font-family: "Alexandria", syste
 .fl-route > *, .fl-dates > * { min-width: 0; }
 .fl .input { width: 100%; min-width: 0; box-sizing: border-box; }
 .fl input[type="date"].input { padding-inline: 8px; font-size: .9rem; }
+/* home: embassy registration + duas */
+.reg-home .guide-card { margin-top: 0; }
+.rh-box { margin-top: 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 0 14px; }
+.rh-box summary { cursor: pointer; padding: 12px 0; font-weight: 700; list-style: none; display: flex; align-items: center; gap: 8px; }
+.rh-box summary::-webkit-details-marker { display: none; }
+.rh-box summary::after { content: "▾"; margin-inline-start: auto; color: var(--muted); transition: transform .2s; }
+.rh-box[open] summary::after { transform: rotate(180deg); }
+.rh-box .steps, .rh-box .bullets { margin: 0 0 12px; }
+.dua-home { display: block; width: 100%; text-align: center; padding: 16px; border-radius: var(--radius); border: 1px solid color-mix(in srgb, var(--gold) 45%, var(--line)); background: color-mix(in srgb, var(--gold) 9%, var(--surface)); color: var(--ink); font: inherit; cursor: pointer; }
+.dua-t { display: block; font-size: 1.15rem; line-height: 2; font-weight: 600; margin: 0; }
+.dua-home small { display: block; color: var(--muted); margin-top: 4px; }
+.dua { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; margin-top: 10px; }
+.dua .dua-t { text-align: center; }
+.dua.fact .dua-t { font-size: 1rem; font-weight: 500; text-align: start; }
+.dua-src { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; font-size: .85rem; color: var(--muted); }
+.dua-note { margin: 6px 0 0; }
+.dua-act { display: flex; gap: 8px; margin-top: 10px; }
+.dua-act .btn { flex: 1; }
