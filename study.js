@@ -660,7 +660,8 @@ window.DalilStudy = function (ctx) {
   const LTR = (m) => `<bdi dir="ltr" class="m">${m}</bdi>`;
   function rich(t) {
     const keep = [];
-    let h = esc(t).replace(/\{\{(.+?)\}\}/g, (_, m) => { keep.push(LTR(m)); return `\u0001${keep.length - 1}\u0001`; });
+    let h = esc(t).replace(/\{\{(.+?)\}\}/g, (_, m) => { keep.push(LTR(m)); return `\u0001${keep.length - 1}\u0001`; })
+      .replace(/\[\[(.+?)\]\]/g, (_, m) => { keep.push(`<bdi dir="ltr" class="en">${m}</bdi>`); return `\u0001${keep.length - 1}\u0001`; });
     h = h.replace(/-?\d[\d.%²³]*(?:\s*[:+\-−×÷=\/]\s*-?\(?-?\d[\d.%²³)]*)+/g, (m, off, str) => {
       if (!/[:+\-−×÷=]/.test(m.replace(/^-/, ""))) return m;
       const prev = str.charAt(off - 1), next = str.charAt(off + m.length);
@@ -1009,7 +1010,7 @@ window.DalilStudy = function (ctx) {
 
   // plain text for read-aloud: drop markup and the LTR math markers
   const isEmo = (t) => /^[\p{Extended_Pictographic}\u200d\ufe0f\s0-9️⃣]+$/u.test(String(t || "")) && /\p{Extended_Pictographic}/u.test(String(t || ""));
-  function plain(t) { return String(t == null ? "" : t).replace(/\*\*|\{\{|\}\}/g, "").replace(/\s+/g, " ").trim(); }
+  function plain(t) { return String(t == null ? "" : t).replace(/\*\*|\{\{|\}\}|\[\[|\]\]/g, "").replace(/\s+/g, " ").trim(); }
   function sayText(q, opts) { return [plain(q)].concat((opts || []).map((o, i) => `${i + 1}: ${plain(o)}`)).join(". "); }
   function lessonText(l) {
     const out = [];
@@ -1022,18 +1023,28 @@ window.DalilStudy = function (ctx) {
     return out.join(". ");
   }
   let speaking = false;
+  // Mixed Arabic/English text is read in pieces, each with its own voice.
+  function sayParts(text) {
+    const out = [];
+    String(text).split(/([A-Za-z][A-Za-z0-9 ,.'’?!\-]*[A-Za-z0-9.?!']|[A-Za-z])/).forEach((x, i) => {
+      const t = x.trim(); if (!t || !/[A-Za-z\u0600-\u06FF0-9]/.test(t)) return;
+      const lang = i % 2 ? "en-US" : (ar() ? "ar-EG" : "en-US");
+      if (out.length && out[out.length - 1].lang === lang) out[out.length - 1].text += " " + t; else out.push({ text: t, lang });
+    });
+    return out;
+  }
   async function say(text) {
     const T = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech;
-    const lang = ar() ? "ar-EG" : "en-US";
+    const parts = sayParts(text);
     try {
       if (T) {
         if (speaking) { speaking = false; await T.stop(); return; }
         speaking = true;
-        await T.speak({ text, lang, rate: 0.9, pitch: 1.0, volume: 1.0, category: "playback" });
+        for (const p of parts) { if (!speaking) break; await T.speak({ text: p.text, lang: p.lang, rate: p.lang === "en-US" ? 0.8 : 0.9, pitch: 1.0, volume: 1.0, category: "playback" }); }
         speaking = false;
       } else if (window.speechSynthesis) {
         if (speechSynthesis.speaking) { speechSynthesis.cancel(); return; }
-        const u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = 0.9; speechSynthesis.speak(u);
+        parts.forEach((p) => { const u = new SpeechSynthesisUtterance(p.text); u.lang = p.lang; u.rate = p.lang === "en-US" ? 0.8 : 0.9; speechSynthesis.speak(u); });
       } else toast(s("noVoice"));
     } catch (e) { speaking = false; }
   }
@@ -1190,7 +1201,7 @@ window.DalilStudy = function (ctx) {
       <div class="qz-bar"><i style="width:${((quiz.i + 1) / n * 100).toFixed(1)}%"></i></div>
       <div class="qz-card">
         <small class="qz-n">${esc(s("qOf", num(quiz.i + 1), num(n)))}</small>
-        <p class="qz-q">${rich(q.q)}</p>
+        <p class="qz-q"${/[\u0600-\u06FF]/.test(q.q) ? "" : ' dir="ltr"'}>${rich(q.q)}</p>
         ${youngNow() ? `<button class="st-say" data-st="say" data-say="${esc(sayText(q.q, q.t === "fill" ? [] : q._opts.map((o) => o.t)))}">${ic("sound")}${s("listen")}</button>` : ""}
         ${q.img ? `<img class="qz-img" src="${esc(q.img)}" alt="">` : ""}
         ${opts}

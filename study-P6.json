@@ -2340,6 +2340,498 @@
      ]
     }
    ]
+  },
+  {
+   "id": "english",
+   "ar": "اللغة الإنجليزية",
+   "en": "English",
+   "books": [
+    {
+     "term": 1,
+     "ar": "كتاب اللغة الإنجليزية",
+     "en": "English book",
+     "url": ""
+    }
+   ],
+   "units": [
+    {
+     "id": "p6e-u1",
+     "term": 1,
+     "ar": "Amazing Places in Egypt",
+     "en": "Amazing Places in Egypt",
+     "lessons": [
+      {
+       "id": "p6e-l1",
+       "ar": "المضارع البسيط Present Simple",
+       "en": "المضارع البسيط Present Simple",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[souvenirs]]",
+            "هدايا تذكارية",
+            "🎁"
+           ],
+           [
+            "[[ancient sites]]",
+            "أماكن أثرية",
+            "🏛️"
+           ],
+           [
+            "[[coral reefs]]",
+            "شعاب مرجانية",
+            "🪸"
+           ],
+           [
+            "[[snorkel]]",
+            "يغطس بالسنوركل",
+            "🤿"
+           ],
+           [
+            "[[landscape]]",
+            "منظر طبيعي",
+            "🏞️"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "للعادات والحقائق: [[Tourists visit Luxor every year.]]",
+          "مع [[he/she/it]]: [[s / es / ies]]: [[watches — studies — goes]]",
+          "النفي: [[don't / doesn't]] — السؤال: [[Do / Does]]",
+          "كلمات دالة: [[every day — always — usually — on Fridays]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[My uncle ...... souvenirs in Khan El Khalili.]]",
+         "o": [
+          "[[sells]]",
+          "[[sell]]",
+          "[[selling]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[...... you snorkel in the Red Sea?]]",
+         "o": [
+          "[[Do]]",
+          "[[Does]]",
+          "[[Are]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The sun ...... in the east.]]",
+         "o": [
+          "[[rises]]",
+          "[[rise]]",
+          "[[rising]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6e-u2",
+     "term": 1,
+     "ar": "Our Nature",
+     "en": "Our Nature",
+     "lessons": [
+      {
+       "id": "p6e-l2",
+       "ar": "المضارع المستمر Present Continuous",
+       "en": "المضارع المستمر Present Continuous",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[weeds]]",
+            "حشائش ضارة",
+            "🌿"
+           ],
+           [
+            "[[basil]]",
+            "ريحان",
+            "🌱"
+           ],
+           [
+            "[[habitat]]",
+            "موطن",
+            "🏞️"
+           ],
+           [
+            "[[survive]]",
+            "يعيش/ينجو",
+            "🐢"
+           ],
+           [
+            "[[rare]]",
+            "نادر",
+            "💎"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "لحدث **بيحصل دلوقتي**: [[am / is / are + verb-ing]]",
+          "[[I am watering the plants now.]]",
+          "النفي: [[She isn't pulling out the weeds.]]",
+          "السؤال: [[Are they planting trees?]]",
+          "كلمات دالة: [[now — at the moment — Look! — Listen!]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[Look! The birds ...... in the sky.]]",
+         "o": [
+          "[[are flying]]",
+          "[[fly]]",
+          "[[flies]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[She ...... the flowers now.]]",
+         "o": [
+          "[[is watering]]",
+          "[[waters]]",
+          "[[watered]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[...... you reading at the moment?]]",
+         "o": [
+          "[[Are]]",
+          "[[Do]]",
+          "[[Is]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6e-u3",
+     "term": 1,
+     "ar": "المجتمع والموارد",
+     "en": "Units 3 – 4",
+     "lessons": [
+      {
+       "id": "p6e-l3",
+       "ar": "Unit 3: Community Builders — can / can't / able to",
+       "en": "Unit 3: Community Builders — can / can't / able to",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[paramedic]]",
+            "مسعف",
+            "🚑"
+           ],
+           [
+            "[[architect]]",
+            "مهندس معماري",
+            "📐"
+           ],
+           [
+            "[[mechanic]]",
+            "ميكانيكي",
+            "🔧"
+           ],
+           [
+            "[[tailor]]",
+            "ترزي",
+            "🧵"
+           ],
+           [
+            "[[traffic officer]]",
+            "عسكري مرور",
+            "🚦"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[can + verb]] للقدرة: [[A paramedic can help injured people.]]",
+          "[[can't]] للنفي: [[I can't drive a car.]]",
+          "[[be able to]]: [[She is able to fix computers.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[A mechanic ...... fix cars.]]",
+         "o": [
+          "[[can]]",
+          "[[cans]]",
+          "[[can to]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[He is able ...... swim very well.]]",
+         "o": [
+          "[[to]]",
+          "[[can]]",
+          "[[for]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[A ...... designs buildings.]]",
+         "o": [
+          "[[architect]]",
+          "[[tailor]]",
+          "[[paramedic]]"
+         ],
+         "a": 0
+        }
+       ]
+      },
+      {
+       "id": "p6e-l4",
+       "ar": "Unit 4: Resources Around Us — should / must",
+       "en": "Unit 4: Resources Around Us — should / must",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[solar panels]]",
+            "ألواح شمسية",
+            "☀️"
+           ],
+           [
+            "[[pollute]]",
+            "يلوّث",
+            "🏭"
+           ],
+           [
+            "[[waste]]",
+            "يهدر",
+            "🚱"
+           ],
+           [
+            "[[protect]]",
+            "يحمي",
+            "🛡️"
+           ],
+           [
+            "[[climate]]",
+            "مناخ",
+            "🌍"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[should / shouldn't]] للنصيحة: [[You should turn off the lights.]]",
+          "[[must / mustn't]] للإلزام والمنع: [[You mustn't throw rubbish in the Nile.]]",
+          "بعدهم الفعل **في المصدر**: [[must protect]] مش [[must protects]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[We ...... waste water.]] (منع)",
+         "o": [
+          "[[mustn't]]",
+          "[[must]]",
+          "[[should]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[You look tired. You ...... sleep early.]]",
+         "o": [
+          "[[should]]",
+          "[[shouldn't]]",
+          "[[mustn't]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Factories ...... the air.]]",
+         "o": [
+          "[[pollute]]",
+          "[[protect]]",
+          "[[save]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "sets": [
+    {
+     "id": "p6e-exp",
+     "kind": "expected",
+     "ar": "امتحان تجريبي متوقع",
+     "en": "Mock exam",
+     "minutes": 30,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[My brother ...... football every Friday.]]",
+       "o": [
+        "[[plays]]",
+        "[[play]]",
+        "[[is playing]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Listen! Somebody ...... at the door.]]",
+       "o": [
+        "[[is knocking]]",
+        "[[knocks]]",
+        "[[knock]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[We ...... to school on Saturday.]]",
+       "o": [
+        "[[don't go]]",
+        "[[doesn't go]]",
+        "[[aren't go]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Look! The children ...... in the garden.]]",
+       "o": [
+        "[[are playing]]",
+        "[[plays]]",
+        "[[play]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[A paramedic ...... save lives.]]",
+       "o": [
+        "[[can]]",
+        "[[can't]]",
+        "[[musts]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[You ...... cross the road at a red light.]]",
+       "o": [
+        "[[mustn't]]",
+        "[[must]]",
+        "[[should]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[We ...... use solar panels to save energy.]]",
+       "o": [
+        "[[should]]",
+        "[[shouldn't]]",
+        "[[mustn't]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[A ...... makes clothes.]]",
+       "o": [
+        "[[tailor]]",
+        "[[mechanic]]",
+        "[[architect]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Coral reefs are in the ......]]",
+       "o": [
+        "[[Red Sea]]",
+        "[[desert]]",
+        "[[Nile Delta]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Basil]] تعني:",
+       "o": [
+        "ريحان",
+        "نعناع",
+        "ورد"
+       ],
+       "a": 0
+      },
+      {
+       "t": "tf",
+       "q": "[[She are reading now.]] جملة صحيحة.",
+       "a": false,
+       "e": "الصح: She is reading."
+      },
+      {
+       "t": "tf",
+       "q": "[[We must protect our planet.]] جملة صحيحة.",
+       "a": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }

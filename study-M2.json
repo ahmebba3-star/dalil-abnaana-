@@ -2577,6 +2577,414 @@
      ]
     }
    ]
+  },
+  {
+   "id": "english",
+   "ar": "اللغة الإنجليزية",
+   "en": "English",
+   "books": [
+    {
+     "term": 1,
+     "ar": "كتاب اللغة الإنجليزية",
+     "en": "English book",
+     "url": ""
+    }
+   ],
+   "units": [
+    {
+     "id": "m2e-u1",
+     "term": 1,
+     "ar": "Gen Alpha",
+     "en": "Gen Alpha",
+     "lessons": [
+      {
+       "id": "m2e-l1",
+       "ar": "المضارع البسيط والمستمر (مراجعة) + أفعال الحالة",
+       "en": "المضارع البسيط والمستمر (مراجعة) + أفعال الحالة",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[generation]]",
+            "جيل",
+            "👨‍👩‍👧"
+           ],
+           [
+            "[[teenager]]",
+            "مراهق",
+            "🧑"
+           ],
+           [
+            "[[device]]",
+            "جهاز",
+            "📱"
+           ],
+           [
+            "[[habit]]",
+            "عادة",
+            "🔁"
+           ],
+           [
+            "[[independent]]",
+            "مستقل",
+            "🦅"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "المضارع البسيط: عادات وحقائق: [[Teenagers spend a lot of time online.]]",
+          "المضارع المستمر: دلوقتي/الفترة دي: [[I am learning to code this month.]]",
+          "**أفعال الحالة** ما بتجيش في المستمر: [[know — like — want — need — believe — understand]]: [[I know the answer.]] مش [[I am knowing]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[I ...... what you mean.]]",
+         "o": [
+          "[[understand]]",
+          "[[am understanding]]",
+          "[[understanding]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[My brother ...... for his exams these days.]]",
+         "o": [
+          "[[is studying]]",
+          "[[studies]]",
+          "[[study]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Generation]] تعني:",
+         "o": [
+          "جيل",
+          "جهاز",
+          "عادة"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "m2e-u2",
+     "term": 1,
+     "ar": "My Digital Footprint",
+     "en": "My Digital Footprint",
+     "lessons": [
+      {
+       "id": "m2e-l2",
+       "ar": "المضارع التام Present Perfect + for / since",
+       "en": "المضارع التام Present Perfect + for / since",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[digital footprint]]",
+            "البصمة الرقمية",
+            "👣"
+           ],
+           [
+            "[[password]]",
+            "كلمة السر",
+            "🔑"
+           ],
+           [
+            "[[post]]",
+            "ينشر",
+            "📤"
+           ],
+           [
+            "[[privacy]]",
+            "الخصوصية",
+            "🔒"
+           ],
+           [
+            "[[share]]",
+            "يشارك",
+            "🔗"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[have / has + V3]]: [[I have changed my password.]]",
+          "لحدث بدأ في الماضي ولسه مستمر أو أثره موجود.",
+          "[[for]] + مدة: [[for two years]] — [[since]] + بداية: [[since 2023]]",
+          "[[already / just]] في الإثبات، [[yet]] في النفي والسؤال: [[Have you posted the photo yet?]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[She ...... on Instagram since 2022.]]",
+         "o": [
+          "[[has been]]",
+          "[[is]]",
+          "[[was]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[I have used this phone ...... three years.]]",
+         "o": [
+          "[[for]]",
+          "[[since]]",
+          "[[ago]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Have you finished your homework ......?]]",
+         "o": [
+          "[[yet]]",
+          "[[already]]",
+          "[[since]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "m2e-u3",
+     "term": 1,
+     "ar": "Facing Challenges",
+     "en": "Facing Challenges",
+     "lessons": [
+      {
+       "id": "m2e-l3",
+       "ar": "الماضي البسيط والمستمر + used to",
+       "en": "الماضي البسيط والمستمر + used to",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[challenge]]",
+            "تحدي",
+            "🧗"
+           ],
+           [
+            "[[give up]]",
+            "يستسلم",
+            "🏳️"
+           ],
+           [
+            "[[overcome]]",
+            "يتغلب على",
+            "💪"
+           ],
+           [
+            "[[goal]]",
+            "هدف",
+            "🎯"
+           ],
+           [
+            "[[brave]]",
+            "شجاع",
+            "🦁"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "الماضي المستمر [[was/were + v-ing]] لحدث كان مستمر: [[I was studying at 8 p.m.]]",
+          "[[when]] + ماضي بسيط (حدث قصير) و[[while]] + ماضي مستمر (حدث طويل): [[While I was running, I fell down.]]",
+          "[[used to + verb]] لعادة في الماضي انتهت: [[I used to be afraid of the dark.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[I ...... my homework when the lights went out.]]",
+         "o": [
+          "[[was doing]]",
+          "[[did]]",
+          "[[do]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[He ...... play with toys, but now he reads books.]]",
+         "o": [
+          "[[used to]]",
+          "[[uses to]]",
+          "[[use]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Never ...... up! You can do it.]]",
+         "o": [
+          "[[give]]",
+          "[[overcome]]",
+          "[[take]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "sets": [
+    {
+     "id": "m2e-exp",
+     "kind": "expected",
+     "ar": "امتحان تجريبي متوقع",
+     "en": "Mock exam",
+     "minutes": 40,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[He ...... the answer now.]]",
+       "o": [
+        "[[knows]]",
+        "[[is knowing]]",
+        "[[know]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Look! The kids ...... a video.]]",
+       "o": [
+        "[[are watching]]",
+        "[[watch]]",
+        "[[watches]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[We have lived here ...... 2019.]]",
+       "o": [
+        "[[since]]",
+        "[[for]]",
+        "[[ago]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[She has ...... finished her project.]]",
+       "o": [
+        "[[just]]",
+        "[[yet]]",
+        "[[since]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[I ...... never been to Aswan.]]",
+       "o": [
+        "[[have]]",
+        "[[has]]",
+        "[[am]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Has he ...... the photo?]]",
+       "o": [
+        "[[posted]]",
+        "[[post]]",
+        "[[posting]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[While she ...... TV, the phone rang.]]",
+       "o": [
+        "[[was watching]]",
+        "[[watched]]",
+        "[[watches]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[They ...... live in Cairo, but now they live in Dubai.]]",
+       "o": [
+        "[[used to]]",
+        "[[use to]]",
+        "[[are used]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Never share your ...... with anyone.]]",
+       "o": [
+        "[[password]]",
+        "[[privacy]]",
+        "[[footprint]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[Overcome]] تعني:",
+       "o": [
+        "يتغلب على",
+        "يستسلم",
+        "ينشر"
+       ],
+       "a": 0
+      },
+      {
+       "t": "tf",
+       "q": "[[I have seen this film last week.]] جملة صحيحة.",
+       "a": false,
+       "e": "مع last week نستخدم الماضي: I saw."
+      },
+      {
+       "t": "tf",
+       "q": "[[She was reading when I arrived.]] جملة صحيحة.",
+       "a": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }

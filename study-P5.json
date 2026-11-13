@@ -2396,6 +2396,458 @@
      ]
     }
    ]
+  },
+  {
+   "id": "english",
+   "ar": "اللغة الإنجليزية",
+   "en": "English",
+   "books": [
+    {
+     "term": 1,
+     "ar": "كتاب اللغة الإنجليزية",
+     "en": "English book",
+     "url": ""
+    }
+   ],
+   "units": [
+    {
+     "id": "p5e-u1",
+     "term": 1,
+     "ar": "Food, Nature, and Culture",
+     "en": "Food, Nature, and Culture",
+     "lessons": [
+      {
+       "id": "p5e-l1",
+       "ar": "ظروف التكرار (Adverbs of frequency)",
+       "en": "ظروف التكرار (Adverbs of frequency)",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[crocodile]]",
+            "تمساح",
+            "🐊"
+           ],
+           [
+            "[[insects]]",
+            "حشرات",
+            "🐜"
+           ],
+           [
+            "[[recipe]]",
+            "وصفة أكل",
+            "📜"
+           ],
+           [
+            "[[shade]]",
+            "ضِل",
+            "🌳"
+           ],
+           [
+            "[[selfish]]",
+            "أناني",
+            "😤"
+           ]
+          ]
+         }
+        },
+        {
+         "table": {
+          "head": [
+           "الكلمة",
+           "النسبة"
+          ],
+          "rows": [
+           [
+            "[[always]]",
+            "100% دايمًا"
+           ],
+           [
+            "[[usually]]",
+            "عادةً"
+           ],
+           [
+            "[[often]]",
+            "غالبًا"
+           ],
+           [
+            "[[sometimes]]",
+            "أحيانًا"
+           ],
+           [
+            "[[rarely]]",
+            "نادرًا"
+           ],
+           [
+            "[[never]]",
+            "0% أبدًا"
+           ]
+          ]
+         }
+        },
+        "مكانها **قبل الفعل الأساسي** و**بعد [[am / is / are]]**:",
+        "[[I always eat breakfast.]] ← أنا دايمًا بفطر",
+        "[[He is never late.]] ← هو عمره ما بيتأخر"
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[She ...... drinks coffee. (0%)]]",
+         "o": [
+          "[[never]]",
+          "[[always]]",
+          "[[often]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "الترتيب الصحيح:",
+         "o": [
+          "[[I usually go to bed early.]]",
+          "[[I go usually to bed early.]]",
+          "[[Usually I go to bed early usually.]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[He is ...... happy. (100%)]]",
+         "o": [
+          "[[always]]",
+          "[[never]]",
+          "[[rarely]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5e-u2",
+     "term": 1,
+     "ar": "My Healthy Body",
+     "en": "My Healthy Body",
+     "lessons": [
+      {
+       "id": "p5e-l2",
+       "ar": "أدوات النكرة a / an والكميات some / any",
+       "en": "أدوات النكرة a / an والكميات some / any",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[lungs]]",
+            "رئتين",
+            "🫁"
+           ],
+           [
+            "[[heart]]",
+            "قلب",
+            "❤️"
+           ],
+           [
+            "[[muscles]]",
+            "عضلات",
+            "💪"
+           ],
+           [
+            "[[blood]]",
+            "دم",
+            "🩸"
+           ],
+           [
+            "[[oxygen]]",
+            "أكسجين",
+            "🌬️"
+           ]
+          ]
+         }
+        },
+        {
+         "ul": [
+          "[[a]] قبل الكلمة اللي **بتبدأ بصوت ساكن**: [[a banana]] ، [[a uniform]]",
+          "[[an]] قبل الكلمة اللي **بتبدأ بصوت متحرك**: [[an apple]] ، [[an hour]]",
+          "[[some]] في **الإثبات**: [[I have some water.]]",
+          "[[any]] في **النفي والسؤال**: [[Is there any milk?]] — [[There isn't any sugar.]]"
+         ]
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[I eat ...... orange every day.]]",
+         "o": [
+          "[[an]]",
+          "[[a]]",
+          "[[some]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[Are there ...... eggs in the fridge?]]",
+         "o": [
+          "[[any]]",
+          "[[some]]",
+          "[[a]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The heart pumps ...... around the body.]]",
+         "o": [
+          "[[blood]]",
+          "[[oxygen]]",
+          "[[muscles]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5e-u3",
+     "term": 1,
+     "ar": "My Community",
+     "en": "My Community",
+     "lessons": [
+      {
+       "id": "p5e-l3",
+       "ar": "حروف جر الزمن in / on / at",
+       "en": "حروف جر الزمن in / on / at",
+       "body": [
+        {
+         "table": {
+          "head": [
+           "English",
+           "المعنى",
+           ""
+          ],
+          "rows": [
+           [
+            "[[club]]",
+            "نادي",
+            "🏟️"
+           ],
+           [
+            "[[park]]",
+            "حديقة",
+            "🌳"
+           ],
+           [
+            "[[field]]",
+            "حقل",
+            "🌾"
+           ],
+           [
+            "[[cottage]]",
+            "كوخ",
+            "🛖"
+           ]
+          ]
+         }
+        },
+        {
+         "table": {
+          "head": [
+           "الحرف",
+           "بنستخدمه مع",
+           "مثال"
+          ],
+          "rows": [
+           [
+            "[[at]]",
+            "الساعة والوقت المحدد",
+            "[[at 7 o'clock — at night]]"
+           ],
+           [
+            "[[on]]",
+            "الأيام والتواريخ",
+            "[[on Friday — on 6th October]]"
+           ],
+           [
+            "[[in]]",
+            "الشهور والسنين والفصول وأجزاء اليوم",
+            "[[in May — in 2026 — in winter — in the morning]]"
+           ]
+          ]
+         }
+        }
+       ],
+       "check": [
+        {
+         "t": "mcq",
+         "q": "[[We go to the club ...... Friday.]]",
+         "o": [
+          "[[on]]",
+          "[[in]]",
+          "[[at]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[The match starts ...... 5 o'clock.]]",
+         "o": [
+          "[[at]]",
+          "[[on]]",
+          "[[in]]"
+         ],
+         "a": 0
+        },
+        {
+         "t": "mcq",
+         "q": "[[My birthday is ...... March.]]",
+         "o": [
+          "[[in]]",
+          "[[on]]",
+          "[[at]]"
+         ],
+         "a": 0
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "sets": [
+    {
+     "id": "p5e-exp",
+     "kind": "expected",
+     "ar": "امتحان تجريبي متوقع",
+     "en": "Mock exam",
+     "minutes": 30,
+     "q": [
+      {
+       "t": "mcq",
+       "q": "[[I ...... brush my teeth before bed. (100%)]]",
+       "o": [
+        "[[always]]",
+        "[[never]]",
+        "[[rarely]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[They are ...... late for school. (0%)]]",
+       "o": [
+        "[[never]]",
+        "[[usually]]",
+        "[[always]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[She has ...... umbrella.]]",
+       "o": [
+        "[[an]]",
+        "[[a]]",
+        "[[any]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[There aren't ...... apples.]]",
+       "o": [
+        "[[any]]",
+        "[[some]]",
+        "[[an]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[I want ...... juice, please.]]",
+       "o": [
+        "[[some]]",
+        "[[any]]",
+        "[[an]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[School starts ...... September.]]",
+       "o": [
+        "[[in]]",
+        "[[on]]",
+        "[[at]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[I wake up ...... 6:30.]]",
+       "o": [
+        "[[at]]",
+        "[[in]]",
+        "[[on]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[We have English ...... Monday.]]",
+       "o": [
+        "[[on]]",
+        "[[at]]",
+        "[[in]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[We breathe with our ......]]",
+       "o": [
+        "[[lungs]]",
+        "[[heart]]",
+        "[[muscles]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "mcq",
+       "q": "[[A crocodile lives in the ......]]",
+       "o": [
+        "[[river]]",
+        "[[desert]]",
+        "[[sky]]"
+       ],
+       "a": 0
+      },
+      {
+       "t": "tf",
+       "q": "[[He usually plays football.]] جملة صحيحة.",
+       "a": true
+      },
+      {
+       "t": "tf",
+       "q": "[[I have a egg.]] جملة صحيحة.",
+       "a": false,
+       "e": "الصح: an egg."
+      }
+     ]
+    }
+   ]
   }
  ]
 }
