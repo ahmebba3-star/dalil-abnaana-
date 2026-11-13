@@ -389,6 +389,8 @@
     const kidsSynced = Study && Study.homeKids();
     return `
       ${ticketHTML()}
+      ${regHomeHTML()}
+      ${duaHomeHTML()}
       ${Study ? Study.homeCard() : ""}
       ${AI() ? Assistant.entryCard() : ""}
       <h2 class="sec">${t("quick")}</h2>
@@ -405,6 +407,64 @@
       ${news.map(newsCard).join("")}
       ${govNotice("all")}
     `;
+  }
+
+  // التسجيل في امتحانات السفارة: أول حاجة في الرئيسية
+  function regHomeHTML() {
+    const ar = state.lang === "ar";
+    const steps = REG_STEPS[state.lang] || REG_STEPS.ar, docs = REG_DOCS[state.lang] || REG_DOCS.ar;
+    return `<section class="reg-home">
+      <h2 class="sec">${ar ? "📋 التسجيل في امتحانات السفارة" : "📋 Registering for the embassy exams"}</h2>
+      <button class="guide-card" data-act="regGuide">
+        <span class="ic">${icon("exams")}</span>
+        <span class="grow"><b>${t("guideTitle")}</b><small>${t("guideSub")}</small></span>
+        <span class="end">${icon("chev", "flip")}</span>
+      </button>
+      <details class="rh-box"><summary>${ar ? `الخطوات باختصار (${fmtNum(steps.length)})` : `Steps in brief (${steps.length})`}</summary>
+        <ol class="steps">${steps.map((x) => `<li><b>${esc(x[0])}</b><span>${esc(x[1])}</span></li>`).join("")}</ol></details>
+      <details class="rh-box"><summary>${ar ? "الأوراق المطلوبة" : "Required documents"}</summary>
+        <ul class="bullets">${docs.map((d) => `<li>${esc(d)}</li>`).join("")}</ul></details>
+      <a class="btn block" href="#" data-ext="${OFFICIAL_LINKS.sabroad}" style="margin-top:10px">${icon("ext")}${t("openPlatform")}</a>
+    </section>`;
+  }
+  // ادعُ لأبنائك
+  const duaOfDay = () => { const D = window.DUAS || []; const n = Math.floor((Date.now() + 3 * 36e5) / 864e5); return D.length ? D[n % D.length] : null; };
+  function duaHomeHTML() {
+    const d = duaOfDay(); if (!d) return "";
+    const ar = state.lang === "ar";
+    return `<h2 class="sec">${ar ? "🤲 ادعُ لأبنائك" : "🤲 Pray for your children"}<button data-act="duas">${ar ? "كل الأدعية" : "All"}</button></h2>
+      <button class="dua-home" data-act="duas"><span class="dua-t">${esc(d.t)}</span><small>${esc(d.src)}</small></button>`;
+  }
+  let duaCat = "all";
+  function viewDuas() {
+    const ar = state.lang === "ar";
+    const D = (window.DUAS || []).filter((d) => duaCat === "all" || d.k === duaCat);
+    const cats = [["all", ar ? "الكل" : "All"], ["q", ar ? "من القرآن" : "Quran"], ["s", ar ? "من السنة" : "Sunnah"], ["e", ar ? "للمذاكرة والامتحانات" : "Study and exams"]];
+    return `
+      <h2 class="page-title">${ar ? "ادعُ لأبنائك" : "Pray for your children"}</h2>
+      <p class="lead">${ar ? "أدعية من القرآن الكريم ومن السنة الصحيحة، مع مصدر كل دعاء." : "Supplications from the Quran and authentic Sunnah, each with its source."}</p>
+      <div class="chips" role="group">${cats.map((c) => `<button class="chip" data-duacat="${c[0]}" aria-pressed="${duaCat === c[0]}">${c[1]}</button>`).join("")}</div>
+      ${D.map((d) => `<article class="dua">
+        <p class="dua-t">${esc(d.t)}</p>
+        <div class="dua-src"><span class="tag ${d.k === "s" ? "consular" : "exams"}">${d.k === "s" ? (ar ? "السنة" : "Sunnah") : ar ? "القرآن" : "Quran"}</span>${esc(d.src)}</div>
+        ${d.note ? `<p class="small dua-note">${esc(d.note)}</p>` : ""}
+        <div class="dua-act"><button class="btn ghost" data-duacopy="${esc(d.t + "\n(" + d.src + ")")}">${ar ? "نسخ" : "Copy"}</button><button class="btn ghost" data-duashare="${esc(d.t + "\n(" + d.src + ")")}">${ar ? "مشاركة" : "Share"}</button></div>
+      </article>`).join("")}
+      <h2 class="sec">${ar ? "فضل دعاء الوالد لولده" : "On praying for children"}</h2>
+      ${(window.DUA_FACTS || []).map((f) => `<article class="dua fact"><p class="dua-t">«${esc(f.t)}»</p><div class="dua-src">${esc(f.src)}</div></article>`).join("")}
+      <p class="small" style="margin-top:12px">${ar ? "الأحاديث من صحيح البخاري ومسلم أو مما صححه أهل العلم، وتقدر تدعي بأي دعاء بصيغة الجمع لكل أبنائك أو باسم كل واحد فيهم." : "Hadiths are from al-Bukhari and Muslim or graded authentic by scholars; you may adapt the wording for all your children or name each one."}</p>`;
+  }
+  async function shareText(txt) {
+    const S = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
+    try {
+      if (S) { await S.share({ text: txt }); return; }
+      if (navigator.share) { await navigator.share({ text: txt }); return; }
+    } catch (e) { return; }
+    copyText(txt);
+  }
+  async function copyText(txt) {
+    try { await navigator.clipboard.writeText(txt); toast(state.lang === "ar" ? "اتنسخ ✅" : "Copied ✅"); }
+    catch (e) { toast(state.lang === "ar" ? "مقدرناش ننسخ" : "Couldn't copy"); }
   }
 
   function childrenHTML() {
@@ -815,6 +875,7 @@
     if (onboarding) body = viewOnboarding();
     else if (state.sub === "settings") body = viewSettings();
     else if (state.sub === "regguide") body = viewRegGuide();
+    else if (state.sub === "duas") body = viewDuas();
     else if (state.sub === "assistant") body = Assistant ? Assistant.view() : "";
     else body = ({ home: viewHome, study: viewStudy, exams: viewExams, family: viewFamily, consular: viewConsular, news: viewNews, tools: viewTools }[state.tab] || viewHome)();
     view.innerHTML = body;
@@ -899,16 +960,20 @@
     if (Study && Study.onClick(e)) return;
     if (Assistant && Assistant.onClick(e)) return;
     if (Calls && Calls.onClick(e)) return;
-    const el = e.target.closest("[data-go],[data-act],[data-lang],[data-pick],[data-cat],#onbStart");
+    const el = e.target.closest("[data-go],[data-act],[data-lang],[data-pick],[data-cat],[data-duacat],[data-duacopy],[data-duashare],#onbStart");
     if (!el) return;
     if (el.dataset.go) return go(el.dataset.go);
     if (el.dataset.lang) { state.lang = el.dataset.lang; store.set("lang", state.lang); render(); return; }
     if (el.dataset.pick) { state.pick = el.dataset.pick; render(); return; }
     if (el.id === "onbStart" && state.pick) { state.country = state.pick; store.set("country", state.country); go("home"); return; }
     if (el.dataset.cat) { state.newsCat = el.dataset.cat; render(); return; }
+    if (el.dataset.duacat) { duaCat = el.dataset.duacat; render(); return; }
+    if (el.dataset.duacopy) { copyText(el.dataset.duacopy); return; }
+    if (el.dataset.duashare) { shareText(el.dataset.duashare); return; }
     switch (el.dataset.act) {
       case "remind": return onRemind();
       case "regGuide": state.sub = "regguide"; render(); view.scrollTop = 0; return;
+      case "duas": state.sub = "duas"; render(); view.scrollTop = 0; return;
       case "addChild": return addChildSheet();
       case "delChild": state.children.splice(+el.dataset.i, 1); store.set("children", state.children); render(); return;
       case "service": return serviceSheet(el.dataset.id);
