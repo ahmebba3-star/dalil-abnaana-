@@ -786,6 +786,16 @@
        "a": false
       }
      ]
+    },
+    {
+     "id": "p4-arabic-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2026-1-1-4-004010-1.pdf",
+     "q": []
     }
    ]
   },
@@ -1835,6 +1845,36 @@
        "a": 0
       }
      ]
+    },
+    {
+     "id": "p4-math-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (عربي)",
+     "en": "Ministry exam 2025/2026 — term 1 (ar)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-04051-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p4-math-past-2026-t1-en",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — إنجليزي)",
+     "en": "Ministry exam 2025/2026 — term 1 (en)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-04052-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p4-math-past-2026-t1-fr",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — فرنسي)",
+     "en": "Ministry exam 2025/2026 — term 1 (fr)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-04053-1.pdf",
+     "q": []
     }
    ]
   },
@@ -2240,6 +2280,36 @@
        "a": true
       }
      ]
+    },
+    {
+     "id": "p4-science-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (عربي)",
+     "en": "Ministry exam 2025/2026 — term 1 (ar)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-04021-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p4-science-past-2026-t1-en",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — إنجليزي)",
+     "en": "Ministry exam 2025/2026 — term 1 (en)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-04022-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p4-science-past-2026-t1-fr",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — فرنسي)",
+     "en": "Ministry exam 2025/2026 — term 1 (fr)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-04023-1.pdf",
+     "q": []
     }
    ]
   },
@@ -2973,6 +3043,16 @@
        "e": "عذبة."
       }
      ]
+    },
+    {
+     "id": "p4-social-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-04080-1.pdf",
+     "q": []
     }
    ]
   },
@@ -3570,6 +3650,26 @@
        "e": "الصح: She plays."
       }
      ]
+    },
+    {
+     "id": "p4-english-past-2026-t1-en",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-004030-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p4-english-past-2026-t1-hi",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (مستوى رفيع)",
+     "en": "Ministry exam 2025/2026 — term 1 (hi)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-4-04090-1.pdf",
+     "q": []
     }
    ]
   }
