@@ -682,6 +682,16 @@
        "e": "تنصب الاسم وترفع الخبر."
       }
      ]
+    },
+    {
+     "id": "p6-arabic-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06010-1.pdf",
+     "q": []
     }
    ]
   },
@@ -1343,6 +1353,36 @@
        "a": true
       }
      ]
+    },
+    {
+     "id": "p6-math-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (عربي)",
+     "en": "Ministry exam 2025/2026 — term 1 (ar)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06051-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p6-math-past-2026-t1-en",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — إنجليزي)",
+     "en": "Ministry exam 2025/2026 — term 1 (en)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06052-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p6-math-past-2026-t1-fr",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — فرنسي)",
+     "en": "Ministry exam 2025/2026 — term 1 (fr)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06053-1.pdf",
+     "q": []
     }
    ]
   },
@@ -1800,6 +1840,36 @@
        "a": false
       }
      ]
+    },
+    {
+     "id": "p6-science-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (عربي)",
+     "en": "Ministry exam 2025/2026 — term 1 (ar)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06021-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p6-science-past-2026-t1-en",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — إنجليزي)",
+     "en": "Ministry exam 2025/2026 — term 1 (en)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06022-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p6-science-past-2026-t1-fr",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — فرنسي)",
+     "en": "Ministry exam 2025/2026 — term 1 (fr)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06023-1.pdf",
+     "q": []
     }
    ]
   },
@@ -2338,6 +2408,16 @@
        "a": true
       }
      ]
+    },
+    {
+     "id": "p6-social-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06080-1.pdf",
+     "q": []
     }
    ]
   },
@@ -2830,6 +2910,26 @@
        "a": true
       }
      ]
+    },
+    {
+     "id": "p6-english-past-2026-t1-en",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06030-1.pdf",
+     "q": []
+    },
+    {
+     "id": "p6-english-past-2026-t1-hi",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (مستوى رفيع)",
+     "en": "Ministry exam 2025/2026 — term 1 (hi)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-1-6-06090-1.pdf",
+     "q": []
     }
    ]
   }

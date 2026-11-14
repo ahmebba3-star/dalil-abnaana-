@@ -688,6 +688,16 @@
        "a": false
       }
      ]
+    },
+    {
+     "id": "m3-arabic-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09010-1.pdf",
+     "q": []
     }
    ]
   },
@@ -1365,6 +1375,66 @@
        "a": true
       }
      ]
+    },
+    {
+     "id": "m3-math-past-2026-t1-alg",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (الجبر والإحصاء)",
+     "en": "Ministry exam 2025/2026 — term 1 (alg)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09101-1.pdf",
+     "q": []
+    },
+    {
+     "id": "m3-math-past-2026-t1-geo",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (الهندسة)",
+     "en": "Ministry exam 2025/2026 — term 1 (geo)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09151-1.pdf",
+     "q": []
+    },
+    {
+     "id": "m3-math-past-2026-t1-algen",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (الجبر والإحصاء — إنجليزي)",
+     "en": "Ministry exam 2025/2026 — term 1 (algen)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09102-1.pdf",
+     "q": []
+    },
+    {
+     "id": "m3-math-past-2026-t1-geoen",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (الهندسة — إنجليزي)",
+     "en": "Ministry exam 2025/2026 — term 1 (geoen)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09152-1.pdf",
+     "q": []
+    },
+    {
+     "id": "m3-math-past-2026-t1-algfr",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (الجبر والإحصاء — فرنسي)",
+     "en": "Ministry exam 2025/2026 — term 1 (algfr)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09103-1.pdf",
+     "q": []
+    },
+    {
+     "id": "m3-math-past-2026-t1-geofr",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (الهندسة — فرنسي)",
+     "en": "Ministry exam 2025/2026 — term 1 (geofr)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09153-1.pdf",
+     "q": []
     }
    ]
   },
@@ -1931,6 +2001,36 @@
        "a": true
       }
      ]
+    },
+    {
+     "id": "m3-science-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (عربي)",
+     "en": "Ministry exam 2025/2026 — term 1 (ar)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09131-1.pdf",
+     "q": []
+    },
+    {
+     "id": "m3-science-past-2026-t1-en",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — إنجليزي)",
+     "en": "Ministry exam 2025/2026 — term 1 (en)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09132-1.pdf",
+     "q": []
+    },
+    {
+     "id": "m3-science-past-2026-t1-fr",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (لغات — فرنسي)",
+     "en": "Ministry exam 2025/2026 — term 1 (fr)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09133-1.pdf",
+     "q": []
     }
    ]
   },
@@ -2521,6 +2621,16 @@
        "e": "شارك فيها كل فئات الشعب."
       }
      ]
+    },
+    {
+     "id": "m3-social-past-2026-t1-ar",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09040-1.pdf",
+     "q": []
     }
    ]
   },
@@ -2928,6 +3038,26 @@
        "a": true
       }
      ]
+    },
+    {
+     "id": "m3-english-past-2026-t1-en",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول",
+     "en": "Ministry exam 2025/2026 — term 1",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09020-1.pdf",
+     "q": []
+    },
+    {
+     "id": "m3-english-past-2026-t1-hi",
+     "kind": "past",
+     "term": 1,
+     "year": "2025/2026",
+     "ar": "امتحان الوزارة 2025/2026 — الترم الأول (مستوى رفيع)",
+     "en": "Ministry exam 2025/2026 — term 1 (hi)",
+     "pdf": "https://moelandingstagesa.blob.core.windows.net/landingexams/2025-12-2-9-09110-1.pdf",
+     "q": []
     }
    ]
   }

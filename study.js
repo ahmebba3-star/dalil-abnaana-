@@ -918,7 +918,7 @@ window.DalilStudy = function (ctx) {
       <div class="st-bigs">
         ${tile("book", "study", s("book"), bookN ? s("bookSub") : s("soon"))}
         ${tile("lessons", "list", s("explain"), st.total ? s("lessonsN", num(st.total)) : s("soon"))}
-        ${isYoung(r.g) ? tile("sets", "target", s("practiceT"), revN ? s("practiceSub") : s("soon"), ' data-k="review"') : `
+        ${isYoung(r.g) ? tile("sets", "target", s("practiceT"), revN ? s("practiceSub") : s("soon"), ' data-k="review"') + (pastN ? tile("sets", "archive", s("past"), s("pastSub"), ' data-k="past"') : "") : `
         ${tile("sets", "archive", s("past"), pastN ? s("pastSub") : s("soon"), ' data-k="past"')}
         ${tile("sets", "target", s("review"), revN ? s("reviewSub") : s("soon"), ' data-k="review"')}`}
       </div>
