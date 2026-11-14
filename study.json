@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13",
+ "updated": "2026-11-14",
  "library": "https://ellibrary.moe.gov.eg/books/",
  "grades": [
   {
@@ -100,6 +100,7 @@
   },
   {
    "id": "S2B",
+   "file": "study-S2B.json",
    "ar": "الثاني الثانوي — بكالوريا",
    "en": "Secondary 2 — Baccalaureate",
    "stage": "s"
