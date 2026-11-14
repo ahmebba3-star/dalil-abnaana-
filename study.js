@@ -343,7 +343,7 @@ window.DalilStudy = function (ctx) {
       { id: "M3", file: "study-M3.json", ar: "الثالث الإعدادي", en: "Preparatory 3", stage: "m" },
       { id: "S1", file: "study-S1.json", ar: "الأول الثانوي", en: "Secondary 1", stage: "s" },
       { id: "S2G", file: "study-S2G.json", ar: "الثاني الثانوي — عام", en: "Secondary 2 — General", stage: "s" },
-      { id: "S2B", ar: "الثاني الثانوي — بكالوريا", en: "Secondary 2 — Baccalaureate", stage: "s" }
+      { id: "S2B", file: "study-S2B.json", ar: "الثاني الثانوي — بكالوريا", en: "Secondary 2 — Baccalaureate", stage: "s" }
     ],
     library: "https://ellibrary.moe.gov.eg/books/"
   };
