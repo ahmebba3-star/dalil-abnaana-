@@ -1010,3 +1010,22 @@ bdi.en { unicode-bidi: isolate; direction: ltr; font-family: "Alexandria", syste
 .ph-out { display: block; max-width: 160px; margin: 0 auto 8px; border: 1px solid var(--line); }
 .ph-tips { margin-top: 14px; padding: 14px; }
 .ph-tips .bullets { margin: 6px 0 0; }
+
+/* قائمة تجهيز أوراق التسجيل */
+.rc { margin-top: 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 12px 14px; }
+.rc-head { display: flex; align-items: center; gap: 8px; }
+.rc-n { margin-inline-start: auto; font-weight: 800; color: var(--muted); font-size: .9rem; }
+.rc-bar { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; margin: 8px 0 4px; }
+.rc-bar i { display: block; height: 100%; background: #1E8E5A; border-radius: inherit; transition: width .3s; }
+.rc-kids { margin: 8px 0 0; }
+.rc-kids small { opacity: .7; }
+.rc-list { list-style: none; margin: 6px 0 0; padding: 0; }
+.rc-list li { display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--line); }
+.rc-list li:first-child { border-top: 0; }
+.rc-box { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; padding: 10px 0; background: none; border: 0; color: var(--ink); font: inherit; text-align: start; cursor: pointer; }
+.rc-tick { flex: none; width: 24px; height: 24px; border-radius: 7px; border: 2px solid var(--line); display: grid; place-items: center; font-weight: 800; color: #fff; }
+.rc-list li.on .rc-tick { background: #1E8E5A; border-color: #1E8E5A; }
+.rc-list li.on .rc-t { color: var(--muted); text-decoration: line-through; }
+.rc-t small { display: inline-block; width: 100%; font-size: .75rem; color: var(--muted); text-decoration: none; }
+.rc-go { flex: none; padding: 6px 10px; border-radius: 99px; border: 1px solid var(--gold); background: var(--gold-soft); color: var(--ink); font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; }
+.rc-ok { margin: 10px 0 0; font-weight: 700; color: #1E8E5A; }

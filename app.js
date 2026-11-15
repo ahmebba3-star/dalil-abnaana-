@@ -422,12 +422,53 @@
       </button>
       <details class="rh-box"><summary>${ar ? `الخطوات باختصار (${fmtNum(steps.length)})` : `Steps in brief (${steps.length})`}</summary>
         <ol class="steps">${steps.map((x) => `<li><b>${esc(x[0])}</b><span>${esc(x[1])}</span></li>`).join("")}</ol></details>
-      <details class="rh-box"><summary>${ar ? "الأوراق المطلوبة" : "Required documents"}</summary>
-        <ul class="bullets">${docs.map((d) => `<li>${esc(d)}</li>`).join("")}</ul></details>
-      <button class="pt-entry" data-act="pdftool"><span class="ic">📄</span><span class="grow"><b>${ar ? "صغّر ملف الـ PDF للتقديم" : "Shrink your PDF for the application"}</b><small>${ar ? "اجمع المستندات والصور في ملف واحد أقل من 2 ميجا" : "Merge documents and photos into one file under 2 MB"}</small></span><span class="end">${icon("chev", "flip")}</span></button>
-      <button class="pt-entry" data-act="phototool"><span class="ic">📷</span><span class="grow"><b>${ar ? "صورة الطالب بالمقاس المطلوب" : "Student photo at the required size"}</b><small>${ar ? "قص وتصغير الصورة الشخصية للتسجيل" : "Crop and shrink the ID photo for registration"}</small></span><span class="end">${icon("chev", "flip")}</span></button>
+      ${regCheckHTML()}
       <a class="btn block" href="#" data-ext="${OFFICIAL_LINKS.sabroad}" style="margin-top:10px">${icon("ext")}${t("openPlatform")}</a>
     </section>`;
+  }
+
+  // قائمة تجهيز أوراق التسجيل — لكل ابن على حدة، محفوظة على الجهاز
+  const REG_CHECK = [
+    { id: "email", fam: 1, ar: "إيميل شغال بتفتحه باستمرار", en: "An email address you check regularly" },
+    { id: "card", fam: 1, ar: "كارت يقبل الدفع الدولي بالدولار", en: "A card that accepts international USD payments" },
+    { id: "photo", ar: "صورة شخصية حديثة بالمقاس", en: "Recent photo at the required size", act: "phototool", btn: ["جهّز الصورة", "Prepare photo"] },
+    { id: "birth", ar: "شهادة ميلاد بالرقم القومي (14 رقم)", en: "Birth certificate with 14-digit national ID" },
+    { id: "cert", ar: "شهادة أو بيان نجاح آخر صف (موثّقة لو من برّه مصر)", en: "Last-grade pass certificate (attested if issued abroad)" },
+    { id: "pass", ar: "صورة الجواز والإقامة", en: "Passport and residence permit copies" },
+    { id: "pdf", ar: "كل المستندات في ملف PDF واحد أقل من 2 ميجا", en: "All documents in one PDF under 2 MB", act: "pdftool", btn: ["اعمل الملف", "Make the PDF"] }
+  ];
+  let regKid = null;
+  function regKids() {
+    const synced = Study && Study.kidNames && Study.kidNames();
+    const list = synced && synced.length ? synced.map((k) => ({ key: "s:" + k.id, name: k.name }))
+      : state.children.map((c, i) => ({ key: "l:" + (c.name || i), name: c.name }));
+    return list.length ? list : [{ key: "one", name: "" }];
+  }
+  function regCheckHTML() {
+    const ar = state.lang === "ar", kids = regKids(), data = store.get("regcheck", {});
+    if (!kids.some((k) => k.key === regKid)) regKid = kids[0].key;
+    const fam = data.fam || [], mine = data[regKid] || [];
+    const has = (it) => (it.fam ? fam : mine).includes(it.id);
+    const doneAll = (k) => REG_CHECK.filter((it) => it.fam ? fam.includes(it.id) : (data[k] || []).includes(it.id)).length;
+    const n = doneAll(regKid), tot = REG_CHECK.length, pct = Math.round(n / tot * 100);
+    return `<div class="rc">
+      <div class="rc-head"><b>${ar ? "✅ جهّز أوراق التسجيل" : "✅ Get the documents ready"}</b><span class="rc-n">${fmtNum(n)}/${fmtNum(tot)}</span></div>
+      <div class="rc-bar"><i style="width:${pct}%"></i></div>
+      ${kids.length > 1 ? `<div class="chips rc-kids" role="group">${kids.map((k) => `<button class="chip" data-rckid="${esc(k.key)}" aria-pressed="${k.key === regKid}">${esc(k.name)} <small>${fmtNum(doneAll(k.key))}/${fmtNum(tot)}</small></button>`).join("")}</div>` : ""}
+      <ul class="rc-list">${REG_CHECK.map((it) => `<li class="${has(it) ? "on" : ""}">
+        <button class="rc-box" data-rc="${it.id}" aria-pressed="${has(it)}"><span class="rc-tick">${has(it) ? "✓" : ""}</span><span class="rc-t">${esc(ar ? it.ar : it.en)}${it.fam && kids.length > 1 ? `<small>${ar ? "مرة واحدة للأسرة" : "Once per family"}</small>` : ""}</span></button>
+        ${it.act ? `<button class="rc-go" data-act="${it.act}">${ar ? it.btn[0] : it.btn[1]}</button>` : ""}
+      </li>`).join("")}</ul>
+      ${n === tot ? `<p class="rc-ok">${ar ? "🎉 كله جاهز! أول ما التسجيل يفتح على المنصة تقدر تقدّم على طول." : "🎉 All set! You can apply as soon as registration opens."}</p>` : ""}
+    </div>`;
+  }
+  function regToggle(id) {
+    const it = REG_CHECK.find((x) => x.id === id); if (!it) return;
+    const data = store.get("regcheck", {}), k = it.fam ? "fam" : regKid;
+    const arr = data[k] || []; const i = arr.indexOf(id);
+    if (i >= 0) arr.splice(i, 1); else arr.push(id);
+    data[k] = arr; store.set("regcheck", data);
+    const y = view.scrollTop; render(); view.scrollTop = y;
   }
   // ادعُ لأبنائك
   const duaOfDay = () => { const D = window.DUAS || []; const n = Math.floor((Date.now() + 3 * 36e5) / 864e5); return D.length ? D[n % D.length] : null; };
@@ -970,13 +1011,15 @@
     if (Study && Study.onClick(e)) return;
     if (Assistant && Assistant.onClick(e)) return;
     if (Calls && Calls.onClick(e)) return;
-    const el = e.target.closest("[data-go],[data-act],[data-lang],[data-pick],[data-cat],[data-duacat],[data-duacopy],[data-duashare],#onbStart");
+    const el = e.target.closest("[data-go],[data-act],[data-lang],[data-pick],[data-cat],[data-duacat],[data-duacopy],[data-duashare],[data-rc],[data-rckid],#onbStart");
     if (!el) return;
     if (el.dataset.go) return go(el.dataset.go);
     if (el.dataset.lang) { state.lang = el.dataset.lang; store.set("lang", state.lang); render(); return; }
     if (el.dataset.pick) { state.pick = el.dataset.pick; render(); return; }
     if (el.id === "onbStart" && state.pick) { state.country = state.pick; store.set("country", state.country); go("home"); return; }
     if (el.dataset.cat) { state.newsCat = el.dataset.cat; render(); return; }
+    if (el.dataset.rc) { regToggle(el.dataset.rc); return; }
+    if (el.dataset.rckid) { regKid = el.dataset.rckid; const y = view.scrollTop; render(); view.scrollTop = y; return; }
     if (el.dataset.duacat) { duaCat = el.dataset.duacat; render(); return; }
     if (el.dataset.duacopy) { copyText(el.dataset.duacopy); return; }
     if (el.dataset.duashare) { shareText(el.dataset.duashare); return; }

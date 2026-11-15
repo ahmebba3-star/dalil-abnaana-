@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13",
+  "updated": "2026-11-15",
   "exams": [
     {
       "id": "t1-2027",
@@ -22,15 +22,26 @@
   ],
   "news": [
     {
-      "id": "n13",
-      "date": "2026-11-13",
+      "id": "n15",
+      "date": "2026-11-15",
       "cat": "exams",
-      "title_ar": "لحد 13 نوفمبر: تسجيل امتحانات أبناؤنا في الخارج 2026/2027 لسه ما اتفتحش",
-      "title_en": "As of 13 November: 2026/2027 exam registration still not open",
-      "body_ar": "لحد يوم 13 نوفمبر 2026 ما صدرش إعلان رسمي من وزارة التربية والتعليم بفتح التسجيل لامتحانات «أبناؤنا في الخارج» للعام 2026/2027، ولا بالرسوم أو مواعيد الامتحانات. اللي منشور في بعض المواقع عن «رابط التسجيل 2026» بيخص العام اللي فات. جهّز حساب ولي الأمر والمستندات، وتابع المنصة الرسمية sabroad.emis.gov.eg، وأول ما التسجيل يتفتح هننشر الخبر هنا.",
-      "body_en": "As of 13 November 2026, the Ministry of Education has not officially announced the opening of registration, fees or exam dates for the 2026/2027 “Our Children Abroad” exams. Articles about a “2026 registration link” refer to last year. Prepare your parent account and documents and follow the official platform sabroad.emis.gov.eg; we'll post here as soon as registration opens.",
+      "title_ar": "لحد 15 نوفمبر: تسجيل امتحانات 2026/2027 لسه ما اتفتحش",
+      "title_en": "As of 15 November: 2026/2027 exam registration still not open",
+      "body_ar": "لحد يوم 15 نوفمبر 2026 ما صدرش إعلان رسمي من وزارة التربية والتعليم بفتح التسجيل لامتحانات «أبناؤنا في الخارج» للعام 2026/2027، ولا بالرسوم أو مواعيد الامتحانات، والمنصة الرسمية لسه بتعرض تعليمات 2025/2026. السنة اللي فاتت التسجيل اتفتح حوالي 13 نوفمبر وامتحان الترم الأول كان 10 يناير. أي «رابط تسجيل 2026» منشور في مواقع تانية بيخص العام اللي فات. جهّز الأوراق من «قائمة التجهيز» في الصفحة الأولى، وتابع المنصة الرسمية sabroad.emis.gov.eg، وأول ما التسجيل يتفتح هننشر الخبر هنا.",
+      "body_en": "As of 15 November 2026 the Ministry of Education has not announced the opening of registration for the 2026/2027 “Our Children Abroad” exams, nor fees or exam dates; the official platform still shows the 2025/2026 instructions. Last year registration opened around 13 November and the first-term exam was on 10 January. Any “2026 registration link” on other sites refers to last year. Get your documents ready with the checklist on the home page, follow sabroad.emis.gov.eg, and we will post here as soon as registration opens.",
       "source": "المنصة الرسمية / متابعة الأخبار",
       "url": "https://sabroad.emis.gov.eg/Home/"
+    },
+    {
+      "id": "n14",
+      "date": "2026-11-14",
+      "cat": "consular",
+      "title_ar": "لجان إصدار بطاقة الرقم القومي في أثينا وميلانو لحد 24 نوفمبر",
+      "title_en": "National ID card committees in Athens and Milan until 24 November",
+      "body_ar": "بدأت يوم السبت 14 نوفمبر 2026 لجان إصدار بطاقات الرقم القومي شغلها في السفارة المصرية في أثينا والقنصلية العامة في ميلانو، ومستمرة لحد 24 نوفمبر. اللجان بتعمل إصدار أول مرة وتجديد وبدل فاقد وتعديل بيانات، وفي أثينا الشغل يوميًا من 9:30 الصبح لـ6 المسا. لجنة تانية هتروح سفارة روما، وفرنسا قريبًا من غير موعد محدد، وقبل كده اللجان راحت قطر والأردن والإمارات ولبنان والكويت والسعودية. كلّم السفارة أو القنصلية الأول عشان تعرف الأوراق المطلوبة وتحجز ميعاد.",
+      "body_en": "National ID card committees started work on Saturday 14 November 2026 at the Egyptian Embassy in Athens and the Consulate General in Milan, and run until 24 November. They handle first-time cards, renewals, lost-card replacement and data corrections; in Athens they work daily from 9:30 a.m. to 6 p.m. Another committee will go to the embassy in Rome, and one to France soon with no date set; earlier committees visited Qatar, Jordan, the UAE, Lebanon, Kuwait and Saudi Arabia. Contact the embassy or consulate first to learn the required documents and book an appointment.",
+      "source": "ماسبيرو",
+      "url": "https://www.maspero.eg/egypt/2026/11/14/1005509/"
     },
     {
       "id": "n12",
