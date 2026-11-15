@@ -684,7 +684,7 @@ window.DalilStudy = function (ctx) {
   const daysAgo = (ts) => Math.max(0, Math.floor((Date.now() - ts) / 864e5));
   const fmtDay = (ts) => ctx.fmtDate(new Date(ts).toISOString().slice(0, 10), { day: "numeric", month: "short" });
   const fmtDur = (sec) => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, "0")}`;
-  const SUBJ_IC = { math: "calc", science: "flask", discover: "eye", social: "map", arabic: "pen2", english: "abc", religion: "study", ict: "tools", history: "map", geography: "map", philosophy: "study", physics: "flask", chemistry: "flask", biology: "flask" };
+  const SUBJ_IC = { math: "calc", science: "flask", discover: "eye", social: "map", arabic: "pen2", english: "abc", religion: "study", ict: "tools", history: "map", geography: "map", philosophy: "study", physics: "flask", chemistry: "flask", biology: "flask", programming: "tools", psychology: "study" };
   const subjIcon = (sub) => ic(sub.icon || SUBJ_IC[sub.id] || "study");
   function shuffle(a) { const r = a.slice(); for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; }
   function ring(pct, size, label) {
@@ -1886,6 +1886,8 @@ window.DalilStudy = function (ctx) {
 
   return {
     view, mount, onClick, onBack, homeCard, homeKids, parentCta,
+    // أسماء الأبناء المتزامنة (لقائمة تجهيز الأوراق) — null لو مش مسجل دخول
+    kidNames: () => (accountsOn() && me() && parent.kids ? parent.kids.map((k) => ({ id: k.id, name: k.name })) : null),
     label: () => s("tab"),
     canBack: () => nav.length > 1,
     fullScreen: () => top().v === "quiz" || top().v === "book",
