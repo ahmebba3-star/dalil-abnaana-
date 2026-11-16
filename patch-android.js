@@ -74,4 +74,24 @@ if (!g.includes("signingConfigs {")) {
   g = g.replace(/(buildTypes \{\s*release \{)/, `$1\n            if (System.getenv("KEYSTORE_FILE") != null) { signingConfig signingConfigs.release }`);
 }
 fs.writeFileSync(gPath, g);
+
+// 2b) R8: تصغير وتعتيم كود الإصدار (تحذير Google Play: «تحسين رمز DEX»)
+// Enable code shrinking/obfuscation for release. Resources are NOT shrunk (ringtone etc. are looked up by name).
+g = g.replace(/minifyEnabled false/, "minifyEnabled true");
+g = g.replace(/getDefaultProguardFile\('proguard-android\.txt'\)/, "getDefaultProguardFile('proguard-android-optimize.txt')");
+fs.writeFileSync(gPath, g);
+const pgPath = path.join(root, "android/app/proguard-rules.pro");
+const pgRules = `
+# --- dalil: keep Capacitor bridge + plugins (called from JS by reflection) ---
+-keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod,SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
+-keep class com.getcapacitor.** { *; }
+-keep class com.capacitorjs.plugins.** { *; }
+-keep class io.capawesome.capacitorjs.plugins.** { *; }
+-keep class com.dalil.egyptiansabroad.** { *; }
+-keepclassmembers class * { @android.webkit.JavascriptInterface <methods>; }
+-dontwarn com.getcapacitor.**
+`;
+let pg = fs.existsSync(pgPath) ? fs.readFileSync(pgPath, "utf8") : "";
+if (!pg.includes("dalil: keep Capacitor")) fs.writeFileSync(pgPath, pg + pgRules);
 console.log("android patched (admob app id:", admobAppId === TEST_APP_ID ? "test" : "real", ")");
