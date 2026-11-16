@@ -91,6 +91,11 @@ const pgRules = `
 -keep class com.dalil.egyptiansabroad.** { *; }
 -keepclassmembers class * { @android.webkit.JavascriptInterface <methods>; }
 -dontwarn com.getcapacitor.**
+# optional sign-in providers of @capacitor-firebase/authentication that we don't ship
+-dontwarn com.facebook.**
+-dontwarn com.google.android.libraries.identity.googleid.**
+-dontwarn com.google.android.gms.games.**
+-dontwarn com.google.firebase.auth.internal.**
 `;
 let pg = fs.existsSync(pgPath) ? fs.readFileSync(pgPath, "utf8") : "";
 if (!pg.includes("dalil: keep Capacitor")) fs.writeFileSync(pgPath, pg + pgRules);
