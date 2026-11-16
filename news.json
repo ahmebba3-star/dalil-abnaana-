@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "exams": [
     {
       "id": "t1-2027",
@@ -21,6 +21,17 @@
     }
   ],
   "news": [
+    {
+      "id": "n12",
+      "date": "2026-11-16",
+      "cat": "community",
+      "title_ar": "«بيتك في مصر»: الإسكان أعلنت أسعار الطرح الثالث للمصريين بالخارج.. المتر من 412 لـ1614 دولار",
+      "title_en": "“Beitak fi Masr”: Housing Ministry announces third-offering prices for Egyptians abroad, $412–$1,614 per m²",
+      "body_ar": "يوم 16 نوفمبر 2026 أعلنت وزارة الإسكان أسعار وحدات الطرح الثالث من مبادرة «بيتك في مصر» للمصريين المقيمين بالخارج، ومنها شقق الشروق و6 أكتوبر والشيخ زايد. سعر المتر بيبدأ من حوالي 412 دولار ويوصل لـ1614 دولار حسب المدينة والمشروع، وفيه خصم 10% للي هيدفع ثمن الوحدة كامل. الطرح فيه حوالي 4 آلاف وحدة في مدن منها العلمين الجديدة والقاهرة الجديدة والشروق و6 أكتوبر والشيخ زايد والعاصمة الجديدة والمنصورة الجديدة ودمياط الجديدة. التسجيل بدأ 10 نوفمبر من موقع المبادرة beitakfemisr.com لمن عمره 21 سنة أو أكتر، والسداد بالدولار بتحويلات لا تقل عن 5 آلاف دولار لحساب هيئة المجتمعات العمرانية بالبنك المركزي بالكود الخاص بكل مسجّل، والحجز إلكتروني بأسبقية السداد. اقرأ كراسة الشروط على موقع المبادرة قبل ما تحوّل، وتابع منه ميعاد بدء اختيار الوحدات.",
+      "body_en": "On 16 November 2026 the Housing Ministry announced prices for the units in the third offering of the “Beitak fi Masr” initiative for Egyptians living abroad, including apartments in El Shorouk, 6th of October and Sheikh Zayed. Prices start at about $412 per square metre and reach $1,614 depending on the city and project, with a 10% discount for paying the full price of the unit. The offering has about 4,000 units in cities including New Alamein, New Cairo, El Shorouk, 6th of October, Sheikh Zayed, the New Capital, New Mansoura and New Damietta. Registration opened on 10 November on beitakfemisr.com (age 21+); payment is in US dollars, with transfers of at least $5,000 to the New Urban Communities Authority account at the Central Bank using each registrant's code, and booking is electronic, first come first served. Read the terms booklet on the initiative website before transferring, and follow it for the date unit selection starts.",
+      "source": "مصراوي / صدى البلد",
+      "url": "https://www.masrawy.com/news/realestate-news/details/2026/11/16/3079508/"
+    },
     {
       "id": "n15",
       "date": "2026-11-15",
@@ -53,17 +64,6 @@
       "body_en": "National ID card committees started work on Saturday 14 November 2026 at the Egyptian Embassy in Athens and the Consulate General in Milan, and run until 24 November. They handle first-time cards, renewals, lost-card replacement and data corrections; in Athens they work daily from 9:30 a.m. to 6 p.m. Another committee will go to the embassy in Rome, and one to France soon with no date set; earlier committees visited Qatar, Jordan, the UAE, Lebanon, Kuwait and Saudi Arabia. Contact the embassy or consulate first to learn the required documents and book an appointment.",
       "source": "ماسبيرو",
       "url": "https://www.maspero.eg/egypt/2026/11/14/1005509/"
-    },
-    {
-      "id": "n12",
-      "date": "2026-11-08",
-      "cat": "community",
-      "title_ar": "«بيتك في مصر»: التسجيل في الطرح الثالث للمصريين بالخارج بدأ 10 نوفمبر",
-      "title_en": "“Beitak fi Masr”: registration for the third offering for Egyptians abroad opened 10 November",
-      "body_ar": "بدأ يوم الثلاثاء 10 نوفمبر 2026 التسجيل في الطرح الثالث من مبادرة «بيتك في مصر» للمصريين المقيمين بالخارج، وفيه حوالي 4 آلاف وحدة سكنية في مدن منها العلمين الجديدة والقاهرة الجديدة والشروق و6 أكتوبر والشيخ زايد والعاصمة الجديدة والمنصورة الجديدة ودمياط الجديدة. التسجيل من موقع المبادرة beitakfemisr.com لمن عمره 21 سنة أو أكتر، والسداد بالدولار بتحويلات لا تقل عن 5 آلاف دولار لحساب هيئة المجتمعات العمرانية بالبنك المركزي بالكود الخاص بكل مسجّل. الحجز إلكتروني بأسبقية السداد، وميعاد بدء الحجز لسه ما اتعلنش.",
-      "body_en": "Registration for the third offering of the “Beitak fi Masr” initiative for Egyptians living abroad opened on Tuesday 10 November 2026, with about 4,000 housing units in cities including New Alamein, New Cairo, El Shorouk, 6th of October, Sheikh Zayed, the New Capital, New Mansoura and New Damietta. Register on beitakfemisr.com (age 21+). Payment is in US dollars, with transfers of at least $5,000 to the New Urban Communities Authority account at the Central Bank using each registrant's code. Booking is electronic, first come first served; the booking start date has not been announced yet.",
-      "source": "مصراوي",
-      "url": "https://www.masrawy.com/news/realestate-news/details/2026/11/8/3075330"
     },
     {
       "id": "n9",
