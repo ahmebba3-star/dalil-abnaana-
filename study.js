@@ -469,7 +469,11 @@ window.DalilStudy = function (ctx) {
       return ((r && r.snapshots) || []).filter((d) => d.data).map((d) => Object.assign({ id: d.id }, d.data));
     };
     // small batches: security rules allow ~20 document lookups per batched write, and each op here does one
-    const batch = async (ops) => { for (let i = 0; i < ops.length; i += 10) await Fs.writeBatch({ operations: ops.slice(i, i + 10) }); };
+    // the Android plugin reads `data` for every op (NullPointerException when a delete op has none), so always send an object
+    const batch = async (ops) => {
+      ops = ops.map((o) => (o.data ? o : Object.assign({}, o, { data: {} })));
+      for (let i = 0; i < ops.length; i += 10) await Fs.writeBatch({ operations: ops.slice(i, i + 10) });
+    };
     return {
       demo: false,
       async user() { const r = await Auth.getCurrentUser(); return (r && r.user) || null; },
