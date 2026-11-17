@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "exams": [
     {
       "id": "t1-2027",
@@ -22,6 +22,17 @@
   ],
   "news": [
     {
+      "id": "n15",
+      "date": "2026-11-17",
+      "cat": "exams",
+      "title_ar": "التعليم أعلنت رسوم ومواعيد امتحانات 2026/2027: 150 دولار والترم الأول 9 يناير.. والتسجيل يفتح خلال نوفمبر",
+      "title_en": "Ministry announces 2026/2027 fees and exam dates: $150, first term on 9 January; registration opens during November",
+      "body_ar": "وزارة التربية والتعليم أعلنت يوم 17 نوفمبر 2026 رسوم ومواعيد امتحانات «أبناؤنا في الخارج» للعام 2026/2027: الرسوم 150 دولار لكل طالب في أي صف من KG1 لحد تانية ثانوي، وبتتدفع أونلاين من المنصة. امتحان الترم الأول يبدأ السبت 9 يناير 2027، والترم التاني السبت 22 مايو 2027، والدور التاني السبت 17 يوليو 2027. آخر ميعاد لاسترداد الرسوم: 31 ديسمبر 2026 للترم الأول، و30 أبريل 2027 للترم التاني، و9 يوليو 2027 للدور التاني. الوزارة قالت إن المنصة هتتفتح للتسجيل «خلال شهر نوفمبر الجاري»، لكن لحد دلوقتي ما اتحددش يوم البداية ولا آخر ميعاد. الخطوات: ولي الأمر يعمل حساب على sabroad.emis.gov.eg، يسجّل عدد الأبناء، يدفع الرسوم، وبعدين يملا الاستمارة ويرفع الصورة والمستندات PDF (كل ملف أقل من 2 ميجا). أول ما التسجيل يتفتح فعلًا هننشر الخبر هنا.",
+      "body_en": "On 17 November 2026 the Ministry of Education announced the fees and dates for the 2026/2027 “Our Children Abroad” exams: the fee is $150 per student for any grade from KG1 to Secondary 2, paid online through the platform. The first-term exam starts Saturday 9 January 2027, the second term Saturday 22 May 2027, and the second round Saturday 17 July 2027. Fee refund deadlines: 31 December 2026 for the first term, 30 April 2027 for the second term, and 9 July 2027 for the second round. The ministry said the platform will open for registration “during the current month of November”, but no exact start date or deadline has been set yet. Steps: the parent creates an account on sabroad.emis.gov.eg, registers the number of children, pays the fee, then fills in the form and uploads a photo and PDF documents (each under 2 MB). We will post here as soon as registration actually opens.",
+      "source": "اليوم السابع / وزارة التربية والتعليم",
+      "url": "https://www.youm7.com/story/2026/11/17/%D8%B1%D8%B3%D9%88%D9%85-%D9%88%D8%AE%D8%B7%D9%88%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%85-%D9%84%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D8%B7%D9%84%D8%A8%D8%A9-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D9%8A%D9%86-%D9%81%D9%89-%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC-2027/7622771"
+    },
+    {
       "id": "n12",
       "date": "2026-11-16",
       "cat": "community",
@@ -31,17 +42,6 @@
       "body_en": "On 16 November 2026 the Housing Ministry announced prices for the units in the third offering of the “Beitak fi Masr” initiative for Egyptians living abroad, including apartments in El Shorouk, 6th of October and Sheikh Zayed. Prices start at about $412 per square metre and reach $1,614 depending on the city and project, with a 10% discount for paying the full price of the unit. The offering has about 4,000 units in cities including New Alamein, New Cairo, El Shorouk, 6th of October, Sheikh Zayed, the New Capital, New Mansoura and New Damietta. Registration opened on 10 November on beitakfemisr.com (age 21+); payment is in US dollars, with transfers of at least $5,000 to the New Urban Communities Authority account at the Central Bank using each registrant's code, and booking is electronic, first come first served. Read the terms booklet on the initiative website before transferring, and follow it for the date unit selection starts.",
       "source": "مصراوي / صدى البلد",
       "url": "https://www.masrawy.com/news/realestate-news/details/2026/11/16/3079508/"
-    },
-    {
-      "id": "n15",
-      "date": "2026-11-15",
-      "cat": "exams",
-      "title_ar": "لحد 15 نوفمبر: تسجيل امتحانات 2026/2027 لسه ما اتفتحش",
-      "title_en": "As of 15 November: 2026/2027 exam registration still not open",
-      "body_ar": "لحد يوم 15 نوفمبر 2026 ما صدرش إعلان رسمي من وزارة التربية والتعليم بفتح التسجيل لامتحانات «أبناؤنا في الخارج» للعام 2026/2027، ولا بالرسوم أو مواعيد الامتحانات، والمنصة الرسمية لسه بتعرض تعليمات 2025/2026. السنة اللي فاتت التسجيل اتفتح حوالي 13 نوفمبر وامتحان الترم الأول كان 10 يناير. أي «رابط تسجيل 2026» منشور في مواقع تانية بيخص العام اللي فات. جهّز الأوراق من «قائمة التجهيز» في الصفحة الأولى، وتابع المنصة الرسمية sabroad.emis.gov.eg، وأول ما التسجيل يتفتح هننشر الخبر هنا.",
-      "body_en": "As of 15 November 2026 the Ministry of Education has not announced the opening of registration for the 2026/2027 “Our Children Abroad” exams, nor fees or exam dates; the official platform still shows the 2025/2026 instructions. Last year registration opened around 13 November and the first-term exam was on 10 January. Any “2026 registration link” on other sites refers to last year. Get your documents ready with the checklist on the home page, follow sabroad.emis.gov.eg, and we will post here as soon as registration opens.",
-      "source": "المنصة الرسمية / متابعة الأخبار",
-      "url": "https://sabroad.emis.gov.eg/Home/"
     },
     {
       "id": "n16",
