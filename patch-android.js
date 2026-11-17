@@ -78,6 +78,8 @@ fs.writeFileSync(gPath, g);
 // 2b) R8: تصغير وتعتيم كود الإصدار (تحذير Google Play: «تحسين رمز DEX»)
 // Enable code shrinking/obfuscation for release. Resources are NOT shrunk (ringtone etc. are looked up by name).
 g = g.replace(/minifyEnabled false/, "minifyEnabled true");
+// ضمّن رموز الكود الأصلي في الـAAB (تحذير Play: «يحتوي على رموز برمجية أصلية ولم يتم تحميل رموز لتصحيح الأخطاء»)
+if (!g.includes("debugSymbolLevel")) g = g.replace(/minifyEnabled true/, "minifyEnabled true\n            ndk { debugSymbolLevel 'SYMBOL_TABLE' }");
 g = g.replace(/getDefaultProguardFile\('proguard-android\.txt'\)/, "getDefaultProguardFile('proguard-android-optimize.txt')");
 fs.writeFileSync(gPath, g);
 const pgPath = path.join(root, "android/app/proguard-rules.pro");
