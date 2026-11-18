@@ -33,17 +33,6 @@
       "url": "https://sabroad.emis.gov.eg/News/Post/129"
     },
     {
-      "id": "n17",
-      "date": "2026-11-17",
-      "cat": "exams",
-      "title_ar": "كتيب التعليمات الرسمي لامتحانات 2026/2027: السن المطلوب لكل صف والاسترداد والإيميلات",
-      "title_en": "Official 2026/2027 instructions booklet: age per grade, refunds and support emails",
-      "body_ar": "الوزارة نشرت كتيب «تعليمات وشروط التقدم لامتحانات أبناؤنا في الخارج 2026/2027» على المنصة، وده أهم اللي فيه: (1) السن: لازم الطالب يكون مولود في التاريخ ده أو قبله: KG1 ‏1/4/2023، KG2 ‏1/4/2022، أولى ابتدائي 1/4/2021، تانية 1/4/2020، تالتة 1/4/2019، رابعة 1/4/2018، خامسة 1/4/2017، سادسة 1/4/2016، أولى إعدادي 1/4/2015، تانية 1/4/2014، تالتة 1/4/2013، أولى ثانوي 1/4/2012، تانية ثانوي 1/4/2011. لو سجّلت طفل مخالف لشرط السن ما ترجعلكش الرسوم. (2) الطلاب الجداد بيبعتوا أصول المستندات بالبريد للإدارة: 16 ش أمين سامي، المنيرة، السيدة زينب، القاهرة، وإلا النتيجة بتتحجب. (3) طلب استرداد الرسوم بيتبعت على Financial@moe.edu.eg مع كل إيصالات السداد، وآخر ميعاد 31 ديسمبر 2026 للترم الأول. (4) لكل صف إيميل لمشرفه، مثلًا أولى ابتدائي s.prim01@support.emis.edu.eg وأولى إعدادي s.prep01@support.emis.edu.eg وأولى ثانوي s.than01@support.emis.edu.eg، والدعم الفني support@stuabroad.moe.edu.eg. (5) طلاب KG وأولى وتانية ابتدائي بيرفعوا ملف التقييم والأنشطة على المنصة، ومن غيره مفيش شهادة نجاح. (6) ممنوع تمتحن من أكتر من جهة في نفس السنة، والامتحان لازم يتأدى من بره مصر.",
-      "body_en": "The ministry published the “Instructions and conditions for the Our Children Abroad exams 2026/2027” booklet on the platform. Key points: (1) Age: the student must be born on or before: KG1 1/4/2023, KG2 1/4/2022, Primary 1 1/4/2021, P2 1/4/2020, P3 1/4/2019, P4 1/4/2018, P5 1/4/2017, P6 1/4/2016, Prep 1 1/4/2015, Prep 2 1/4/2014, Prep 3 1/4/2013, Secondary 1 1/4/2012, Secondary 2 1/4/2011. If you register a child who does not meet the age rule, the fees are not refunded. (2) New students must mail their original documents to the administration at 16 Amin Samy St, El-Mounira, Sayeda Zeinab, Cairo, or their results will be withheld. (3) Refund requests go to Financial@moe.edu.eg with all payment receipts; the deadline is 31 December 2026 for the first term. (4) Each grade has a supervisor email, e.g. Primary 1 s.prim01@support.emis.edu.eg, Prep 1 s.prep01@support.emis.edu.eg, Secondary 1 s.than01@support.emis.edu.eg; technical support is support@stuabroad.moe.edu.eg. (5) KG, Primary 1 and Primary 2 students upload the assessment/activities file on the platform; without it no pass certificate is issued. (6) You may not sit the exams with more than one body in the same year, and the exam must be taken from outside Egypt.",
-      "source": "وزارة التربية والتعليم – كتيب التعليمات",
-      "url": "https://sabroad.emis.gov.eg/News/Post/129"
-    },
-    {
       "id": "n12",
       "date": "2026-11-16",
       "cat": "community",
@@ -53,6 +42,17 @@
       "body_en": "On 16 November 2026 the Housing Ministry announced prices for the units in the third offering of the “Beitak fi Masr” initiative for Egyptians living abroad, including apartments in El Shorouk, 6th of October and Sheikh Zayed. Prices start at about $412 per square metre and reach $1,614 depending on the city and project, with a 10% discount for paying the full price of the unit. The offering has about 4,000 units in cities including New Alamein, New Cairo, El Shorouk, 6th of October, Sheikh Zayed, the New Capital, New Mansoura and New Damietta. Registration opened on 10 November on beitakfemisr.com (age 21+); payment is in US dollars, with transfers of at least $5,000 to the New Urban Communities Authority account at the Central Bank using each registrant's code, and booking is electronic, first come first served. Read the terms booklet on the initiative website before transferring, and follow it for the date unit selection starts.",
       "source": "مصراوي / صدى البلد",
       "url": "https://www.masrawy.com/news/realestate-news/details/2026/11/16/3079508/"
+    },
+    {
+      "id": "n17",
+      "date": "2026-11-15",
+      "cat": "exams",
+      "title_ar": "كتيب التعليمات الرسمي لامتحانات 2026/2027: السن المطلوب لكل صف والاسترداد والإيميلات",
+      "title_en": "Official 2026/2027 instructions booklet: age per grade, refunds and support emails",
+      "body_ar": "الوزارة نشرت كتيب «تعليمات وشروط التقدم لامتحانات أبناؤنا في الخارج 2026/2027» على المنصة، وده أهم اللي فيه: (1) السن: لازم الطالب يكون مولود في التاريخ ده أو قبله: KG1 ‏1/4/2023، KG2 ‏1/4/2022، أولى ابتدائي 1/4/2021، تانية 1/4/2020، تالتة 1/4/2019، رابعة 1/4/2018، خامسة 1/4/2017، سادسة 1/4/2016، أولى إعدادي 1/4/2015، تانية 1/4/2014، تالتة 1/4/2013، أولى ثانوي 1/4/2012، تانية ثانوي 1/4/2011. لو سجّلت طفل مخالف لشرط السن ما ترجعلكش الرسوم. (2) الطلاب الجداد بيبعتوا أصول المستندات بالبريد للإدارة: 16 ش أمين سامي، المنيرة، السيدة زينب، القاهرة، وإلا النتيجة بتتحجب. (3) طلب استرداد الرسوم بيتبعت على Financial@moe.edu.eg مع كل إيصالات السداد، وآخر ميعاد 31 ديسمبر 2026 للترم الأول. (4) لكل صف إيميل لمشرفه، مثلًا أولى ابتدائي s.prim01@support.emis.edu.eg وأولى إعدادي s.prep01@support.emis.edu.eg وأولى ثانوي s.than01@support.emis.edu.eg، والدعم الفني support@stuabroad.moe.edu.eg. (5) طلاب KG وأولى وتانية ابتدائي بيرفعوا ملف التقييم والأنشطة على المنصة، ومن غيره مفيش شهادة نجاح. (6) ممنوع تمتحن من أكتر من جهة في نفس السنة، والامتحان لازم يتأدى من بره مصر.",
+      "body_en": "The ministry published the “Instructions and conditions for the Our Children Abroad exams 2026/2027” booklet on the platform. Key points: (1) Age: the student must be born on or before: KG1 1/4/2023, KG2 1/4/2022, Primary 1 1/4/2021, P2 1/4/2020, P3 1/4/2019, P4 1/4/2018, P5 1/4/2017, P6 1/4/2016, Prep 1 1/4/2015, Prep 2 1/4/2014, Prep 3 1/4/2013, Secondary 1 1/4/2012, Secondary 2 1/4/2011. If you register a child who does not meet the age rule, the fees are not refunded. (2) New students must mail their original documents to the administration at 16 Amin Samy St, El-Mounira, Sayeda Zeinab, Cairo, or their results will be withheld. (3) Refund requests go to Financial@moe.edu.eg with all payment receipts; the deadline is 31 December 2026 for the first term. (4) Each grade has a supervisor email, e.g. Primary 1 s.prim01@support.emis.edu.eg, Prep 1 s.prep01@support.emis.edu.eg, Secondary 1 s.than01@support.emis.edu.eg; technical support is support@stuabroad.moe.edu.eg. (5) KG, Primary 1 and Primary 2 students upload the assessment/activities file on the platform; without it no pass certificate is issued. (6) You may not sit the exams with more than one body in the same year, and the exam must be taken from outside Egypt.",
+      "source": "وزارة التربية والتعليم – كتيب التعليمات",
+      "url": "https://sabroad.emis.gov.eg/News/Post/129"
     },
     {
       "id": "n16",
