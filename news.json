@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "exams": [
     {
       "id": "t1-2027",
@@ -31,6 +31,17 @@
       "body_en": "The official platform sabroad.emis.gov.eg now shows the announcement “Payment and registration are available on the Our Children Abroad platform for the 2026/2027 school year”, so you can now register your children and pay the fees. The fee is $150 per student for any grade from KG1 to Secondary 2, paid online through the platform. The first-term exam starts Saturday 9 January 2027, the second term Saturday 22 May 2027, and the second round Saturday 17 July 2027. Fee refund deadlines: 31 December 2026 for the first term, 30 April 2027 for the second term, and 9 July 2027 for the second round. The ministry has not yet announced a registration deadline, so it is best to register early. Steps: the parent goes to sabroad.emis.gov.eg and creates an account (or logs in with an existing one), registers the number of children, pays the fee, then fills in the form and uploads a photo and PDF documents (each under 2 MB). Read the instructions booklet (the age rule for each grade) before paying, because fees are not refunded if the child does not meet the age rule. Register only through the official platform, and do not pay anyone who offers to register on your behalf.",
       "source": "المنصة الرسمية لأبنائنا في الخارج / اليوم السابع",
       "url": "https://sabroad.emis.gov.eg/"
+    },
+    {
+      "id": "n18",
+      "date": "2026-11-18",
+      "cat": "exams",
+      "title_ar": "مين يقدر يسجّل أولى ثانوي أو البكالوريا في «أبناؤنا في الخارج» 2026/2027؟ وشروط طلاب الشهادات الدولية",
+      "title_en": "Who can register for Grade 10 or the Baccalaureate in “Our Children Abroad” 2026/2027? Rules for international-certificate students",
+      "body_ar": "حسب مستند رسمي من وزارة التربية والتعليم نشره مصراوي، المسموح لهم يتقدموا لأولى ثانوي عام أو نظام البكالوريا في امتحانات المصريين بالخارج 2026/2027 هم: الناجحين في الشهادة الإعدادية (إتمام التعليم الأساسي) سنة 2025/2026 من مدارس مصرية أو من نظام أبناؤنا في الخارج أو من مدارس المسار المصري، وكمان اللي معاه شهادة صف من دولة شهاداتها معادلة، أو شهادة مش معادلة بشرط يتحدد مستواه بشهادة معتمدة في مصر أو من إدارة المصريين في الخارج. طلاب المدارس الدولية (الدبلومة البريطانية أو الأمريكية أو IB أو شهادة النيل الدولية) يقدروا يدخلوا البكالوريا بشروط: ينجحوا في امتحانات الصف التاسع للشهادة الدولية، ويجيبوا 50% على الأقل من مجموع درجاتها، وينجحوا في مواد الهوية القومية، ويجيبوا 70% في التربية الدينية، ولازم الشهادة تتعادل بمستوى المناهج المصرية. لو ابنك في مدرسة دولية، جهّز المعادلة ونتيجة المواد القومية قبل ما تدفع الرسوم على المنصة.",
+      "body_en": "According to an official Ministry of Education document reported by Masrawy, those eligible to apply for Grade 10 (general secondary) or the Baccalaureate track in the Egyptians Abroad exams 2026/2027 are: students who passed the preparatory (basic education completion) certificate in 2025/2026 from Egyptian schools, the Our Children Abroad system, or Egyptian-track schools; holders of a grade certificate from a country whose certificates are recognized as equivalent; or holders of a non-equivalent certificate, provided their level is determined by a certificate approved in Egypt or by the Egyptians Abroad administration. International-school students (British or American diploma, IB, or the Nile International Certificate) can enter the Baccalaureate if they pass the Grade 9 exams of the international certificate, score at least 50% of its total marks, pass the national-identity subjects, and score 70% in religious education; the certificate must also be equated to the level of the Egyptian curriculum. If your child is in an international school, prepare the equivalency and national-subjects results before paying the fees on the platform.",
+      "source": "مصراوي (Masrawy)",
+      "url": "https://www.masrawy.com/news/education-schooleducation/details/2026/11/18/3080444/"
     },
     {
       "id": "n12",
