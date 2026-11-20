@@ -1,23 +1,32 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "exams": [
     {
       "id": "t1-2027",
       "title_ar": "امتحانات الفصل الدراسي الأول 2026/2027",
       "title_en": "First-term exams 2026/2027",
-      "date": "",
-      "confirmed": false,
-      "expected_ar": "التسجيل لعام 2026/2027 لم يُفتح رسميًا لحد دلوقتي. في العام الماضي فُتح التسجيل منتصف نوفمبر، وبدأت امتحانات الفصل الأول يوم 10 يناير.",
-      "expected_en": "Registration for 2026/2027 has not officially opened yet. Last year it opened in mid-November and first-term exams started on 10 January."
+      "date": "2027-01-09",
+      "confirmed": true,
+      "expected_ar": "",
+      "expected_en": ""
     },
     {
       "id": "t2-2027",
       "title_ar": "امتحانات الفصل الدراسي الثاني 2026/2027",
       "title_en": "Second-term exams 2026/2027",
-      "date": "",
-      "confirmed": false,
-      "expected_ar": "في العام الماضي بدأت امتحانات الفصل الثاني يوم 16 مايو.",
-      "expected_en": "Last year, second-term exams started on 16 May."
+      "date": "2027-05-22",
+      "confirmed": true,
+      "expected_ar": "",
+      "expected_en": ""
+    },
+    {
+      "id": "r2-2027",
+      "title_ar": "امتحانات الدور الثاني 2026/2027",
+      "title_en": "Second-round exams 2026/2027",
+      "date": "2027-07-17",
+      "confirmed": true,
+      "expected_ar": "",
+      "expected_en": ""
     }
   ],
   "news": [

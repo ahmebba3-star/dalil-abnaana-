@@ -70,25 +70,23 @@ window.GRADES = [
   ["S1", "الأول الثانوي", "Secondary 1"], ["S2", "الثاني الثانوي", "Secondary 2"]
 ];
 
-/* خطوات التسجيل — حسب تعليمات المنصة في 2025/2026 */
+/* خطوات التسجيل — حسب تعليمات 2026/2027 وتجربة تسجيل فعلية (نوفمبر 2026) */
 window.REG_STEPS = {
   ar: [
-    ["أنشئ حساب ولي أمر", "ادخل على منصة «أبناؤنا في الخارج» الرسمية وأنشئ حسابًا باسم ولي الأمر، أو سجّل دخولك لو عندك حساب."],
-    ["اختر خدمة التسجيل", "اختر خدمة التسجيل في الامتحانات وحدد عدد أبنائك للعام الدراسي."],
-    ["اكتب بيانات كل طالب", "املأ بيانات كل طالب لوحده، وراجع الاسم والرقم القومي حرفًا حرفًا مع شهادة الميلاد."],
-    ["ارفع المستندات", "حوّل مستندات كل طالب لملف PDF واحد وارفعه."],
-    ["ادفع الرسوم", "ادفع الرسوم بطرق الدفع الإلكتروني المعتمدة على المنصة بعد فتح باب التسجيل."],
-    ["اطبع الاستمارة", "اطبع استمارة التسجيل واحتفظ بها مع أصول المستندات."],
-    ["استلم رقم الجلوس", "قبل الامتحان، ادخل على حساب ولي الأمر لاستلام رقم الجلوس وحساب الطالب."]
+    ["سجّل دخول بإيميل مايكروسوفت", "ادخل على المنصة الرسمية sabroad.emis.gov.eg وسجّل دخول بإيميل Hotmail أو Outlook أو Live. لو سجّلت السنة اللي فاتت، ادخل بنفس الإيميل."],
+    ["حدد عدد الأبناء وادفع", "حدد عدد الأبناء وادفع الرسوم أونلاين: 150 دولار لكل طالب. اتأكد من شرط السن قبل الدفع، واحفظ الإيصال."],
+    ["سجّل كل ابن", "لو الطالب كان مسجّل على المنصة السنة اللي فاتت، اكتب رقمه القومي وبياناته وصفه هيظهروا لوحدهم. ولو جديد، املأ كل بياناته زي شهادة الميلاد بالظبط."],
+    ["ارفع المستندات", "الطالب اللي كان مسجّل: صورته، ونتيجة آخر سنة من المنصة، وشهادة الميلاد. الطالب الجديد: كل المستندات المطلوبة حسب حالته."],
+    ["الطالب الجديد: ابعت الأصول", "اطبع الاستمارة. الطالب الجديد لازم أصول مستنداته تتبعت بالبريد للإدارة في القاهرة، وإلا النتيجة بتتحجب."],
+    ["تابع واستلم رقم الجلوس", "تابع حساب ولي الأمر والإيميل، وقبل الامتحان هتلاقي رقم الجلوس وحساب الطالب. الترم الأول يبدأ السبت 9 يناير 2027."]
   ],
   en: [
-    ["Create a parent account", "Go to the official “Our Children Abroad” platform and create an account in the parent's name, or log in if you already have one."],
-    ["Choose exam registration", "Pick the exam registration service and set the number of children for the school year."],
-    ["Enter each student's details", "Fill in each student separately and check the name and national ID letter by letter against the birth certificate."],
-    ["Upload documents", "Combine each student's documents into one PDF and upload it."],
-    ["Pay the fee", "Pay through the platform's approved online payment options once registration opens."],
-    ["Print the form", "Print the registration form and keep it with the original documents."],
-    ["Get the seat number", "Before the exam, log in to the parent account to get the seat number and student account."]
+    ["Sign in with a Microsoft email", "Go to the official platform sabroad.emis.gov.eg and sign in with a Hotmail, Outlook or Live email. If you registered last year, use the same email."],
+    ["Set the number of children and pay", "Set how many children you are registering and pay online: 150 US dollars per student. Check the age rule before paying and keep the receipt."],
+    ["Register each child", "If the student was registered on the platform last year, enter their national ID and their details and grade appear automatically. A new student needs all details filled in exactly as on the birth certificate."],
+    ["Upload the documents", "Returning student: photo, last year's result from the platform and birth certificate. New student: all the documents required for their case."],
+    ["New students: post the originals", "Print the form. A new student's original documents must be posted to the administration in Cairo, or the result is withheld."],
+    ["Follow up and get the seat number", "Check the parent account and your email; before the exam you'll find the seat number and student account. First term starts Saturday 9 January 2027."]
   ]
 };
 
@@ -96,21 +94,23 @@ window.REG_DOCS = {
   ar: [
     "صورة شخصية حديثة للطالب",
     "شهادة ميلاد الطالب بالرقم القومي",
-    "شهادة أو بيان نجاح آخر صف دراسي (الشهادات الصادرة خارج مصر لازم تكون موثّقة ومعتمدة)",
-    "صورة جواز السفر والإقامة في دولة الإقامة"
+    "طالب كان مسجّل على المنصة: نتيجة آخر سنة مطبوعة من المنصة",
+    "طالب جديد: بيان نجاح آخر صف (الشهادات الصادرة خارج مصر لازم تكون معادلة وموثّقة)، وإقامة سارية أو تأشيرة عليها تاريخ الدخول",
+    "KG وأولى وتانية ابتدائي: ملف التقييم والأنشطة"
   ],
   en: [
     "A recent personal photo of the student",
     "The student's birth certificate with national ID number",
-    "Pass certificate or statement for the last grade (certificates issued outside Egypt must be attested)",
-    "Copies of the passport and residence permit in the country of residence"
+    "Returning student: last year's result printed from the platform",
+    "New student: last grade's pass statement (certificates issued outside Egypt must be equated and attested), plus a valid residence permit or a visa showing the entry date",
+    "KG, Primary 1 and 2: the assessment and activities file"
   ]
 };
 
 /* دليل التسجيل المفصّل (بالرسوم التوضيحية) — حسب تعليمات 2025/2026 المنشورة، لحد ما تصدر تعليمات 2026/2027 */
 window.REG_GUIDE = {
-  basis_ar: "الخطوات دي مبنية على تعليمات العام الدراسي 2025/2026 المنشورة. لما الوزارة تعلن تعليمات 2026/2027، هنحدّث الدليل. الرسومات توضيحية، وشكل المنصة الفعلي ممكن يختلف.",
-  basis_en: "These steps follow the published 2025/2026 instructions. We'll update the guide when the ministry announces the 2026/2027 rules. Drawings are illustrative; the real platform may look different.",
+  basis_ar: "الخطوات دي حسب تعليمات العام الدراسي 2026/2027 وتجربة تسجيل فعلية على المنصة في نوفمبر 2026. الرسومات توضيحية، وشكل المنصة الفعلي ممكن يختلف.",
+  basis_en: "These steps follow the 2026/2027 instructions and an actual registration on the platform in November 2026. Drawings are illustrative; the real platform may look different.",
   steps: [
     { art: "prep",
       ar: { t: "جهّز قبل ما تبدأ", d: "خلّص الحاجات دي الأول عشان التسجيل يمشي في جلسة واحدة:",
@@ -127,53 +127,46 @@ window.REG_GUIDE = {
         items: ["Go to the official platform sabroad.emis.gov.eg", "From the menu choose “Portal registration”, or tap “Parent account” below", "Make sure the address ends in .gov.eg before typing anything"],
         tip: "Never pay or enter details on any other site or page claiming to register for “Our Children Abroad”." } },
     { art: "account",
-      ar: { t: "أنشئ حساب ولي الأمر", d: "لو عندك حساب من السنة اللي فاتت، سجّل دخول بيه بدل ما تعمل حساب جديد.",
-        items: ["اكتب بيانات ولي الأمر زي ما هي في الرقم القومي", "اكتب إيميل الـHotmail أو Outlook ورقم الموبايل بالكود الدولي", "اختار كلمة سر قوية واحفظها", "لو وصلك إيميل تأكيد، افتحه وفعّل الحساب"],
-        tip: "لو نسيت كلمة السر، استخدم «إعادة تعيين كلمة المرور» من المنصة الرسمية." },
-      en: { t: "Create the parent account", d: "If you have an account from last year, log in with it instead of creating a new one.",
-        items: ["Enter the parent's details exactly as on the national ID", "Enter your Hotmail/Outlook email and mobile number with the country code", "Choose a strong password and save it", "If you get a confirmation email, open it and activate the account"],
-        tip: "Forgot your password? Use the password reset on the official platform." } },
-    { art: "children",
-      ar: { t: "اختار خدمة التقدم للامتحانات وعدد الأبناء", d: "بعد تسجيل الدخول:",
-        items: ["اختار خدمة «التقدم للامتحانات» للعام الدراسي الجديد", "حدد عدد الأبناء اللي هيمتحنوا السنة دي", "راجع العدد كويس قبل ما تكمّل، لأن الرسوم بتتحسب عليه"],
-        tip: "" },
-      en: { t: "Choose exam registration and number of children", d: "After logging in:",
-        items: ["Choose the “Apply for exams” service for the new school year", "Set how many children will sit the exams this year", "Double-check the number before continuing, as fees are based on it"],
-        tip: "" } },
+      ar: { t: "سجّل دخول بإيميل مايكروسوفت", d: "الدخول على المنصة بيتم بحساب مايكروسوفت:",
+        items: ["اضغط تسجيل الدخول واكتب إيميل الـHotmail أو Outlook أو Live وكلمة سره", "لو سجّلت ولادك السنة اللي فاتت، ادخل بنفس الإيميل عشان بياناتهم تظهر", "أول مرة: كمّل بيانات ولي الأمر زي ما هي في الرقم القومي، ورقم الموبايل بالكود الدولي"],
+        tip: "معندكش إيميل مايكروسوفت؟ اعمل واحد ببلاش من outlook.com قبل ما تبدأ." },
+      en: { t: "Sign in with a Microsoft email", d: "The platform uses a Microsoft account to sign in:",
+        items: ["Tap sign in and enter your Hotmail, Outlook or Live email and its password", "If you registered your children last year, use the same email so their details appear", "First time: complete the parent's details exactly as on the national ID, and the mobile number with the country code"],
+        tip: "No Microsoft email? Create one free at outlook.com before you start." } },
     { art: "pay",
-      ar: { t: "ادفع الرسوم أونلاين", d: "الدفع بيتم من خلال المنصة نفسها أثناء التسجيل.",
-        items: ["آخر رسوم معلنة: 150 دولار للطالب في 2025/2026 (رسوم 2026/2027 لسه ما اتعلنتش)", "ادفع بالكارت من صفحة الدفع الخاصة بالمنصة", "خد صورة شاشة (Screenshot) لإيصال الدفع واحتفظ بيه"],
-        tip: "طلبات استرداد الرسوم ليها مواعيد آخر: في 2025/2026 كانت 31 ديسمبر للترم الأول، و30 أبريل للترم الثاني، و9 يوليو للدور الثاني." },
-      en: { t: "Pay the fee online", d: "Payment is made through the platform during registration.",
-        items: ["Last published fee: 150 US dollars per student in 2025/2026 (2026/2027 not announced yet)", "Pay by card on the platform's payment page", "Take a screenshot of the receipt and keep it"],
-        tip: "Refund requests have deadlines: in 2025/2026 they were 31 December (term 1), 30 April (term 2) and 9 July (second round)." } },
+      ar: { t: "حدد عدد الأبناء وادفع الرسوم", d: "قبل تسجيل بيانات الأبناء:",
+        items: ["حدد عدد الأبناء اللي هيمتحنوا السنة دي", "الرسوم 150 دولار لكل طالب من KG1 لتانية ثانوي، بتتدفع أونلاين بالكارت من المنصة", "قبل الدفع اتأكد إن كل طفل مطابق لشرط السن، لأن الرسوم ما بترجعش لو مخالف", "خد صورة شاشة لإيصال الدفع واحتفظ بيه"],
+        tip: "طلب الاسترداد بيتبعت على Financial@moe.edu.eg مع كل الإيصالات. آخر ميعاد: 31 ديسمبر 2026 للترم الأول، و30 أبريل 2027 للترم التاني." },
+      en: { t: "Set the number of children and pay", d: "Before entering the children's details:",
+        items: ["Set how many children will sit the exams this year", "The fee is 150 US dollars per student from KG1 to Secondary 2, paid online by card on the platform", "Before paying, make sure each child meets the age rule; fees are not refunded otherwise", "Take a screenshot of the receipt and keep it"],
+        tip: "Refund requests go to Financial@moe.edu.eg with all receipts. Deadlines: 31 December 2026 (term 1) and 30 April 2027 (term 2)." } },
     { art: "form",
-      ar: { t: "املأ استمارة كل طالب", d: "كل طالب ليه استمارة لوحده:",
-        items: ["الاسم الرباعي بالظبط زي شهادة الميلاد، حرف حرف", "الرقم القومي 14 رقم من غير مسافات", "الصف الدراسي المطلوب ونوع التعليم (عربي أو لغات)", "دولة الإقامة وعنوانك"],
+      ar: { t: "سجّل بيانات كل ابن", d: "فيه حالتين:",
+        items: ["طالب كان مسجّل على المنصة السنة اللي فاتت: اكتب رقمه القومي (14 رقم)، وبياناته وصفه الجديد هيظهروا لوحدهم. راجعهم بس", "طالب جديد: املأ كل البيانات بالظبط زي شهادة الميلاد، حرف حرف: الاسم الرباعي، والرقم القومي، وتاريخ الميلاد", "اختار الصف ونوع التعليم (عربي أو لغات) ودولة الإقامة"],
         tip: "أي اختلاف بين البيانات والمستندات الأصلية ممكن يلغي التقديم، وولي الأمر هو المسؤول عن صحتها." },
-      en: { t: "Fill in each student's form", d: "Each student has a separate form:",
-        items: ["Full name exactly as on the birth certificate, letter by letter", "14-digit national ID with no spaces", "The grade and track (Arabic or language school)", "Country of residence and your address"],
+      en: { t: "Register each child", d: "There are two cases:",
+        items: ["A student registered on the platform last year: enter their 14-digit national ID and their details and new grade appear automatically. Just review them", "A new student: fill in every detail exactly as on the birth certificate, letter by letter: full name, national ID and date of birth", "Choose the grade, the track (Arabic or language school) and the country of residence"],
         tip: "Any mismatch with the original documents can cancel the application; the parent is responsible for accuracy." } },
     { art: "upload",
-      ar: { t: "ارفع المستندات", d: "ارفع ملف PDF واضح وحديث لكل طالب (أقل من 2 ميجابايت). المستندات الأساسية:",
-        items: ["صورة شخصية حديثة", "شهادة الميلاد المميكنة بالرقم القومي", "إقامة سارية أو تأشيرة موضّح عليها تاريخ الدخول", "بيان نجاح آخر صف (من خارج مصر لازم يكون معادل ومعتمد من التعليم والخارجية والسفارة)", "مستندات إضافية حسب الحالة: مدارس دولية، محوّل من الأزهر، دمج… شوف «المستندات المطلوبة» في صفحة الامتحانات"],
-        tip: "صوّر بالماسح (Scanner) مش بكاميرا الموبايل لو تقدر، واتأكد إن كل الكلام مقروء." },
-      en: { t: "Upload the documents", d: "Upload one clear, recent PDF per student (under 2 MB). Basic documents:",
-        items: ["A recent photo", "Machine-readable birth certificate with national ID", "Valid residence permit or a visa showing the entry date", "Pass statement for the last grade (from abroad: equated and attested by Education, Foreign Affairs and the embassy)", "Extra documents depending on the case: international schools, transfer from Al-Azhar, inclusion… see “Required documents” on the exams page"],
-        tip: "Use a scanner rather than a phone camera if you can, and make sure everything is readable." } },
+      ar: { t: "ارفع المستندات", d: "كل ملف PDF أو صورة واضحة، وأقل من 2 ميجابايت:",
+        items: ["الطالب اللي كان مسجّل: صورة شخصية حديثة، ونتيجة آخر سنة مطبوعة من المنصة، وشهادة الميلاد", "الطالب الجديد: صورة شخصية حديثة، وشهادة الميلاد المميكنة بالرقم القومي، وإقامة سارية أو تأشيرة عليها تاريخ الدخول، وبيان نجاح آخر صف (من برّه مصر لازم يكون معادل ومعتمد)", "حالات خاصة (مدارس دولية، محوّل من الأزهر، دمج): شوف «المستندات المطلوبة» في صفحة الامتحانات", "KG وأولى وتانية ابتدائي: ارفع ملف التقييم والأنشطة على المنصة، ومن غيره مفيش شهادة نجاح"],
+        tip: "استخدم «صغّر ملف PDF» و«صورة الطالب» من الصفحة الأولى عشان الملفات تبقى بالحجم المطلوب." },
+      en: { t: "Upload the documents", d: "Each file a clear PDF or image under 2 MB:",
+        items: ["Returning student: a recent photo, last year's result printed from the platform, and the birth certificate", "New student: a recent photo, the machine-readable birth certificate with national ID, a valid residence permit or a visa showing the entry date, and the last grade's pass statement (from abroad it must be equated and attested)", "Special cases (international schools, transfer from Al-Azhar, inclusion): see “Required documents” on the exams page", "KG, Primary 1 and 2: upload the assessment and activities file on the platform; without it there's no pass certificate"],
+        tip: "Use “Shrink PDF” and “Student photo” on the home page to get the files to the required size." } },
     { art: "print",
-      ar: { t: "اطبع الاستمارة وجهّز الأصول", d: "بعد ما التسجيل يكتمل:",
-        items: ["اطبع استمارة التقديم من حسابك", "دبّسها مع أصول المستندات اللي رفعت صورها", "الطلاب الجدد: كانت التعليمات في 2025/2026 إن الأصول تتبعت بالبريد للإدارة العامة للامتحانات، فاتّبع اللي مكتوب في الاستمارة بالظبط"],
-        tip: "الأصول لازم تكون مطابقة للصور اللي اترفعت." },
-      en: { t: "Print the form and prepare the originals", d: "Once registration is complete:",
-        items: ["Print the application form from your account", "Staple it to the original documents you uploaded", "New students: in 2025/2026 originals had to be posted to the General Administration of Exams, so follow the form's instructions exactly"],
-        tip: "Originals must match the uploaded copies." } },
+      ar: { t: "اطبع الاستمارة، والطالب الجديد يبعت الأصول", d: "بعد ما التسجيل يكتمل:",
+        items: ["اطبع استمارة التقديم من حسابك", "الطالب الجديد: دبّس الاستمارة مع أصول المستندات اللي رفعت صورها، وابعتهم بالبريد للإدارة العامة للامتحانات: 16 ش أمين سامي، المنيرة، السيدة زينب، القاهرة", "الطالب اللي كان مسجّل قبل كده: احتفظ بالاستمارة، إلا لو المنصة طلبت منك أصول"],
+        tip: "لو أصول الطالب الجديد ما وصلتش، نتيجته بتتحجب. والأصول لازم تكون مطابقة للصور اللي اترفعت." },
+      en: { t: "Print the form; new students post the originals", d: "Once registration is complete:",
+        items: ["Print the application form from your account", "New student: staple the form to the original documents you uploaded and post them to the General Administration of Exams: 16 Amin Sami St, El Mounira, Sayeda Zeinab, Cairo", "Returning student: keep the form, unless the platform asks you for originals"],
+        tip: "If a new student's originals don't arrive, their result is withheld. Originals must match the uploaded copies." } },
     { art: "seat",
       ar: { t: "تابع الحساب واستلم رقم الجلوس", d: "بعد التسجيل وقبل الامتحان:",
-        items: ["ادخل على حساب ولي الأمر كل فترة وشوف الرسائل", "لو اتطلبت مستندات إضافية، ارفعها بسرعة", "قبل الامتحان هتلاقي رقم الجلوس وحساب الطالب في حساب ولي الأمر", "يوم الامتحان: اضبط تاريخ ووقت جهاز الطالب على توقيت الدولة اللي هو فيها"],
+        items: ["ادخل على حساب ولي الأمر كل فترة وشوف الرسائل", "لو اتطلبت مستندات إضافية، ارفعها بسرعة", "قبل الامتحان هتلاقي رقم الجلوس وحساب الطالب في حساب ولي الأمر. الترم الأول يبدأ السبت 9 يناير 2027", "يوم الامتحان: اضبط تاريخ ووقت جهاز الطالب على توقيت الدولة اللي هو فيها"],
         tip: "تابع الإيميل كمان، لأن مشرف الصف ممكن يبعت استفسارات عليه." },
       en: { t: "Follow up and get the seat number", d: "After registering and before the exam:",
-        items: ["Log in to the parent account regularly and check messages", "If extra documents are requested, upload them quickly", "Before the exam, the seat number and student account appear in the parent account", "Exam day: set the student's device date and time to the country they are in"],
+        items: ["Log in to the parent account regularly and check messages", "If extra documents are requested, upload them quickly", "Before the exam, the seat number and student account appear in the parent account. Term 1 starts Saturday 9 January 2027", "Exam day: set the student's device date and time to the country they are in"],
         tip: "Check your email too; the grade supervisor may send questions there." } }
   ]
 };
