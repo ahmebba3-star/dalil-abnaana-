@@ -433,9 +433,8 @@
     { id: "card", fam: 1, ar: "كارت يقبل الدفع الدولي بالدولار", en: "A card that accepts international USD payments" },
     { id: "photo", ar: "صورة شخصية حديثة بالمقاس", en: "Recent photo at the required size", act: "phototool", btn: ["جهّز الصورة", "Prepare photo"] },
     { id: "birth", ar: "شهادة ميلاد بالرقم القومي (14 رقم)", en: "Birth certificate with 14-digit national ID" },
-    { id: "cert", ar: "نتيجة آخر سنة (من المنصة لو كان مسجّل، أو بيان نجاح موثّق لو جديد)", en: "Last year's result (from the platform if returning, or an attested pass statement if new)" },
-    { id: "pass", ar: "صورة الجواز والإقامة", en: "Passport and residence permit copies" },
-    { id: "pdf", ar: "كل المستندات في ملف PDF واحد أقل من 2 ميجا", en: "All documents in one PDF under 2 MB", act: "pdftool", btn: ["اعمل الملف", "Make the PDF"] }
+    { id: "cert", ar: "نتيجة آخر سنة (من المنصة، أو بيان نجاح معتمد، أو مصدّق لو من برّه مصر)", en: "Last year's result (from the platform, a certified pass statement, or attested if from abroad)" },
+        { id: "pdf", ar: "المستندات ملف PDF أقل من 2 ميجا لكل طالب", en: "Documents as a PDF under 2 MB per student", act: "pdftool", btn: ["اعمل الملف", "Make the PDF"] }
   ];
   let regKid = null;
   function regKids() {
