@@ -283,7 +283,7 @@
     let g = "";
     switch (key) {
       case "prep": {
-        const rows = [["✉", L2("إيميل شغال", "Working email")], ["▭", L2("كارت دفع دولي", "International card")], ["#", L2("الرقم القومي 14 رقم", "14-digit national ID")], ["PDF", L2("ملف لكل طالب", "One file per student")]];
+        const rows = [["✉", L2("إيميل Hotmail/Outlook", "Hotmail/Outlook email")], ["▭", L2("كارت دفع دولي", "International card")], ["#", L2("الرقم القومي 14 رقم", "14-digit national ID")], ["PDF", L2("ملف لكل طالب", "One file per student")]];
         g = '<rect class="ra-card" x="40" y="14" width="240" height="142" rx="12"/>' + rows.map((r, i) => {
           const y = 26 + i * 32;
           return '<rect class="ra-soft" x="' + (ar ? 320 - 54 - 26 : 54) + '" y="' + y + '" width="26" height="24" rx="7"/>' +
@@ -303,7 +303,7 @@
           '<text class="ra-t ra-small ra-mut" x="' + (ar ? 70 : 250) + '" y="96" text-anchor="middle">' + L2("اضغط هنا", "Tap here") + '</text>';
         break;
       case "account":
-        g = win(L2("حساب ولي الأمر", "Parent account")) + field(52, L2("اسم ولي الأمر", "Parent name"), "", 240) + field(82, L2("الإيميل", "Email"), "name@mail.com", 240) + field(112, L2("كلمة السر", "Password"), "••••••••", 240).replace(/height="16"/g, 'height="13"') + btn(132, L2("إنشاء الحساب", "Create account")).replace('height="22"', 'height="18"').replace(/y="147"/, 'y="145"');
+        g = win(L2("حساب ولي الأمر", "Parent account")) + field(52, L2("اسم ولي الأمر", "Parent name"), "", 240) + field(82, L2("الإيميل", "Email"), "name@hotmail.com", 240) + field(112, L2("كلمة السر", "Password"), "••••••••", 240).replace(/height="16"/g, 'height="13"') + btn(132, L2("إنشاء الحساب", "Create account")).replace('height="22"', 'height="18"').replace(/y="147"/, 'y="145"');
         break;
       case "children":
         g = win(L2("التقدم للامتحانات", "Apply for exams")) +
@@ -429,7 +429,7 @@
 
   // قائمة تجهيز أوراق التسجيل — لكل ابن على حدة، محفوظة على الجهاز
   const REG_CHECK = [
-    { id: "email", fam: 1, ar: "إيميل شغال بتفتحه باستمرار", en: "An email address you check regularly" },
+    { id: "email", fam: 1, ar: "إيميل مايكروسوفت شغال (Hotmail أو Outlook أو Live)", en: "A working Microsoft email (Hotmail, Outlook or Live)" },
     { id: "card", fam: 1, ar: "كارت يقبل الدفع الدولي بالدولار", en: "A card that accepts international USD payments" },
     { id: "photo", ar: "صورة شخصية حديثة بالمقاس", en: "Recent photo at the required size", act: "phototool", btn: ["جهّز الصورة", "Prepare photo"] },
     { id: "birth", ar: "شهادة ميلاد بالرقم القومي (14 رقم)", en: "Birth certificate with 14-digit national ID" },
