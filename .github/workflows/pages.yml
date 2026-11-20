@@ -1,0 +1,59 @@
+name: Publish web version (GitHub Pages)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install packages
+        run: npm ci --ignore-scripts
+      - name: Assemble web files
+        run: |
+          mkdir -p www/js www/css www/fonts www/vendor/pdfjs scripts
+          for f in app.js config.js data.js i18n.js calls.js assistant.js pdftool.js phototool.js nahwi.js study.js; do cp "$f" www/js/; done
+          cp app.css www/css/
+          cp alexandria-*.woff2 www/fonts/
+          cp index.html www/
+          cp configure.js scripts/
+          cp play-icon-512.png www/icon.png
+          cp node_modules/adhan/lib/bundles/adhan.umd.min.js www/vendor/
+          PJ=node_modules/pdfjs-dist
+          cp $PJ/legacy/build/pdf.min.mjs $PJ/legacy/build/pdf.worker.min.mjs www/vendor/pdfjs/
+          cp -r $PJ/cmaps $PJ/standard_fonts www/vendor/pdfjs/
+          for d in wasm iccs; do if [ -d "$PJ/$d" ]; then cp -r "$PJ/$d" www/vendor/pdfjs/; fi; done
+          sed -i 's#<link rel="stylesheet" href="css/app.css">#<link rel="icon" href="icon.png">\n  <meta property="og:image" content="icon.png">\n  <link rel="stylesheet" href="css/app.css">#' www/index.html
+          touch www/.nojekyll
+      - name: Configure (no ads, no accounts on the web)
+        run: node scripts/configure.js
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: www
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

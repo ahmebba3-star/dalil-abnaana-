@@ -1031,3 +1031,9 @@ bdi.en { unicode-bidi: isolate; direction: ltr; font-family: "Alexandria", syste
 .rc-t small { display: inline-block; width: 100%; font-size: .75rem; color: var(--muted); text-decoration: none; }
 .rc-go { flex: none; padding: 6px 10px; border-radius: 99px; border: 1px solid var(--gold); background: var(--gold-soft); color: var(--ink); font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; }
 .rc-ok { margin: 10px 0 0; font-weight: 700; color: #1E8E5A; }
+
+/* نسخة الويب: شريط «قريبًا على Google Play» */
+.web-soon { display: flex; align-items: center; gap: 10px; padding: 8px 16px; background: var(--gold-soft); color: var(--ink); font-size: 13px; line-height: 1.5; border-bottom: 1px solid var(--line); }
+.web-soon .ws-ic { font-size: 20px; flex: none; }
+.web-soon b { font-weight: 800; }
+@media (min-width: 640px) { .web-soon { justify-content: center; } }

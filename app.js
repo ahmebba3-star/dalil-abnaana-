@@ -900,7 +900,22 @@
   const view = document.getElementById("view");
   let cdTimer;
 
+  // نسخة الويب (GitHub Pages): شريط «قريبًا على Google Play» لحد ما التطبيق ينزل للإنتاج
+  function webSoonBar() {
+    if (isNative) return;
+    document.documentElement.classList.add("is-web");
+    let bar = document.getElementById("webSoon");
+    if (!bar) {
+      const hdr = document.querySelector(".topbar"); if (!hdr) return;
+      hdr.insertAdjacentHTML("afterend", '<div id="webSoon" class="web-soon" role="note"></div>');
+      bar = document.getElementById("webSoon");
+    }
+    const ar = state.lang === "ar";
+    bar.innerHTML = `<span class="ws-ic" aria-hidden="true">📱</span><span class="ws-t"><b>${ar ? "انتظرونا قريبًا على Google Play" : "Coming soon to Google Play"}</b> ${ar ? "تطبيق أندرويد كامل في الطريق. لحد ما ينزل، استخدموا النسخة دي من المتصفح." : "A full Android app is on its way. Until then, use this browser version."}</span>`;
+  }
+
   function render() {
+    webSoonBar();
     const html = document.documentElement;
     html.lang = state.lang; html.dir = state.lang === "ar" ? "rtl" : "ltr";
     document.title = t("appName");
