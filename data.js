@@ -76,41 +76,43 @@ window.REG_STEPS = {
     ["سجّل دخول بإيميل مايكروسوفت", "ادخل على المنصة الرسمية sabroad.emis.gov.eg وسجّل دخول بإيميل Hotmail أو Outlook أو Live. لو سجّلت السنة اللي فاتت، ادخل بنفس الإيميل."],
     ["حدد عدد الأبناء وادفع", "حدد عدد الأبناء وادفع الرسوم أونلاين: 150 دولار لكل طالب. اتأكد من شرط السن قبل الدفع، واحفظ الإيصال."],
     ["سجّل كل ابن", "لو الطالب كان مسجّل على المنصة السنة اللي فاتت، اكتب رقمه القومي وبياناته وصفه هيظهروا لوحدهم. ولو جديد، املأ كل بياناته زي شهادة الميلاد بالظبط."],
-    ["ارفع المستندات", "الطالب اللي كان مسجّل: صورته، ونتيجة آخر سنة من المنصة، وشهادة الميلاد. الطالب الجديد: كل المستندات المطلوبة حسب حالته."],
-    ["الطالب الجديد: ابعت الأصول", "اطبع الاستمارة. الطالب الجديد لازم أصول مستنداته تتبعت بالبريد للإدارة في القاهرة، وإلا النتيجة بتتحجب."],
+    ["ارفع الصورة والمستندات", "صورة حديثة للطالب، وملف PDF أقل من 2 ميجا. طالب أبناؤنا في الخارج: نتيجة السنة اللي فاتت من المنصة وشهادة الميلاد. الطالب الجديد: المستندات المطلوبة لحالته."],
+    ["اطبع الاستمارة، والأصول بالبريد لو مطلوبة", "طلاب أبناؤنا في الخارج والطلاب اللي نتيجتهم على موقع الوزارة: الرفع بيكفي. الجداد في KG1 وأولى ابتدائي، والشهادات الأجنبية والدولية والأزهر والدمج: الأصول بتتبعت بالبريد للإدارة في القاهرة."],
     ["تابع واستلم رقم الجلوس", "تابع حساب ولي الأمر والإيميل، وقبل الامتحان هتلاقي رقم الجلوس وحساب الطالب. الترم الأول يبدأ السبت 9 يناير 2027."]
   ],
   en: [
     ["Sign in with a Microsoft email", "Go to the official platform sabroad.emis.gov.eg and sign in with a Hotmail, Outlook or Live email. If you registered last year, use the same email."],
     ["Set the number of children and pay", "Set how many children you are registering and pay online: 150 US dollars per student. Check the age rule before paying and keep the receipt."],
     ["Register each child", "If the student was registered on the platform last year, enter their national ID and their details and grade appear automatically. A new student needs all details filled in exactly as on the birth certificate."],
-    ["Upload the documents", "Returning student: photo, last year's result from the platform and birth certificate. New student: all the documents required for their case."],
-    ["New students: post the originals", "Print the form. A new student's original documents must be posted to the administration in Cairo, or the result is withheld."],
+    ["Upload the photo and documents", "A recent photo and a PDF under 2 MB. “Our Children Abroad” student: last year's result from the platform and the birth certificate. New student: the documents required for their case."],
+    ["Print the form; post originals if required", "Students from “Our Children Abroad” or with results on the ministry site: uploading is enough. New KG1 and Primary 1 students, and foreign, international, Al-Azhar or inclusion cases: originals are posted to the administration in Cairo."],
     ["Follow up and get the seat number", "Check the parent account and your email; before the exam you'll find the seat number and student account. First term starts Saturday 9 January 2027."]
   ]
 };
 
 window.REG_DOCS = {
   ar: [
-    "صورة شخصية حديثة للطالب",
+    "صورة شخصية حديثة وواضحة للطالب",
     "شهادة ميلاد الطالب بالرقم القومي",
-    "طالب كان مسجّل على المنصة: نتيجة آخر سنة مطبوعة من المنصة",
-    "طالب جديد: بيان نجاح آخر صف (الشهادات الصادرة خارج مصر لازم تكون معادلة وموثّقة)، وإقامة سارية أو تأشيرة عليها تاريخ الدخول",
-    "KG وأولى وتانية ابتدائي: ملف التقييم والأنشطة"
+    "طالب أبناؤنا في الخارج السنة اللي فاتت: الإخطار أو النتيجة المعلنة على المنصة",
+    "طالب جاي من مدرسة في مصر: بيان نجاح آخر صف معتمد من شؤون الطلبة",
+    "طالب آخر شهادة ليه من برّه مصر: شهادة نجاح آخر صف مصدّق عليها من التعليم والخارجية والسفارة",
+    "KG وأولى وتانية ابتدائي: ملف التقييم والأنشطة (بيترفع على المنصة بعد كده)"
   ],
   en: [
-    "A recent personal photo of the student",
+    "A clear recent photo of the student",
     "The student's birth certificate with national ID number",
-    "Returning student: last year's result printed from the platform",
-    "New student: last grade's pass statement (certificates issued outside Egypt must be equated and attested), plus a valid residence permit or a visa showing the entry date",
-    "KG, Primary 1 and 2: the assessment and activities file"
+    "“Our Children Abroad” student last year: the notice or result published on the platform",
+    "Student coming from a school in Egypt: the last grade's pass statement certified by student affairs",
+    "Student whose last certificate is from abroad: the last grade's pass certificate attested by Education, Foreign Affairs and the embassy",
+    "KG, Primary 1 and 2: the assessment and activities file (uploaded on the platform later)"
   ]
 };
 
 /* دليل التسجيل المفصّل (بالرسوم التوضيحية) — حسب تعليمات 2025/2026 المنشورة، لحد ما تصدر تعليمات 2026/2027 */
 window.REG_GUIDE = {
-  basis_ar: "الخطوات دي حسب تعليمات العام الدراسي 2026/2027 وتجربة تسجيل فعلية على المنصة في نوفمبر 2026. الرسومات توضيحية، وشكل المنصة الفعلي ممكن يختلف.",
-  basis_en: "These steps follow the 2026/2027 instructions and an actual registration on the platform in November 2026. Drawings are illustrative; the real platform may look different.",
+  basis_ar: "الخطوات دي حسب كتيب «تعليمات وشروط التقدم» الرسمي للعام الدراسي 2026/2027 وتجربة تسجيل فعلية على المنصة في نوفمبر 2026. الرسومات توضيحية، وشكل المنصة الفعلي ممكن يختلف.",
+  basis_en: "These steps follow the official 2026/2027 “Instructions and conditions” booklet and an actual registration on the platform in November 2026. Drawings are illustrative; the real platform may look different.",
   steps: [
     { art: "prep",
       ar: { t: "جهّز قبل ما تبدأ", d: "خلّص الحاجات دي الأول عشان التسجيل يمشي في جلسة واحدة:",
@@ -148,19 +150,19 @@ window.REG_GUIDE = {
         items: ["A student registered on the platform last year: enter their 14-digit national ID and their details and new grade appear automatically. Just review them", "A new student: fill in every detail exactly as on the birth certificate, letter by letter: full name, national ID and date of birth", "Choose the grade, the track (Arabic or language school) and the country of residence"],
         tip: "Any mismatch with the original documents can cancel the application; the parent is responsible for accuracy." } },
     { art: "upload",
-      ar: { t: "ارفع المستندات", d: "كل ملف PDF أو صورة واضحة، وأقل من 2 ميجابايت:",
-        items: ["الطالب اللي كان مسجّل: صورة شخصية حديثة، ونتيجة آخر سنة مطبوعة من المنصة، وشهادة الميلاد", "الطالب الجديد: صورة شخصية حديثة، وشهادة الميلاد المميكنة بالرقم القومي، وإقامة سارية أو تأشيرة عليها تاريخ الدخول، وبيان نجاح آخر صف (من برّه مصر لازم يكون معادل ومعتمد)", "حالات خاصة (مدارس دولية، محوّل من الأزهر، دمج): شوف «المستندات المطلوبة» في صفحة الامتحانات", "KG وأولى وتانية ابتدائي: ارفع ملف التقييم والأنشطة على المنصة، ومن غيره مفيش شهادة نجاح"],
+      ar: { t: "ارفع الصورة والمستندات", d: "صورة حديثة وواضحة للطالب، والمستندات ملف PDF لكل طالب لوحده أقل من 2 ميجابايت:",
+        items: ["طالب امتحن السنة اللي فاتت في أبناؤنا في الخارج: صورة من الإخطار أو المستخرج أو النتيجة المعلنة على المنصة، وصورة شهادة الميلاد بالرقم القومي. بيترفعوا بس، ومفيش بريد", "طالب جاي من مدرسة في مصر (من تانية ابتدائي لتانية ثانوي) ونتيجته على موقع الوزارة: بيان نجاح آخر صف معتمد من شؤون الطلبة، وشهادة الميلاد. ولتانية ثانوي كمان بيان نجاح الإعدادية وأولى ثانوي", "طالب آخر شهادة ليه من برّه مصر: شهادة نجاح آخر صف مصدّق عليها من التعليم والخارجية والسفارة المصرية في الدولة، وشهادة الميلاد", "حالات تانية (مدارس دولية، تحديد مستوى، أزهر، دمج): ليها مستندات خاصة، شوف «المستندات المطلوبة» في صفحة الامتحانات", "KG وأولى وتانية ابتدائي: ملف التقييم والأنشطة بيترفع على المنصة بعد كده، ومن غيره مفيش شهادة نجاح"],
         tip: "استخدم «صغّر ملف PDF» و«صورة الطالب» من الصفحة الأولى عشان الملفات تبقى بالحجم المطلوب." },
-      en: { t: "Upload the documents", d: "Each file a clear PDF or image under 2 MB:",
-        items: ["Returning student: a recent photo, last year's result printed from the platform, and the birth certificate", "New student: a recent photo, the machine-readable birth certificate with national ID, a valid residence permit or a visa showing the entry date, and the last grade's pass statement (from abroad it must be equated and attested)", "Special cases (international schools, transfer from Al-Azhar, inclusion): see “Required documents” on the exams page", "KG, Primary 1 and 2: upload the assessment and activities file on the platform; without it there's no pass certificate"],
+      en: { t: "Upload the photo and documents", d: "A clear recent photo of the student, and the documents as one PDF per student under 2 MB:",
+        items: ["A student who sat “Our Children Abroad” last year: a copy of the notice, extract or result published on the platform, and a copy of the birth certificate with national ID. Upload only, nothing to post", "A student coming from a school in Egypt (Primary 2 to Secondary 2) whose result is on the ministry site: the last grade's pass statement certified by student affairs, and the birth certificate. Secondary 2 also needs the prep certificate and Secondary 1 pass statement", "A student whose last certificate is from abroad: the last grade's pass certificate attested by Education, Foreign Affairs and the Egyptian embassy in that country, and the birth certificate", "Other cases (international schools, level placement, Al-Azhar, inclusion) have their own documents: see “Required documents” on the exams page", "KG, Primary 1 and 2: the assessment and activities file is uploaded on the platform later; without it there's no pass certificate"],
         tip: "Use “Shrink PDF” and “Student photo” on the home page to get the files to the required size." } },
     { art: "print",
-      ar: { t: "اطبع الاستمارة، والطالب الجديد يبعت الأصول", d: "بعد ما التسجيل يكتمل:",
-        items: ["اطبع استمارة التقديم من حسابك", "الطالب الجديد: دبّس الاستمارة مع أصول المستندات اللي رفعت صورها، وابعتهم بالبريد للإدارة العامة للامتحانات: 16 ش أمين سامي، المنيرة، السيدة زينب، القاهرة", "الطالب اللي كان مسجّل قبل كده: احتفظ بالاستمارة، إلا لو المنصة طلبت منك أصول"],
-        tip: "لو أصول الطالب الجديد ما وصلتش، نتيجته بتتحجب. والأصول لازم تكون مطابقة للصور اللي اترفعت." },
-      en: { t: "Print the form; new students post the originals", d: "Once registration is complete:",
-        items: ["Print the application form from your account", "New student: staple the form to the original documents you uploaded and post them to the General Administration of Exams: 16 Amin Sami St, El Mounira, Sayeda Zeinab, Cairo", "Returning student: keep the form, unless the platform asks you for originals"],
-        tip: "If a new student's originals don't arrive, their result is withheld. Originals must match the uploaded copies." } },
+      ar: { t: "اطبع الاستمارة، وابعت الأصول لو مطلوبة", d: "بعد ما التسجيل يكتمل، اطبع استمارة التقديم من حسابك. وبعدين حسب حالة الطالب:",
+        items: ["طلاب أبناؤنا في الخارج وطلاب المسار المصري السنة اللي فاتت: الرفع على المنصة بيكفي، ومفيش بريد", "الطلاب اللي نتيجتهم على موقع الوزارة (من تانية ابتدائي لتانية ثانوي): الرفع بيكفي. لو فيه اختلاف بين النتيجة والمستندات، الإدارة بتطلب الأصل بالبريد", "لازم تبعت الأصول مع الاستمارة بالبريد: الجداد في KG1 وأولى ابتدائي اللي مالهمش نتيجة على موقع الوزارة، والشهادات الأجنبية أو الدولية، وتحديد المستوى، والأزهر، والدمج، والطلاب غير المصريين", "العنوان: الإدارة المركزية للامتحانات (إدارة أبناؤنا في الخارج)، 16 ش أمين سامي، متفرع من شارع قصر العيني، بجوار عمارات العرايس، المنيرة، السيدة زينب، القاهرة"],
+        tip: "لو الأصول المطلوبة ما وصلتش، نتيجة الطالب بتتحجب. وأي اختلاف بين الأصول والصور اللي اترفعت ممكن يلغي التقديم والامتحان." },
+      en: { t: "Print the form; post originals if required", d: "Once registration is complete, print the application form from your account. Then, depending on the student's case:",
+        items: ["“Our Children Abroad” and Egyptian-track students from last year: uploading on the platform is enough, nothing to post", "Students whose result is on the ministry site (Primary 2 to Secondary 2): uploading is enough. If the result and documents differ, the administration asks for the original by post", "Must post the originals with the form: new KG1 and Primary 1 students with no result on the ministry site, foreign or international certificates, level placement, Al-Azhar, inclusion, and non-Egyptian students", "Address: Central Administration for Exams (Our Children Abroad), 16 Amin Sami St, off Qasr El Eini St, next to the Arayes buildings, El Mounira, Sayeda Zeinab, Cairo"],
+        tip: "If required originals don't arrive, the result is withheld. Any mismatch between originals and uploads can cancel the application and the exam." } },
     { art: "seat",
       ar: { t: "تابع الحساب واستلم رقم الجلوس", d: "بعد التسجيل وقبل الامتحان:",
         items: ["ادخل على حساب ولي الأمر كل فترة وشوف الرسائل", "لو اتطلبت مستندات إضافية، ارفعها بسرعة", "قبل الامتحان هتلاقي رقم الجلوس وحساب الطالب في حساب ولي الأمر. الترم الأول يبدأ السبت 9 يناير 2027", "يوم الامتحان: اضبط تاريخ ووقت جهاز الطالب على توقيت الدولة اللي هو فيها"],
