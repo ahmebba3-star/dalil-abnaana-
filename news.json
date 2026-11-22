@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "exams": [
     {
       "id": "t1-2027",
@@ -62,6 +62,17 @@
       "body_en": "According to an official Ministry of Education document reported by Masrawy, those eligible to apply for Grade 10 (general secondary) or the Baccalaureate track in the Egyptians Abroad exams 2026/2027 are: students who passed the preparatory (basic education completion) certificate in 2025/2026 from Egyptian schools, the Our Children Abroad system, or Egyptian-track schools; holders of a grade certificate from a country whose certificates are recognized as equivalent; or holders of a non-equivalent certificate, provided their level is determined by a certificate approved in Egypt or by the Egyptians Abroad administration. International-school students (British or American diploma, IB, or the Nile International Certificate) can enter the Baccalaureate if they pass the Grade 9 exams of the international certificate, score at least 50% of its total marks, pass the national-identity subjects, and score 70% in religious education; the certificate must also be equated to the level of the Egyptian curriculum. If your child is in an international school, prepare the equivalency and national-subjects results before paying the fees on the platform.",
       "source": "مصراوي (Masrawy)",
       "url": "https://www.masrawy.com/news/education-schooleducation/details/2026/11/18/3080444/"
+    },
+    {
+      "id": "n20",
+      "date": "2026-11-17",
+      "cat": "exams",
+      "title_ar": "امتحانات «أبناؤنا في الخارج» 2026/2027 إلكترونية من رابعة ابتدائي لتانية ثانوي.. وتقدر تنقل بين مصر وبره في الترم التاني",
+      "title_en": "\"Our Children Abroad\" 2026/2027 exams are electronic from Grade 4 to Secondary 2, and students can switch between Egypt and abroad for the second term",
+      "body_ar": "وزارة التربية والتعليم أعلنت نظام امتحانات «أبناؤنا في الخارج» للعام الدراسي 2026/2027: الامتحانات هتتعقد إلكترونيًا على منصة امتحانات أبناؤنا في الخارج لطلاب من رابعة ابتدائي لحد تانية ثانوي عام. أما طلاب الصفوف الأولى من الابتدائي فبينزّلوا ورقة الأسئلة من المنصة، يحلّوها، ويرفعوا ملف الإجابة تاني بصيغة PDF. الامتحانات على المناهج اللي بتتدرس في مصر السنة دي، وبتشمل من رياض الأطفال لغات لحد تانية ثانوي، وكمان أولى ثانوي نظام البكالوريا المصرية. والجديد المهم: الطالب اللي امتحن الترم الأول جوه مصر يقدر يتقدم للترم التاني في «أبناؤنا في الخارج»، والعكس كمان، حسب مواعيد التسجيل على المنصة في فبراير 2027. لو ناوي تنقل ولادك من مصر لبره أو العكس في نص السنة، تابع المنصة في فبراير.",
+      "body_en": "The Ministry of Education announced the exam system for \"Our Children Abroad\" for 2026/2027: exams will be held electronically on the program's exam platform for students from Grade 4 primary through Grade 2 general secondary. Students in the early primary grades download the question paper from the platform, answer it, and re-upload the answer file as a PDF. Exams follow the curricula taught in Egypt this year and cover kindergarten (languages) through Secondary 2, plus Secondary 1 in the Egyptian Baccalaureate system. Importantly, a student who sat first-term exams inside Egypt can apply for second-term exams under \"Our Children Abroad\", and vice versa, according to the registration dates on the platform in February 2027. If you plan to move your children between Egypt and abroad mid-year, watch the platform in February.",
+      "source": "مصراوي",
+      "url": "https://www.masrawy.com/news/education-schooleducation/details/2026/11/17/3080386/"
     },
     {
       "id": "n12",
