@@ -31,6 +31,17 @@
   ],
   "news": [
     {
+      "id": "n21",
+      "date": "2026-11-28",
+      "cat": "consular",
+      "title_ar": "لجنة إصدار بطاقة الرقم القومي في فرنسا من 28 نوفمبر لـ8 ديسمبر",
+      "title_en": "National ID card committee in France from 28 November to 8 December",
+      "body_ar": "حسب الجدول المبدئي اللي أعلنته وزارة الخارجية، لجنة مصلحة الأحوال المدنية هتشتغل في فرنسا من 28 نوفمبر لحد 8 ديسمبر 2026، وده آخر محطة في جولة اللجان بعد اليونان وإيطاليا. اللجنة بتعمل إصدار بطاقة أول مرة وتجديد البطاقة المنتهية وبدل فاقد وتعديل البيانات. المصريين في الدول المجاورة يقدروا يقدّموا في البعثة اللي مستضيفة اللجنة بشرط التنسيق معاها مسبقًا. الجدول مبدئي والوزارة ما حددتش في أنهي بعثة بالظبط، فكلّم السفارة المصرية في باريس أو القنصلية التابع ليها قبل ما تروح عشان تتأكد من المكان والميعاد والأوراق المطلوبة.",
+      "body_en": "According to the preliminary schedule announced by the Ministry of Foreign Affairs, the Civil Status Authority committee will work in France from 28 November to 8 December 2026, the last stop of the committees' tour after Greece and Italy. The committee handles first-time cards, renewal of expired cards, lost-card replacement and data corrections. Egyptians in neighbouring countries can apply at the mission hosting the committee, with prior coordination with it. The schedule is preliminary and the ministry did not specify the exact mission, so contact the Egyptian Embassy in Paris or your consulate before going to confirm the place, dates and required documents.",
+      "source": "وزارة الخارجية المصرية / مصراوي",
+      "url": "https://www.mfa.gov.eg/ar/Ministers/Details/MinistryNews/6935"
+    },
+    {
       "id": "n19",
       "date": "2026-11-19",
       "cat": "community",
