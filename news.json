@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "exams": [
     {
       "id": "t1-2027",
@@ -30,6 +30,17 @@
     }
   ],
   "news": [
+    {
+      "id": "n22",
+      "date": "2026-11-22",
+      "cat": "consular",
+      "title_ar": "قرار جمهوري بنقل القنصلية العامة لمصر في ألمانيا من هامبورج لميونيخ",
+      "title_en": "Presidential decree moves Egypt's Consulate General in Germany from Hamburg to Munich",
+      "body_ar": "الجريدة الرسمية نشرت يوم 22 نوفمبر 2026 قرار رئيس الجمهورية رقم 493 لسنة 2026 بنقل مقر القنصلية العامة لمصر في ألمانيا من مدينة هامبورج لمدينة ميونيخ. القرار ما حددش ميعاد بدء الشغل في ميونيخ ولا اتكلم عن توزيع الولايات على البعثات. لو انت مقيم في شمال ألمانيا وبتتعامل مع قنصلية هامبورج، أو عندك معاملة شغالة هناك (جواز، توكيل، تصديق)، تابع صفحات السفارة المصرية في برلين والقنصلية الرسمية عشان تعرف الميعاد الفعلي للنقل وهتخلّص ورقك منين بعد كده.",
+      "body_en": "On 22 November 2026 the Official Gazette published Presidential Decree No. 493 of 2026 moving the seat of Egypt's Consulate General in Germany from Hamburg to Munich. The decree did not set a date for operations to start in Munich, nor did it address which German states each mission will serve. If you live in northern Germany and deal with the Hamburg consulate, or have a pending transaction there (passport, power of attorney, attestation), follow the official pages of the Egyptian Embassy in Berlin and the consulate to learn the actual move date and where to handle your paperwork afterwards.",
+      "source": "الجريدة الرسمية / القاهرة 24",
+      "url": "https://www.cairo24.com/2533781"
+    },
     {
       "id": "n21",
       "date": "2026-11-28",
