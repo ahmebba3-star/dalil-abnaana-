@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23",
+  "updated": "2026-11-25",
   "exams": [
     {
       "id": "t1-2027",
@@ -30,6 +30,17 @@
     }
   ],
   "news": [
+    {
+      "id": "n23",
+      "date": "2026-11-23",
+      "cat": "community",
+      "title_ar": "مصر والعراق اتفقوا على إلغاء التأشيرة بين البلدين.. بس لسه مش مطبّق",
+      "title_en": "Egypt and Iraq agree to scrap visas between the two countries — but it's not in effect yet",
+      "body_ar": "يوم الاثنين 23 نوفمبر 2026، أعلن رئيس وزراء العراق علي فالح الزيدي في مؤتمر صحفي مع الرئيس السيسي في القاهرة الاتفاق على إلغاء التأشيرة بين مصر والعراق لتسهيل تنقل المواطنين. لحد دلوقتي ما اتحددش ميعاد للتطبيق ولا الفئات اللي هيشملها الاتفاق، والجهات المختصة في البلدين هتكمّل الإجراءات التنفيذية. لو مسافر العراق دلوقتي امشي على إجراءات التأشيرة الحالية لحد ما يصدر إعلان رسمي بموعد التطبيق. وخلي بالك: إلغاء التأشيرة لا يعني تلقائيًا إنك تقدر تشتغل هناك، لسه محتاج تصريح عمل وإقامة وعقد رسمي.",
+      "body_en": "On Monday, November 23, 2026, Iraqi Prime Minister Ali Falih al-Zaidi announced at a joint press conference with President Sisi in Cairo that the two countries agreed to scrap visas between Egypt and Iraq to ease citizens' travel. No implementation date has been set yet and the categories covered were not specified; the competent authorities in both countries will complete the executive procedures. If you are travelling to Iraq now, follow the current visa procedures until an official announcement sets a start date. Note: lifting the visa does not automatically allow you to work there — you still need a work permit, residence and an official contract.",
+      "source": "مصراوي",
+      "url": "https://www.masrawy.com/news/news_publicaffairs/details/2026/11/23/3083398/"
+    },
     {
       "id": "n22",
       "date": "2026-11-22",
