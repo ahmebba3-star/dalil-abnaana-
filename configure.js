@@ -9,9 +9,12 @@ const privacyUrl = process.env.PRIVACY_URL || (repo ? `https://github.com/${repo
 const termsUrl = process.env.TERMS_URL || (repo ? `https://github.com/${repo}/blob/${branch}/TERMS.md` : "");
 const callsEnabled = process.env.CALLS_ENABLED === "1";
 const assistantUrl = String(process.env.ASSISTANT_URL || "").trim().replace(/\/+$/, "");
-const banner = (process.env.ADMOB_BANNER_ID || "").trim();
-const inter = (process.env.ADMOB_INTERSTITIAL_ID || "").trim();
-const rewarded = (process.env.ADMOB_REWARDED_ID || "").trim();
+// AdMob IDs: repo variables first, then admob.json committed in the repo
+let ADM = {};
+try { ADM = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "admob.json"), "utf8")); } catch (e) { try { ADM = JSON.parse(fs.readFileSync(path.join(__dirname, "admob.json"), "utf8")); } catch (e2) { ADM = {}; } }
+const banner = (process.env.ADMOB_BANNER_ID || ADM.banner || "").trim();
+const inter = (process.env.ADMOB_INTERSTITIAL_ID || ADM.interstitial || "").trim();
+const rewarded = (process.env.ADMOB_REWARDED_ID || ADM.rewarded || "").trim();
 const version = require(path.join(root, "package.json")).version;
 
 const cfgPath = path.join(root, "www/js/config.js");
