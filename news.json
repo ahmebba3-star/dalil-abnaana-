@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "exams": [
     {
       "id": "t1-2027",
@@ -40,6 +40,17 @@
       "body_en": "On Monday, November 23, 2026, Iraqi Prime Minister Ali Falih al-Zaidi announced at a joint press conference with President Sisi in Cairo that the two countries agreed to scrap visas between Egypt and Iraq to ease citizens' travel. No implementation date has been set yet and the categories covered were not specified; the competent authorities in both countries will complete the executive procedures. If you are travelling to Iraq now, follow the current visa procedures until an official announcement sets a start date. Note: lifting the visa does not automatically allow you to work there — you still need a work permit, residence and an official contract.",
       "source": "مصراوي",
       "url": "https://www.masrawy.com/news/news_publicaffairs/details/2026/11/23/3083398/"
+    },
+    {
+      "id": "n24",
+      "date": "2026-11-23",
+      "cat": "exams",
+      "title_ar": "ثانوي وبكالوريا في «أبناؤنا في الخارج»: أنهي صفوف تمتحنها برا، وأنهي صفوف لازم تكمّلها في مصر",
+      "title_en": "Secondary and Baccalaureate in “Our Children Abroad”: which grades can be taken abroad and which must be completed in Egypt",
+      "body_ar": "حسب تقرير لليوم السابع يوم 23 نوفمبر 2026 عن تفاصيل امتحانات المصريين بالخارج للعام 2026/2027: طالب الثانوية العامة يقدر يمتحن أولى وتانية ثانوي من برا، ويختار شعبته في تانية ثانوي، لكن امتحان تالتة ثانوي (الشهادة) بيتأدى في مصر على دور واحد. أما طالب نظام البكالوريا فبيدرس أولى ثانوي بس من برا، وبيكمّل تانية وتالتة في مصر. مواد أولى بكالوريا الأساسية: العربي، التاريخ، اللغة الأجنبية الأولى، الرياضيات، العلوم المتكاملة، الفلسفة والمنطق. ومواد برا المجموع: التربية الدينية (لازم 70% للنجاح)، واللغة الأجنبية التانية، والبرمجة والذكاء الاصطناعي، والتربية الرياضية. الرسوم 150 دولار للطالب وامتحان الترم الأول يبدأ 9 يناير 2027. لو ناوي تفضل برا مع ولادك سنين جاية، فكّر كويس قبل ما تختار بين الثانوية العامة والبكالوريا، واتأكد من التفاصيل من المنصة الرسمية sabroad.emis.gov.eg أو إدارة المصريين بالخارج.",
+      "body_en": "According to a Youm7 report on 23 November 2026 on the details of the 2026/2027 exams for Egyptian students abroad: general secondary (Thanaweya Amma) students can sit grades 10 and 11 from abroad and choose their track in grade 11, but the grade 12 (certificate) exam is taken in Egypt in a single sitting. Baccalaureate-track students study only grade 10 from abroad and complete grades 11 and 12 in Egypt. Core grade-10 Baccalaureate subjects: Arabic, history, first foreign language, mathematics, integrated science, philosophy and logic. Subjects outside the total: religious education (70% required to pass), second foreign language, programming and AI, and physical education. The fee is $150 per student and the first-term exam starts 9 January 2027. If you plan to stay abroad with your children for the coming years, think carefully before choosing between general secondary and the Baccalaureate, and confirm details on the official platform sabroad.emis.gov.eg or with the Egyptians Abroad department.",
+      "source": "اليوم السابع",
+      "url": "https://www.youm7.com/story/2026/11/23/%D8%A8%D8%AF%D8%A1-%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84-%D9%84%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86-%D8%A7%D9%84%D8%B7%D9%84%D8%A8%D8%A9-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D9%8A%D9%86-%D8%A8%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC-%D9%88%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84-%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%88%D9%89-%D9%88%D8%A7%D9%84%D8%A8%D9%83%D8%A7%D9%84%D9%88%D8%B1%D9%8A%D8%A7/7629133"
     },
     {
       "id": "n22",
