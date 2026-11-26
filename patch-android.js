@@ -3,7 +3,9 @@ const fs = require("fs");
 const path = require("path");
 const root = path.join(__dirname, "..");
 const TEST_APP_ID = "ca-app-pub-3940256099942544~3347511713";
-const admobAppId = (process.env.ADMOB_APP_ID || "").trim() || TEST_APP_ID;
+let ADM = {};
+for (const f of [path.join(__dirname, "admob.json"), path.join(__dirname, "..", "admob.json")]) { try { ADM = JSON.parse(fs.readFileSync(f, "utf8")); break; } catch (e) {} }
+const admobAppId = (process.env.ADMOB_APP_ID || ADM.appId || "").trim() || TEST_APP_ID;
 
 // 1) AndroidManifest.xml
 const mPath = path.join(root, "android/app/src/main/AndroidManifest.xml");

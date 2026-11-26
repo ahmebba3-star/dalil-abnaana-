@@ -1,0 +1,7 @@
+{
+  "_note": "AdMob IDs are public (they ship inside the app). GitHub repo variables ADMOB_* override these if set.",
+  "appId": "ca-app-pub-2038882507273351~7785732384",
+  "banner": "ca-app-pub-2038882507273351/2700926663",
+  "interstitial": "ca-app-pub-2038882507273351/3654915681",
+  "rewarded": "ca-app-pub-2038882507273351/4888106304"
+}
