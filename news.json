@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "exams": [
     {
       "id": "t1-2027",
@@ -30,6 +30,17 @@
     }
   ],
   "news": [
+    {
+      "id": "n25",
+      "date": "2026-11-25",
+      "cat": "community",
+      "title_ar": "طلب إحاطة في البرلمان لإعفاء موبايل شخصي واحد لكل مصري مقيم بالخارج من الرسوم.. لسه اقتراح مش قرار",
+      "title_en": "MP files briefing request to exempt one personal phone per Egyptian living abroad from fees — still a proposal, not a decision",
+      "body_ar": "النائب إسلام التلواني (عضو لجنة العلاقات الخارجية وممثل المصريين بالخارج) قدّم طلب إحاطة لرئيس الوزراء ووزير المالية يطالب بإعفاء دائم لموبايل شخصي واحد على الأقل لكل مصري مقيم بالخارج من الرسوم، عشان يستخدمه في زياراته المتكررة لمصر من غير رسوم أو إجراءات إضافية كل مرة. وطالب كمان بآلية واضحة لاستبدال الموبايل المعفى عند الحاجة، وتبسيط إثبات الإقامة بالخارج عن طريق نظام إلكتروني. مهم: ده مجرد طلب برلماني، ولسه مفيش أي قرار حكومي أو تغيير في القواعد الحالية.",
+      "body_en": "MP Islam El-Tellawany (Foreign Relations Committee member representing Egyptians abroad) submitted a briefing request to the Prime Minister and the Minister of Finance asking for a permanent fee exemption for at least one personal mobile phone per Egyptian resident abroad, so it can be used on repeat visits to Egypt without extra fees or procedures each time. He also asked for a clear mechanism to replace the exempted phone when needed and for simpler, electronic proof of residence abroad. Important: this is only a parliamentary request; there is no government decision or change to the current rules yet.",
+      "source": "مصراوي",
+      "url": "https://www.masrawy.com/news/news_egypt/details/2026/11/25/3084282/"
+    },
     {
       "id": "n23",
       "date": "2026-11-23",
